@@ -8,17 +8,19 @@ import { StoreModule } from '@ngrx/store';
 import * as from from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { TransactionsEffects } from './effects/transactions.effects';
+import { TxnCreateComponent } from './components/txn-create/txn-create.component';
 
 
 @NgModule({
   declarations: [
     TransactionListComponent,
-    TxnListTableComponent
+    TxnListTableComponent,
+    TxnCreateComponent
   ],
   imports: [
     CommonModule,
     TransactionRoutingModule,
-    StoreModule.forFeature(from.FeatureKey, from.reducers, { metaReducers: from.metaReducers }),
+    StoreModule.forFeature(from.FeatureKey, from.reducers, { metaReducers: [] }),
     EffectsModule.forFeature([TransactionsEffects])
   ]
 })
