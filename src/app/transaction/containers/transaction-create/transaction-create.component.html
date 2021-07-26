@@ -1,0 +1,12 @@
+<h3 class="text-center">Txn Create Page</h3>
+
+<div class="d-flex justify-content-center">
+  <button routerLink="/txn/first/list">Transaction list</button>
+  <button routerLink="/txn/first/create">Create Transaction</button>
+</div>
+
+<app-txn-create
+  [errorMessage]="(error$ | async)!"
+  (submitted)="onSubmit($event)"
+  (clearState)="onClearState()"
+></app-txn-create>

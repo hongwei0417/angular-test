@@ -15,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from './core/core.module';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 const routingModules = [AuthModule, AppRoutingModule];
 
@@ -40,6 +41,7 @@ const UIModules = [NgbModule];
     ...ngRxModules,
     ...UIModules,
     CoreModule,
+    StoreRouterConnectingModule.forRoot(),
   ],
   bootstrap: [AppComponent],
 })

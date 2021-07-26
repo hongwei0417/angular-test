@@ -2,21 +2,21 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
-import { TransactionsEffects } from './transactions.effects';
+import { TxnListEffects } from './txn-list.effects';
 
-describe('TransactionsEffects', () => {
+describe('TxnListEffects', () => {
   let actions$: Observable<any>;
-  let effects: TransactionsEffects;
+  let effects: TxnListEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        TransactionsEffects,
+        TxnListEffects,
         provideMockActions(() => actions$)
       ]
     });
 
-    effects = TestBed.inject(TransactionsEffects);
+    effects = TestBed.inject(TxnListEffects);
   });
 
   it('should be created', () => {

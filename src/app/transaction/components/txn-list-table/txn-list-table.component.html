@@ -1,1 +1,22 @@
 <h3 class="text-center">Txn List Table</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>ExecuteCount</th>
+      <th>CreateTime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of txnData; let i = index">
+      <td>{{ item.id }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.content }}</td>
+      <td>{{ item.executeCount }}</td>
+      <td>{{ item.createTime | date }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,4 +1,4 @@
-import { reducer, initialState } from './transactions.reducer';
+import { reducer, initialState } from './txn-list.reducer';
 
 describe('Transactions Reducer', () => {
   describe('an unknown action', () => {
