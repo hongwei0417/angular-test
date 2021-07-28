@@ -6,42 +6,57 @@ import {
   MetaReducer,
 } from '@ngrx/store';
 import * as fromRoot from '../../reducers';
-import * as fromTxnList from './txn-list.reducer';
-import * as fromTxnCreate from './txn-create.reducer';
+import * as fromTxnListPage from './txn-list-page.reducer';
+import * as fromTxnCreatePage from './txn-create-page.reducer';
 
 export const FeatureKey = 'txn';
 
 export interface TxnState {
-  txnList: fromTxnList.State;
-  txnCreate: fromTxnCreate.State;
+  [fromTxnListPage.FeatureKey]: fromTxnListPage.State;
+  [fromTxnCreatePage.FeatureKey]: fromTxnCreatePage.State;
 }
 export interface State extends fromRoot.State {
   txn: TxnState;
 }
 
 export const reducers: ActionReducerMap<TxnState, any> = {
-  txnList: fromTxnList.reducer,
-  txnCreate: fromTxnCreate.reducer,
+  [fromTxnListPage.FeatureKey]: fromTxnListPage.reducer,
+  [fromTxnCreatePage.FeatureKey]: fromTxnCreatePage.reducer,
 };
 
 export const getTxnState = createFeatureSelector<State, TxnState>(FeatureKey);
 
-export const getTxnListState = createSelector(
+export const getTxnListPageEntitiesState = createSelector(
   getTxnState,
-  (state: TxnState) => state.txnList
+  (state: TxnState) => state[fromTxnListPage.FeatureKey]
 );
 
-export const getTxnListData = createSelector(
-  getTxnListState,
-  fromTxnList.getData
+export const getLatestBookId = createSelector(
+  getTxnListPageEntitiesState,
+  fromTxnListPage.getLatestId
 );
 
-export const getTxnCreateState = createSelector(
+export const {
+  selectAll: getAllTxns,
+  selectEntities: getTxnEntities,
+  selectIds: getTxnIds,
+  selectTotal: getTotalTxns,
+} = fromTxnListPage.adapter.getSelectors(getTxnListPageEntitiesState);
+
+export const getLatestTxn = createSelector(
+  getTxnEntities,
+  getLatestBookId,
+  (entities, latestId) => {
+    return latestId && entities[latestId];
+  }
+);
+
+export const getTxnCreatePageState = createSelector(
   getTxnState,
-  (state: TxnState) => state.txnCreate
+  (state: TxnState) => state[fromTxnCreatePage.FeatureKey]
 );
 
 export const getTxnCreateError = createSelector(
-  getTxnCreateState,
-  fromTxnCreate.getError
+  getTxnCreatePageState,
+  fromTxnCreatePage.getError
 );

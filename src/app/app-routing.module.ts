@@ -1,7 +1,6 @@
+import { AuthGuard } from './auth/guards/auth.guard';
 import { LayoutComponent } from './core/components/layout/layout.component';
-import { TxnListTableComponent } from './transaction/components/txn-list-table/txn-list-table.component';
 import { TxnCreateComponent } from './transaction/components/txn-create/txn-create.component';
-import { AppComponent } from './core/containers/app/app.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -11,18 +10,19 @@ const routes: Routes = [
     path: 'txn',
     component: LayoutComponent,
     children: [
+      { path: '', redirectTo: 'feature1', pathMatch: 'full' },
       {
-        path: 'first',
+        path: 'feature1',
         loadChildren: () =>
-          import('./transaction/transaction.module').then(
-            (m) => m.TransactionModule
-          ),
+          import('./transaction/txn.module').then((m) => m.TransactionModule),
       },
       {
-        path: 'second',
-        component: TxnCreateComponent,
+        path: 'feature2',
+        loadChildren: () =>
+          import('./schedule/schedule.module').then((m) => m.ScheduleModule),
       },
     ],
+    canActivate: [AuthGuard],
   },
 ];
 

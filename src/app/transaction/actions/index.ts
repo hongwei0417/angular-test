@@ -1,13 +1,5 @@
-import * as txnActions from './transactions.actions';
-import * as TxnListActions from './txn-list.actions';
-import * as TxnListApiActions from './txn-list-api.actions';
-import * as TxnCreateAction from './txn-create.actions';
-import * as TxnCreateApiAction from './txn-create-api.actions';
+import * as TxnApiActions from './txn-api.actions';
+import * as TxnCreatePageActions from './txn-create-page.actions';
+import * as TxnListPageActions from './txn-list-page.actions';
 
-export {
-  txnActions,
-  TxnListActions,
-  TxnListApiActions,
-  TxnCreateAction,
-  TxnCreateApiAction,
-};
+export { TxnApiActions, TxnCreatePageActions, TxnListPageActions };

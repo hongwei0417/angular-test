@@ -5,7 +5,7 @@
     #formTxn="ngForm"
     [formGroup]="txnForm"
     (ngSubmit)="submit()"
-    class="d-flex flex-column"
+    class="d-flex flex-column mr-3"
   >
     <label>
       Title:
@@ -23,5 +23,29 @@
       {{ errorMessage }}
     </p>
     <button type="submit" [disabled]="!formTxn.form.valid">Save</button>
+  </form>
+
+  <form
+    #formTxn2="ngForm"
+    [formGroup]="txnForm2"
+    (ngSubmit)="submit2()"
+    class="d-flex flex-column"
+  >
+    <label>
+      Title:
+      <input type="text" formControlName="title" />
+    </label>
+    <label>
+      Content:
+      <input type="text" formControlName="content" />
+    </label>
+    <label>
+      ExecuteCount:
+      <input type="number" formControlName="executeCount" />
+    </label>
+    <p *ngIf="errorMessage" class="text-danger">
+      {{ errorMessage }}
+    </p>
+    <button type="submit" [disabled]="!formTxn2.form.valid">Save</button>
   </form>
 </div>
