@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { LayoutSettingsService } from '../../services/layout-settings/layout-settings.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  constructor(private layoutSettingsService: LayoutSettingsService) {}
 
-  ngOnInit(): void {}
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.layoutSettingsService.setDeviceMode();
+  }
+
+  ngOnInit(): void {
+    this.layoutSettingsService.setDeviceMode();
+  }
 }

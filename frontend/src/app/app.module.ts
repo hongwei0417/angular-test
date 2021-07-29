@@ -1,18 +1,19 @@
-import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './core/containers/app/app.component';
-import { StoreModule } from '@ngrx/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromReducers from './reducers';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
-import { CommonModule } from '@angular/common';
+import { AppComponent } from './core/containers/app/app.component';
 import { CoreModule } from './core/core.module';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import * as fromReducers from './reducers';
+
 
 const routingModules = [AuthModule, AppRoutingModule];
 
@@ -28,15 +29,14 @@ const ngRxModules = [
   StoreRouterConnectingModule.forRoot(),
 ];
 
-const UIModules = [NgbModule];
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
     ...routingModules,
     ...ngRxModules,
-    ...UIModules,
     CoreModule,
   ],
   bootstrap: [AppComponent],
