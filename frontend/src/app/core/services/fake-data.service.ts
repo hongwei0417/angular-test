@@ -1,11 +1,11 @@
-import { Transaction } from './../../transaction/models/Transaction';
+import { ITransaction } from '../../features/transaction/models/Transaction';
 import { HttpClient } from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const fakeData: Transaction[] = [
+const fakeData: ITransaction[] = [
   {
     id: '1',
     title: 'Kevin',
@@ -42,7 +42,7 @@ export class FakeDataService {
   //   return this.http.get<object[]>(this.API).pipe();
   // }
 
-  getData(): Observable<Transaction[]> {
+  getData(): Observable<ITransaction[]> {
     return of(fakeData);
   }
 }

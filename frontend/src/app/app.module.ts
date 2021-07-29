@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './core/containers/app/app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromReducers from './reducers';
+import * as fromRoot from './core/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './features/auth/auth.module';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from './core/core.module';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -17,8 +17,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 const routingModules = [AuthModule, AppRoutingModule];
 
 const ngRxModules = [
-  StoreModule.forRoot(fromReducers.reducers, {
-    metaReducers: fromReducers.metaReducers,
+  StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {
+    metaReducers: fromRoot.metaReducers,
   }),
   EffectsModule.forRoot([]),
   StoreDevtoolsModule.instrument({

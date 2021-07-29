@@ -1,0 +1,58 @@
+import { ITransaction } from '../models/Transaction';
+import { Action, createReducer, on } from '@ngrx/store';
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
+import { TxnApiActions, TxnListPageActions } from '../actions';
+
+export const FeatureKey = 'txnListPage';
+
+export interface IState extends EntityState<ITransaction> {
+  loaded: boolean;
+  loading: boolean;
+  latestId: string | null;
+}
+
+export const adapter: EntityAdapter<ITransaction> =
+  createEntityAdapter<ITransaction>({
+    selectId: (txn) => txn.id,
+    sortComparer: false,
+  });
+
+export const initialState: IState = adapter.getInitialState({
+  loaded: false,
+  loading: false,
+  latestId: null,
+});
+
+export const reducer = createReducer(
+  initialState,
+  on(TxnListPageActions.loadTxnList, (state, action) => {
+    return {
+      ...state,
+      loading: true,
+    };
+  }),
+  on(TxnApiActions.loadTxnApiSuccess, (state, action) => {
+    return adapter.addMany(action.txns, {
+      ...state,
+      loading: false,
+      loaded: true,
+    });
+  }),
+  on(TxnApiActions.createTxnApiSuccess, (state, action) => {
+    return adapter.addOne(action.txn, state);
+  }),
+  on(TxnApiActions.deleteTxnApiSuccess, (state, action) => {
+    return adapter.removeOne(action.id, state);
+  })
+);
+
+// export function reducer(
+//   state: State | undefined,
+//   action:
+//     | TxnListPageActions.TxnListPageActionUnion
+//     | TxnApiActions.TxnApiActionUnion
+// ) {
+//   return featureReducer(state, action);
+// }
+
+export const getLatestId = (state: IState) => state.latestId;
