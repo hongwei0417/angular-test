@@ -15,7 +15,7 @@ import * as fromAuth from '../reducers';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private store: Store<fromAuth.IState>) {}
+  constructor(private store: Store<fromAuth.State>) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,

@@ -9,7 +9,7 @@ import {
 } from '../actions';
 import { catchError, exhaustMap, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { ITransaction } from '../models/Transaction';
+import { Transaction } from '../models/Transaction';
 
 @Injectable()
 export class TransactionEffects {
@@ -29,7 +29,7 @@ export class TransactionEffects {
         return this.fakeDataService
           .getData()
           .pipe(
-            map((txns: ITransaction[]) =>
+            map((txns: Transaction[]) =>
               TxnApiActions.loadTxnApiSuccess({ txns })
             )
           );

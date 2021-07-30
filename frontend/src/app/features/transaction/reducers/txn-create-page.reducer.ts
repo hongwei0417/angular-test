@@ -3,12 +3,12 @@ import { TxnApiActions, TxnCreatePageActions } from '../actions';
 
 export const FeatureKey = 'txnCreatePage';
 
-export interface IState {
+export interface State {
   loading: boolean;
   error: string;
 }
 
-export const initialState: IState = {
+export const initialState: State = {
   loading: false,
   error: '',
 };
@@ -44,5 +44,5 @@ export const reducer = createReducer(
 //   return featureReducer(state, action);
 // }
 
-export const isLoading = (state: IState) => state.loading;
-export const getError = (state: IState) => state.error;
+export const isLoading = (state: State) => state.loading;
+export const getError = (state: State) => state.error;

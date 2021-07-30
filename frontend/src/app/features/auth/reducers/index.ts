@@ -11,22 +11,22 @@ import { AuthApiActions, LoginPageActions } from '../actions';
 
 export const authFeatureKey = 'auth';
 
-export interface IAuthState {
-  [fromAuth.authFeatureKey]: fromAuth.IState;
+export interface AuthState {
+  [fromAuth.authFeatureKey]: fromAuth.State;
 }
 
-export interface IState extends fromRoot.IState {
-  [authFeatureKey]: IAuthState;
+export interface State extends fromRoot.State {
+  [authFeatureKey]: AuthState;
 }
 
 export const reducers: ActionReducerMap<
-  IAuthState,
+  AuthState,
   LoginPageActions.ActionsUnion | AuthApiActions.ActionsUnion
 > = {
   [fromAuth.authFeatureKey]: fromAuth.reducer,
 };
 
-export const getAuthFeatureState = createFeatureSelector<IState, IAuthState>(
+export const getAuthFeatureState = createFeatureSelector<State, AuthState>(
   authFeatureKey
 );
 

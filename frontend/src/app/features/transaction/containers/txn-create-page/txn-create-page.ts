@@ -1,4 +1,4 @@
-import { ITransaction } from '../../models/Transaction';
+import { Transaction } from '../../models/Transaction';
 import { Observable, of } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -13,7 +13,7 @@ import * as fromTxn from '../../reducers';
 export class TxnCreatePageComponent implements OnInit {
   error$!: Observable<string>;
 
-  constructor(private store$: Store<fromTxn.IState>) {}
+  constructor(private store$: Store<fromTxn.State>) {}
 
   ngOnInit(): void {
     // this.error$ = this.store$.select(fromTxn.getTxnCreateError);

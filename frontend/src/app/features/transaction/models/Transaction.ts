@@ -1,4 +1,4 @@
-export interface ITransaction {
+export interface Transaction {
   id: string;
   title: string;
   content: string;
