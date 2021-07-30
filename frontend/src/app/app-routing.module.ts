@@ -6,7 +6,7 @@ import { AuthGuard } from './features/auth/guards/auth.guard';
 const routes: Routes = [
   {
     path: 'txn',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     component: LayoutComponent,
     children: [
       { path: '', redirectTo: 'feature1', pathMatch: 'full' },

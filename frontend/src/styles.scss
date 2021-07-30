@@ -37,3 +37,439 @@ $highlightTextColor: $primaryTextColor;
 
 @import '../node_modules/primeng/resources/primeng.min.css';
 @import '../node_modules/primeicons/primeicons.css';
+
+
+
+$primary-medium: #0183FD;
+$menufirstItemActiveBgColor:#0F5EF7;
+$primary-medium: #0183FD;
+$primary-darker: #0F5EF7;
+
+
+$gray-100: #FFF;
+$gray-200: #F3F7FF;
+$gray-500: #4C5B6E;
+
+$shadow-100:
+1px 2px 2px 0px rgba(0,0,0,.25);
+
+$shadow-500:
+0 3px 3px -2px rgb(0 0 0 / 20%),
+0 3px 4px 0 rgb(0 0 0 / 14%),
+0 1px 8px 0 rgb(0 0 0 / 12%);
+
+p {
+  margin: 0;
+}
+
+/* #region layout menu 自定義*/
+.layout-wrapper .layout-menu{
+  position: relative;
+  top: 60px;
+}
+
+.layout-wrapper.menu-layout-horizontal .layout-menu-container{
+  top: 0;
+}
+
+@media screen and (min-width: 1025px){
+  .layout-wrapper .layout-menu-container .menu-scroll-content{
+    padding-right: 0;
+  }
+
+  .layout-wrapper .layout-menu{
+    position: static;
+    display: flex;
+    justify-content: center;
+  }
+
+  .layout-wrapper .layout-menu li a{
+    padding: 20px 15px;
+  }
+
+  .layout-wrapper .layout-menu > li > a,
+  .layout-wrapper .layout-menu > li > a > i{
+    color: #FFF;
+  }
+
+  .layout-wrapper.menu-layout-horizontal .layout-menu-container ul.layout-menu > li > ul{
+    top: 75px;
+  }
+
+  .layout-wrapper.menu-layout-horizontal .layout-menu-container ul.layout-menu > li.active-menuitem > .submenu-arrow{
+    top: 60px;
+  }
+}
+
+
+
+.container{
+  margin: auto;
+  max-width: 1280px;
+  padding: 0 15px;
+}
+
+.menuMain .logo img{
+  max-height: 30px;
+}
+
+.menuMain .logo,
+.menuMain .settingGroup{
+  position: fixed;
+  z-index: 999999999;
+}
+
+.menuMain .logo{
+  top: 15px;
+  left: 15px;
+}
+
+.menuMain .settingGroup{
+  top: 17.5px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.menuMain .settingGroup a,
+.menuMain .settingGroup i{
+  color:#FFF;
+}
+
+.menuMain .settingGroup a+a{
+  margin-left: 10px;
+}
+
+.menuMain .settingGroup i{
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.layout-wrapper .topbar{
+  left: 0;
+  right: 0;
+}
+
+
+@media screen and (min-width: 1025px){
+  .menuMain{
+    background: #0183FD;
+  }
+
+  .menuMain .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .layout-wrapper .topbar{
+    display: none;
+  }
+
+  .menuMain .logo,
+  .menuMain .settingGroup{
+    position: static;
+  }
+}
+
+/* #endregion layout menu 自定義*/
+
+
+
+.layout-footer{
+  background: #0183FD;
+  color: #FFF;
+}
+
+.footer-text{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-text span{
+  display: block;
+}
+
+
+
+
+
+/* #region 按鈕*/
+.publicBtn {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+
+  &.customBtn{
+    background: $primary-medium;
+    color: $gray-100;
+
+    &:hover,&:active {
+      background: $primary-darker;
+    }
+  }
+
+  &.customBtnReverse{
+    background: $gray-100;
+    color: $primary-medium;
+    box-shadow: $shadow-100;
+
+    &:hover,&:active {
+      color: $gray-100;
+      background: $primary-darker;
+      box-shadow:none;
+    }
+  }
+}
+/* #endregion 按鈕*/
+
+
+
+.publicBtn:before{
+  // content: '';
+  display: block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+
+.publicBtn.edit,
+.publicBtn.view,
+.publicBtn.copy,
+.publicBtn.execute,
+.publicBtn.reload{
+  padding: 10px;
+  width: 45px;
+  background: $gray-200;
+  font-size: 18px;
+}
+
+.publicBtn.edit:before{
+  content: '\f044';
+}
+
+.publicBtn.view:before{
+  content: '\f06e';
+}
+
+.publicBtn.copy:before{
+  content: '\f0c5';
+}
+
+.publicBtn.execute:before{
+  content: '\f04b';
+}
+
+.publicBtn.reload:before{
+  content: '\f2f1';
+}
+
+.publicBtn.add:before{
+  content: '\f067';
+}
+
+
+h2,h3,label{
+  color: #4C5B6E;
+}
+
+
+
+
+
+
+.fieldContent{
+  padding: 20px 15px;
+  background: $gray-100;
+  box-shadow: $shadow-500;
+}
+
+.itemGroup{
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+form{
+  margin-bottom: 15px;
+
+  label{
+    font-weight: 500;
+  }
+
+  .fieldRequired{
+    display: flex;
+
+    span:after{
+      content: ' *';
+      color: #fd6061;
+    }
+
+    p{
+      color: #FD6061;
+    }
+  }
+
+  .publicInput{
+    outline: none;
+    border: 2px solid transparent;
+    width: 100%;
+    padding: 10px 15px;
+    background: $gray-200;
+
+    &:-webkit-inner-spin-button { //清除"input type = number"的樣式
+      appearance: none;
+    }
+
+    &:-webkit-input-placeholder {
+      color: #AAAAAA;
+      font-weight: 300;
+    }
+
+    &:focus{
+      box-shadow:
+      0 0 0 2px inset #6ab7ff,
+      0px 0px 5px 0 inset rgba($primary-medium,.25);
+    }
+
+    &:read-only{
+      background-color: #DEE5F3;
+      cursor: not-allowed;
+      color: #AAAAAA;
+    }
+
+    &:read-only:focus{
+      box-shadow: none;
+    }
+
+    &.ng-invalid.ng-touched{
+      box-shadow: 0 0 0 2px inset #fd6061;
+    }
+  }
+}
+
+
+
+
+//樣式在套件內，無法加class的情況，使用fontawasome
+//例如使用套件input calendar功能
+@mixin inputIcon() {
+  content: '\f272';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  font-size: 20px;
+}
+
+
+.ui-calendar{
+  position: relative;
+}
+
+.ui-calendar:after {
+  @include inputIcon();
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+
+
+
+
+
+
+// form {
+//   margin-bottom: 25px;
+//   padding: 20px;
+//   box-sizing: border-box;
+//   // box-shadow: $gray-shadow;
+//   // background: $gray-200;
+//   // color: map-get($list, form-label);
+//   font-size: 14px;
+// }
+
+
+
+
+
+// #region  primeng autoComplete
+.customAutoComplete label{
+  display: block;
+}
+
+.customAutoComplete p-autocomplete .ui-buttin{
+  background: $primary-medium;
+  border: 1px solid $primary-medium;
+}
+
+.customAutoComplete  .ui-autocomplete{
+  width: 100%;
+  display: flex;
+}
+
+.customAutoComplete  .ui-autocomplete input{
+  padding: 10px 15px;
+}
+
+.customAutoComplete  .ui-autocomplete input:focus{
+  outline: none;
+  border: none;
+  border: 2px solid transparent;
+  // box-shadow: map-get($list, active-form-input);
+}
+
+.customAutoComplete  .ui-autocomplete input:hover{
+  border: 2px solid transparent !important;
+}
+
+.customAutoComplete .ui-autocomplete .ui-autocomplete-dropdown{
+  width: 45px;
+  height: auto;//清除預設
+  padding: 0 15px;
+}
+
+.customAutoComplete .pi{
+  font-size: 16px;
+}
+
+.customAutoComplete  .pi-caret-down:before{
+  content: '\f078';
+  display: block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+// #region  primeng selectButton
+.radioInput .ui-button.ui-state-default{
+  width: 50%;
+}
+
+.radioInput .ui-selectbutton{
+  display: block;
+}
+
+.radioInput .ui-selectbutton .ui-button{
+  border-radius: 0 !important;
+  background: #FFF;
+  border: 1px solid $primary-medium;
+  color: $primary-medium;
+}
+
+.radioInput .ui-button.ui-button-text-only .ui-button-text{
+  padding: 10px 0;
+}
+
+.radioInput .ui-selectbutton .ui-button.ui-state-active,
+.radioInput .ui-selectbutton .ui-button.ui-state-active.ui-state-focus,
+.radioInput .ui-selectbutton .ui-button.ui-state-active:not(.ui-state-disabled):hover,
+.radioInput .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover{
+  background: $primary-medium;
+  border: 1px solid $primary-medium;
+  color: #FFF;
+}
+// #endregion  primeng selectButton

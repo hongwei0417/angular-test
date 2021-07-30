@@ -16,17 +16,17 @@
                 'p-input-filled': themeSettings.inputStyle === 'filled',
                 'p-ripple-disabled': !themeSettings.ripple}">
 
-  <app-topbar [layoutSettings]="layoutSettings" (menuBtn)="onMenuButtonClick($event)"
+  <!-- <app-topbar [layoutSettings]="layoutSettings" (menuBtn)="onMenuButtonClick($event)"
     (topMenuBtn)="onTopbarMenuButtonClick($event)" (topItemBtn)="onTopbarItemClick($event.event,$event.item)"
     (subItemBtn)="onTopbarSubItemClick($event)">
-  </app-topbar>
+  </app-topbar> -->
 
   <div class="layout-menu-container" [ngClass]="{'layout-menu-dark':themeSettings.darkMenu}"
     (click)="onMenuClick($event)">
     <div class="menu-scroll-content">
       <app-inline-profile *ngIf="layoutSettings.profileMode === 'inline' && layoutSettings.layoutMode !== 'horizontal'">
       </app-inline-profile>
-      <app-menu [menu]="(menu$ | async)!" [layoutSettings]="layoutSettings" (updateLayout)="updateLayout($event)">
+      <app-menu [menu]="(menu$ | async)!" [layoutSettings]="layoutSettings" (updateLayout)="updateLayout($event)" (menuBtn)="onMenuButtonClick($event)">
       </app-menu>
     </div>
   </div>

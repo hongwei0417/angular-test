@@ -1,4 +1,41 @@
-<ul class="layout-menu layout-main-menu clearfix">
+<!-- <ul class="layout-menu layout-main-menu clearfix">
   <li app-menuitem *ngFor="let item of menu; let i = index;" [item]="item" [index]="i" [root]="true"
     [layoutSettings]="layoutSettings" (updateLayout)="updateLayout.next($event)"></li>
-</ul>
+</ul> -->
+
+
+<div class="menuMain">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">
+        <img src="assets/images/logo.png" class="topbar-logo" routerLink="/" />
+      </a>
+    </div>
+
+    <div class="topbar">
+      <div class="topbar-right">
+        <a
+          id="menu-button"
+          href="#"
+          (click)="onMenuButtonClick($event)"
+          [ngClass]="{ 'menu-button-rotate': layoutSettings.rotateMenuButton }"
+        >
+          <i class="pi pi-angle-left"></i>
+        </a>
+      </div>
+    </div>
+
+    <ul class="layout-menu layout-main-menu clearfix">
+      <li app-menuitem *ngFor="let item of menu; let i = index;" [item]="item" [index]="i" [root]="true"
+        [layoutSettings]="layoutSettings" (updateLayout)="updateLayout.next($event)"></li>
+    </ul>
+
+    <div class="settingGroup">
+      <a href="javascript:;">User Name</a>
+      <a href="#">
+        <i class="pi pi-fw pi-sign-out"></i>
+      </a>
+    </div>
+
+  </div>
+</div>
