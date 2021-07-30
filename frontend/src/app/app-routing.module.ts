@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'txn', pathMatch: 'full' },
   {
     path: 'txn',
     component: LayoutComponent,
@@ -28,6 +27,7 @@ const routes: Routes = [
     ],
     canActivate: [AuthGuard],
   },
+  { path: '', redirectTo: 'txn', pathMatch: 'full' },
 ];
 
 @NgModule({
