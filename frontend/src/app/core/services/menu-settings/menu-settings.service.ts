@@ -44,22 +44,22 @@ export interface MenuItem {
 const defualtMenu: MenuItem[] = [
   {
     label: 'Transaction',
-    routerLink: ['/transaction/list'],
+    routerLink: ['/transaction'],
   },
   {
     label: 'Schedule',
     items: [
       {
         label: 'scheduler',
-        routerLink: ['feature1'],
+        routerLink: ['/schedule'],
       },
       {
         label: 'Job',
-        routerLink: ['feature2'],
+        routerLink: ['/schedule'],
       },
       {
         label: 'Monitor',
-        routerLink: ['feature2'],
+        routerLink: ['/schedule'],
       },
     ],
   },
@@ -68,11 +68,11 @@ const defualtMenu: MenuItem[] = [
     items: [
       {
         label: 'Mail Group',
-        routerLink: ['feature1'],
+        routerLink: ['/schedule'],
       },
       {
         label: 'DLL',
-        routerLink: ['feature2'],
+        routerLink: ['/schedule'],
       },
     ],
   },
