@@ -5,3 +5,13 @@ export interface Transaction {
   executeCount: number;
   createTime?: Date;
 }
+
+export function generateMockTxn(): Transaction {
+  return {
+    id: '666',
+    title: 'Testing',
+    content: 'It is test content',
+    executeCount: 10,
+    createTime: new Date()
+  };
+}

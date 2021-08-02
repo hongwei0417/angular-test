@@ -15,7 +15,7 @@ import * as fromRoot from './core/reducers';
 import { AuthModule } from './features/auth/auth.module';
 
 
-const routingModules = [AuthModule, AppRoutingModule];
+const routingModules = [AppRoutingModule, AuthModule];
 
 const ngRxModules = [
   StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {

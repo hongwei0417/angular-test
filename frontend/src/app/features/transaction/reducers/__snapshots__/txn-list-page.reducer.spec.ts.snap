@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Txn List Page Reducer an unknown action should return the previous state 1`] = `
+Object {
+  "entities": Object {},
+  "ids": Array [],
+  "latestId": null,
+  "loaded": false,
+  "loading": false,
+}
+`;
+
+exports[`Txn List Page Reducer load txn list should get all txn data 1`] = `
+Object {
+  "entities": Object {
+    "1": Object {
+      "content": "test case 1",
+      "createTime": 2021-08-23T16:00:00.000Z,
+      "executeCount": 10,
+      "id": "1",
+      "title": "Kevin",
+    },
+    "2": Object {
+      "content": "do something tonight...",
+      "createTime": 2021-08-24T16:00:00.000Z,
+      "executeCount": 4,
+      "id": "2",
+      "title": "Jack",
+    },
+    "3": Object {
+      "content": "send email to everybody",
+      "createTime": 2021-08-25T16:00:00.000Z,
+      "executeCount": 1,
+      "id": "3",
+      "title": "Eric",
+    },
+  },
+  "ids": Array [
+    "1",
+    "2",
+    "3",
+  ],
+  "latestId": null,
+  "loaded": true,
+  "loading": false,
+}
+`;
+
+exports[`Txn List Page Reducer load txn list should get all txn list data 1`] = `
+Object {
+  "entities": Object {},
+  "ids": Array [],
+  "latestId": null,
+  "loaded": false,
+  "loading": true,
+}
+`;
+
+exports[`Txn List Page Reducer load txn list should start loading txn data 1`] = `
+Object {
+  "entities": Object {},
+  "ids": Array [],
+  "latestId": null,
+  "loaded": false,
+  "loading": true,
+}
+`;
+
+exports[`Txn List Page Reducer unknown action should return the previous state 1`] = `
+Object {
+  "entities": Object {},
+  "ids": Array [],
+  "latestId": null,
+  "loaded": false,
+  "loading": false,
+}
+`;

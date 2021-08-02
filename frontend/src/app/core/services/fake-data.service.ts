@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const fakeData: Transaction[] = [
+export const fakeData: Transaction[] = [
   {
     id: '1',
     title: 'Kevin',
