@@ -3,12 +3,12 @@ import { AuthApiActions, LoginPageActions } from '../actions';
 
 export const authFeatureKey = 'status';
 
-export interface IState {
+export interface State {
   user: any;
   authed: boolean;
 }
 
-export const initialState: IState = {
+export const initialState: State = {
   user: null,
   authed: false,
 };
@@ -22,11 +22,11 @@ const featureReducer = createReducer(
 );
 
 export function reducer(
-  state: IState | undefined,
+  state: State | undefined,
   action: LoginPageActions.ActionsUnion | AuthApiActions.ActionsUnion
 ) {
   return featureReducer(state, action);
 }
 
-export const getUser = (state: IState) => state.user;
-export const getAuthed = (state: IState) => state.authed;
+export const getUser = (state: State) => state.user;
+export const getAuthed = (state: State) => state.authed;

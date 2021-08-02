@@ -1,4 +1,4 @@
-import { ITransaction } from '../../models/Transaction';
+import { Transaction } from '../../models/Transaction';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./txn-list-table.component.scss'],
 })
 export class TxnListTableComponent implements OnInit {
-  @Input() txnData: ITransaction[] = [];
+  @Input() txnData: Transaction[] = [];
   @Output() removeEvent = new EventEmitter<string>();
 
   constructor() {}

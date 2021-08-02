@@ -1,12 +1,12 @@
-import { AuthGuard } from './features/auth/guards/auth.guard';
-import { LayoutComponent } from './core/components/layout/layout.component';
-import { TxnCreateComponent } from './features/transaction/components/txn-create/txn-create.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './core/containers/layout/layout.component';
+import { AuthGuard } from './features/auth/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'txn',
+    canActivate: [AuthGuard],
     component: LayoutComponent,
     children: [
       { path: '', redirectTo: 'feature1', pathMatch: 'full' },
@@ -25,9 +25,9 @@ const routes: Routes = [
           ),
       },
     ],
-    canActivate: [AuthGuard],
   },
-  { path: '', redirectTo: 'txn', pathMatch: 'full' },
+  { path: '', redirectTo: '/txn', pathMatch: 'full' },
+  { path: '**', redirectTo: '/notfound' },
 ];
 
 @NgModule({

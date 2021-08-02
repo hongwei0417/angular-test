@@ -1,5 +1,5 @@
 import { Store } from '@ngrx/store';
-import { ITransaction } from '../models/Transaction';
+import { Transaction } from '../models/Transaction';
 import { Injectable } from '@angular/core';
 import { of, throwError, Observable } from 'rxjs';
 
@@ -9,11 +9,11 @@ import { of, throwError, Observable } from 'rxjs';
 export class TxnFormService {
   constructor(private store: Store) {}
 
-  createTxn({ title, content, executeCount }: any): Observable<ITransaction> {
+  createTxn({ title, content, executeCount }: any): Observable<Transaction> {
     if (title === 'error') {
       return throwError('You create an error txn!');
     } else {
-      const txn: ITransaction = {
+      const txn: Transaction = {
         id: Math.ceil(Math.random() * 100).toFixed(),
         title: title,
         content: content,

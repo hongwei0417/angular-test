@@ -1,9 +1,9 @@
-import { ITransaction } from '../models/Transaction';
+import { Transaction } from '../models/Transaction';
 import { createAction, props, union } from '@ngrx/store';
 
 export const loadTxnApiSuccess = createAction(
   '[TxnApi] Load Transaction Success',
-  props<{ txns: ITransaction[] }>()
+  props<{ txns: Transaction[] }>()
 );
 
 export const loadTxnApiFailure = createAction(
@@ -18,7 +18,7 @@ export const deleteTxnApiSuccess = createAction(
 
 export const createTxnApiSuccess = createAction(
   '[TxnApi] Create Transaction Success',
-  props<{ txn: ITransaction }>()
+  props<{ txn: Transaction }>()
 );
 
 export const createTxnApiFail = createAction(
