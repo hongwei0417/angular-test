@@ -46,13 +46,4 @@ export const reducer = createReducer(
   })
 );
 
-// export function reducer(
-//   state: State | undefined,
-//   action:
-//     | TxnListPageActions.TxnListPageActionUnion
-//     | TxnApiActions.TxnApiActionUnion
-// ) {
-//   return featureReducer(state, action);
-// }
-
 export const getLatestId = (state: State) => state.latestId;

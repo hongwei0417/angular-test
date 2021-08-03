@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Txn Create Page Reducer unknown action should return the previous state 1`] = `
+Object {
+  "error": "this is a error",
+  "loading": true,
+}
+`;

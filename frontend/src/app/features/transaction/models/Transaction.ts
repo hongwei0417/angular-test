@@ -15,3 +15,11 @@ export function generateMockTxn(): Transaction {
     createTime: new Date()
   };
 }
+
+export function generateMockTxnForm(): any {
+  return {
+    title: 'Jest Testing',
+    content: 'This is a test case',
+    executeCount: 10
+  };
+}

@@ -18,13 +18,8 @@ export interface TxnState {
   [fromTxnCreatePage.FeatureKey]: fromTxnCreatePage.State;
 }
 export interface State extends fromRoot.State {
-  txn: TxnState;
+  [FeatureKey]: TxnState;
 }
-
-// export const reducers: ActionReducerMap<TxnState, any> = {
-//   [fromTxnListPage.FeatureKey]: fromTxnListPage.reducer,
-//   [fromTxnCreatePage.FeatureKey]: fromTxnCreatePage.reducer,
-// };
 
 /** Provide reducer in AoT-compilation happy way */
 export const reducers = (state: TxnState | undefined, action: Action) => {
@@ -42,11 +37,6 @@ export const getTxnListPageEntitiesState = createSelector(
   (state: TxnState) => state[fromTxnListPage.FeatureKey]
 );
 
-export const getLatestBookId = createSelector(
-  getTxnListPageEntitiesState,
-  fromTxnListPage.getLatestId
-);
-
 export const {
   selectAll: getAllTxns,
   selectEntities: getTxnEntities,
@@ -54,9 +44,14 @@ export const {
   selectTotal: getTotalTxns,
 } = fromTxnListPage.adapter.getSelectors(getTxnListPageEntitiesState);
 
+export const getLatestTxnId = createSelector(
+  getTxnListPageEntitiesState,
+  fromTxnListPage.getLatestId
+);
+
 export const getLatestTxn = createSelector(
   getTxnEntities,
-  getLatestBookId,
+  getLatestTxnId,
   (entities, latestId) => {
     return latestId && entities[latestId];
   }

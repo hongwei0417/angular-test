@@ -35,14 +35,13 @@ export const reducer = createReducer(
   )
 );
 
-// export function reducer(
-//   state: State | undefined,
-//   action:
-//     | TxnApiActions.TxnApiActionUnion
-//     | TxnCreatePageActions.TxnCreatePageActionUnion
-// ) {
-//   return featureReducer(state, action);
-// }
-
 export const isLoading = (state: State) => state.loading;
 export const getError = (state: State) => state.error;
+
+// Testing
+export function generateMockState(): State {
+  return {
+    loading: true,
+    error: 'this is a error',
+  };
+}

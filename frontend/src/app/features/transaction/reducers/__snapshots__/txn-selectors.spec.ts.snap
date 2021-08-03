@@ -1,6 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Txn List Page Reducer load txn list should get all txn data 1`] = `
+exports[`Txn Selectors create txn page selectors should get create page state 1`] = `
+Object {
+  "error": "this is a error",
+  "loading": true,
+}
+`;
+
+exports[`Txn Selectors txn list page selectors should get list page state 1`] = `
 Object {
   "entities": Object {
     "1": Object {
@@ -30,18 +37,8 @@ Object {
     "2",
     "3",
   ],
-  "latestId": null,
+  "latestId": "1",
   "loaded": true,
-  "loading": false,
-}
-`;
-
-exports[`Txn List Page Reducer unknown action should return the previous state 1`] = `
-Object {
-  "entities": Object {},
-  "ids": Array [],
-  "latestId": null,
-  "loaded": false,
-  "loading": false,
+  "loading": true,
 }
 `;

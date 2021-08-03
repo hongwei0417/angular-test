@@ -4,7 +4,6 @@ import * as fromTxnList from './txn-list-page.reducer';
 import { fakeData } from '../../../core/services/fake-data.service';
 
 describe('Txn List Page Reducer', () => {
-
   describe('unknown action', () => {
     it('should return the previous state', () => {
       const action = {} as any;
@@ -23,8 +22,6 @@ describe('Txn List Page Reducer', () => {
         ...fromTxnList.initialState,
         loading: true,
       };
-
-      expect(result).toMatchSnapshot();
       expect(result).toEqual(newState);
       expect(result).not.toBe(fromTxnList.initialState);
     });
@@ -40,9 +37,9 @@ describe('Txn List Page Reducer', () => {
         loaded: true,
         loading: false,
         latestId: null,
-      }
+      };
       const action = TxnApiActions.loadTxnApiSuccess({
-        txns: fakeData
+        txns: fakeData,
       });
       const result = fromTxnList.reducer(fromTxnList.initialState, action);
       expect(result).toMatchSnapshot();
@@ -60,8 +57,8 @@ describe('Txn List Page Reducer', () => {
         ids: ['666'],
         entities: {
           666: payload,
-        }
-      }
+        },
+      };
       expect(result).toEqual(newState);
     });
   });
@@ -73,7 +70,7 @@ describe('Txn List Page Reducer', () => {
         ...fromTxnList.initialState,
         ids: ['666'],
         entities: {
-          666: generateMockTxn()
+          666: generateMockTxn(),
         },
       };
       const action = TxnApiActions.deleteTxnApiSuccess({ id: removedId });
