@@ -29,11 +29,12 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
   @Output() clearState = new EventEmitter();
   @Input() errorMessage: string = '';
   // create form type 1
-  txnForm = new FormGroup({
-    title: new FormControl('', [Validators.required]),
-    content: new FormControl('', [Validators.required]),
-    executeCount: new FormControl(0, [Validators.required, Validators.min(0)]),
-  });
+  // txnForm = new FormGroup({
+  //   title: new FormControl('', [Validators.required]),
+  //   content: new FormControl('', [Validators.required]),
+  //   executeCount: new FormControl(0, [Validators.required, Validators.min(0)]),
+  // });
+
   // create form type 2
   txnForm2 = this.formBuilder.group({
     title: ['', Validators.required],
@@ -41,24 +42,57 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
     executeCount: ['', [Validators.required, Validators.min(0)]],
   });
 
+  //新增
+  stateOptions = [
+    { label: 'Yes', value: true },
+    { label: 'No', value: false },
+  ];
+
+  txnForm!: FormGroup;
+  get TransactionName() {
+    return this.txnForm.get('TransactionName');
+  }
+  get APBooking() {
+    return this.txnForm.get('APBooking');
+  }
+  get Ao() {
+    return this.txnForm.get('Ao');
+  }
+
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const initForm = () => {
+      this.txnForm = this.formBuilder.group({
+        TransactionName: [, Validators.required],
+        APBooking: [, Validators.required],
+        ActiveFlag: [false, Validators.required],
+        date: [],
+        time:[],
+        alarmIntervalMin:[]
+        // ActiveFlag: [, Validators.required],
+        // StartTime: [],
+        // AlarmIntervalMin:[],
+      });
+    };
+
+    initForm();
+  }
 
   ngOnDestroy(): void {
     this.clearState.emit();
   }
 
-  submit() {
-    if (this.txnForm.valid) {
-      console.log(this.txnForm);
-      this.submitted.emit({
-        title: this.txnForm.value.title,
-        content: this.txnForm.value.content,
-        executeCount: this.txnForm.value.executeCount,
-      });
-    }
-  }
+  // submit() {
+  //   if (this.txnForm.valid) {
+  //     console.log(this.txnForm);
+  //     this.submitted.emit({
+  //       title: this.txnForm.value.title,
+  //       content: this.txnForm.value.content,
+  //       executeCount: this.txnForm.value.executeCount,
+  //     });
+  //   }
+  // }
 
   submit2() {
     if (this.txnForm2.valid) {

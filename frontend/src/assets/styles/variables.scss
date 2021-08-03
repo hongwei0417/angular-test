@@ -1,0 +1,58 @@
+$gutter: 0.5rem; //for primeflex grid system
+
+$topbarLeftGradientStartBgColor:#146fd7;
+$topbarLeftGradientEndBgColor:#146fd7;
+$topbarRightGradientStartBgColor:#146fd7;
+$topbarRightGradientEndBgColor:#146fd7;
+$topbarTextColor:#ffffff;
+$menuGradientStartBgColor:#ffffff;
+$menuGradientEndBgColor:#ffffff;
+$menuitemHoverBgColor:#e8e8e8;
+$menuitemActiveColor:#007bff;
+$menuitemActiveBgColor:#e8e8e8;
+$menuButtonBgColor:#ffffff;
+$menuButtonColor:#007bff;
+$badgeBgColor:#ffc107;
+$badgeColor:#282b30;
+$darkMenuGradientStartBgColor:#363a41;
+$darkMenuGradientEndBgColor:#363a41;
+$darkMenuHoverBgColor:#4a4d54;
+$darkMenuRootMenuitemColor: rgba(255, 255, 255, 0.65);
+$darkMenuMenuitemColor:#ffffff;
+$darkMenuMenuitemActiveColor:#6aa5d8;
+$darkMenuMenuitemActiveBgColor:#282b30;
+
+$primaryColor: #F8BD0C !default;
+$primaryLightColor: scale-color($primaryColor, $lightness: 60%) !default;
+$primaryDarkColor: scale-color($primaryColor, $lightness: -10%) !default;
+$primaryDarkerColor: scale-color($primaryColor, $lightness: -20%) !default;
+$primaryTextColor: #ffffff !default;
+
+$highlightBg: $primaryColor;
+$highlightTextColor: $primaryTextColor;
+
+
+
+
+
+$primary-medium: #0183FD;
+$menufirstItemActiveBgColor:#0F5EF7;
+$primary-medium: #0183FD;
+$primary-darker: #0F5EF7;
+
+
+$gray-100: #FFF;
+$gray-200: #F3F7FF;
+$gray-500: #4C5B6E;
+
+$shadow-100:
+1px 2px 2px 0px rgba(0,0,0,.25);
+
+$shadow-500:
+0 3px 3px -2px rgb(0 0 0 / 20%),
+0 3px 4px 0 rgb(0 0 0 / 14%),
+0 1px 8px 0 rgb(0 0 0 / 12%);
+
+
+
+// @import '/src/assets/styles/variables.scss';

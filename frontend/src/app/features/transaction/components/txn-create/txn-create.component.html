@@ -1,5 +1,7 @@
-<h3 class="text-center">Txn Create Form</h3>
+<!-- <h3 class="text-center">Txn Create Form</h3> -->
 
+
+<!--
 <div class="d-flex justify-content-center">
   <form
     #formTxn="ngForm"
@@ -48,4 +50,70 @@
     </p>
     <button type="submit" [disabled]="!formTxn2.form.valid">Save</button>
   </form>
+</div> -->
+
+
+
+
+<div class="transactionCreate">
+  <div class="container">
+    <div class="title">
+      <h2>Create Transaction</h2>
+      <button class="publicBtn customBtn txt arrow">
+        Back
+      </button>
+    </div>
+
+
+    <div class="transactionSetting ">
+      <h3>Transaction  Setting</h3>
+
+      <form [formGroup]="txnForm" class="fieldContent">
+        <fieldset class="transactionBasicInfo">
+          <legend>Basic Info</legend>
+          <div class="itemGroup">
+            <div class="item">
+              <label for="" class="fieldRequired">
+                <span *ngIf="!(TransactionName?.invalid && TransactionName?.touched)">Transaction Name</span>
+                <p  *ngIf="TransactionName?.invalid && TransactionName?.touched">
+                  "Transaction Name" is required
+                </p>
+              </label>
+              <input type="text" formControlName="TransactionName" class="publicInput">
+            </div>
+
+            <div class="item">
+              <label for="" class="fieldRequired">
+                <span *ngIf="!(APBooking?.invalid && APBooking?.touched)">AP Booking</span>
+                <p  *ngIf="APBooking?.invalid && APBooking?.touched">
+                  "AP Booking" is required
+                </p>
+              </label>
+              <input type="text" formControlName="APBooking" class="publicInput">
+            </div>
+
+            <div class="item">
+              <p>Active Flag</p>
+              <p-selectButton [options]="stateOptions" formControlName="ActiveFlag"></p-selectButton>
+            </div>
+
+
+            <div class="item">
+              <label for="">Start Time</label>
+              <p-calendar formControlName="date" dateFormat="yy/mm/dd" [showTime]="true" hourFormat="24" ></p-calendar>
+            </div>
+
+            <div class="item">
+              <label for="">Alarm Interval Min</label>
+              <input type="number" placeholder="Enter numbers only" formControlName="alarmIntervalMin" class="publicInput">
+            </div>
+
+          </div>
+        </fieldset>
+
+      </form>
+
+    </div>
+
+  </div>
 </div>

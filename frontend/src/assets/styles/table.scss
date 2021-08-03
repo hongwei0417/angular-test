@@ -1,0 +1,149 @@
+
+
+//#region table
+.p-datatable-scrollable-wrapper{
+  box-shadow: $shadow-500;
+}
+
+//清除預設值
+.p-datatable .p-sortable-column .p-sortable-column-icon{
+  margin-left: 0;
+}
+
+//移除套版預設為滾動條預留的空間
+.p-datatable-scrollable-header-box{
+  padding-right: 0 !important;
+}
+
+
+.p-sortable-column-icon{
+  font-size: 12px;
+}
+
+th,td{
+  color: $gray-500;
+}
+
+
+
+td{
+  word-break: break-all;
+}
+
+.p-datatable .p-datatable-thead > tr > th{
+  color:$gray-500;
+  font-weight: 500;
+}
+
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-tbody > tr > td{
+  padding: 10px;
+}
+
+.p-datatable .p-datatable-thead > tr > th:first-child,
+.p-datatable .p-datatable-tbody > tr > td:first-child{
+  padding-left: 15px;
+}
+
+.p-datatable .p-datatable-thead > tr > th:last-child,
+.p-datatable .p-datatable-tbody > tr > td:last-child{
+  padding-right: 15px;
+}
+
+.pi-sort-alt:before,
+.pi-sort-amount-up-alt:before,
+.pi-sort-amount-down:before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.pi-sort-alt:before{
+  content: '\f0dc';
+}
+
+.pi-sort-amount-up-alt:before{
+  content: '\f0de';
+}
+
+.pi-sort-amount-down:before{
+  content: '\f0dd';
+}
+
+.p-datatable .p-sortable-column:focus{
+  box-shadow: none;
+}
+
+.p-datatable .p-sortable-column:not(.p-highlight):hover,
+.p-datatable .p-sortable-column.p-highlight,
+.p-datatable .p-sortable-column.p-highlight:hover{
+  background: $gray-200;
+  color:$primary-medium;
+}
+
+
+.p-datatable .p-sortable-column .p-sortable-column-icon{
+  color: #CED3D3;
+}
+
+
+.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon,
+.p-datatable .p-sortable-column.p-highlight:hover .p-sortable-column-icon,
+.p-datatable .p-sortable-column:not(.p-highlight):hover .p-sortable-column-icon{
+  color: $primary-medium;
+}
+
+
+
+// #region  table頁碼 共用區
+p-paginator {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.p-datatable .p-paginator-bottom{
+  border: none;
+}
+
+.p-paginator{
+  margin-top: 20px;
+  padding: 0;
+  background: transparent;
+}
+
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-last,
+.p-paginator .p-paginator-pages .p-paginator-page{
+  background: transparent;
+  border: none;
+  color: $gray-500;
+}
+
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight{
+  background: $primary-medium;
+  border: none;
+}
+
+
+
+// .p-link{
+//   font-size: 18px;
+// }
+
+.p-link:focus{
+  box-shadow: none;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover,
+.p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover{
+  color: $gray-500;
+}
+// #endregion  table頁碼 共用區
+
+
+//#endregion table

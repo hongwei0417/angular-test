@@ -1,201 +1,64 @@
-$gutter: 0.5rem; //for primeflex grid system
 
-$topbarLeftGradientStartBgColor:#146fd7;
-$topbarLeftGradientEndBgColor:#146fd7;
-$topbarRightGradientStartBgColor:#146fd7;
-$topbarRightGradientEndBgColor:#146fd7;
-$topbarTextColor:#ffffff;
-$menuGradientStartBgColor:#ffffff;
-$menuGradientEndBgColor:#ffffff;
-$menuitemHoverBgColor:#e8e8e8;
-$menuitemActiveColor:#007bff;
-$menuitemActiveBgColor:#e8e8e8;
-$menuButtonBgColor:#ffffff;
-$menuButtonColor:#007bff;
-$badgeBgColor:#ffc107;
-$badgeColor:#282b30;
-$darkMenuGradientStartBgColor:#363a41;
-$darkMenuGradientEndBgColor:#363a41;
-$darkMenuHoverBgColor:#4a4d54;
-$darkMenuRootMenuitemColor: rgba(255, 255, 255, 0.65);
-$darkMenuMenuitemColor:#ffffff;
-$darkMenuMenuitemActiveColor:#6aa5d8;
-$darkMenuMenuitemActiveBgColor:#282b30;
 
-$primaryColor: #F8BD0C !default;
-$primaryLightColor: scale-color($primaryColor, $lightness: 60%) !default;
-$primaryDarkColor: scale-color($primaryColor, $lightness: -10%) !default;
-$primaryDarkerColor: scale-color($primaryColor, $lightness: -20%) !default;
-$primaryTextColor: #ffffff !default;
-
-$highlightBg: $primaryColor;
-$highlightTextColor: $primaryTextColor;
-
+@import './assets/styles/variables.scss';
 
 @import './assets/sass/layout/layout';
 @import './assets/sass/theme/theme';
-
 @import '../node_modules/primeng/resources/primeng.min.css';
 @import '../node_modules/primeicons/primeicons.css';
 
+@import './assets/styles/layoutHeaderFooter.scss';
+@import './assets/styles/table.scss';
+@import './assets/styles/form.scss';
 
 
-$primary-medium: #0183FD;
-$menufirstItemActiveBgColor:#0F5EF7;
-$primary-medium: #0183FD;
-$primary-darker: #0F5EF7;
 
-
-$gray-100: #FFF;
-$gray-200: #F3F7FF;
-$gray-500: #4C5B6E;
-
-$shadow-100:
-1px 2px 2px 0px rgba(0,0,0,.25);
-
-$shadow-500:
-0 3px 3px -2px rgb(0 0 0 / 20%),
-0 3px 4px 0 rgb(0 0 0 / 14%),
-0 1px 8px 0 rgb(0 0 0 / 12%);
-
-p {
+h1, h2, h3, h4, h5, h6, p{
   margin: 0;
 }
 
-/* #region layout menu 自定義*/
-.layout-wrapper .layout-menu{
-  position: relative;
-  top: 60px;
+h2,h3,label,p{
+  color: #4C5B6E;
 }
 
-.layout-wrapper.menu-layout-horizontal .layout-menu-container{
-  top: 0;
+h2{
+  font-size: 25px;
 }
 
-@media screen and (min-width: 1025px){
-  .layout-wrapper .layout-menu-container .menu-scroll-content{
-    padding-right: 0;
-  }
-
-  .layout-wrapper .layout-menu{
-    position: static;
-    display: flex;
-    justify-content: center;
-  }
-
-  .layout-wrapper .layout-menu li a{
-    padding: 20px 15px;
-  }
-
-  .layout-wrapper .layout-menu > li > a,
-  .layout-wrapper .layout-menu > li > a > i{
-    color: #FFF;
-  }
-
-  .layout-wrapper.menu-layout-horizontal .layout-menu-container ul.layout-menu > li > ul{
-    top: 75px;
-  }
-
-  .layout-wrapper.menu-layout-horizontal .layout-menu-container ul.layout-menu > li.active-menuitem > .submenu-arrow{
-    top: 60px;
-  }
-}
-
-
-
-.container{
-  margin: auto;
-  max-width: 1280px;
-  padding: 0 15px;
-}
-
-.menuMain .logo img{
-  max-height: 30px;
-}
-
-.menuMain .logo,
-.menuMain .settingGroup{
-  position: fixed;
-  z-index: 999999999;
-}
-
-.menuMain .logo{
-  top: 15px;
-  left: 15px;
-}
-
-.menuMain .settingGroup{
-  top: 17.5px;
-  right: 15px;
-  display: flex;
-  align-items: center;
-}
-
-.menuMain .settingGroup a,
-.menuMain .settingGroup i{
-  color:#FFF;
-}
-
-.menuMain .settingGroup a+a{
-  margin-left: 10px;
-}
-
-.menuMain .settingGroup i{
+h3{
   font-size: 20px;
-  vertical-align: middle;
 }
 
-.layout-wrapper .topbar{
-  left: 0;
-  right: 0;
+p,label,span{
+  line-height: 1;
 }
 
 
-@media screen and (min-width: 1025px){
-  .menuMain{
-    background: #0183FD;
-  }
-
-  .menuMain .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .layout-wrapper .topbar{
-    display: none;
-  }
-
-  .menuMain .logo,
-  .menuMain .settingGroup{
-    position: static;
-  }
+.fieldContent{
+  padding: 20px 15px;
+  background: $gray-100;
+  box-shadow: $shadow-500;
 }
 
-/* #endregion layout menu 自定義*/
-
-
-
-.layout-footer{
-  background: #0183FD;
-  color: #FFF;
-}
-
-.footer-text{
+.title{
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.footer-text span{
-  display: block;
+.itemGroup{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.item + .item{
+  margin-left: 35px;
 }
 
 
-
-
-
-/* #region 按鈕*/
+//#region 按鈕
 .publicBtn {
   border: none;
   padding: 10px 15px;
@@ -209,6 +72,13 @@ p {
 
     &:hover,&:active {
       background: $primary-darker;
+    }
+
+    &.txt{
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 500;
     }
   }
 
@@ -224,15 +94,26 @@ p {
     }
   }
 }
-/* #endregion 按鈕*/
+//#endregion 按鈕
 
 
-
-.publicBtn:before{
+.publicBtn:before,
+.publicBtn:after{
   // content: '';
   display: block;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
+}
+
+.publicBtn:before{
+  margin-right: 10px;
+}
+.publicBtn.add:before{
+  content: '\f067';
+}
+
+.publicBtn.arrow:before{
+  content: '\f053';
 }
 
 
@@ -242,156 +123,30 @@ p {
 .publicBtn.execute,
 .publicBtn.reload{
   padding: 10px;
-  width: 45px;
+  width: 40px;
   background: $gray-200;
-  font-size: 18px;
+  font-size: 16px;
 }
 
-.publicBtn.edit:before{
+.publicBtn.edit:after{
   content: '\f044';
 }
 
-.publicBtn.view:before{
+.publicBtn.view:after{
   content: '\f06e';
 }
 
-.publicBtn.copy:before{
+.publicBtn.copy:after{
   content: '\f0c5';
 }
 
-.publicBtn.execute:before{
+.publicBtn.execute:after{
   content: '\f04b';
 }
 
-.publicBtn.reload:before{
+.publicBtn.reload:after{
   content: '\f2f1';
 }
-
-.publicBtn.add:before{
-  content: '\f067';
-}
-
-
-h2,h3,label{
-  color: #4C5B6E;
-}
-
-
-
-
-
-
-.fieldContent{
-  padding: 20px 15px;
-  background: $gray-100;
-  box-shadow: $shadow-500;
-}
-
-.itemGroup{
-  display: flex;
-  align-items: center;
-}
-
-
-
-
-form{
-  margin-bottom: 15px;
-
-  label{
-    font-weight: 500;
-  }
-
-  .fieldRequired{
-    display: flex;
-
-    span:after{
-      content: ' *';
-      color: #fd6061;
-    }
-
-    p{
-      color: #FD6061;
-    }
-  }
-
-  .publicInput{
-    outline: none;
-    border: 2px solid transparent;
-    width: 100%;
-    padding: 10px 15px;
-    background: $gray-200;
-
-    &:-webkit-inner-spin-button { //清除"input type = number"的樣式
-      appearance: none;
-    }
-
-    &:-webkit-input-placeholder {
-      color: #AAAAAA;
-      font-weight: 300;
-    }
-
-    &:focus{
-      box-shadow:
-      0 0 0 2px inset #6ab7ff,
-      0px 0px 5px 0 inset rgba($primary-medium,.25);
-    }
-
-    &:read-only{
-      background-color: #DEE5F3;
-      cursor: not-allowed;
-      color: #AAAAAA;
-    }
-
-    &:read-only:focus{
-      box-shadow: none;
-    }
-
-    &.ng-invalid.ng-touched{
-      box-shadow: 0 0 0 2px inset #fd6061;
-    }
-  }
-}
-
-
-
-
-//樣式在套件內，無法加class的情況，使用fontawasome
-//例如使用套件input calendar功能
-@mixin inputIcon() {
-  content: '\f272';
-  font-family: "Font Awesome 5 Free";
-  font-weight: 400;
-  font-size: 20px;
-}
-
-
-.ui-calendar{
-  position: relative;
-}
-
-.ui-calendar:after {
-  @include inputIcon();
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-}
-
-
-
-
-
-
-// form {
-//   margin-bottom: 25px;
-//   padding: 20px;
-//   box-sizing: border-box;
-//   // box-shadow: $gray-shadow;
-//   // background: $gray-200;
-//   // color: map-get($list, form-label);
-//   font-size: 14px;
-// }
 
 
 
