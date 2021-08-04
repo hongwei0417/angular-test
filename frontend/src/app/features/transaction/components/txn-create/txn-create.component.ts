@@ -14,6 +14,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+// import { AutoComplete } from 'primeng/autocomplete';
+
 
 @Component({
   selector: 'app-txn-create',
@@ -36,16 +38,24 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
   // });
 
   // create form type 2
-  txnForm2 = this.formBuilder.group({
-    title: ['', Validators.required],
-    content: ['', Validators.required],
-    executeCount: ['', [Validators.required, Validators.min(0)]],
-  });
+  // txnForm2 = this.formBuilder.group({
+  //   title: ['', Validators.required],
+  //   content: ['', Validators.required],
+  //   executeCount: ['', [Validators.required, Validators.min(0)]],
+  // });
 
   //新增
+  APBookingIds!: string[];
+  timeZoneIds!: string[];
+
   stateOptions = [
     { label: 'Yes', value: true },
     { label: 'No', value: false },
+  ];
+
+  stateOptionsAccordion = [
+    { label: 'Y', value: true },
+    { label: 'N', value: false },
   ];
 
   txnForm!: FormGroup;
@@ -59,6 +69,8 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
     return this.txnForm.get('Ao');
   }
 
+  frequencyForm!: FormGroup;
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -70,17 +82,46 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
         date: [],
         time:[],
         alarmIntervalMin:[]
-        // ActiveFlag: [, Validators.required],
-        // StartTime: [],
-        // AlarmIntervalMin:[],
       });
     };
 
+    const frequencyFormInfo = () => {
+      this.frequencyForm = this.formBuilder.group({
+        LastTranTime: [, Validators.required],
+        CronExpression: [, Validators.required],
+        TimeZone:[],
+        RetryTimes:[],
+        StartAt:[],
+        LoaderBufferTime:[],
+        EndAt:[],
+        BackToBufferTime:[],
+        SkipOverDue:[false],
+        ShiftBackToLoaderTime:[],
+        SkipAllOverDue:[false]
+      });
+    };
+
+
+
     initForm();
+    frequencyFormInfo();
   }
 
   ngOnDestroy(): void {
     this.clearState.emit();
+  }
+
+  filterAPBookingIds(inputtedCustNameEvent: any): void {
+    let query = inputtedCustNameEvent.query;
+    this.APBookingIds = ['1','2']
+  }
+
+  filterTimeZone(inputtedCustNameEvent: any): void {
+    let query = inputtedCustNameEvent.query;
+    this.timeZoneIds = [
+      'Taipei Standard Time',
+      'Japan Standard Time'
+    ]
   }
 
   // submit() {
@@ -94,10 +135,10 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
   //   }
   // }
 
-  submit2() {
-    if (this.txnForm2.valid) {
-      console.log(this.txnForm2);
-      this.submitted.emit(this.txnForm2.value.title);
-    }
-  }
+  // submit2() {
+  //   if (this.txnForm2.valid) {
+  //     console.log(this.txnForm2);
+  //     this.submitted.emit(this.txnForm2.value.title);
+  //   }
+  // }
 }

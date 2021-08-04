@@ -22,20 +22,24 @@ $darkMenuMenuitemColor:#ffffff;
 $darkMenuMenuitemActiveColor:#6aa5d8;
 $darkMenuMenuitemActiveBgColor:#282b30;
 
-$primaryColor: #F8BD0C !default;
-$primaryLightColor: scale-color($primaryColor, $lightness: 60%) !default;
-$primaryDarkColor: scale-color($primaryColor, $lightness: -10%) !default;
-$primaryDarkerColor: scale-color($primaryColor, $lightness: -20%) !default;
-$primaryTextColor: #ffffff !default;
 
-$highlightBg: $primaryColor;
-$highlightTextColor: $primaryTextColor;
 
 
 
 
 
 $primary-medium: #0183FD;
+
+//套件預設變數顏色
+$primaryColor: $primary-medium !default;
+$primaryLightColor: scale-color($primaryColor, $lightness: 60%) !default;
+$primaryDarkColor: scale-color($primaryColor, $lightness: -10%) !default;
+$primaryDarkerColor: scale-color($primaryColor, $lightness: -20%) !default;
+$primaryTextColor: #ffffff !default;
+$highlightBg: $primaryColor;
+$highlightTextColor: $primaryTextColor;
+//套件預設變數顏色
+
 $menufirstItemActiveBgColor:#0F5EF7;
 $primary-medium: #0183FD;
 $primary-darker: #0F5EF7;

@@ -17,6 +17,7 @@ import { TransactionEffects } from './effects/transaction.effects';
 import { TableModule} from 'primeng/table';
 import { SelectButtonModule} from 'primeng/selectbutton';
 import { CalendarModule} from 'primeng/calendar';
+import { AutoCompleteModule} from 'primeng/autocomplete';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CalendarModule} from 'primeng/calendar';
     EffectsModule.forFeature([TransactionEffects]),
     TableModule,
     SelectButtonModule,
-    CalendarModule
+    CalendarModule,
+    AutoCompleteModule
   ],
   providers: [FakeDataService, TxnFormService],
 })

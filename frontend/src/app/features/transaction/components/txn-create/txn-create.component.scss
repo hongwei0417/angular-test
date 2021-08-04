@@ -34,16 +34,219 @@
 }
 
 
-:host ::ng-deep .transactionBasicInfo .item:nth-child(-n+2){
+.transactionBasicInfo .itemGroup{
+  margin-top: 5px;
+  padding: 15px;
+  background: $gray-200;
+}
+
+.transactionBasicInfo .item:nth-child(-n+2){
   width: calc(50% - 35px / 2);
 }
 
 
-:host ::ng-deep .transactionBasicInfo .item:nth-child(3){
+.transactionBasicInfo .item:nth-child(3){
   margin-left: 0;
 }
 
-:host ::ng-deep .transactionBasicInfo .item:nth-last-child(-n+3){
+.transactionBasicInfo .item:nth-last-child(-n+3){
   margin-top: 20px;
   width: calc(33.333333% - 70px / 3);
+}
+
+
+.bg{
+  padding: 15px;
+  background: $gray-200;
+}
+
+
+:host ::ng-deep form .accordionGroup label{
+  width: 100%;
+  margin-bottom: 0;
+}
+
+:host ::ng-deep form .accordionGroup p{
+  margin-bottom: 0;
+}
+
+.accordionGroup{
+  background: $gray-100;
+  border: 1px solid #ced4da;
+}
+
+.accordionTool{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.accordionTool .itemGroup:before{
+  content: '';
+  display: block;
+  width: 80px;
+}
+
+.accordionTool .itemGroup .item:first-child{
+  width: 250px;
+}
+
+.accordionTool .itemGroup .item:nth-child(2){
+  width: 170px;
+}
+
+.accordionTool .btnGroup button{
+  margin-right: 15px;
+}
+
+.accordionHeader{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  position: relative;
+  background: $gray-200;
+  box-shadow: $shadow-100;
+  border: 1px solid #ced4da;
+}
+
+
+//裝飾線
+.accordionHeader:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  background: $primary-medium;
+}
+
+
+.accordionHeader .itemGroup{
+  margin-left: 10px;
+}
+
+.accordionHeader .itemGroup:before{
+  content: '\f054';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #888888;
+  font-size: 12px;
+  text-align: center;
+
+  background: #FFF;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px 2px rgb(33 57 145 / 25%);
+  line-height: 25px;
+  width: 25px;
+  margin-left: 10px;
+}
+
+
+.accordionHeader .itemGroup .item:first-child{
+  margin-left: 35px;
+  width: 185px;
+}
+
+.accordionHeader .itemGroup .item:last-child{
+  width: 110px;
+}
+
+
+.accordionHeader .btnGroup{
+  display: flex;
+}
+
+.accordionHeader .btnGroup button{
+  margin-right: 15px;
+}
+
+
+
+
+.accordionContent{
+  display: flex;
+  justify-content: center;
+  padding: 25px 0;
+  background: $gray-100;
+}
+
+.accordionContent .itemGroup{
+  display: flex;
+  margin: 0 20px;
+  width: calc(50% - 80px / 2);
+}
+
+@media screen and (min-width:1024px){
+  .accordionContent .itemGroup{
+    margin: 0 80px;
+    width: calc(50% - 320px / 2);
+  }
+
+}
+
+.accordionContent .itemGroup:nth-child(2):before{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 32px;
+}
+
+.accordionContent .item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 13px;
+}
+
+
+:host ::ng-deep form .accordionContent .publicInput{
+  width: 50% ;
+}
+
+p-selectbutton{
+  width: 50%;
+}
+
+:host ::ng-deep .accordionContent .p-selectbutton .p-button{
+  padding: 5px;
+}
+
+:host ::ng-deep .accordionContent .p-button-label{
+  font-size: 14px;
+}
+
+:host ::ng-deep .accordionContent .p-autocomplete .p-inputtext{
+  padding: 5px;
+  min-width: 160px;
+}
+
+.accordionContent .publicInput::-webkit-input-placeholder{
+  font-size: 12px;
+}
+
+
+:host ::ng-deep .accordionContent .item + .item{
+  margin-left: 0;
+  margin-top: 5px;
+}
+
+:host ::ng-deep .accordionGroup .publicInput,
+:host ::ng-deep .accordionGroup .p-calendar .p-inputtext{
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+:host ::ng-deep .accordionGroup .p-calendar .p-datepicker{
+  min-width: 250px;
+}
+
+:host ::ng-deep .accordionGroup .p-datepicker table td{
+  padding: 0;
+}
+
+
+:host ::ng-deep .p-calendar:after{
+  font-size: 16px;
 }

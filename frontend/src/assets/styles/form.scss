@@ -1,20 +1,20 @@
-fieldset, legend{
-  border: none;
-  margin: 0;
-  padding: 0;
-}
+// fieldset, legend{
+//   border: none;
+//   margin: 0;
+//   padding: 0;
+// }
 
-fieldset .itemGroup{
-  margin-top: 5px;
-  padding: 15px;
-  background: $gray-200;
-}
+// fieldset .itemGroup{
+//   margin-top: 5px;
+//   padding: 15px;
+//   background: $gray-200;
+// }
 
-legend{
-  font-weight: 500;
-  font-size: 16px;
-  vertical-align: baseline;
-}
+// legend{
+//   font-weight: 500;
+//   font-size: 16px;
+//   vertical-align: baseline;
+// }
 
 
 form{
@@ -116,6 +116,10 @@ form{
 
 
 // #region primeng Calendar
+p-calendar{
+  width: 100%;
+}
+
 .p-calendar{
   position: relative;
   display: block !important;
@@ -202,6 +206,23 @@ form{
   font-size: 18px;
 }
 // #endregion primeng Calendar
+
+
+
+.p-autocomplete{
+  display: flex !important;
+}
+
+.p-autocomplete .p-inputtext{
+  border: none;
+  padding: 10px 15px;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px inset #ced4da;
+  font-size: 14px;
+  font-family: arial;
+}
+
+
 
 
 // #region  primeng selectButton

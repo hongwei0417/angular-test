@@ -8,6 +8,7 @@
 @import '../node_modules/primeicons/primeicons.css';
 
 @import './assets/styles/layoutHeaderFooter.scss';
+@import './assets/styles/btn.scss';
 @import './assets/styles/table.scss';
 @import './assets/styles/form.scss';
 
@@ -17,7 +18,7 @@ h1, h2, h3, h4, h5, h6, p{
   margin: 0;
 }
 
-h2,h3,label,p{
+h2,h3,h4,label,p{
   color: #4C5B6E;
 }
 
@@ -27,6 +28,10 @@ h2{
 
 h3{
   font-size: 20px;
+}
+
+h4{
+  font-size: 18px;
 }
 
 p,label,span{
@@ -58,173 +63,54 @@ p,label,span{
 }
 
 
-//#region 按鈕
-.publicBtn {
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 500;
-
-  &.customBtn{
-    background: $primary-medium;
-    color: $gray-100;
-
-    &:hover,&:active {
-      background: $primary-darker;
-    }
-
-    &.txt{
-      display: flex;
-      justify-content: space-between;
-      font-size: 16px;
-      font-weight: 500;
-    }
-  }
-
-  &.customBtnReverse{
-    background: $gray-100;
-    color: $primary-medium;
-    box-shadow: $shadow-100;
-
-    &:hover,&:active {
-      color: $gray-100;
-      background: $primary-darker;
-      box-shadow:none;
-    }
-  }
-}
-//#endregion 按鈕
-
-
-.publicBtn:before,
-.publicBtn:after{
-  // content: '';
-  display: block;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-}
-
-.publicBtn:before{
-  margin-right: 10px;
-}
-.publicBtn.add:before{
-  content: '\f067';
-}
-
-.publicBtn.arrow:before{
-  content: '\f053';
-}
-
-
-.publicBtn.edit,
-.publicBtn.view,
-.publicBtn.copy,
-.publicBtn.execute,
-.publicBtn.reload{
-  padding: 10px;
-  width: 40px;
-  background: $gray-200;
-  font-size: 16px;
-}
-
-.publicBtn.edit:after{
-  content: '\f044';
-}
-
-.publicBtn.view:after{
-  content: '\f06e';
-}
-
-.publicBtn.copy:after{
-  content: '\f0c5';
-}
-
-.publicBtn.execute:after{
-  content: '\f04b';
-}
-
-.publicBtn.reload:after{
-  content: '\f2f1';
-}
-
-
-
 
 
 // #region  primeng autoComplete
-.customAutoComplete label{
-  display: block;
-}
+// .customAutoComplete label{
+//   display: block;
+// }
 
-.customAutoComplete p-autocomplete .ui-buttin{
-  background: $primary-medium;
-  border: 1px solid $primary-medium;
-}
+// .customAutoComplete p-autocomplete .ui-buttin{
+//   background: $primary-medium;
+//   border: 1px solid $primary-medium;
+// }
 
-.customAutoComplete  .ui-autocomplete{
-  width: 100%;
-  display: flex;
-}
+// .customAutoComplete  .ui-autocomplete{
+//   width: 100%;
+//   display: flex;
+// }
 
-.customAutoComplete  .ui-autocomplete input{
-  padding: 10px 15px;
-}
+// .customAutoComplete  .ui-autocomplete input{
+//   padding: 10px 15px;
+// }
 
-.customAutoComplete  .ui-autocomplete input:focus{
-  outline: none;
-  border: none;
-  border: 2px solid transparent;
-  // box-shadow: map-get($list, active-form-input);
-}
+// .customAutoComplete  .ui-autocomplete input:focus{
+//   outline: none;
+//   border: none;
+//   border: 2px solid transparent;
+//   // box-shadow: map-get($list, active-form-input);
+// }
 
-.customAutoComplete  .ui-autocomplete input:hover{
-  border: 2px solid transparent !important;
-}
+// .customAutoComplete  .ui-autocomplete input:hover{
+//   border: 2px solid transparent !important;
+// }
 
-.customAutoComplete .ui-autocomplete .ui-autocomplete-dropdown{
-  width: 45px;
-  height: auto;//清除預設
-  padding: 0 15px;
-}
+// .customAutoComplete .ui-autocomplete .ui-autocomplete-dropdown{
+//   width: 45px;
+//   height: auto;//清除預設
+//   padding: 0 15px;
+// }
 
-.customAutoComplete .pi{
-  font-size: 16px;
-}
+// .customAutoComplete .pi{
+//   font-size: 16px;
+// }
 
-.customAutoComplete  .pi-caret-down:before{
-  content: '\f078';
-  display: block;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-}
+// .customAutoComplete  .pi-caret-down:before{
+//   content: '\f078';
+//   display: block;
+//   font-family: "Font Awesome 5 Free";
+//   font-weight: 900;
+// }
 
-// #region  primeng selectButton
-.radioInput .ui-button.ui-state-default{
-  width: 50%;
-}
 
-.radioInput .ui-selectbutton{
-  display: block;
-}
 
-.radioInput .ui-selectbutton .ui-button{
-  border-radius: 0 !important;
-  background: #FFF;
-  border: 1px solid $primary-medium;
-  color: $primary-medium;
-}
-
-.radioInput .ui-button.ui-button-text-only .ui-button-text{
-  padding: 10px 0;
-}
-
-.radioInput .ui-selectbutton .ui-button.ui-state-active,
-.radioInput .ui-selectbutton .ui-button.ui-state-active.ui-state-focus,
-.radioInput .ui-selectbutton .ui-button.ui-state-active:not(.ui-state-disabled):hover,
-.radioInput .ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover{
-  background: $primary-medium;
-  border: 1px solid $primary-medium;
-  color: #FFF;
-}
-// #endregion  primeng selectButton

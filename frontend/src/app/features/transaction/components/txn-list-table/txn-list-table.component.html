@@ -27,7 +27,7 @@
   <div class="container">
     <div class="title">
       <h2>Transaction List</h2>
-      <button class="publicBtn customBtn txt add">
+      <button class="txtBtn customBtn add">
         Create New Transaction
       </button>
     </div>
@@ -86,23 +86,23 @@
               </p> -->
             <ng-container  *ngFor="let col of columns" [ngSwitch]="col.field">
               <td *ngSwitchCase="'view'" >
-                <button class="publicBtn customBtnReverse view" type="button"></button>
+                <button class="iconBtn customBtnReverse view" type="button"></button>
               </td>
 
               <td *ngSwitchCase="'edit'">
-                <button class="publicBtn customBtnReverse edit" type="button"></button>
+                <button class="iconBtn customBtnReverse edit" type="button"></button>
               </td>
 
               <td *ngSwitchCase="'copy'">
-                <button class="publicBtn customBtnReverse copy" type="button"></button>
+                <button class="iconBtn customBtnReverse copy" type="button"></button>
               </td>
 
               <td *ngSwitchCase="'execute'">
-                <button class="publicBtn customBtnReverse execute" type="button"></button>
+                <button class="iconBtn customBtnReverse execute" type="button"></button>
               </td>
 
               <td *ngSwitchCase="'reload'">
-                <button class="publicBtn customBtnReverse reload" type="button"></button>
+                <button class="iconBtn customBtnReverse reload" type="button"></button>
               </td>
 
               <td *ngSwitchDefault>
