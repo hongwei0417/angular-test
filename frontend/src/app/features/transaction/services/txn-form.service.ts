@@ -7,17 +7,17 @@ import { of, throwError, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TxnFormService {
-  constructor(private store: Store) {}
+  constructor() {}
 
-  createTxn({ title, content, executeCount }: any): Observable<Transaction> {
+  createTxn$({ title, content, executeCount }: any): Observable<Transaction> {
     if (title === 'error') {
       return throwError('You create an error txn!');
     } else {
       const txn: Transaction = {
         id: Math.ceil(Math.random() * 100).toFixed(),
-        title: title,
-        content: content,
-        executeCount: executeCount,
+        title,
+        content,
+        executeCount,
         createTime: new Date(),
       };
       return of(txn);

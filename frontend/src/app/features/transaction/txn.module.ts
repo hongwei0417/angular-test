@@ -28,6 +28,6 @@ import { TransactionEffects } from './effects/transaction.effects';
     StoreModule.forFeature(fromTxn.FeatureKey, fromTxn.reducers),
     EffectsModule.forFeature([TransactionEffects]),
   ],
-  providers: [FakeDataService, TxnFormService],
+  // providers: [FakeDataService, TxnFormService],
 })
 export class TransactionModule {}

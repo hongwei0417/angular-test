@@ -1,6 +1,5 @@
 import { Transaction } from '../../features/transaction/models/Transaction';
 import { HttpClient } from '@angular/common/http';
-import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -36,13 +35,13 @@ export class FakeDataService {
   // private API = 'https://24pullrequests.com/users.json';
   // private API = 'http://api.plos.org/search?q=title:google';
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   // getArticles(): Observable<object[]> {
   //   return this.http.get<object[]>(this.API).pipe();
   // }
 
-  getData(): Observable<Transaction[]> {
+  getData$(): Observable<Transaction[]> {
     return of(fakeData);
   }
 }

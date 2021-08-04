@@ -14,10 +14,7 @@ import { Transaction } from '../models/Transaction';
 @Injectable()
 export class TransactionEffects {
   constructor(
-    private actions$: Actions<
-      | TxnListPageActions.TxnListPageActionUnion
-      | TxnCreatePageActions.TxnCreatePageActionUnion
-    >,
+    private actions$: Actions,
     private txnFormService: TxnFormService,
     private fakeDataService: FakeDataService
   ) {}
@@ -27,7 +24,7 @@ export class TransactionEffects {
       ofType(TxnListPageActions.loadTxnList),
       switchMap(() => {
         return this.fakeDataService
-          .getData()
+          .getData$()
           .pipe(
             map((txns: Transaction[]) =>
               TxnApiActions.loadTxnApiSuccess({ txns })
@@ -41,7 +38,7 @@ export class TransactionEffects {
     return this.actions$.pipe(
       ofType(TxnCreatePageActions.createTxn),
       exhaustMap((action) => {
-        return this.txnFormService.createTxn(action).pipe(
+        return this.txnFormService.createTxn$(action).pipe(
           map((txn) => TxnApiActions.createTxnApiSuccess({ txn })),
           catchError((error) => of(TxnApiActions.createTxnApiFail({ error })))
         );
