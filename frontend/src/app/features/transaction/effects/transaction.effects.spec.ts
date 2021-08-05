@@ -14,8 +14,6 @@ import {
   TxnCreatePageActions,
   TxnListPageActions,
 } from '../actions';
-import * as fromRoot from '../../../core/reducers';
-import { exhaustMap } from 'rxjs/operators';
 
 describe('TransactionEffects', () => {
   let actions$: Observable<any>;
@@ -56,7 +54,7 @@ describe('TransactionEffects', () => {
       expect(effects.getTxnData$).toBeObservable(expected$);
     });
 
-    it('should return txn list data from fakeDataService(observable)', () => {
+    it('should return txn list data from fakeDataService(observable)', (done) => {
       const action = TxnListPageActions.loadTxnList();
       const completion = TxnApiActions.loadTxnApiSuccess({ txns: fakeData });
       const response$ = of(fakeData);
@@ -64,6 +62,7 @@ describe('TransactionEffects', () => {
       fakeDataServiceSpy.mockReturnValue(response$);
       effects.getTxnData$.subscribe((action) => {
         expect(action).toEqual(completion);
+        done();
       });
     });
   });
@@ -100,14 +99,14 @@ describe('TransactionEffects', () => {
       const completion = TxnApiActions.createTxnApiFail({
         error: 'error occurred',
       });
-      actions$ = hot('-a', { a: action });
-      const response$ = cold('----#', {}, 'error occurred');
+      actions$ = hot('-a-----', { a: action });
+      const response$ = cold('----#-', {}, 'error occurred');
       const expected$ = hot('-----b', { b: completion });
       txnFormServiceSpy.mockReturnValue(response$);
       expect(effects.createTxn$).toBeObservable(expected$);
     });
 
-    it('should return create txn fail with error msg(observable)', () => {
+    it('should return create txn fail with error msg(observable)', (done) => {
       const action = TxnCreatePageActions.createTxn({
         title: 'error',
         content: 'test content',
@@ -121,6 +120,7 @@ describe('TransactionEffects', () => {
       txnFormServiceSpy.mockReturnValue(response$);
       effects.createTxn$.subscribe((action) => {
         expect(action).toEqual(completion);
+        done();
       });
     });
   });
@@ -134,12 +134,13 @@ describe('TransactionEffects', () => {
       expect(effects.deleteTxnData$).toBeObservable(expected);
     });
 
-    it('should return delete txn id(observable)', () => {
+    it('should return delete txn id(observable)', (done) => {
       const action = TxnListPageActions.deleteTxn({ id: '666' });
       const completion = TxnApiActions.deleteTxnApiSuccess({ id: '666' });
       actions$ = of(action);
       effects.deleteTxnData$.subscribe((action) => {
         expect(action).toEqual(completion);
+        done();
       });
     });
   });
