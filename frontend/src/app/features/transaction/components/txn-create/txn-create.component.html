@@ -1,5 +1,7 @@
-<h3 class="text-center">Txn Create Form</h3>
+<!-- <h3 class="text-center">Txn Create Form</h3> -->
 
+
+<!--
 <div class="d-flex justify-content-center">
   <form
     #formTxn="ngForm"
@@ -48,4 +50,210 @@
     </p>
     <button type="submit" [disabled]="!formTxn2.form.valid">Save</button>
   </form>
+</div> -->
+
+
+
+
+<div class="transactionCreate">
+  <div class="container">
+    <div class="title">
+      <h2>Create Transaction</h2>
+      <button class="txtBtn customBtn arrow" routerLink="/transaction/list">
+        Back
+      </button>
+    </div>
+
+
+    <div class="transactionSetting ">
+      <h3>Transaction  Setting</h3>
+
+      <div class="fieldContent">
+        <form [formGroup]="txnForm" class="transactionBasicInfo">
+            <h4>Basic Info</h4>
+            <div class="itemGroup">
+              <div class="item">
+                <label for="" class="fieldRequired">
+                  <span *ngIf="!(TransactionName?.invalid && TransactionName?.touched)">Transaction Name</span>
+                  <p  *ngIf="TransactionName?.invalid && TransactionName?.touched">
+                    "Transaction Name" is required
+                  </p>
+                </label>
+                <input type="text" formControlName="TransactionName">
+              </div>
+
+              <div class="item">
+                <label for="" class="fieldRequired">
+                  <span *ngIf="!(APBooking?.invalid && APBooking?.touched)">AP Booking</span>
+                  <p  *ngIf="APBooking?.invalid && APBooking?.touched">
+                    "AP Booking" is required
+                  </p>
+                </label>
+
+                <p-autoComplete formControlName="APBooking" [suggestions]="APBookingIds"
+                  (completeMethod)="filterAPBookingIds($event)" [dropdown]="true" placeholder="Select">
+                  <ng-template let-custId pTemplate="item">
+                    <div class="custName-item">
+                      <div>{{custId}}</div>
+                    </div>
+                  </ng-template>
+                </p-autoComplete>
+              </div>
+
+
+              <div class="item">
+                <p>Active Flag</p>
+                <p-selectButton [options]="stateOptions" formControlName="ActiveFlag"></p-selectButton>
+              </div>
+              <div class="item">
+                <label for="">Start Time</label>
+                <p-calendar formControlName="date" dateFormat="yy/mm/dd" [showTime]="true" hourFormat="24" ></p-calendar>
+              </div>
+              <div class="item">
+                <label for="">Alarm Interval Min</label>
+                <input type="number" placeholder="Numbers only" formControlName="alarmIntervalMin">
+              </div>
+            </div>
+          </form>
+
+          <form [formGroup]="frequencyForm" class="frequencySetting">
+            <h4>Frequency Setting</h4>
+
+            <div class="bg">
+              <div class="accordionGroup">
+
+                <div class="accordionTool">
+                  <div class="itemGroup">
+                    <div class="item">
+                      <label for="" class="fieldRequired">
+                        <span>Last Tran Time</span>
+                      </label>
+                    </div>
+                    <div class="item">
+                      <label for="" class="fieldRequired">
+                        <span>Cron Expression</span>
+                      </label>
+                    </div>
+                    <div class="item">
+                      <button class="txtBtn small customBtn add">Generate Cron</button>
+                    </div>
+                  </div>
+                  <div class="btnGroup">
+                    <button class="iconBtn small customBtn add"></button>
+                  </div>
+                </div>
+
+                <div class="accordionItem">
+                  <div class="accordionHeader" (click)="toggleAccordion($event)"
+                  [ngClass]="{'active': accordionStates}">
+                    <div class="itemGroup">
+                      <div class="item">
+                        <p-calendar formControlName="LastTranTime" dateFormat="yy/mm/dd" [showTime]="true" hourFormat="24" [showSeconds]="true" (click)="$event.stopPropagation()">
+                        </p-calendar>
+                      </div>
+                      <div class="item">
+                        <input type="text" placeholder="0 5 * ? * * *" formControlName="CronExpression" (click)="$event.stopPropagation()">
+                      </div>
+                    </div>
+
+                    <div class="btnGroup">
+                      <button class="iconBtn small customBtnReverseLine remove"></button>
+                      <button class="iconBtn small customBtn copy"></button>
+                    </div>
+                  </div>
+
+                  <div class="accordionContent">
+                    <div class="itemGroup">
+
+                      <div class="item">
+                        <label for="">Time Zone ID</label>
+                        <p-autoComplete formControlName="TimeZone" [suggestions]="timeZoneIds"
+                          (completeMethod)="filterTimeZone($event)" [dropdown]="true" placeholder="Select">
+                          <ng-template let-custId pTemplate="item">
+                            <div class="custName-item">
+                              <div>{{custId}}</div>
+                            </div>
+                          </ng-template>
+                        </p-autoComplete>
+                      </div>
+
+                      <div class="item">
+                        <label for="">Retry Times</label>
+                        <input type="number" placeholder="Numbers only" formControlName="RetryTimes">
+                      </div>
+
+                      <div class="item">
+                        <label for="">Loader Buffer Time</label>
+                        <input type="number" placeholder="Numbers only" formControlName="LoaderBufferTime">
+                      </div>
+
+                      <div class="item">
+                        <label for="">Back To Buffer Time</label>
+                        <input type="number" placeholder="Numbers only" formControlName="BackToBufferTime">
+                      </div>
+
+                      <div class="item">
+                        <label for="">Shift Back To Loader Time</label>
+                        <input type="number" placeholder="Numbers only" formControlName="ShiftBackToLoaderTime">
+                      </div>
+                    </div>
+
+                    <div class="itemGroup">
+                      <div class="item">
+                        <label for="">Start At</label>
+                        <p-calendar formControlName="StartAt" dateFormat="yy/mm/dd"></p-calendar>
+                      </div>
+
+                      <div class="item">
+                        <label for="">End At</label>
+                        <p-calendar formControlName="EndAt" dateFormat="yy/mm/dd"></p-calendar>
+                      </div>
+
+                      <div class="item">
+                        <p>Skip Over Due</p>
+                        <p-selectButton [options]="stateOptionsAccordion" formControlName="SkipOverDue"></p-selectButton>
+                      </div>
+
+                      <div class="item">
+                        <p>Skip All Over Due</p>
+                        <p-selectButton [options]="stateOptionsAccordion" formControlName="SkipAllOverDue"></p-selectButton>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+
+
+
+
+
+          </form>
+      </div>
+
+          <!-- <div  class="accordion tablePublic">
+            <div class="itemGroup">
+              <div class="accordionHeader">
+                <div class="txtGroup">
+                  <p>Last Tran Time</p>
+                  <p>Cron Expression</p>
+                </div>
+              </div>
+              <div class="content">
+
+
+              </div>
+            </div>
+          </div> -->
+
+
+
+    </div>
+
+  </div>
 </div>

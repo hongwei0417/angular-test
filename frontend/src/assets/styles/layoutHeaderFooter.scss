@@ -1,0 +1,131 @@
+
+
+
+/* #region layout menu 自定義*/
+.layout-wrapper .layout-menu{
+  position: relative;
+  top: 60px;
+}
+
+.layout-wrapper.menu-layout-horizontal .layout-menu-container{
+  top: 0;
+}
+
+@media screen and (min-width: 1025px){
+  .layout-wrapper .layout-menu-container .menu-scroll-content{
+    padding-right: 0;
+  }
+
+  .layout-wrapper .layout-menu{
+    position: static;
+    display: flex;
+    justify-content: center;
+  }
+
+  .layout-wrapper .layout-menu li a{
+    padding: 20px 15px;
+  }
+
+  .layout-wrapper .layout-menu > li > a,
+  .layout-wrapper .layout-menu > li > a > i{
+    color: #FFF;
+  }
+
+  .layout-wrapper.menu-layout-horizontal .layout-menu-container ul.layout-menu > li > ul{
+    top: 75px;
+  }
+
+  .layout-wrapper.menu-layout-horizontal .layout-menu-container ul.layout-menu > li.active-menuitem > .submenu-arrow{
+    top: 60px;
+  }
+}
+
+
+
+.container{
+  margin: auto;
+  max-width: 1280px;
+  padding: 0 15px;
+}
+
+.menuMain .logo img{
+  max-height: 30px;
+}
+
+.menuMain .logo,
+.menuMain .settingGroup{
+  position: fixed;
+  z-index: 999999999;
+}
+
+.menuMain .logo{
+  top: 15px;
+  left: 15px;
+}
+
+.menuMain .settingGroup{
+  top: 17.5px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.menuMain .settingGroup a,
+.menuMain .settingGroup i{
+  color:#FFF;
+}
+
+.menuMain .settingGroup a+a{
+  margin-left: 10px;
+}
+
+.menuMain .settingGroup i{
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.layout-wrapper .topbar{
+  left: 0;
+  right: 0;
+}
+
+
+@media screen and (min-width: 1025px){
+  .menuMain{
+    background: #0183FD;
+  }
+
+  .menuMain .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .layout-wrapper .topbar{
+    display: none;
+  }
+
+  .menuMain .logo,
+  .menuMain .settingGroup{
+    position: static;
+  }
+}
+
+/* #endregion layout menu 自定義*/
+
+
+
+.layout-footer{
+  background: #0183FD;
+  color: #FFF;
+}
+
+.footer-text{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-text span{
+  display: block;
+}

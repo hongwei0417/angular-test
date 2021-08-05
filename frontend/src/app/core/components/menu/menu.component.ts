@@ -11,8 +11,13 @@ export class MenuComponent implements OnInit {
   @Input() menu: MenuItem[] = [];
   @Input() layoutSettings!: LayoutSettings;
   @Output() updateLayout = new EventEmitter<{ name: keyof LayoutSettings; value: any }>();
+  @Output() menuBtn = new EventEmitter<MouseEvent>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onMenuButtonClick(e: MouseEvent): void {
+    this.menuBtn.next(e);
+  }
 }

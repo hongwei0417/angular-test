@@ -5,28 +5,28 @@ import { AuthGuard } from './features/auth/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'txn',
-    canActivate: [AuthGuard],
+    path: '',
+    // canActivate: [AuthGuard],
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'feature1', pathMatch: 'full' },
       {
-        path: 'feature1',
+        path: 'transaction',
         loadChildren: () =>
           import('./features/transaction/txn.module').then(
             (m) => m.TransactionModule
           ),
       },
       {
-        path: 'feature2',
+        path: 'schedule',
         loadChildren: () =>
           import('./features/schedule/schedule.module').then(
             (m) => m.ScheduleModule
           ),
       },
+      { path: '', redirectTo: 'transaction', pathMatch: 'full' },
     ],
   },
-  { path: '', redirectTo: '/txn', pathMatch: 'full' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', redirectTo: '/notfound' },
 ];
 

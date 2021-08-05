@@ -1,0 +1,117 @@
+
+
+@import './assets/styles/variables.scss';
+
+@import './assets/sass/layout/layout';
+@import './assets/sass/theme/theme';
+@import '../node_modules/primeng/resources/primeng.min.css';
+@import '../node_modules/primeicons/primeicons.css';
+
+@import './assets/styles/layoutHeaderFooter.scss';
+@import './assets/styles/btn.scss';
+@import './assets/styles/table.scss';
+@import './assets/styles/form.scss';
+
+
+
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+}
+
+h2,h3,h4,label,p{
+  color: #4C5B6E;
+}
+
+h2{
+  font-size: 25px;
+}
+
+h3{
+  font-size: 20px;
+}
+
+h4{
+  font-size: 16px;
+  font-weight: 700;
+}
+
+p,label,span{
+  line-height: 1;
+}
+
+
+.fieldContent{
+  padding: 20px 15px;
+  background: $gray-100;
+  box-shadow: $shadow-500;
+}
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.itemGroup{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.item + .item{
+  margin-left: 35px;
+}
+
+
+
+
+// #region  primeng autoComplete
+// .customAutoComplete label{
+//   display: block;
+// }
+
+// .customAutoComplete p-autocomplete .ui-buttin{
+//   background: $primary-medium;
+//   border: 1px solid $primary-medium;
+// }
+
+// .customAutoComplete  .ui-autocomplete{
+//   width: 100%;
+//   display: flex;
+// }
+
+// .customAutoComplete  .ui-autocomplete input{
+//   padding: 10px 15px;
+// }
+
+// .customAutoComplete  .ui-autocomplete input:focus{
+//   outline: none;
+//   border: none;
+//   border: 2px solid transparent;
+//   // box-shadow: map-get($list, active-form-input);
+// }
+
+// .customAutoComplete  .ui-autocomplete input:hover{
+//   border: 2px solid transparent !important;
+// }
+
+// .customAutoComplete .ui-autocomplete .ui-autocomplete-dropdown{
+//   width: 45px;
+//   height: auto;//清除預設
+//   padding: 0 15px;
+// }
+
+// .customAutoComplete .pi{
+//   font-size: 16px;
+// }
+
+// .customAutoComplete  .pi-caret-down:before{
+//   content: '\f078';
+//   display: block;
+//   font-family: "Font Awesome 5 Free";
+//   font-weight: 900;
+// }
+
+
+

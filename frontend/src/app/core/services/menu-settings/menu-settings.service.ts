@@ -43,18 +43,36 @@ export interface MenuItem {
 
 const defualtMenu: MenuItem[] = [
   {
-    label: 'Demo',
-    icon: 'pi pi-home',
+    label: 'Transaction',
+    routerLink: ['/transaction'],
+  },
+  {
+    label: 'Schedule',
     items: [
       {
-        label: 'feature1',
-        icon: 'pi pi-fw pi-home',
-        routerLink: ['feature1'],
+        label: 'scheduler',
+        routerLink: ['/schedule'],
       },
       {
-        label: 'feature2',
-        icon: 'pi pi-fw pi-chart-bar',
-        routerLink: ['feature2'],
+        label: 'Job',
+        routerLink: ['/schedule'],
+      },
+      {
+        label: 'Monitor',
+        routerLink: ['/schedule'],
+      },
+    ],
+  },
+  {
+    label: 'Parameter',
+    items: [
+      {
+        label: 'Mail Group',
+        routerLink: ['/schedule'],
+      },
+      {
+        label: 'DLL',
+        routerLink: ['/schedule'],
       },
     ],
   },

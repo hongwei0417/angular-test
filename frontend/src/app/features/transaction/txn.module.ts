@@ -14,6 +14,11 @@ import { TxnCreatePageComponent } from './containers/txn-create-page/txn-create-
 import { ReactiveFormsModule } from '@angular/forms';
 import { TransactionEffects } from './effects/transaction.effects';
 
+import { TableModule} from 'primeng/table';
+import { SelectButtonModule} from 'primeng/selectbutton';
+import { CalendarModule} from 'primeng/calendar';
+import { AutoCompleteModule} from 'primeng/autocomplete';
+
 @NgModule({
   declarations: [
     TxnListPageComponent,
@@ -27,6 +32,10 @@ import { TransactionEffects } from './effects/transaction.effects';
     TxnRoutingModule,
     StoreModule.forFeature(fromTxn.FeatureKey, fromTxn.reducers),
     EffectsModule.forFeature([TransactionEffects]),
+    TableModule,
+    SelectButtonModule,
+    CalendarModule,
+    AutoCompleteModule
   ],
   // providers: [FakeDataService, TxnFormService],
 })

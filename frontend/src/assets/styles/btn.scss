@@ -1,0 +1,140 @@
+//#region 按鈕
+@mixin customBtnColor($reverseBgColor){
+  &.customBtn{
+    background: $primary-medium;
+    color: $gray-100;
+
+    &:hover,&:active {
+      background: $primary-darker;
+    }
+  }
+
+  &.customBtnReverse{
+    background: $reverseBgColor;
+    color: $primary-medium;
+    box-shadow: $shadow-100;
+
+    &:hover,&:active {
+      color: $gray-100;
+      background: $primary-darker;
+      box-shadow:none;
+    }
+  }
+
+  &.customBtnReverseLine{
+    background: $gray-100;
+    color: $primary-medium;
+    border: 1px solid $primary-medium;
+    box-shadow: $shadow-100;
+
+    &:hover,&:active {
+      color: $gray-100;
+      background: $primary-darker;
+    }
+  }
+}
+
+
+@mixin iconUnicode(){
+  &.add:before{
+    content: '\f067';
+  }
+
+  &.remove:before{
+    content: '\f068';
+  }
+
+  &.arrow:before{
+    content: '\f053';
+  }
+
+  &.edit:before{
+    content: '\f044';
+  }
+
+  &.view:before{
+    content: '\f06e';
+  }
+
+  &.copy:before{
+    content: '\f0c5';
+  }
+
+  &.execute:before{
+    content: '\f04b';
+  }
+
+  &.reload:before{
+    content: '\f2f1';
+  }
+
+
+}
+
+
+.txtBtn {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 500;
+
+  &.small{
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  @include customBtnColor($gray-100);
+
+  &:before{
+    display: block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+  }
+
+  @include iconUnicode();
+}
+
+
+
+.iconBtn{
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  padding: 10px;
+  width: 40px;
+  font-size: 16px;
+
+  &.small{
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  @include customBtnColor($gray-200);
+
+  &:before{
+    display: block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+
+  @include iconUnicode();
+}
+
+
+
+
+//#endregion 按鈕
+
+

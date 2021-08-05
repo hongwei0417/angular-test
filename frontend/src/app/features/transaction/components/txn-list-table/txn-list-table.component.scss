@@ -1,0 +1,29 @@
+
+
+.itemGroup .item{
+  width: 100%;
+}
+
+
+
+:host ::ng-deep th,
+:host ::ng-deep td{
+  width: 160px;
+}
+
+:host ::ng-deep th:nth-child(n+1):nth-child(-n+4),
+:host ::ng-deep td:nth-child(n+1):nth-child(-n+4){
+  width: 55px;
+}
+//
+:host ::ng-deep th:nth-child(5),
+:host ::ng-deep td:nth-child(5){
+  width: 65px;
+}
+
+:host ::ng-deep th:nth-last-child(-n+2),
+:host ::ng-deep td:nth-last-child(-n+2){
+  width: 120px;
+}
+
+
