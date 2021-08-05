@@ -59,7 +59,7 @@
   <div class="container">
     <div class="title">
       <h2>Create Transaction</h2>
-      <button class="txtBtn customBtn arrow">
+      <button class="txtBtn customBtn arrow" routerLink="/transaction/list">
         Back
       </button>
     </div>
@@ -79,7 +79,7 @@
                     "Transaction Name" is required
                   </p>
                 </label>
-                <input type="text" formControlName="TransactionName" class="publicInput">
+                <input type="text" formControlName="TransactionName">
               </div>
 
               <div class="item">
@@ -111,7 +111,7 @@
               </div>
               <div class="item">
                 <label for="">Alarm Interval Min</label>
-                <input type="number" placeholder="Numbers only" formControlName="alarmIntervalMin" class="publicInput">
+                <input type="number" placeholder="Numbers only" formControlName="alarmIntervalMin">
               </div>
             </div>
           </form>
@@ -122,7 +122,7 @@
             <div class="bg">
               <div class="accordionGroup">
 
-                <!-- <div class="accordionTool">
+                <div class="accordionTool">
                   <div class="itemGroup">
                     <div class="item">
                       <label for="" class="fieldRequired">
@@ -141,17 +141,18 @@
                   <div class="btnGroup">
                     <button class="iconBtn small customBtn add"></button>
                   </div>
-                </div> -->
+                </div>
 
                 <div class="accordionItem">
-                  <div class="accordionHeader">
+                  <div class="accordionHeader" (click)="toggleAccordion($event)"
+                  [ngClass]="{'active': accordionStates}">
                     <div class="itemGroup">
                       <div class="item">
-                        <p-calendar formControlName="LastTranTime" dateFormat="yy/mm/dd" [showTime]="true" hourFormat="24" [showSeconds]="true">
+                        <p-calendar formControlName="LastTranTime" dateFormat="yy/mm/dd" [showTime]="true" hourFormat="24" [showSeconds]="true" (click)="$event.stopPropagation()">
                         </p-calendar>
                       </div>
                       <div class="item">
-                        <input type="text" placeholder="0 5 * ? * * *" formControlName="CronExpression" class="publicInput">
+                        <input type="text" placeholder="0 5 * ? * * *" formControlName="CronExpression" (click)="$event.stopPropagation()">
                       </div>
                     </div>
 
@@ -178,22 +179,22 @@
 
                       <div class="item">
                         <label for="">Retry Times</label>
-                        <input type="number" placeholder="Numbers only" formControlName="RetryTimes" class="publicInput">
+                        <input type="number" placeholder="Numbers only" formControlName="RetryTimes">
                       </div>
 
                       <div class="item">
                         <label for="">Loader Buffer Time</label>
-                        <input type="number"  formControlName="LoaderBufferTime" class="publicInput">
+                        <input type="number" placeholder="Numbers only" formControlName="LoaderBufferTime">
                       </div>
 
                       <div class="item">
                         <label for="">Back To Buffer Time</label>
-                        <input type="number"  formControlName="BackToBufferTime" class="publicInput">
+                        <input type="number" placeholder="Numbers only" formControlName="BackToBufferTime">
                       </div>
 
                       <div class="item">
                         <label for="">Shift Back To Loader Time</label>
-                        <input type="number"  formControlName="ShiftBackToLoaderTime" class="publicInput">
+                        <input type="number" placeholder="Numbers only" formControlName="ShiftBackToLoaderTime">
                       </div>
                     </div>
 
@@ -222,6 +223,9 @@
 
                   </div>
                 </div>
+
+
+
               </div>
             </div>
 

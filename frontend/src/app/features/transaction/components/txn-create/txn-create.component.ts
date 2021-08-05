@@ -71,6 +71,8 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
 
   frequencyForm!: FormGroup;
 
+  accordionStates:boolean=false;
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -122,6 +124,12 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
       'Taipei Standard Time',
       'Japan Standard Time'
     ]
+  }
+
+
+  toggleAccordion(event:any) {
+    console.log(event)
+    this.accordionStates = !this.accordionStates;
   }
 
   // submit() {
