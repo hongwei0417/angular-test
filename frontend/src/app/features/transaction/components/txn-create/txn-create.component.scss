@@ -31,15 +31,28 @@ h4{
   margin-bottom: 5px;
 }
 
+form:last-child{
+  margin-bottom: 0;
+}
+
 input{
   background: $gray-100;
 }
 
 
-.transactionBasicInfo .itemGroup{
+.bg{
   padding: 15px;
   background: $gray-200;
 }
+
+.btnGroup{
+  display: flex;
+}
+
+.btnGroup button:last-child{
+  margin-left: 15px;
+}
+
 
 .transactionBasicInfo .item:nth-child(-n+2){
   width: calc(50% - 35px / 2);
@@ -56,11 +69,6 @@ input{
 }
 
 
-.bg{
-  padding: 15px;
-  background: $gray-200;
-}
-
 .accordionGroup label,
 .accordionGroup p{
   margin-bottom: 0;
@@ -73,7 +81,6 @@ input{
 .accordionGroup{
   background: $gray-100;
   border: 1px solid #ced4da;
-  box-shadow: $shadow-100;
 }
 
 .accordionGroup input,
@@ -99,13 +106,13 @@ input{
 .accordionTool{
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
+  padding: 5px 15px;
 }
 
 .accordionTool .itemGroup:before{ //佔位空白
   content: '';
   display: block;
-  width: 76px;
+  width: 56px;
 }
 
 .accordionTool .itemGroup .item:first-child{
@@ -116,9 +123,6 @@ input{
   width: 120px;
 }
 
-.accordionTool .btnGroup button{
-  margin: 0 15px;
-}
 //#endregion accordionTool
 
 
@@ -126,11 +130,12 @@ input{
 .accordionHeader{
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 10px 15px;
   position: relative;
   background: $gray-100;
   border: 1px solid #ced4da;
   cursor: pointer;
+  transition: .1s;
 }
 
 .accordionHeader:before{//裝飾線
@@ -158,7 +163,6 @@ input{
   box-shadow: 0px 0px 2px 2px rgb(0 0 0 / 15%);
   line-height: 25px;
   width: 25px;
-  margin-left: 20px;
 
   position: relative;
   transform: rotate(0deg);
@@ -175,12 +179,7 @@ input{
 }
 
 .accordionHeader .btnGroup{
-  display: flex;
   opacity: 0;
-}
-
-.accordionHeader .btnGroup button{
-  margin-right: 15px;
 }
 
 //#endregion accordionHeader
@@ -256,21 +255,15 @@ p-selectbutton{
   border-radius: 0 5px 5px 0;
 }
 
-
-
-
 .accordionContent .item + .item{
   margin-left: 0;
-  margin-top: 5px;
+  margin-top: 10px;
 }
-
-
 //#endregion accordionContent
 
 
 
-
-
+//#region accordion active
 .accordionContent{
   max-height: 0;
   overflow: hidden;
@@ -282,7 +275,7 @@ p-selectbutton{
   max-height: 100vh;
   overflow: visible;
   opacity: 1;
-  padding: 25px 0;
+  padding: 15px 0;
 }
 
 .accordionHeader.active,
@@ -303,3 +296,94 @@ p-selectbutton{
   color: $gray-100;
   background: $primary-medium;
 }
+//#endregion accordion active
+
+
+//#region moduleForm
+.moduleForm h4 span{
+  font-weight: 400;
+}
+
+.moduleItem{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: $gray-100;
+  border: 1px solid #ced4da;
+}
+
+.moduleItem + .moduleItem{
+  margin-top: 15px;
+}
+
+.moduleItem .itemGroup .item:first-child{
+  width: 240px;
+}
+
+:host ::ng-deep .moduleItem .p-autocomplete .p-inputtext{
+  padding: 5px 10px;
+  border-radius: 5px 0 0 5px;
+}
+
+:host ::ng-deep .moduleItem .p-autocomplete .p-inputtext{
+  font-size: 12px;
+}
+
+:host ::ng-deep .moduleItem .p-button.p-button-icon-only{
+  padding: 5px;
+  width: 30px;
+  border-radius: 0 5px 5px 0;
+}
+
+.moduleItem .btnGroup{
+  opacity: 0;
+  transition: .1s;
+}
+
+.moduleItem:hover .btnGroup{
+  opacity: 1;
+}
+//#endregion moduleForm
+
+
+//#region mailGroupForm
+.mailGroupForm .item{
+  width: calc(50% - 35px * 1 / 2);
+}
+
+@media screen and (min-width:1024px){
+  .mailGroupForm .item{
+    width: calc(25% - 35px * 3 / 4);
+  }
+}
+
+.mailGroupForm .item:nth-child(2n+1){
+  margin-left: 0;
+}
+
+@media screen and (min-width:1024px){
+  .mailGroupForm .item:nth-child(2n+1){
+    margin-left: 35px;
+  }
+
+  .mailGroupForm .item:nth-child(4n+1){
+    margin-left: 0;
+  }
+}
+
+.mailGroupForm .item:not(:nth-last-child(-n+2)){
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width:1024px){
+  .mailGroupForm .item:not(:nth-last-child(-n+2)){
+    margin-bottom: 0;
+  }
+  .mailGroupForm .item:not(:nth-last-child(-n+4)){
+    margin-bottom: 15px;
+  }
+}
+//#endregion mailGroupForm
+
+

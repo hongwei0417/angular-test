@@ -256,3 +256,14 @@ p-calendar{
 }
 // #endregion  primeng selectButton
 
+
+
+
+.p-inputswitch{
+  vertical-align: middle;
+}
+
+.p-inputswitch .p-inputswitch-slider,
+.p-inputswitch .p-inputswitch-slider:before{
+  border-radius: 25px;
+}

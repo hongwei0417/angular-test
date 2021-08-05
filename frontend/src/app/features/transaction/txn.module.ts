@@ -18,6 +18,7 @@ import { TableModule} from 'primeng/table';
 import { SelectButtonModule} from 'primeng/selectbutton';
 import { CalendarModule} from 'primeng/calendar';
 import { AutoCompleteModule} from 'primeng/autocomplete';
+import { InputSwitchModule} from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AutoCompleteModule} from 'primeng/autocomplete';
     TableModule,
     SelectButtonModule,
     CalendarModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    InputSwitchModule
   ],
   // providers: [FakeDataService, TxnFormService],
 })

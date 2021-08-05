@@ -47,6 +47,8 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
   //新增
   APBookingIds!: string[];
   timeZoneIds!: string[];
+  moduleName!: string[];
+  mailGroup!: string[];
 
   stateOptions = [
     { label: 'Yes', value: true },
@@ -70,8 +72,34 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
   }
 
   frequencyForm!: FormGroup;
-
   accordionStates:boolean=false;
+
+  moduleForm!: FormGroup;
+  mailGroupForm!: FormGroup;
+  get ownerIT() {
+    return this.mailGroupForm.get('ownerIT');
+  }
+  get mailTo() {
+    return this.mailGroupForm.get('mailTo');
+  }
+  get ownerCoordinator() {
+    return this.mailGroupForm.get('ownerCoordinator');
+  }
+  get loaderOwner() {
+    return this.mailGroupForm.get('loaderOwner');
+  }
+  get mailCC() {
+    return this.mailGroupForm.get('mailCC');
+  }
+  get mailBCC() {
+    return this.mailGroupForm.get('mailBCC');
+  }
+  get SAPOwner() {
+    return this.mailGroupForm.get('SAPOwner');
+  }
+  get MESOwner() {
+    return this.mailGroupForm.get('MESOwner');
+  }
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -103,10 +131,32 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
       });
     };
 
+    const moduleFormInfo = () => {
+      this.moduleForm = this.formBuilder.group({
+        moduleName: [],
+        issue:[false]
+      });
+    };
+
+    const mailGroupFormInfo = () => {
+      this.mailGroupForm = this.formBuilder.group({
+        ownerIT: [, Validators.required],
+        mailTo: [, Validators.required],
+        ownerCoordinator :[, Validators.required],
+        loaderOwner:[, Validators.required],
+        mailCC:[, Validators.required],
+        mailBCC:[, Validators.required],
+        SAPOwner:[, Validators.required],
+        MESOwner:[, Validators.required]
+      });
+    };
+
 
 
     initForm();
     frequencyFormInfo();
+    moduleFormInfo();
+    mailGroupFormInfo();
   }
 
   ngOnDestroy(): void {
@@ -126,11 +176,31 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
     ]
   }
 
+  filterModuleName(inputtedCustNameEvent: any): void {
+    let query = inputtedCustNameEvent.query;
+    this.moduleName = [
+      'CBDM-LOT_RECEIVE_DEL_WI',
+      'CBDM-LOT_SHIP',
+      'CBDM-WO_RETURN',
+    ]
+  }
+
 
   toggleAccordion(event:any) {
     console.log(event)
     this.accordionStates = !this.accordionStates;
   }
+
+
+  filterMailGroup(inputtedCustNameEvent: any): void {
+    let query = inputtedCustNameEvent.query;
+    this.mailGroup = [
+      'MG0000000028',
+      'MG0000000028',
+      'test0004',
+    ]
+  }
+
 
   // submit() {
   //   if (this.txnForm.valid) {
@@ -150,3 +220,6 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
   //   }
   // }
 }
+
+
+
