@@ -32,82 +32,103 @@
       </button>
     </div>
 
-
     <form [formGroup]="searchForm" class="fieldContent">
       <div class="itemGroup">
         <div class="item insertIcon filter">
           <label for="">Global Filter</label>
-          <input type="text"  placeholder="Search" formControlName="globalFilter" >
+          <input
+            type="text"
+            placeholder="Search"
+            formControlName="globalFilter"
+          />
         </div>
       </div>
     </form>
 
-
     <ng-container *ngIf="tableData$ | async as tableData">
-      <p-table [value]="tableData" [columns]="tableCols"
-        [paginator]="true" [rows]="2" [pageLinks]="3" [alwaysShowPaginator]="false" [scrollable]="true">
-
-        <ng-template pTemplate="header" let-columns>
+      <p-table
+        [value]="tableData"
+        [columns]="tableCols"
+        [paginator]="true"
+        [rows]="2"
+        [pageLinks]="3"
+        [alwaysShowPaginator]="false"
+        [scrollable]="true"
+      >
+        <ng-template pTemplate="body" let-row let-columns="columns">
           <tr>
+            <!-- <p *ngSwitchCase="'createdAt'">
+                {{row[col.field] | date:'yyyy/MM/dd, HH:mm a'}}
+              </p> -->
             <ng-container *ngFor="let col of columns" [ngSwitch]="col.field">
+              <td *ngSwitchCase="'view'">
+                <button
+                  class="iconBtn customBtnReverse view"
+                  type="button"
+                ></button>
+              </td>
 
-              <th *ngSwitchCase="'view'" >
-                {{col.header}}
-              </th>
+              <td *ngSwitchCase="'edit'">
+                <button
+                  class="iconBtn customBtnReverse edit"
+                  type="button"
+                ></button>
+              </td>
 
-              <th *ngSwitchCase="'edit'">
-                {{col.header}}
-              </th>
+              <td *ngSwitchCase="'copy'">
+                <button
+                  class="iconBtn customBtnReverse copy"
+                  type="button"
+                ></button>
+              </td>
 
-              <th *ngSwitchCase="'copy'">
-                {{col.header}}
-              </th>
+              <td *ngSwitchCase="'execute'">
+                <button
+                  class="iconBtn customBtnReverse execute"
+                  type="button"
+                ></button>
+              </td>
 
-              <th *ngSwitchCase="'execute'">
-                {{col.header}}
-              </th>
+              <td *ngSwitchCase="'reload'">
+                <button
+                  class="iconBtn customBtnReverse reload"
+                  type="button"
+                ></button>
+              </td>
 
-              <th *ngSwitchCase="'reload'">
-                {{col.header}}
-              </th>
-
-              <th *ngSwitchDefault [pSortableColumn]="col.field">
-                {{col.header}}<p-sortIcon [field]="col.field"></p-sortIcon>
-              </th>
-
+              <td *ngSwitchDefault>
+                {{ row[col.field] }}
+              </td>
             </ng-container>
           </tr>
         </ng-template>
 
-        <ng-template pTemplate="body" let-row let-columns="columns">
+        <ng-template pTemplate="header" let-columns>
           <tr>
-              <!-- <p *ngSwitchCase="'createdAt'">
-                {{row[col.field] | date:'yyyy/MM/dd, HH:mm a'}}
-              </p> -->
-            <ng-container  *ngFor="let col of columns" [ngSwitch]="col.field">
-              <td *ngSwitchCase="'view'" >
-                <button class="iconBtn customBtnReverse view" type="button"></button>
-              </td>
+            <ng-container *ngFor="let col of columns" [ngSwitch]="col.field">
+              <th *ngSwitchCase="'view'">
+                {{ col.header }}
+              </th>
 
-              <td *ngSwitchCase="'edit'">
-                <button class="iconBtn customBtnReverse edit" type="button"></button>
-              </td>
+              <th *ngSwitchCase="'edit'">
+                {{ col.header }}
+              </th>
 
-              <td *ngSwitchCase="'copy'">
-                <button class="iconBtn customBtnReverse copy" type="button"></button>
-              </td>
+              <th *ngSwitchCase="'copy'">
+                {{ col.header }}
+              </th>
 
-              <td *ngSwitchCase="'execute'">
-                <button class="iconBtn customBtnReverse execute" type="button"></button>
-              </td>
+              <th *ngSwitchCase="'execute'">
+                {{ col.header }}
+              </th>
 
-              <td *ngSwitchCase="'reload'">
-                <button class="iconBtn customBtnReverse reload" type="button"></button>
-              </td>
+              <th *ngSwitchCase="'reload'">
+                {{ col.header }}
+              </th>
 
-              <td *ngSwitchDefault>
-                {{row[col.field]}}
-              </td>
+              <th *ngSwitchDefault [pSortableColumn]="col.field">
+                {{ col.header }}<p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
             </ng-container>
           </tr>
         </ng-template>
@@ -115,6 +136,3 @@
     </ng-container>
   </div>
 </div>
-
-
-

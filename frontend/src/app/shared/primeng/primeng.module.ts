@@ -7,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
-import { ChartModule } from 'primeng/chart';
+// import { ChartModule } from 'primeng/chart';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ChipsModule } from 'primeng/chips';
 import { CodeHighlighterModule } from 'primeng/codehighlighter';
@@ -77,7 +77,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     CalendarModule,
     CardModule,
     CarouselModule,
-    ChartModule,
+    // ChartModule,
     CheckboxModule,
     ChipsModule,
     CodeHighlighterModule,
@@ -146,7 +146,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     CalendarModule,
     CardModule,
     CarouselModule,
-    ChartModule,
+    // ChartModule,
     CheckboxModule,
     ChipsModule,
     CodeHighlighterModule,

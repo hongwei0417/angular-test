@@ -3,7 +3,7 @@ import { TxnListPageComponent } from './containers/txn-list-page/txn-list-page.c
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'list', component: TxnListPageComponent },
   { path: 'create', component: TxnCreatePageComponent },
   { path: '', redirectTo: 'list', pathMatch: 'full' },

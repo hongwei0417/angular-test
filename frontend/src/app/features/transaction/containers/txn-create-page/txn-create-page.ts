@@ -16,17 +16,16 @@ export class TxnCreatePageComponent implements OnInit {
   constructor(private store$: Store<fromTxn.State>) {}
 
   ngOnInit(): void {
-    // this.error$ = this.store$.select(fromTxn.getTxnCreateError);
     this.error$ = this.store$.pipe(select(fromTxn.getTxnCreateError));
   }
 
-  onSubmit({ title, content, executeCount }: any) {
+  onSubmit({ title, content, executeCount }: any): void {
     this.store$.dispatch(
       TxnCreatePageActions.createTxn({ title, content, executeCount })
     );
   }
 
-  onClearState() {
+  onClearState(): void {
     this.store$.dispatch(TxnCreatePageActions.clearTxnCreatePageState());
   }
 }
