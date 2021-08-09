@@ -5,8 +5,15 @@
   <button [routerLink]="['/transaction','create']">Create Transaction</button>
 </div> -->
 
-<app-txn-create
-  [errorMessage]="(error$ | async)!"
-  (submitted)="onSubmit($event)"
-  (clearState)="onClearState()"
-></app-txn-create>
+
+
+<div class="container">
+  <app-txn-create
+    [errorMessage]="(error$ | async)!"
+    (submitted)="onSubmit($event)"
+    (clearState)="onClearState()"
+  ></app-txn-create>
+
+
+  <app-txn-create-job class="jobSetting"></app-txn-create-job>
+</div>

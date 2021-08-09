@@ -1,57 +1,7 @@
 
 @import '/src/assets/styles/variables.scss';
+@import '../../containers/txn-create-page/txn-create-page.component.scss';
 
-.title{
-  border-bottom: 1px solid #000;
-  padding-bottom: 10px;
-}
-
-
-h3{
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: $primary-medium;
-  margin-bottom: 10px;
-}
-
-h3:before{
-  content: '1';
-  margin-right: 5px;
-  width: 20px;
-  height: 20px;
-  display: block;
-  border-radius: 50%;
-  background: $primary-medium;
-  color: $gray-100;
-  font-size: 16px;
-}
-
-h4{
-  margin-bottom: 5px;
-}
-
-form:last-child{
-  margin-bottom: 0;
-}
-
-input{
-  background: $gray-100;
-}
-
-
-.bg{
-  padding: 15px;
-  background: $gray-200;
-}
-
-.btnGroup{
-  display: flex;
-}
-
-.btnGroup button:last-child{
-  margin-left: 15px;
-}
 
 
 .transactionBasicInfo .item:nth-child(-n+2){
@@ -281,7 +231,7 @@ p-selectbutton{
 .accordionHeader.active,
 .accordionHeader:hover{
   border-color: $primary-medium;
- background: $gray-200;
+  background: $gray-200;
 }
 
 .accordionHeader.active:before,
@@ -348,6 +298,15 @@ p-selectbutton{
 
 
 //#region mailGroupForm
+.mailGroupForm h4{
+  display: flex;
+  align-items: center;
+}
+
+.mailGroupForm h4 .txtBtn{
+  margin-left: 10px;
+}
+
 .mailGroupForm .item{
   width: calc(50% - 35px * 1 / 2);
 }

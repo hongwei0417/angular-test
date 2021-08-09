@@ -3,10 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PrimengModule } from './primeng';
+import { HotTableModule } from '@handsontable/angular';
+import { HandsontableComponent } from './handsontable/handsontable.component';
+
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule, PrimengModule, FormsModule, ReactiveFormsModule],
-  exports: [CommonModule, PrimengModule, FormsModule, ReactiveFormsModule],
+  declarations: [
+    HandsontableComponent
+  ],
+  imports: [CommonModule, PrimengModule, FormsModule, ReactiveFormsModule, HotTableModule],
+  exports: [CommonModule, PrimengModule, FormsModule, ReactiveFormsModule, HotTableModule, HandsontableComponent],
 })
 export class SharedModule {}

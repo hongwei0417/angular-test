@@ -14,11 +14,16 @@ import { TxnCreatePageComponent } from './containers/txn-create-page/txn-create-
 import { ReactiveFormsModule } from '@angular/forms';
 import { TransactionEffects } from './effects/transaction.effects';
 
+
 import { TableModule} from 'primeng/table';
 import { SelectButtonModule} from 'primeng/selectbutton';
 import { CalendarModule} from 'primeng/calendar';
 import { AutoCompleteModule} from 'primeng/autocomplete';
 import { InputSwitchModule} from 'primeng/inputswitch';
+import { TabViewModule} from 'primeng/tabview';
+import { TxnCreateJobComponent } from './components/txn-create-job/txn-create-job.component';
+import { SharedModule } from 'src/app/shared';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { InputSwitchModule} from 'primeng/inputswitch';
     TxnCreatePageComponent,
     TxnListTableComponent,
     TxnCreateComponent,
+    TxnCreateJobComponent,
   ],
   imports: [
     CommonModule,
@@ -37,7 +43,9 @@ import { InputSwitchModule} from 'primeng/inputswitch';
     SelectButtonModule,
     CalendarModule,
     AutoCompleteModule,
-    InputSwitchModule
+    InputSwitchModule,
+    TabViewModule,
+    SharedModule
   ],
   // providers: [FakeDataService, TxnFormService],
 })
