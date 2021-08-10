@@ -47,19 +47,19 @@ const defualtMenu: MenuItem[] = [
     routerLink: ['/transaction'],
   },
   {
-    label: 'Schedule',
+    label: 'Scheduling',
     items: [
       {
-        label: 'scheduler',
-        routerLink: ['/schedule'],
+        label: 'Schedule',
+        routerLink: ['/schedule/list'],
       },
       {
-        label: 'Job',
-        routerLink: ['/schedule'],
+        label: 'Execute log',
+        routerLink: ['/schedule/execute-log'],
       },
       {
-        label: 'Monitor',
-        routerLink: ['/schedule'],
+        label: 'Alarm State',
+        routerLink: ['/schedule/alarm-state'],
       },
     ],
   },

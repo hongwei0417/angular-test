@@ -1,0 +1,43 @@
+<form [formGroup]="searchForm" class="fieldContent">
+  <div class="itemGroup">
+    <div class="item insertIcon filter">
+      <label for="">Global Filter</label>
+      <input type="text"  placeholder="Search" formControlName="globalFilter" >
+    </div>
+  </div>
+</form>
+
+<ng-container *ngIf="tableData$ | async as tableData">
+  <p-table [value]="tableData" [columns]="tableCols"
+    [paginator]="true" [rows]="2" [pageLinks]="3" [alwaysShowPaginator]="false" [scrollable]="true">
+
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <ng-container *ngFor="let col of columns" [ngSwitch]="col.field">
+          <th *ngSwitchCase="'retry'">
+            {{col.header}}
+          </th>
+
+          <th *ngSwitchDefault [pSortableColumn]="col.field">
+            {{col.header}}<p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+        </ng-container>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-row let-columns="columns">
+      <tr>
+        <ng-container  *ngFor="let col of columns" [ngSwitch]="col.field">
+          <td *ngSwitchCase="'retry'">
+            <button class="iconBtn customBtnReverse retry" type="button"></button>
+          </td>
+
+          <td *ngSwitchDefault>
+            {{row[col.field]}}
+          </td>
+        </ng-container>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>
+

@@ -5,14 +5,13 @@
 }
 
 
-
 :host ::ng-deep th,
 :host ::ng-deep td{
   width: 160px;
 }
 
-:host ::ng-deep th:nth-child(n+1):nth-child(-n+4),
-:host ::ng-deep td:nth-child(n+1):nth-child(-n+4){
+:host ::ng-deep th:nth-child(-n+4),
+:host ::ng-deep td:nth-child(-n+4){
   width: 55px;
 }
 //

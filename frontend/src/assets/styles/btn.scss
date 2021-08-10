@@ -62,8 +62,16 @@
     content: '\f04b';
   }
 
+  &.pause:before{
+    content: '\f04c';
+  }
+
   &.reload:before{
     content: '\f2f1';
+  }
+
+  &.retry:before{
+    content: '\f2f9';
   }
 
   &.setting:before{

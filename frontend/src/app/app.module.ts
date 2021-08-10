@@ -13,6 +13,8 @@ import { AppComponent } from './core/containers/app/app.component';
 import { CoreModule } from './core/core.module';
 import * as fromRoot from './core/reducers';
 import { AuthModule } from './features/auth/auth.module';
+import { MailgrpCreatePageComponent } from './features/parameter/containers/mailgrp-create-page/mailgrp-create-page.component';
+import { MailgrpListPageComponent } from './features/parameter/containers/mailgrp-list-page/mailgrp-list-page.component';
 
 
 const routingModules = [AppRoutingModule, AuthModule];
@@ -40,5 +42,9 @@ const ngRxModules = [
     CoreModule,
   ],
   bootstrap: [AppComponent],
+  declarations: [
+    MailgrpCreatePageComponent,
+    MailgrpListPageComponent
+  ],
 })
 export class AppModule {}
