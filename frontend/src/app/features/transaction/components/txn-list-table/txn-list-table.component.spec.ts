@@ -36,18 +36,21 @@ describe('TxnListTableComponent', () => {
     expect(fixture).toMatchSnapshot();
   });
 
-  it('should set table header', () => {
-    expect(component.tableCols).toEqual(tableColumns);
+  it('should render correct table header', () => {
+    const element = listTableElement.querySelector(
+      'thead tr'
+    ) as HTMLTableRowElement;
+    tableColumns.forEach((item, i) => {
+      const cell = element.cells[i];
+      expect(cell.textContent?.trim()).toBe(item.header);
+    });
   });
 
-  it('should set table data', () => {
-    expect(component.tableData).toEqual(autoschtranms);
-  });
-
-  it('should display correct table data', () => {
+  it('should render correct table data', () => {
     const element = listTableElement.querySelectorAll(
       '.p-datatable-scrollable-body tr'
     );
+    expect(element.length).toBe(autoschtranms.length);
     const head = tableColumns.splice(-(tableColumns.length - 5));
     autoschtranms.forEach((rowData: any, i) => {
       const row = element[i] as HTMLTableRowElement;

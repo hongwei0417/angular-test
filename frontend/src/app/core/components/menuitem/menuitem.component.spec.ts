@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MockComponent, MockDeclaration } from 'ng-mocks';
 
 import { MenuitemComponent } from './menuitem.component';
 
@@ -8,9 +10,9 @@ describe('MenuitemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuitemComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+      declarations: [MockDeclaration(MenuitemComponent)],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,8 +1,17 @@
-<div class="layout-config" [ngClass]="{'layout-config-active': configActive}">
-  <a style="cursor: pointer" id="layout-config-button" class="layout-config-button" (click)="onToggleConfig($event)">
+<div class="layout-config" [ngClass]="{ 'layout-config-active': configActive }">
+  <a
+    style="cursor: pointer"
+    id="layout-config-button"
+    class="layout-config-button"
+    (click)="onToggleConfig($event)"
+  >
     <i class="pi pi-cog"></i>
   </a>
-  <a style="cursor: pointer" class="layout-config-close" (click)="openConfig(false)">
+  <a
+    style="cursor: pointer"
+    class="layout-config-close"
+    (click)="openConfig(false)"
+  >
     <i class="pi pi-times"></i>
   </a>
   <div class="layout-config-content">
@@ -10,16 +19,26 @@
     <div class="p-grid">
       <div class="p-col-6">
         <div class="p-field-radiobutton">
-          <p-radioButton inputId="static" name="layoutMode" value="static" [ngModel]="layoutSettings.layoutMode"
-            (ngModelChange)="layoutModeChange($event)">
+          <p-radioButton
+            inputId="static"
+            name="layoutMode"
+            value="static"
+            [ngModel]="layoutSettings?.layoutMode"
+            (ngModelChange)="layoutModeChange($event)"
+          >
           </p-radioButton>
           <label for="static">Static</label>
         </div>
       </div>
       <div class="p-col-6">
         <div class="p-field-radiobutton">
-          <p-radioButton inputId="overlay" name="layoutMode" value="overlay" [ngModel]="layoutSettings.layoutMode"
-            (ngModelChange)="layoutModeChange($event)">
+          <p-radioButton
+            inputId="overlay"
+            name="layoutMode"
+            value="overlay"
+            [ngModel]="layoutSettings?.layoutMode"
+            (ngModelChange)="layoutModeChange($event)"
+          >
           </p-radioButton>
           <label for="overlay">Overlay</label>
         </div>
@@ -28,56 +47,88 @@
     <div class="p-grid">
       <div class="p-col-6">
         <div class="p-field-radiobutton">
-          <p-radioButton inputId="horizontal" name="layoutMode" value="horizontal" [ngModel]="layoutSettings.layoutMode"
-            (ngModelChange)="layoutModeChange($event)">
+          <p-radioButton
+            inputId="horizontal"
+            name="layoutMode"
+            value="horizontal"
+            [ngModel]="layoutSettings?.layoutMode"
+            (ngModelChange)="layoutModeChange($event)"
+          >
           </p-radioButton>
           <label for="horizontal">Horizontal</label>
         </div>
       </div>
       <div class="p-col-6">
         <div class="p-field-radiobutton">
-          <p-radioButton inputId="slim" name="layoutMode" value="slim" [ngModel]="layoutSettings.layoutMode"
-            (ngModelChange)="layoutModeChange($event)">
+          <p-radioButton
+            inputId="slim"
+            name="layoutMode"
+            value="slim"
+            [ngModel]="layoutSettings?.layoutMode"
+            (ngModelChange)="layoutModeChange($event)"
+          >
           </p-radioButton>
           <label for="slim">Slim</label>
         </div>
       </div>
     </div>
 
-    <h5 style="margin-top: 0;">Menu Theme</h5>
+    <h5 style="margin-top: 0">Menu Theme</h5>
     <div class="p-grid">
       <div class="p-col-6">
         <div class="p-field-radiobutton">
-          <p-radioButton inputId="dark" name="menuColor" [value]="true" [ngModel]="themeSettings.darkMenu"
-            (ngModelChange)="menuColorChange($event)">
+          <p-radioButton
+            inputId="dark"
+            name="menuColor"
+            [value]="true"
+            [ngModel]="themeSettings?.darkMenu"
+            (ngModelChange)="menuColorChange($event)"
+          >
           </p-radioButton>
           <label for="dark">Dark</label>
         </div>
       </div>
       <div class="p-col-6">
         <div class="p-field-radiobutton">
-          <p-radioButton inputId="light" name="menuColor" [value]="false" [ngModel]="themeSettings.darkMenu"
-            (ngModelChange)="menuColorChange($event)">
+          <p-radioButton
+            inputId="light"
+            name="menuColor"
+            [value]="false"
+            [ngModel]="themeSettings?.darkMenu"
+            (ngModelChange)="menuColorChange($event)"
+          >
           </p-radioButton>
           <label for="light">Light</label>
         </div>
       </div>
     </div>
 
-    <h5 style="margin-top: 0;">User Profile Mode</h5>
+    <h5 style="margin-top: 0">User Profile Mode</h5>
     <div class="p-grid">
       <div class="p-col-6">
         <div class="p-field-radiobutton">
-          <p-radioButton inputId="inline" name="profileMode" value="inline" [ngModel]="layoutSettings.profileMode"
-            (ngModelChange)="profileModeChange($event)" [disabled]="layoutSettings.layoutMode ==='horizontal'">
+          <p-radioButton
+            inputId="inline"
+            name="profileMode"
+            value="inline"
+            [ngModel]="layoutSettings?.profileMode"
+            (ngModelChange)="profileModeChange($event)"
+            [disabled]="layoutSettings?.layoutMode === 'horizontal'"
+          >
           </p-radioButton>
           <label for="inline">Inline</label>
         </div>
       </div>
       <div class="p-col-6">
         <div class="p-field-radiobutton">
-          <p-radioButton inputId="top" name="profileMode" value="top" [ngModel]="layoutSettings.profileMode"
-            (ngModelChange)="profileModeChange($event)" [disabled]="layoutSettings.layoutMode ==='horizontal'">
+          <p-radioButton
+            inputId="top"
+            name="profileMode"
+            value="top"
+            [ngModel]="layoutSettings?.profileMode"
+            (ngModelChange)="profileModeChange($event)"
+            [disabled]="layoutSettings?.layoutMode === 'horizontal'"
+          >
           </p-radioButton>
           <label for="top">Overlay</label>
         </div>
@@ -87,28 +138,47 @@
     <h5 style="margin-top: 0">Input Background</h5>
     <div class="p-formgroup-inline">
       <div class="p-field-radiobutton">
-        <p-radioButton inputId="input_outlined" name="inputstyle" value="outlined" [ngModel]="themeSettings.inputStyle"
-          (ngModelChange)="inputStyleChange($event)">
+        <p-radioButton
+          inputId="input_outlined"
+          name="inputstyle"
+          value="outlined"
+          [ngModel]="themeSettings?.inputStyle"
+          (ngModelChange)="inputStyleChange($event)"
+        >
         </p-radioButton>
         <label for="input_outlined">Outlined</label>
       </div>
       <div class="p-field-radiobutton">
-        <p-radioButton inputId="input_filled" name="inputstyle" value="filled" [ngModel]="themeSettings.inputStyle"
-          (ngModelChange)="inputStyleChange($event)">
+        <p-radioButton
+          inputId="input_filled"
+          name="inputstyle"
+          value="filled"
+          [ngModel]="themeSettings?.inputStyle"
+          (ngModelChange)="inputStyleChange($event)"
+        >
         </p-radioButton>
         <label for="input_filled">Filled</label>
       </div>
     </div>
 
-    <h5 style="margin-top: 0;">Ripple Effect</h5>
-    <p-inputSwitch [ngModel]="themeSettings.ripple" (onChange)="rippleChange($event.checked)"></p-inputSwitch>
+    <h5 style="margin-top: 0">Ripple Effect</h5>
+    <p-inputSwitch
+      [ngModel]="themeSettings?.ripple"
+      (onChange)="rippleChange($event.checked)"
+    ></p-inputSwitch>
 
     <h5>Flat Layout Colors</h5>
     <div class="layout-themes">
       <div *ngFor="let flatLayoutColor of flatLayoutColors">
-        <a style="cursor: pointer" (click)="layoutColorChange(flatLayoutColor.file, false)"
-          [ngStyle]="{'background-color': flatLayoutColor.color}">
-          <i class="pi pi-check" *ngIf="themeSettings.layoutColor === flatLayoutColor.file"></i>
+        <a
+          style="cursor: pointer"
+          (click)="layoutColorChange(flatLayoutColor.file, false)"
+          [ngStyle]="{ 'background-color': flatLayoutColor.color }"
+        >
+          <i
+            class="pi pi-check"
+            *ngIf="themeSettings?.layoutColor === flatLayoutColor.file"
+          ></i>
         </a>
       </div>
     </div>
@@ -116,9 +186,22 @@
     <h5>Special Layout Colors</h5>
     <div class="layout-themes">
       <div *ngFor="let specialLayoutColor of specialLayoutColors">
-        <a style="cursor: pointer" (click)="layoutColorChange(specialLayoutColor.file, true)"
-          [ngStyle]="{'background-image': 'linear-gradient(to right,' + specialLayoutColor.color1 + ',' + specialLayoutColor.color2 + ')'}">
-          <i class="pi pi-check" *ngIf="themeSettings.layoutColor === specialLayoutColor.file"></i>
+        <a
+          style="cursor: pointer"
+          (click)="layoutColorChange(specialLayoutColor.file, true)"
+          [ngStyle]="{
+            'background-image':
+              'linear-gradient(to right,' +
+              specialLayoutColor.color1 +
+              ',' +
+              specialLayoutColor.color2 +
+              ')'
+          }"
+        >
+          <i
+            class="pi pi-check"
+            *ngIf="themeSettings?.layoutColor === specialLayoutColor.file"
+          ></i>
         </a>
       </div>
     </div>
@@ -126,8 +209,15 @@
     <h5>Component Themes</h5>
     <div class="layout-themes">
       <div *ngFor="let t of themes">
-        <a style="cursor: pointer" (click)="componentThemeChange(t.file)" [ngStyle]="{'background-color': t.color}">
-          <i class="pi pi-check" *ngIf="themeSettings.themeColor === t.file"></i>
+        <a
+          style="cursor: pointer"
+          (click)="componentThemeChange(t.file)"
+          [ngStyle]="{ 'background-color': t.color }"
+        >
+          <i
+            class="pi pi-check"
+            *ngIf="themeSettings?.themeColor === t.file"
+          ></i>
         </a>
       </div>
     </div>

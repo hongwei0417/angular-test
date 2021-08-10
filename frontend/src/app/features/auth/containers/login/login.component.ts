@@ -9,7 +9,7 @@ import * as fromAuth from '../../reducers';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private store$: Store<fromAuth.State>) {}
+  constructor(private store$: Store) {}
 
   ngOnInit(): void {}
 

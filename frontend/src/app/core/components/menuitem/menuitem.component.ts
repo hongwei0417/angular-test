@@ -1,6 +1,20 @@
 import { LayoutSettings } from './../../../core/services/layout-settings/layout-settings.service';
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -48,17 +62,29 @@ import { MenuService } from '../../services/app.menu.service';
           'z-index': '*',
         })
       ),
-      transition('visibleAnimated => hiddenAnimated', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
-      transition('hiddenAnimated => visibleAnimated', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
-      transition('void => visibleAnimated, visibleAnimated => void', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
+      transition(
+        'visibleAnimated => hiddenAnimated',
+        animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')
+      ),
+      transition(
+        'hiddenAnimated => visibleAnimated',
+        animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')
+      ),
+      transition(
+        'void => visibleAnimated, visibleAnimated => void',
+        animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')
+      ),
     ]),
   ],
 })
 export class MenuitemComponent implements OnInit, OnDestroy {
   @Input() layoutSettings!: LayoutSettings;
-  @Output() updateLayout = new EventEmitter<{ name: keyof LayoutSettings; value: any }>();
+  @Output() updateLayout = new EventEmitter<{
+    name: keyof LayoutSettings;
+    value: any;
+  }>();
 
-  @Input() item: any;
+  @Input() item: any = {};
   @Input() index!: number;
   @Input() root!: boolean;
   @Input() parentKey!: string;
@@ -71,7 +97,9 @@ export class MenuitemComponent implements OnInit, OnDestroy {
   constructor(public router: Router, private menuService: MenuService) {}
 
   ngOnInit(): void {
-    this.key = this.parentKey ? this.parentKey + '-' + this.index : String(this.index);
+    this.key = this.parentKey
+      ? this.parentKey + '-' + this.index
+      : String(this.index);
 
     this.subscriptions.add(
       this.menuService.menuSource$.subscribe((clickedKey) => {
@@ -87,20 +115,28 @@ export class MenuitemComponent implements OnInit, OnDestroy {
       })
     );
 
-    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((params) => {
-      if (this.layoutSettings.layoutMode === 'horizontal' || this.layoutSettings.layoutMode === 'slim') {
-        this.active = false;
-      } else {
-        if (this.item.routerLink) {
-          this.updateActiveStateFromRoute();
-        } else {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((params) => {
+        if (
+          this.layoutSettings?.layoutMode === 'horizontal' ||
+          this.layoutSettings?.layoutMode === 'slim'
+        ) {
           this.active = false;
+        } else {
+          if (this.item.routerLink) {
+            this.updateActiveStateFromRoute();
+          } else {
+            this.active = false;
+          }
         }
-      }
-    });
+      });
 
     if (
-      !(this.layoutSettings.layoutMode === 'horizontal' || this.layoutSettings.layoutMode === 'slim') &&
+      !(
+        this.layoutSettings?.layoutMode === 'horizontal' ||
+        this.layoutSettings?.layoutMode === 'slim'
+      ) &&
       this.item.routerLink
     ) {
       this.updateActiveStateFromRoute();
@@ -112,7 +148,10 @@ export class MenuitemComponent implements OnInit, OnDestroy {
   }
 
   updateActiveStateFromRoute(): void {
-    this.active = this.router.isActive(this.item.routerLink[0], this.item.items ? false : true);
+    this.active = this.router.isActive(
+      this.item.routerLink[0],
+      this.item.items ? false : true
+    );
   }
 
   itemClick(event: MouseEvent): null | boolean {
@@ -124,7 +163,10 @@ export class MenuitemComponent implements OnInit, OnDestroy {
 
     // navigate with hover in horizontal mode
     if (this.root) {
-      this.updateLayout.next({ name: 'menuHoverActive', value: !this.layoutSettings.menuHoverActive });
+      this.updateLayout.next({
+        name: 'menuHoverActive',
+        value: !this.layoutSettings.menuHoverActive,
+      });
     }
 
     // notify other items
@@ -145,11 +187,17 @@ export class MenuitemComponent implements OnInit, OnDestroy {
       // hide overlay menus
       if (this.layoutSettings.deviceMode === 'mobile') {
         this.updateLayout.next({ name: 'overlayMenuActive', value: false });
-        this.updateLayout.next({ name: 'staticMenuMobileActive', value: false });
+        this.updateLayout.next({
+          name: 'staticMenuMobileActive',
+          value: false,
+        });
       }
 
       // reset horizontal menu
-      if (this.layoutSettings.layoutMode === 'horizontal' || this.layoutSettings.layoutMode === 'slim') {
+      if (
+        this.layoutSettings?.layoutMode === 'horizontal' ||
+        this.layoutSettings?.layoutMode === 'slim'
+      ) {
         this.menuService.reset();
       }
       this.updateLayout.next({ name: 'menuHoverActive', value: false });
@@ -165,7 +213,10 @@ export class MenuitemComponent implements OnInit, OnDestroy {
   getInk(el: any): any {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < el.children.length; i++) {
-      if (typeof el.children[i].className === 'string' && el.children[i].className.indexOf('p-ink') !== -1) {
+      if (
+        typeof el.children[i].className === 'string' &&
+        el.children[i].className.indexOf('p-ink') !== -1
+      ) {
         return el.children[i];
       }
     }
@@ -177,7 +228,10 @@ export class MenuitemComponent implements OnInit, OnDestroy {
       element.classList.remove(className);
     } else {
       element.className = element.className.replace(
-        new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'),
+        new RegExp(
+          '(^|\\b)' + className.split(' ').join('|') + '(\\b|$)',
+          'gi'
+        ),
         ' '
       );
     }
@@ -188,7 +242,8 @@ export class MenuitemComponent implements OnInit, OnDestroy {
     if (
       this.root &&
       this.layoutSettings.menuHoverActive &&
-      (this.layoutSettings.layoutMode === 'horizontal' || this.layoutSettings.layoutMode === 'slim') &&
+      (this.layoutSettings?.layoutMode === 'horizontal' ||
+        this.layoutSettings?.layoutMode === 'slim') &&
       this.layoutSettings.deviceMode === 'desktop'
     ) {
       this.menuService.onMenuStateChange(this.key);

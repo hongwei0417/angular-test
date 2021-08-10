@@ -30,23 +30,10 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
   }>();
   @Output() clearState = new EventEmitter();
   @Input() errorMessage = '';
-  // create form type 1
-  // txnForm = new FormGroup({
-  //   title: new FormControl('', [Validators.required]),
-  //   content: new FormControl('', [Validators.required]),
-  //   executeCount: new FormControl(0, [Validators.required, Validators.min(0)]),
-  // });
-
-  // create form type 2
-  // txnForm2 = this.formBuilder.group({
-  //   title: ['', Validators.required],
-  //   content: ['', Validators.required],
-  //   executeCount: ['', [Validators.required, Validators.min(0)]],
-  // });
 
   // 新增
-  APBookingIds!: string[];
-  timeZoneIds!: string[];
+  APBookingIds: string[] = [];
+  timeZoneIds: string[] = [];
 
   stateOptions = [
     { label: 'Yes', value: true },

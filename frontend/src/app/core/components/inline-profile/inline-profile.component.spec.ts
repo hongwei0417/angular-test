@@ -1,3 +1,7 @@
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InlineProfileComponent } from './inline-profile.component';
@@ -8,9 +12,9 @@ describe('InlineProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InlineProfileComponent ]
-    })
-    .compileComponents();
+      imports: [BrowserAnimationsModule, NoopAnimationsModule],
+      declarations: [InlineProfileComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

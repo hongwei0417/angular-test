@@ -3,7 +3,6 @@
     [layoutSettings]="layoutSettings" (updateLayout)="updateLayout.next($event)"></li>
 </ul> -->
 
-
 <div class="menuMain">
   <div class="container">
     <div class="logo">
@@ -18,7 +17,7 @@
           id="menu-button"
           href="#"
           (click)="onMenuButtonClick($event)"
-          [ngClass]="{ 'menu-button-rotate': layoutSettings.rotateMenuButton }"
+          [ngClass]="{ 'menu-button-rotate': layoutSettings?.rotateMenuButton }"
         >
           <i class="pi pi-angle-left"></i>
         </a>
@@ -26,8 +25,15 @@
     </div>
 
     <ul class="layout-menu layout-main-menu clearfix">
-      <li app-menuitem *ngFor="let item of menu; let i = index;" [item]="item" [index]="i" [root]="true"
-        [layoutSettings]="layoutSettings" (updateLayout)="updateLayout.next($event)"></li>
+      <li
+        app-menuitem
+        *ngFor="let item of menu; let i = index"
+        [item]="item"
+        [index]="i"
+        [root]="true"
+        [layoutSettings]="layoutSettings"
+        (updateLayout)="updateLayout.next($event)"
+      ></li>
     </ul>
 
     <div class="settingGroup">
@@ -36,6 +42,5 @@
         <i class="pi pi-fw pi-sign-out"></i>
       </a>
     </div>
-
   </div>
 </div>

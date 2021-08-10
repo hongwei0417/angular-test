@@ -1,0 +1,576 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TxnCreateComponent should match snapshot 1`] = `
+<app-txn-create
+  APBookingIds={[Function Array]}
+  __ngContext__={[Function LRootView]}
+  accordionStates="false"
+  clearState={[Function EventEmitter_]}
+  errorMessage=""
+  formBuilder={[Function FormBuilder]}
+  frequencyForm={[Function FormGroup]}
+  stateOptions={[Function Array]}
+  stateOptionsAccordion={[Function Array]}
+  submitted={[Function EventEmitter_]}
+  timeZoneIds={[Function Array]}
+  txnForm={[Function FormGroup]}
+>
+  <div
+    class="transactionCreate"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="title"
+      >
+        <h2>
+          Create Transaction
+        </h2>
+        <button
+          class="txtBtn customBtn arrow"
+          routerlink="/transaction/list"
+        >
+           Back 
+        </button>
+      </div>
+      <div
+        class="transactionSetting"
+      >
+        <h3>
+          Transaction Setting
+        </h3>
+        <div
+          class="fieldContent"
+        >
+          <form
+            class="transactionBasicInfo ng-untouched ng-pristine ng-invalid"
+            novalidate=""
+          >
+            <h4>
+              Basic Info
+            </h4>
+            <div
+              class="itemGroup"
+            >
+              <div
+                class="item"
+              >
+                <label
+                  class="fieldRequired"
+                >
+                  <span>
+                    Transaction Name
+                  </span>
+                </label>
+                <input
+                  class="ng-untouched ng-pristine ng-invalid"
+                  formcontrolname="TransactionName"
+                  type="text"
+                />
+              </div>
+              <div
+                class="item"
+              >
+                <label
+                  class="fieldRequired"
+                >
+                  <span>
+                    AP Booking
+                  </span>
+                </label>
+                <p-autocomplete
+                  class="ng-untouched ng-pristine ng-invalid"
+                  formcontrolname="APBooking"
+                  placeholder="Select"
+                >
+                  <span
+                    class="p-autocomplete p-component p-autocomplete-dd"
+                  >
+                    <input
+                      aria-activedescendant="p-highlighted-option"
+                      aria-autocomplete="list"
+                      aria-controls="pr_id_1_list"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      autocomplete="off"
+                      class="p-autocomplete-input p-inputtext p-component p-autocomplete-dd-input"
+                      placeholder="Select"
+                      role="searchbox"
+                      type="text"
+                    />
+                    <button
+                      class="p-autocomplete-dropdown p-ripple p-button p-component p-button-icon-only"
+                      pbutton=""
+                      pripple=""
+                      type="button"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="p-button-icon pi pi-chevron-down"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="p-button-label"
+                      >
+                      </span>
+                    </button>
+                  </span>
+                </p-autocomplete>
+              </div>
+              <div
+                class="item"
+              >
+                <p>
+                  Active Flag
+                </p>
+                <p-selectbutton
+                  class="ng-untouched ng-pristine ng-valid"
+                  formcontrolname="ActiveFlag"
+                >
+                  <div
+                    class="p-selectbutton p-buttonset p-component"
+                    role="group"
+                  >
+                    <div
+                      aria-label="Yes"
+                      aria-labelledby="Yes"
+                      aria-pressed="false"
+                      class="p-button p-component p-ripple"
+                      pripple=""
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="p-button-label"
+                      >
+                        Yes
+                      </span>
+                    </div>
+                    <div
+                      aria-label="No"
+                      aria-labelledby="No"
+                      aria-pressed="true"
+                      class="p-button p-component p-highlight p-ripple"
+                      pripple=""
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="p-button-label"
+                      >
+                        No
+                      </span>
+                    </div>
+                  </div>
+                </p-selectbutton>
+              </div>
+              <div
+                class="item"
+              >
+                <label>
+                  Start Time
+                </label>
+                <p-calendar
+                  class="ng-untouched ng-pristine ng-valid"
+                  dateformat="yy/mm/dd"
+                  formcontrolname="date"
+                  hourformat="24"
+                >
+                  <span
+                    class="p-calendar"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="p-inputtext p-component"
+                      placeholder=""
+                      type="text"
+                    />
+                  </span>
+                </p-calendar>
+              </div>
+              <div
+                class="item"
+              >
+                <label>
+                  Alarm Interval Min
+                </label>
+                <input
+                  class="ng-untouched ng-pristine ng-valid"
+                  formcontrolname="alarmIntervalMin"
+                  placeholder="Numbers only"
+                  type="number"
+                />
+              </div>
+            </div>
+          </form>
+          <form
+            class="frequencySetting ng-untouched ng-pristine ng-invalid"
+            novalidate=""
+          >
+            <h4>
+              Frequency Setting
+            </h4>
+            <div
+              class="bg"
+            >
+              <div
+                class="accordionGroup"
+              >
+                <div
+                  class="accordionTool"
+                >
+                  <div
+                    class="itemGroup"
+                  >
+                    <div
+                      class="item"
+                    >
+                      <label
+                        class="fieldRequired"
+                      >
+                        <span>
+                          Last Tran Time
+                        </span>
+                      </label>
+                    </div>
+                    <div
+                      class="item"
+                    >
+                      <label
+                        class="fieldRequired"
+                      >
+                        <span>
+                          Cron Expression
+                        </span>
+                      </label>
+                    </div>
+                    <div
+                      class="item"
+                    >
+                      <button
+                        class="txtBtn small customBtn add"
+                      >
+                         Generate Cron 
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="btnGroup"
+                  >
+                    <button
+                      class="iconBtn small customBtn add"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="accordionItem"
+                >
+                  <div
+                    class="accordionHeader"
+                  >
+                    <div
+                      class="itemGroup"
+                    >
+                      <div
+                        class="item"
+                      >
+                        <p-calendar
+                          class="ng-untouched ng-pristine ng-invalid"
+                          dateformat="yy/mm/dd"
+                          formcontrolname="LastTranTime"
+                          hourformat="24"
+                        >
+                          <span
+                            class="p-calendar"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="p-inputtext p-component"
+                              placeholder=""
+                              type="text"
+                            />
+                          </span>
+                        </p-calendar>
+                      </div>
+                      <div
+                        class="item"
+                      >
+                        <input
+                          class="ng-untouched ng-pristine ng-invalid"
+                          formcontrolname="CronExpression"
+                          placeholder="0 5 * ? * * *"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="btnGroup"
+                    >
+                      <button
+                        class="iconBtn small customBtnReverseLine remove"
+                      />
+                      <button
+                        class="iconBtn small customBtn copy"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="accordionContent"
+                  >
+                    <div
+                      class="itemGroup"
+                    >
+                      <div
+                        class="item"
+                      >
+                        <label>
+                          Time Zone ID
+                        </label>
+                        <p-autocomplete
+                          class="ng-untouched ng-pristine ng-valid"
+                          formcontrolname="TimeZone"
+                          placeholder="Select"
+                        >
+                          <span
+                            class="p-autocomplete p-component p-autocomplete-dd"
+                          >
+                            <input
+                              aria-activedescendant="p-highlighted-option"
+                              aria-autocomplete="list"
+                              aria-controls="pr_id_2_list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              autocomplete="off"
+                              class="p-autocomplete-input p-inputtext p-component p-autocomplete-dd-input"
+                              placeholder="Select"
+                              role="searchbox"
+                              type="text"
+                            />
+                            <button
+                              class="p-autocomplete-dropdown p-ripple p-button p-component p-button-icon-only"
+                              pbutton=""
+                              pripple=""
+                              type="button"
+                            >
+                              <span
+                                aria-hidden="true"
+                                class="p-button-icon pi pi-chevron-down"
+                              />
+                              <span
+                                aria-hidden="true"
+                                class="p-button-label"
+                              >
+                              </span>
+                            </button>
+                          </span>
+                        </p-autocomplete>
+                      </div>
+                      <div
+                        class="item"
+                      >
+                        <label>
+                          Retry Times
+                        </label>
+                        <input
+                          class="ng-untouched ng-pristine ng-valid"
+                          formcontrolname="RetryTimes"
+                          placeholder="Numbers only"
+                          type="number"
+                        />
+                      </div>
+                      <div
+                        class="item"
+                      >
+                        <label>
+                          Loader Buffer Time
+                        </label>
+                        <input
+                          class="ng-untouched ng-pristine ng-valid"
+                          formcontrolname="LoaderBufferTime"
+                          placeholder="Numbers only"
+                          type="number"
+                        />
+                      </div>
+                      <div
+                        class="item"
+                      >
+                        <label>
+                          Back To Buffer Time
+                        </label>
+                        <input
+                          class="ng-untouched ng-pristine ng-valid"
+                          formcontrolname="BackToBufferTime"
+                          placeholder="Numbers only"
+                          type="number"
+                        />
+                      </div>
+                      <div
+                        class="item"
+                      >
+                        <label>
+                          Shift Back To Loader Time
+                        </label>
+                        <input
+                          class="ng-untouched ng-pristine ng-valid"
+                          formcontrolname="ShiftBackToLoaderTime"
+                          placeholder="Numbers only"
+                          type="number"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="itemGroup"
+                    >
+                      <div
+                        class="item"
+                      >
+                        <label>
+                          Start At
+                        </label>
+                        <p-calendar
+                          class="ng-untouched ng-pristine ng-valid"
+                          dateformat="yy/mm/dd"
+                          formcontrolname="StartAt"
+                        >
+                          <span
+                            class="p-calendar"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="p-inputtext p-component"
+                              placeholder=""
+                              type="text"
+                            />
+                          </span>
+                        </p-calendar>
+                      </div>
+                      <div
+                        class="item"
+                      >
+                        <label>
+                          End At
+                        </label>
+                        <p-calendar
+                          class="ng-untouched ng-pristine ng-valid"
+                          dateformat="yy/mm/dd"
+                          formcontrolname="EndAt"
+                        >
+                          <span
+                            class="p-calendar"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="p-inputtext p-component"
+                              placeholder=""
+                              type="text"
+                            />
+                          </span>
+                        </p-calendar>
+                      </div>
+                      <div
+                        class="item"
+                      >
+                        <p>
+                          Skip Over Due
+                        </p>
+                        <p-selectbutton
+                          class="ng-untouched ng-pristine ng-valid"
+                          formcontrolname="SkipOverDue"
+                        >
+                          <div
+                            class="p-selectbutton p-buttonset p-component"
+                            role="group"
+                          >
+                            <div
+                              aria-label="Y"
+                              aria-labelledby="Y"
+                              aria-pressed="false"
+                              class="p-button p-component p-ripple"
+                              pripple=""
+                              role="button"
+                              tabindex="0"
+                            >
+                              <span
+                                class="p-button-label"
+                              >
+                                Y
+                              </span>
+                            </div>
+                            <div
+                              aria-label="N"
+                              aria-labelledby="N"
+                              aria-pressed="true"
+                              class="p-button p-component p-highlight p-ripple"
+                              pripple=""
+                              role="button"
+                              tabindex="0"
+                            >
+                              <span
+                                class="p-button-label"
+                              >
+                                N
+                              </span>
+                            </div>
+                          </div>
+                        </p-selectbutton>
+                      </div>
+                      <div
+                        class="item"
+                      >
+                        <p>
+                          Skip All Over Due
+                        </p>
+                        <p-selectbutton
+                          class="ng-untouched ng-pristine ng-valid"
+                          formcontrolname="SkipAllOverDue"
+                        >
+                          <div
+                            class="p-selectbutton p-buttonset p-component"
+                            role="group"
+                          >
+                            <div
+                              aria-label="Y"
+                              aria-labelledby="Y"
+                              aria-pressed="false"
+                              class="p-button p-component p-ripple"
+                              pripple=""
+                              role="button"
+                              tabindex="0"
+                            >
+                              <span
+                                class="p-button-label"
+                              >
+                                Y
+                              </span>
+                            </div>
+                            <div
+                              aria-label="N"
+                              aria-labelledby="N"
+                              aria-pressed="true"
+                              class="p-button p-component p-highlight p-ripple"
+                              pripple=""
+                              role="button"
+                              tabindex="0"
+                            >
+                              <span
+                                class="p-button-label"
+                              >
+                                N
+                              </span>
+                            </div>
+                          </div>
+                        </p-selectbutton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-txn-create>
+`;

@@ -2,6 +2,7 @@
 
 exports[`TransactionCreateComponent should match snapshot 1`] = `
 <app-txn-create-page
+  __ngContext__={[Function LRootView]}
   error$={[Function Store]}
   store$={[Function MockStore]}
 >
