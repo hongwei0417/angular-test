@@ -1,0 +1,366 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TxnListTableComponent should match snapshot 1`] = `
+<app-txn-list-table
+  __ngContext__={[Function LRootView]}
+  fb={[Function FormBuilder]}
+  removeEvent={[Function EventEmitter_]}
+  searchForm={[Function FormGroup]}
+  tableCols={[Function Array]}
+  tableData={[Function Array]}
+>
+  <div
+    class="transactionList"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="title"
+      >
+        <h2>
+          Transaction List
+        </h2>
+        <button
+          class="txtBtn customBtn add"
+          routerlink="/transaction/create"
+        >
+           Create New Transaction 
+        </button>
+      </div>
+      <form
+        class="fieldContent ng-untouched ng-pristine ng-valid"
+        novalidate=""
+      >
+        <div
+          class="itemGroup"
+        >
+          <div
+            class="item insertIcon filter"
+          >
+            <label>
+              Global Filter
+            </label>
+            <input
+              class="ng-untouched ng-pristine ng-valid"
+              formcontrolname="globalFilter"
+              placeholder="Search"
+              type="text"
+            />
+          </div>
+        </div>
+      </form>
+      <p-table>
+        <div
+          class="p-datatable p-component p-datatable-scrollable"
+          data-scrollselectors=".p-datatable-scrollable-body, .p-datatable-unfrozen-view .p-datatable-scrollable-body"
+        >
+          <div
+            class="p-datatable-scrollable-wrapper"
+          >
+            <div
+              class="p-datatable-scrollable-view"
+              style="width: calc(100% - undefined);"
+            >
+              <div
+                class="p-datatable-scrollable-header"
+              >
+                <div
+                  class="p-datatable-scrollable-header-box"
+                  style="padding-right: 0px;"
+                >
+                  <table
+                    class="p-datatable-scrollable-header-table"
+                  >
+                    <thead
+                      class="p-datatable-thead"
+                    >
+                      <tr>
+                        <th>
+                           View 
+                        </th>
+                        <th>
+                           Edit 
+                        </th>
+                        <th>
+                           Copy 
+                        </th>
+                        <th>
+                           Execute 
+                        </th>
+                        <th>
+                           Reload 
+                        </th>
+                        <th
+                          aria-sort="none"
+                          class="p-sortable-column"
+                          role="columnheader"
+                          tabindex="0"
+                        >
+                           Transaction Id
+                          <p-sorticon>
+                            <i
+                              class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                            />
+                          </p-sorticon>
+                        </th>
+                        <th
+                          aria-sort="none"
+                          class="p-sortable-column"
+                          role="columnheader"
+                          tabindex="0"
+                        >
+                           Transaction Name
+                          <p-sorticon>
+                            <i
+                              class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                            />
+                          </p-sorticon>
+                        </th>
+                        <th
+                          aria-sort="none"
+                          class="p-sortable-column"
+                          role="columnheader"
+                          tabindex="0"
+                        >
+                           Start Time
+                          <p-sorticon>
+                            <i
+                              class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                            />
+                          </p-sorticon>
+                        </th>
+                        <th
+                          aria-sort="none"
+                          class="p-sortable-column"
+                          role="columnheader"
+                          tabindex="0"
+                        >
+                           End Time
+                          <p-sorticon>
+                            <i
+                              class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                            />
+                          </p-sorticon>
+                        </th>
+                        <th
+                          aria-sort="none"
+                          class="p-sortable-column"
+                          role="columnheader"
+                          tabindex="0"
+                        >
+                           Active Flag
+                          <p-sorticon>
+                            <i
+                              class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                            />
+                          </p-sorticon>
+                        </th>
+                        <th
+                          aria-sort="none"
+                          class="p-sortable-column"
+                          role="columnheader"
+                          tabindex="0"
+                        >
+                           AP Booking
+                          <p-sorticon>
+                            <i
+                              class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                            />
+                          </p-sorticon>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="p-datatable-tbody"
+                    >
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div
+                class="p-datatable-scrollable-body"
+              >
+                <table>
+                  <tbody
+                    class="p-datatable-tbody"
+                  >
+                    <tr>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse view"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse edit"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse copy"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse execute"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse reload"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                         0000000061 
+                      </td>
+                      <td>
+                         A73A_ForPortalCPHoldDisposition 
+                      </td>
+                      <td>
+                         20190814 092000 
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                         N 
+                      </td>
+                      <td>
+                         EBAP-HLO999 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse view"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse edit"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse copy"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse execute"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse reload"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                         0000000060 
+                      </td>
+                      <td>
+                         OVT_InvAdjReport_Export_Mail 
+                      </td>
+                      <td>
+                         20200415 000000 
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                         N 
+                      </td>
+                      <td>
+                         EBAP-HLO999 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse view"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse edit"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse copy"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse execute"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="iconBtn customBtnReverse reload"
+                          type="button"
+                        />
+                      </td>
+                      <td>
+                         0000000059 
+                      </td>
+                      <td>
+                         OVT_InvAdjusmentReport 
+                      </td>
+                      <td>
+                         20200415 000000 
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                         N 
+                      </td>
+                      <td>
+                         EBAP-HLO999 
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="p-datatable-scrollable-footer"
+              >
+                <div
+                  class="p-datatable-scrollable-footer-box"
+                  style="padding-right: 0px;"
+                >
+                  <table
+                    class="p-datatable-scrollable-footer-table"
+                  >
+                    <tfoot
+                      class="p-datatable-tfoot"
+                    >
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p-paginator
+            styleclass="p-paginator-bottom"
+          >
+          </p-paginator>
+        </div>
+      </p-table>
+    </div>
+  </div>
+</app-txn-list-table>
+`;

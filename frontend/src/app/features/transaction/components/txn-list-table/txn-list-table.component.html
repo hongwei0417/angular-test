@@ -1,28 +1,3 @@
-<!-- <h3 class="text-center">Txn List Table</h3>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th>ExecuteCount</th>
-      <th>CreateTime</th>
-      <th>Remove</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of txnData; let i = index">
-      <td>{{ item.id }}</td>
-      <td>{{ item.title }}</td>
-      <td>{{ item.content }}</td>
-      <td>{{ item.executeCount }}</td>
-      <td>{{ item.createTime | date }}</td>
-      <td><button (click)="removeTxn(item.id)">刪除</button></td>
-    </tr>
-  </tbody>
-</table> -->
-
 <div class="transactionList">
   <div class="container">
     <div class="title">
@@ -45,12 +20,12 @@
       </div>
     </form>
 
-    <ng-container *ngIf="tableData$ | async as tableData">
+    <ng-container *ngIf="tableData">
       <p-table
         [value]="tableData"
         [columns]="tableCols"
         [paginator]="true"
-        [rows]="2"
+        [rows]="tableData.length"
         [pageLinks]="3"
         [alwaysShowPaginator]="false"
         [scrollable]="true"

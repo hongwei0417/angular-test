@@ -8,6 +8,7 @@ import {
   Output,
 } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormControl,
   FormControlName,
@@ -15,7 +16,6 @@ import {
   Validators,
 } from '@angular/forms';
 // import { AutoComplete } from 'primeng/autocomplete';
-
 
 @Component({
   selector: 'app-txn-create',
@@ -29,7 +29,7 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
     executeCount: number;
   }>();
   @Output() clearState = new EventEmitter();
-  @Input() errorMessage: string = '';
+  @Input() errorMessage = '';
   // create form type 1
   // txnForm = new FormGroup({
   //   title: new FormControl('', [Validators.required]),
@@ -44,7 +44,7 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
   //   executeCount: ['', [Validators.required, Validators.min(0)]],
   // });
 
-  //新增
+  // 新增
   APBookingIds!: string[];
   timeZoneIds!: string[];
 
@@ -71,7 +71,7 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
 
   frequencyForm!: FormGroup;
 
-  accordionStates:boolean=false;
+  accordionStates: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -82,8 +82,8 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
         APBooking: [, Validators.required],
         ActiveFlag: [false, Validators.required],
         date: [],
-        time:[],
-        alarmIntervalMin:[]
+        time: [],
+        alarmIntervalMin: [],
       });
     };
 
@@ -91,20 +91,17 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
       this.frequencyForm = this.formBuilder.group({
         LastTranTime: [, Validators.required],
         CronExpression: [, Validators.required],
-        TimeZone:[],
-        RetryTimes:[],
-        StartAt:[],
-        LoaderBufferTime:[],
-        EndAt:[],
-        BackToBufferTime:[],
-        SkipOverDue:[false],
-        ShiftBackToLoaderTime:[],
-        SkipAllOverDue:[false]
+        TimeZone: [],
+        RetryTimes: [],
+        StartAt: [],
+        LoaderBufferTime: [],
+        EndAt: [],
+        BackToBufferTime: [],
+        SkipOverDue: [false],
+        ShiftBackToLoaderTime: [],
+        SkipAllOverDue: [false],
       });
     };
-
-
-
     initForm();
     frequencyFormInfo();
   }
@@ -115,20 +112,16 @@ export class TxnCreateComponent implements OnInit, OnDestroy {
 
   filterAPBookingIds(inputtedCustNameEvent: any): void {
     let query = inputtedCustNameEvent.query;
-    this.APBookingIds = ['1','2']
+    this.APBookingIds = ['1', '2'];
   }
 
   filterTimeZone(inputtedCustNameEvent: any): void {
     let query = inputtedCustNameEvent.query;
-    this.timeZoneIds = [
-      'Taipei Standard Time',
-      'Japan Standard Time'
-    ]
+    this.timeZoneIds = ['Taipei Standard Time', 'Japan Standard Time'];
   }
 
-
-  toggleAccordion(event:any) {
-    console.log(event)
+  toggleAccordion(event: any) {
+    console.log(event);
     this.accordionStates = !this.accordionStates;
   }
 

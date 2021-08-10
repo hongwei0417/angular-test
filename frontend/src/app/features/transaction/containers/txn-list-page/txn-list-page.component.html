@@ -10,6 +10,6 @@
 </div>
 
 <app-txn-list-table
-  [txnData]="(txnData$ | async)!"
+  [tableData]="[]"
   (removeEvent)="onRemoveTxn($event)"
 ></app-txn-list-table>
