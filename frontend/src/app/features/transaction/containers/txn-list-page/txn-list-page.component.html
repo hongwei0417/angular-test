@@ -1,15 +1,14 @@
-<h3 class="text-center">Transaction List Page</h3>
+<div class="transactionList">
+  <div class="container">
+    <div class="title">
+      <h2>Transaction List</h2>
+      <button class="txtBtn customBtn add" routerLink="/transaction/create">
+        Create New Transaction
+      </button>
+    </div>
 
-<div class="d-flex justify-content-center">
-  <button [routerLink]="['/transaction', 'list']">Transaction list</button>
-  <button [routerLink]="['/transaction', 'create']">Create Transaction</button>
+    <app-global-filter></app-global-filter>
+
+    <app-txn-list-table [tableData]="(txnData$ | async)!"></app-txn-list-table>
+  </div>
 </div>
-
-<div class="d-flex justify-content-center">
-  <button id="generateDataBtn" (click)="loadTxnData()">Generate Data</button>
-</div>
-
-<app-txn-list-table
-  [tableData]="[]"
-  (removeEvent)="onRemoveTxn($event)"
-></app-txn-list-table>

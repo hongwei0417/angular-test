@@ -1,19 +1,19 @@
-import { Transaction } from '../models/Transaction';
 import { Action, createReducer, on } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { TxnApiActions, TxnListPageActions } from '../actions';
+import { TxnListTableRow } from '../models/TxnListTable';
 
 export const FeatureKey = 'txnListPage';
 
-export interface State extends EntityState<Transaction> {
+export interface State extends EntityState<TxnListTableRow> {
   loaded: boolean;
   loading: boolean;
   latestId: string | null;
 }
 
-export const adapter: EntityAdapter<Transaction> =
-  createEntityAdapter<Transaction>({
-    selectId: (txn) => txn.id,
+export const adapter: EntityAdapter<TxnListTableRow> =
+  createEntityAdapter<TxnListTableRow>({
+    selectId: (txn) => txn.TRANSACTIONID,
     sortComparer: false,
   });
 
@@ -31,8 +31,8 @@ export const reducer = createReducer(
       loading: true,
     };
   }),
-  on(TxnApiActions.loadTxnApiSuccess, (state, action) => {
-    return adapter.addMany(action.txns, {
+  on(TxnApiActions.loadTxnApiSuccess, (state, { type, txnData }) => {
+    return adapter.addMany(txnData, {
       ...state,
       loading: false,
       loaded: true,
@@ -45,5 +45,12 @@ export const reducer = createReducer(
     return adapter.removeOne(action.id, state);
   })
 );
+
+export const {
+  selectAll: getAllTxns,
+  selectEntities: getTxnEntities,
+  selectIds: getTxnIds,
+  selectTotal: getTotalTxns,
+} = adapter.getSelectors();
 
 export const getLatestId = (state: State) => state.latestId;

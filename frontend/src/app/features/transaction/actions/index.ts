@@ -1,5 +1,11 @@
 import * as TxnApiActions from './txn-api.actions';
 import * as TxnCreatePageActions from './txn-create-page.actions';
 import * as TxnListPageActions from './txn-list-page.actions';
+import * as TxnSettingFormActions from './txn-setting-form.actions';
 
-export { TxnApiActions, TxnCreatePageActions, TxnListPageActions };
+export {
+  TxnApiActions,
+  TxnCreatePageActions,
+  TxnListPageActions,
+  TxnSettingFormActions,
+};

@@ -1,0 +1,36 @@
+import { TxnListTableData } from './../../../features/transaction/models/TxnListTable';
+export const autoschtranms: TxnListTableData[] = [
+  {
+    TRANSACTIONID: '0000000061',
+    TRANSACTIONNAME: 'A73A_ForPortalCPHoldDisposition',
+    STARTTIME: '20190814 092000',
+    EXECUTINGFLAG: 'N',
+    ACTIVEFLAG: 'N',
+    TRANSACTION_TYPE: '1',
+    SHIFTPAGE: '1',
+    AP_BOOKING: 'EBAP-HLO999',
+    ISDBLOGFLAG: 'N',
+  },
+  {
+    TRANSACTIONID: '0000000060',
+    TRANSACTIONNAME: 'OVT_InvAdjReport_Export_Mail',
+    STARTTIME: '20200415 000000',
+    EXECUTINGFLAG: 'N',
+    ACTIVEFLAG: 'N',
+    TRANSACTION_TYPE: '1',
+    SHIFTPAGE: '1',
+    AP_BOOKING: 'EBAP-HLO999',
+    ISDBLOGFLAG: 'N',
+  },
+  {
+    TRANSACTIONID: '0000000059',
+    TRANSACTIONNAME: 'OVT_InvAdjusmentReport',
+    STARTTIME: '20200415 000000',
+    EXECUTINGFLAG: 'N',
+    TRANSACTION_TYPE: '1',
+    ACTIVEFLAG: 'N',
+    SHIFTPAGE: '1',
+    AP_BOOKING: 'EBAP-HLO999',
+    ISDBLOGFLAG: 'N',
+  },
+];

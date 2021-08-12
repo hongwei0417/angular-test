@@ -52,24 +52,24 @@ describe('TransactionListComponent', () => {
     expect(fixture).toMatchSnapshot();
   });
 
-  it('should dispatch a TxnListPage.LoadTxnList action on click', () => {
-    const action = TxnListPageActions.loadTxnList();
-    const btnElement = listPageElement.querySelector(
-      '#generateDataBtn'
-    ) as HTMLElement;
-    btnElement.click();
-    expect(store$.dispatch).toHaveBeenCalledWith(action);
-  });
+  // it('should dispatch a TxnListPage.LoadTxnList action on click', () => {
+  //   const action = TxnListPageActions.loadTxnList();
+  //   const btnElement = listPageElement.querySelector(
+  //     '#generateDataBtn'
+  //   ) as HTMLElement;
+  //   btnElement.click();
+  //   expect(store$.dispatch).toHaveBeenCalledWith(action);
+  // });
 
-  it('should navigate to create txn page on click', () => {
-    const linkDes = fixture.debugElement.queryAll(
-      By.directive(RouterLinkDirectiveStub)
-    );
-    const routerLinks = linkDes.map((de) =>
-      de.injector.get(RouterLinkDirectiveStub)
-    );
-    linkDes[1].triggerEventHandler('click', null);
-    fixture.detectChanges();
-    expect(routerLinks[1].navigatedTo).toEqual(['/transaction', 'create']);
-  });
+  // it('should navigate to create txn page on click', () => {
+  //   const linkDes = fixture.debugElement.queryAll(
+  //     By.directive(RouterLinkDirectiveStub)
+  //   );
+  //   const routerLinks = linkDes.map((de) =>
+  //     de.injector.get(RouterLinkDirectiveStub)
+  //   );
+  //   linkDes[1].triggerEventHandler('click', null);
+  //   fixture.detectChanges();
+  //   expect(routerLinks[1].navigatedTo).toEqual(['/transaction', 'create']);
+  // });
 });

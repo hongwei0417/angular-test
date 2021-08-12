@@ -5,7 +5,7 @@ import { TableModule } from 'primeng/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TxnCreateComponent } from './txn-create.component';
+import { TxnCreateComponent } from './txn-basic-info.component';
 
 describe('TxnCreateComponent', () => {
   let component: TxnCreateComponent;

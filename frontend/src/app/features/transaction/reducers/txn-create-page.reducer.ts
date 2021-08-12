@@ -1,4 +1,4 @@
-import { Action, createFeatureSelector, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { TxnApiActions, TxnCreatePageActions } from '../actions';
 
 export const FeatureKey = 'txnCreatePage';
@@ -37,11 +37,3 @@ export const reducer = createReducer(
 
 export const isLoading = (state: State) => state.loading;
 export const getError = (state: State) => state.error;
-
-// Testing
-export function generateMockState(): State {
-  return {
-    loading: true,
-    error: 'this is a error',
-  };
-}

@@ -6,9 +6,3 @@ export const deleteTxn = createAction(
   '[TxnListPage] Delete Txn',
   props<{ id: string }>()
 );
-
-const all = union({
-  loadTxnList,
-  deleteTxn,
-});
-export type TxnListPageActionUnion = typeof all;

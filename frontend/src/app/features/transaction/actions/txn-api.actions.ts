@@ -1,9 +1,9 @@
-import { Transaction } from '../models/Transaction';
 import { createAction, props, union } from '@ngrx/store';
+import { TxnListTableRow } from '../models/TxnListTable';
 
 export const loadTxnApiSuccess = createAction(
   '[TxnApi] Load Transaction Success',
-  props<{ txns: Transaction[] }>()
+  props<{ txnData: TxnListTableRow[] }>()
 );
 
 export const loadTxnApiFailure = createAction(
@@ -18,19 +18,10 @@ export const deleteTxnApiSuccess = createAction(
 
 export const createTxnApiSuccess = createAction(
   '[TxnApi] Create Transaction Success',
-  props<{ txn: Transaction }>()
+  props<{ txn: TxnListTableRow }>()
 );
 
 export const createTxnApiFail = createAction(
   '[TxnApi] Create Transaction Failure',
   props<{ error: any }>()
 );
-
-const all = union({
-  createTxnApiSuccess,
-  createTxnApiFail,
-  loadTxnApiSuccess,
-  loadTxnApiFailure,
-  deleteTxnApiSuccess,
-});
-export type TxnApiActionUnion = typeof all;

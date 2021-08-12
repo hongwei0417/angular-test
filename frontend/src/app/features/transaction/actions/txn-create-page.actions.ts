@@ -8,9 +8,3 @@ export const createTxn = createAction(
 export const clearTxnCreatePageState = createAction(
   '[TxnCreatePage] Clear TxnCreate Page State'
 );
-
-const all = union({
-  createTxn,
-  clearTxnCreatePageState,
-});
-export type TxnCreatePageActionUnion = typeof all;

@@ -1,0 +1,69 @@
+<form [ngrxFormState]="formState" class="transactionBasicInfo">
+  <h4>Basic Info</h4>
+  <div class="itemGroup">
+    <div
+      class="item"
+      *ngIf="formState.controls.TransactionName as TransactionName"
+    >
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(TransactionName.isInvalid && TransactionName.isTouched)"
+          >Transaction Name</span
+        >
+        <p *ngIf="TransactionName.isInvalid && TransactionName.isTouched">
+          "Transaction Name" is required
+        </p>
+      </label>
+      <input type="text" [ngrxFormControlState]="TransactionName" />
+    </div>
+    <div class="item" *ngIf="formState.controls.APBooking as APBooking">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(APBooking.isInvalid && APBooking.isTouched)"
+          >AP Booking</span
+        >
+        <p *ngIf="APBooking.isInvalid && APBooking.isTouched">
+          "AP Booking" is required
+        </p>
+      </label>
+      <p-autoComplete
+        placeholder="Select"
+        [ngrxFormControlState]="APBooking"
+        [suggestions]="APBookingIds"
+        [dropdown]="true"
+        (completeMethod)="filterAPBookingIds($event)"
+      >
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{ custId }}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+    <div class="item" *ngIf="formState.controls.ActiveFlag as ActiveFlag">
+      <p>Active Flag</p>
+      <p-selectButton
+        [options]="stateOptions"
+        [ngrxFormControlState]="ActiveFlag"
+      ></p-selectButton>
+    </div>
+    <div class="item" *ngIf="formState.controls.date as date">
+      <label for="">Start Time</label>
+      <p-calendar
+        dateFormat="yy/mm/dd"
+        [ngrxFormControlState]="date"
+        [showTime]="true"
+        hourFormat="24"
+      ></p-calendar>
+    </div>
+    <div
+      class="item"
+      *ngIf="formState.controls.alarmIntervalMin as alarmIntervalMin"
+    >
+      <label for="">Alarm Interval Min</label>
+      <input
+        [ngrxFormControlState]="alarmIntervalMin!"
+        type="number"
+        placeholder="Numbers only"
+      />
+    </div>
+  </div>
+</form>

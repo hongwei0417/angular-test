@@ -1,0 +1,20 @@
+@import "/src/assets/styles/variables.scss";
+@import "../../containers/txn-setting/txn-setting.component.scss";
+
+.transactionBasicInfo .itemGroup {
+  padding: 15px;
+  background: $gray-200;
+}
+
+.transactionBasicInfo .item:nth-child(-n + 2) {
+  width: calc(50% - 35px / 2);
+}
+
+.transactionBasicInfo .item:nth-child(3) {
+  margin-left: 0;
+}
+
+.transactionBasicInfo .item:nth-last-child(-n + 3) {
+  margin-top: 20px;
+  width: calc(33.333333% - 70px / 3);
+}

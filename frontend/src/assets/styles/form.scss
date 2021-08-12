@@ -16,34 +16,33 @@
 //   vertical-align: baseline;
 // }
 
-
-form{
+form {
   margin-bottom: 25px;
 
-  label,p{
+  label,
+  p {
     margin-bottom: 5px;
     font-weight: 500;
   }
 
-  label{
+  label {
     display: block;
   }
 
-
-  .fieldRequired{
+  .fieldRequired {
     display: flex;
 
-    span:after{
-      content: ' *';
+    span:after {
+      content: " *";
       color: #fd6061;
     }
 
-    p{
-      color: #FD6061;
+    p {
+      color: #fd6061;
     }
   }
 
-  input{
+  input {
     outline: none;
     border: none;
     box-shadow: 0 0 0 1px inset #ced4da;
@@ -53,56 +52,55 @@ form{
     font-family: arial;
     font-size: 14px;
 
-    &::-webkit-inner-spin-button { //清除"input type = number"的樣式
+    &::-webkit-inner-spin-button {
+      //清除"input type = number"的樣式
       appearance: none;
     }
 
     &::-webkit-input-placeholder {
-      color: #AAAAAA;
+      color: #aaaaaa;
       font-weight: 300;
     }
 
-    &:focus{
-      box-shadow:
-      0 0 0 1px inset #6ab7ff,
-      0px 0px 5px 0 inset rgba($primary-medium,.25);
+    &:focus {
+      box-shadow: 0 0 0 1px inset #6ab7ff,
+        0px 0px 5px 0 inset rgba($primary-medium, 0.25);
     }
 
-    &:read-only{
-      background-color: #DEE5F3;
+    &:read-only {
+      background-color: #dee5f3;
       cursor: not-allowed;
-      color: #AAAAAA;
+      color: #aaaaaa;
     }
 
-    &:read-only:focus{
+    &:read-only:focus {
       box-shadow: none;
     }
 
-    &.ng-invalid.ng-touched{
+    &.ng-invalid.ng-touched {
       box-shadow: 0 0 0 1px inset #fd6061;
     }
   }
 }
 
-.insertIcon{
+.insertIcon {
   position: relative;
 }
 
-.insertIcon:after{
+.insertIcon:after {
   // content: '';
-  content: '\f0b0';
+  content: "\f0b0";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  color: #AAAAAA;
+  color: #aaaaaa;
   position: absolute;
   bottom: 10px;
   right: 15px;
 }
 
-.insertIcon.filter:after{
-  content: '\f0b0';
+.insertIcon.filter:after {
+  content: "\f0b0";
 }
-
 
 //樣式在套件內，無法加class的情況，使用fontawasome
 //例如使用套件input calendar功能
@@ -110,31 +108,29 @@ form{
   font-family: "Font Awesome 5 Free";
   font-weight: 400;
   font-size: 20px;
-  color: #AAAAAA;
+  color: #aaaaaa;
 }
 
-
-
 // #region primeng Calendar
-p-calendar{
+p-calendar {
   width: 100%;
 }
 
-.p-calendar{
+.p-calendar {
   position: relative;
   display: block !important;
 }
 
 .p-calendar:after {
   @include icon();
-  content: '\f272';
+  content: "\f272";
   position: absolute;
   top: 50%;
   right: 15px;
   transform: translateY(-50%);
 }
 
-.p-calendar .p-inputtext{
+.p-calendar .p-inputtext {
   width: 100% !important;
   padding: 10px 15px;
   border: none;
@@ -144,76 +140,70 @@ p-calendar{
   font-family: arial;
 }
 
-.p-inputtext:enabled:focus{
+.p-inputtext:enabled:focus {
   border: none;
-  box-shadow:
-  0 0 0 1px inset #6ab7ff,
-  0px 0px 5px 0 inset rgba($primary-medium,.25);
+  box-shadow: 0 0 0 1px inset #6ab7ff,
+    0px 0px 5px 0 inset rgba($primary-medium, 0.25);
 }
 
-
-.p-datepicker .p-timepicker button{
+.p-datepicker .p-timepicker button {
   width: auto;
 }
 
 .p-datepicker .p-hour-picker,
-.p-datepicker .p-minute-picker{
+.p-datepicker .p-minute-picker {
   position: relative;
 }
 
-.p-datepicker .p-timepicker > div{
+.p-datepicker .p-timepicker > div {
   padding: 0;
 }
 
-
 .p-datepicker .p-hour-picker button,
-.p-datepicker .p-minute-picker button{
+.p-datepicker .p-minute-picker button {
   position: absolute;
   right: 15px;
 }
 
 .p-datepicker .p-hour-picker button:first-child,
-.p-datepicker .p-minute-picker button:first-child{
+.p-datepicker .p-minute-picker button:first-child {
   top: -10px;
 }
 
 .p-datepicker .p-hour-picker button:last-child,
-.p-datepicker .p-minute-picker button:last-child{
+.p-datepicker .p-minute-picker button:last-child {
   bottom: -10px;
 }
 
-.p-datepicker .p-minute-picker{
+.p-datepicker .p-minute-picker {
   margin-left: 10px;
 }
 
-
-.p-datepicker .p-timepicker{
+.p-datepicker .p-timepicker {
   padding: 10px;
 }
 
-.p-timepicker > div{
+.p-timepicker > div {
   flex-direction: row !important;
 }
 
-.p-datepicker .p-timepicker span{
+.p-datepicker .p-timepicker span {
   order: -1;
   font-size: 14px;
 }
 
 .p-datepicker .p-hour-picker > span,
-.p-datepicker .p-minute-picker > span{
+.p-datepicker .p-minute-picker > span {
   margin-right: 35px;
   font-size: 18px;
 }
 // #endregion primeng Calendar
 
-
-
-.p-autocomplete{
+.p-autocomplete {
   display: flex !important;
 }
 
-.p-autocomplete .p-inputtext{
+.p-autocomplete .p-inputtext {
   border: none;
   padding: 10px 15px;
   border-radius: 0;
@@ -222,37 +212,37 @@ p-calendar{
   font-family: arial;
 }
 
-
-
-
 // #region  primeng selectButton
-.p-selectbutton{
+.p-selectbutton {
   display: block;
 }
 
-.p-selectbutton .p-button{
+.p-selectbutton .p-button {
   width: 50%;
   padding: 10px 15px;
-  border-radius: 0 ;
-  background: #FFF;
+  border-radius: 0;
+  background: #fff;
   box-shadow: 0 0 0 1px inset $primary-medium;
   border: none;
   color: $primary-medium;
 }
 
-
-.p-button:focus{
+.p-button:focus {
   box-shadow: none;
 }
 
 .p-selectbutton .p-button.p-highlight,
 .p-selectbutton .p-button.p-highlight:hover,
-.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover{
+.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {
   background: $primary-medium;
 }
 
-.p-button-label{
+.p-button-label {
   font-size: 16px;
 }
 // #endregion  primeng selectButton
 
+.isValid {
+  border: 1px solid #fd6061;
+  box-shadow: none;
+}

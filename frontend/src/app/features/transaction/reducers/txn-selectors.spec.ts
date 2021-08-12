@@ -2,6 +2,7 @@ import * as fromTxn from './index';
 import * as fromTxnListPage from './txn-list-page.reducer';
 import * as fromTxnCreatePage from './txn-create-page.reducer';
 import { fakeData } from '../../../core/services/fake-data.service';
+import { autoschtranms } from './../../../shared/testing/data/txnListTableData';
 
 describe('Txn Selectors', () => {
   let initialState: fromTxn.TxnState;
@@ -13,12 +14,7 @@ describe('Txn Selectors', () => {
         error: 'this is a error',
       },
       [fromTxnListPage.FeatureKey]: {
-        ids: ['1', '2', '3'],
-        entities: {
-          1: fakeData[0],
-          2: fakeData[1],
-          3: fakeData[2],
-        },
+        ...getEntityState(),
         loaded: true,
         loading: true,
         latestId: '1',
@@ -70,4 +66,16 @@ describe('Txn Selectors', () => {
       expect(result).toBe(initialState[fromTxnCreatePage.FeatureKey].error);
     });
   });
+
+  const getEntityState = () => {
+    const ids = autoschtranms.map((i) => i.TRANSACTIONID);
+    const entities = {} as any;
+    ids.forEach((i, n) => (entities[i] = autoschtranms[n]));
+    const state: fromTxnListPage.State = {
+      ...fromTxnListPage.initialState,
+      ids,
+      entities,
+    };
+    return state;
+  };
 });

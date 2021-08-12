@@ -1,0 +1,13 @@
+<div class="transactionSetting">
+  <h3>Transaction Setting</h3>
+  <div class="fieldContent">
+    <app-txn-basic-info
+      *ngIf="settingFormState$ | async as formState"
+      [formState]="formState"
+    ></app-txn-basic-info>
+    <app-frequency-setting-table
+      *ngIf="frequencySettingFormState$ | async as formState"
+      [formState]="formState"
+    ></app-frequency-setting-table>
+  </div>
+</div>
