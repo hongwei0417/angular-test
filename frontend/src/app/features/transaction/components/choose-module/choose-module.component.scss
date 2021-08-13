@@ -1,0 +1,40 @@
+@import "/src/assets/styles/variables.scss";
+
+//#region moduleForm
+.moduleForm h4 span{
+  font-weight: 400;
+}
+.moduleItem{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: $gray-100;
+  border: 1px solid #ced4da;
+}
+.moduleItem + .moduleItem{
+  margin-top: 15px;
+}
+.moduleItem .itemGroup .item:first-child{
+  width: 240px;
+}
+:host ::ng-deep .moduleItem .p-autocomplete .p-inputtext{
+  padding: 5px 10px;
+  border-radius: 5px 0 0 5px;
+}
+:host ::ng-deep .moduleItem .p-autocomplete .p-inputtext{
+  font-size: 12px;
+}
+:host ::ng-deep .moduleItem .p-button.p-button-icon-only{
+  padding: 5px;
+  width: 30px;
+  border-radius: 0 5px 5px 0;
+}
+.moduleItem .btnGroup{
+  opacity: 0;
+  transition: .1s;
+}
+.moduleItem:hover .btnGroup{
+  opacity: 1;
+}
+//#endregion moduleForm

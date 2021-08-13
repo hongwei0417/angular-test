@@ -25,6 +25,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { TabViewModule } from 'primeng/tabview';
 import { TxnCreateJobComponent } from './components/txn-create-job/txn-create-job.component';
 import { SharedModule } from 'src/app/shared';
+import { ChooseModuleComponent } from './components/choose-module/choose-module.component';
+import { ChooseMailgrpComponent } from './components/choose-mailgrp/choose-mailgrp.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { SharedModule } from 'src/app/shared';
     FrequencySettingTableComponent,
     TxnSettingComponent,
     TxnCreateJobComponent,
+    ChooseModuleComponent,
+    ChooseMailgrpComponent,
   ],
   imports: [
     CommonModule,
