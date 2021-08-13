@@ -20,6 +20,7 @@ import { TxnSettingFormActions } from '../../actions';
 export class TxnSettingComponent implements OnInit {
   settingFormState$!: Observable<FormGroupState<TxnSettingFormValue>>;
   frequencySettingFormState$!: Observable<FormGroupState<DynamicFormValue>>;
+  frequencySettingOptions$!: Observable<string[]>;
 
   constructor(private store$: Store<fromTxn.State>) {}
 
@@ -29,6 +30,9 @@ export class TxnSettingComponent implements OnInit {
     );
     this.frequencySettingFormState$ = this.store$.pipe(
       select(fromTxn.getFrequencySettingForm)
+    );
+    this.frequencySettingOptions$ = this.store$.pipe(
+      select(fromTxn.getFrequencySettingOptions)
     );
   }
 

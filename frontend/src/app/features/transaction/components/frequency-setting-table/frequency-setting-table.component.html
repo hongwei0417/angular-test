@@ -19,11 +19,14 @@
           </div>
         </div>
         <div class="btnGroup">
-          <button class="iconBtn small customBtn add"></button>
+          <button
+            class="iconBtn small customBtn add"
+            (click)="addFrequencySetting()"
+          ></button>
         </div>
       </div>
 
-      <div *ngIf="formState.controls[0] as fqForm" class="accordionItem">
+      <div *ngFor="let i of options" class="accordionItem">
         <div
           class="accordionHeader"
           (click)="toggleAccordion($event)"
@@ -36,7 +39,9 @@
                 [showTime]="true"
                 hourFormat="24"
                 [showSeconds]="true"
-                [ngrxFormControlState]="fqForm.controls.LastTranTime"
+                [ngrxFormControlState]="
+                  formState.controls[i].controls.LastTranTime
+                "
                 (click)="$event.stopPropagation()"
               >
               </p-calendar>
@@ -45,9 +50,13 @@
               <input
                 type="text"
                 placeholder="0 5 * ? * * *"
-                [ngrxFormControlState]="fqForm.controls.CronExpression"
+                [ngrxFormControlState]="
+                  formState.controls[i].controls.CronExpression
+                "
                 [ngClass]="
-                  fqForm.controls.CronExpression.isValid ? 'isValid' : ''
+                  formState.controls[i].controls.CronExpression.isInvalid
+                    ? 'isInvalid'
+                    : ''
                 "
                 (click)="$event.stopPropagation()"
               />
@@ -58,7 +67,7 @@
             <button class="iconBtn small customBtn copy"></button>
           </div>
         </div>
-        <!-- <div class="accordionContent">
+        <div class="accordionContent">
           <div class="itemGroup">
             <div class="item">
               <label for="">Time Zone ID</label>
@@ -66,7 +75,9 @@
                 [suggestions]="timeZoneIds"
                 [dropdown]="true"
                 placeholder="Select"
-                [ngrxFormControlState]="formState.controls.TimeZone!"
+                [ngrxFormControlState]="
+                  formState.controls[i].controls.TimeZone!
+                "
                 (completeMethod)="filterTimeZone($event)"
               >
                 <ng-template let-custId pTemplate="item">
@@ -81,7 +92,9 @@
               <input
                 type="number"
                 placeholder="Numbers only"
-                [ngrxFormControlState]="formState.controls.RetryTimes!"
+                [ngrxFormControlState]="
+                  formState.controls[i].controls.RetryTimes!
+                "
               />
             </div>
             <div class="item">
@@ -89,7 +102,9 @@
               <input
                 type="number"
                 placeholder="Numbers only"
-                [ngrxFormControlState]="formState.controls.LoaderBufferTime!"
+                [ngrxFormControlState]="
+                  formState.controls[i].controls.LoaderBufferTime!
+                "
               />
             </div>
             <div class="item">
@@ -97,7 +112,9 @@
               <input
                 type="number"
                 placeholder="Numbers only"
-                [ngrxFormControlState]="formState.controls.BackToBufferTime!"
+                [ngrxFormControlState]="
+                  formState.controls[i].controls.BackToBufferTime!
+                "
               />
             </div>
             <div class="item">
@@ -106,7 +123,7 @@
                 type="number"
                 placeholder="Numbers only"
                 [ngrxFormControlState]="
-                  formState.controls.ShiftBackToLoaderTime!
+                  formState.controls[i].controls.ShiftBackToLoaderTime!
                 "
               />
             </div>
@@ -116,32 +133,36 @@
               <label for="">Start At</label>
               <p-calendar
                 dateFormat="yy/mm/dd"
-                [ngrxFormControlState]="formState.controls.StartAt!"
+                [ngrxFormControlState]="formState.controls[i].controls.StartAt!"
               ></p-calendar>
             </div>
             <div class="item">
               <label for="">End At</label>
               <p-calendar
                 dateFormat="yy/mm/dd"
-                [ngrxFormControlState]="formState.controls.EndAt!"
+                [ngrxFormControlState]="formState.controls[i].controls.EndAt!"
               ></p-calendar>
             </div>
             <div class="item">
               <p>Skip Over Due</p>
               <p-selectButton
                 [options]="stateOptionsAccordion"
-                [ngrxFormControlState]="formState.controls.SkipOverDue"
+                [ngrxFormControlState]="
+                  formState.controls[i].controls.SkipOverDue
+                "
               ></p-selectButton>
             </div>
             <div class="item">
               <p>Skip All Over Due</p>
               <p-selectButton
                 [options]="stateOptionsAccordion"
-                [ngrxFormControlState]="formState.controls.SkipAllOverDue"
+                [ngrxFormControlState]="
+                  formState.controls[i].controls.SkipAllOverDue
+                "
               ></p-selectButton>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>

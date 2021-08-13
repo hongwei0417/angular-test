@@ -94,3 +94,8 @@ export const getFrequencySettingForm = createSelector(
   getFrequencySettingFormState,
   fromFrequencyForm.getFrequencySettingForm
 );
+
+export const getFrequencySettingOptions = createSelector(
+  getFrequencySettingFormState,
+  fromFrequencyForm.getFrequencySettingOptions
+);

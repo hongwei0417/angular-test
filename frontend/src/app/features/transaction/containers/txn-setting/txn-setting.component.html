@@ -8,6 +8,8 @@
     <app-frequency-setting-table
       *ngIf="frequencySettingFormState$ | async as formState"
       [formState]="formState"
+      [options]="(frequencySettingOptions$ | async)!"
+      (addFrequencySettingEvent)="onAddFrequencySetting()"
     ></app-frequency-setting-table>
   </div>
 </div>
