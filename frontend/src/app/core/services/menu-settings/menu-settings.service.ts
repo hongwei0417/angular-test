@@ -68,11 +68,11 @@ const defualtMenu: MenuItem[] = [
     items: [
       {
         label: 'Mail Group',
-        routerLink: ['/schedule'],
+        routerLink: ['/parameter/mailgroup/list'],
       },
       {
         label: 'DLL',
-        routerLink: ['/schedule'],
+        routerLink: ['/parameter/dll/list'],
       },
     ],
   },

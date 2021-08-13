@@ -4,6 +4,29 @@
       <label for="">Global Filter</label>
       <input type="text"  placeholder="Search" formControlName="globalFilter" >
     </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(transactionName?.invalid && transactionName?.touched)">transactionName</span>
+        <p  *ngIf="transactionName?.invalid && transactionName?.touched">
+          "AP Booking" is required
+        </p>
+      </label>
+
+      <p-autoComplete formControlName="transactionName" [suggestions]="transactionNames"
+        (completeMethod)="filtertransactionNames($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+
+    <div class="item">
+      <label for="">Start Time</label>
+      <p-calendar formControlName="date" dateFormat="yy/mm/dd" selectionMode="range" [monthNavigator]="true" [yearNavigator]="true" yearRange="2014:2030"></p-calendar>
+    </div>
   </div>
 </form>
 

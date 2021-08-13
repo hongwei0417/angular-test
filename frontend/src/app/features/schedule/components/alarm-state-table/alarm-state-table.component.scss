@@ -1,0 +1,9 @@
+.itemGroup .item{
+  width: 100%;
+}
+
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

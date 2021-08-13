@@ -8,9 +8,10 @@ import { AlarmStatePageComponent } from './containers/alarm-state-page/alarm-sta
 import { ScheduleListTableComponent } from './components/schedule-list-table/schedule-list-table.component';
 import { SharedModule } from 'src/app/shared';
 import { ExecuteLogTableComponent } from './components/execute-log-table/execute-log-table.component';
+import { AlarmStateTableComponent } from './components/alarm-state-table/alarm-state-table.component';
 
 @NgModule({
-  declarations: [ScheduleListPageComponent, ExecuteLogPageComponent, AlarmStatePageComponent, ScheduleListTableComponent, ExecuteLogTableComponent,  ],
+  declarations: [ScheduleListPageComponent, ExecuteLogPageComponent, AlarmStatePageComponent, ScheduleListTableComponent, ExecuteLogTableComponent, AlarmStateTableComponent,  ],
   imports: [CommonModule, ScheduleRoutingModule, SharedModule],
 })
 export class ScheduleModule {}

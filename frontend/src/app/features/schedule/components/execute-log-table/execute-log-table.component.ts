@@ -76,6 +76,11 @@ const fakeData =[
   styleUrls: ['./execute-log-table.component.scss']
 })
 export class ExecuteLogTableComponent implements OnInit {
+  transactionNames!: string[];
+  get transactionName() {
+    return this.searchForm.get('transactionName');
+  }
+
   searchForm!: FormGroup;
   tableData$!: Observable<TableData[]>;
   tableCols!: { field: keyof TableData; header: string }[];
@@ -87,6 +92,8 @@ export class ExecuteLogTableComponent implements OnInit {
       this.searchForm = this.fb.group(
         {
           globalFilter: [],
+          transactionName:[],
+
         },
       );
     };
@@ -122,6 +129,18 @@ export class ExecuteLogTableComponent implements OnInit {
     setSearchForm();
     setTableColumns();
     setTableData();
+  }
+
+
+
+  filtertransactionNames(inputtedCustNameEvent: any): void {
+    let query = inputtedCustNameEvent.query;
+    this.transactionNames = [
+      'A73A_ForPortalCPHoldDisposition',
+      'OVT_InvAdjReport_Export_Mail',
+      'OVT_InvAdjusmentReport',
+      'CBDM TEST uTest1090115_1127',
+    ]
   }
 
 }

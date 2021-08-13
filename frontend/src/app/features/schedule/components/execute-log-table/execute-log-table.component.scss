@@ -1,7 +1,7 @@
 
 
 .itemGroup .item{
-  width: 100%;
+  width: calc(33.333333% - 35px * 2 / 3);
 }
 
 
@@ -29,11 +29,6 @@
 :host ::ng-deep td:nth-child(n+5):nth-child(-n+6){
   width: 80px;
 }
-
-// :host ::ng-deep th:nth-child(n+7):nth-child(-n+11),
-// :host ::ng-deep td:nth-child(n+7):nth-child(-n+11){
-//   width: 100px;
-// }
 
 :host ::ng-deep th:nth-child(17),
 :host ::ng-deep td:nth-child(17){
