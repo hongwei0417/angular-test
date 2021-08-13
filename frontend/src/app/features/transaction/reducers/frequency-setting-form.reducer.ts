@@ -85,7 +85,7 @@ export const rawReducer = createReducer(
     return initialState;
   }),
   on(TxnSettingFormActions.addFrequencySetting, (state, action) => {
-    const newID = state.options[state.options.length] + 1;
+    const newID = state.options[state.options.length - 1] + 1;
     return {
       ...state,
       options: [...state.options, newID],
