@@ -1,4 +1,3 @@
-import { FormsModule } from '@angular/forms';
 import {
   createFormGroupState,
   FormGroupState,
@@ -11,6 +10,7 @@ import {
   addGroupControl,
   createFormStateReducerWithUpdate,
   formGroupReducer,
+  formStateReducer,
 } from 'ngrx-forms';
 import { FrequencySetting } from './../models/TxnForm';
 import { Action, combineReducers, createReducer, on } from '@ngrx/store';
@@ -20,18 +20,17 @@ import {
   TxnCreatePageActions,
   TxnSettingFormActions,
 } from '../actions';
-import * as fromTxn from '../reducers';
-import { AnyNsRecord } from 'dns';
+import { randomBytes, randomInt } from 'crypto';
 
 export const FeatureKey = 'frequencySettingForm';
 
-export interface FrequencySettingFormValue extends FrequencySetting {}
+export interface FQSettingValue extends FrequencySetting {}
 
-export interface DynamicFormValue {
-  [id: string]: FrequencySettingFormValue;
+export interface FQCollectionValue {
+  [id: number]: FQSettingValue;
 }
 
-export const FrequencySettingFormState: FrequencySettingFormValue = {
+export const FQSettingFormState: FQSettingValue = {
   LastTranTime: '',
   CronExpression: '',
   TimeZone: '',
@@ -45,93 +44,63 @@ export const FrequencySettingFormState: FrequencySettingFormValue = {
   SkipAllOverDue: false,
 };
 
-export const DynamicFrequencySettingFormState =
-  createFormGroupState<DynamicFormValue>('frequencySettingForm', {
-    0: FrequencySettingFormState,
-  });
+export const FQCollectionFormState = createFormGroupState<FQCollectionValue>(
+  'frequencySettingForm',
+  {
+    0: FQSettingFormState,
+  }
+);
 
 export interface State {
-  formState: FormGroupState<DynamicFormValue>;
-  options: string[];
-  // submittedValue: FrequencySettingFormValue | undefined;
+  formState: FormGroupState<FQCollectionValue>;
+  options: number[];
+  submittedValue: FQSettingValue | undefined;
 }
 
-export const createValidateForm = (newOptions: string[]) => {
+export const createValidateForm = (newOptions: number[]) => {
   const nestedValidateGroups = {} as any;
   newOptions.forEach((i) => {
-    nestedValidateGroups[i] = updateGroup<FrequencySettingFormValue>({
+    nestedValidateGroups[i] = updateGroup<FQSettingValue>({
       LastTranTime: validate(required),
       CronExpression: validate(required),
     });
   });
-  return updateGroup<DynamicFormValue>(nestedValidateGroups);
+  return updateGroup<FQCollectionValue>(nestedValidateGroups);
 };
-
-// export const validateForm = updateGroup<DynamicFormValue>({
-//   formState: (state, parentState) =>
-//     updateGroup<FrequencySettingFormValue>(state, {
-//       LastTranTime: validate(required),
-//       CronExpression: validate(required),
-//     }),
-// });
 
 export const initialState: State = {
-  formState: createValidateForm(['0'])(DynamicFrequencySettingFormState),
-  options: ['0'],
-  // submittedValue: undefined,
+  formState: FQCollectionFormState,
+  options: [0],
+  submittedValue: undefined,
 };
 
-export const form = createFormStateReducerWithUpdate<DynamicFormValue>(
-  createValidateForm(['0'])
+export const form = createFormStateReducerWithUpdate<FQCollectionValue>(
+  createValidateForm([0])
 );
 
-// const reducers = combineReducers<State, any>({
-//   // tslint:disable-next-line: typedef
-//   formState(s = DynamicFrequencySettingFormState, a: Action) {
-//     return createValidateForm(['0'])(formGroupReducer(s, a));
-//   },
-//   // tslint:disable-next-line: typedef
-//   options(s: string[] = [], a) {
-//     return s;
-//   },
-// });
-
-// tslint:disable-next-line: typedef
-// export function reducer(s: State, a: Action) {
-//   return reducers(s, a);
-// }
-
-export const reducer = createReducer(
+export const rawReducer = createReducer(
   initialState,
   onNgrxForms(),
   on(TxnCreatePageActions.clearTxnCreatePageState, (state, action) => {
     return initialState;
   }),
   on(TxnSettingFormActions.addFrequencySetting, (state, action) => {
-    const newOptions = [...state.options, action.name];
-    const formGroupState = addGroupControl(
-      state.formState,
-      action.name,
-      FrequencySettingFormState
-    );
-    const formState = createValidateForm(newOptions)(formGroupState);
+    const newID = state.options[state.options.length] + 1;
     return {
       ...state,
-      options: [...state.options, action.name],
-      formState,
+      options: [...state.options, newID],
+      formState: addGroupControl(state.formState, newID, FQSettingFormState),
     };
   })
 );
 
-// export function reducer(state: State | undefined, action: Action) {
-//   return rawReducer(state, action);
-// }
+export const reducer = wrapReducerWithFormStateUpdate(
+  rawReducer,
+  (state) => state.formState,
+  (formState: FormGroupState<FQCollectionValue>, state) => {
+    return createValidateForm(state.options)(formState);
+  }
+);
 
-// export const reducer = wrapReducerWithFormStateUpdate(
-//   rawReducer,
-//   (state) => state.formState,
-//   createValidateForm(['0'])
-// );
-
-export const getFrequencySettingForm = (state: State) => state.formState;
-export const getFrequencySettingOptions = (state: State) => state.options;
+export const getFormState = (state: State) => state.formState;
+export const getOptions = (state: State) => state.options;

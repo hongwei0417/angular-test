@@ -1,7 +1,4 @@
-import {
-  FrequencySettingFormValue,
-  DynamicFormValue,
-} from './../../reducers/frequency-setting-form.reducer';
+import { FQCollectionValue } from './../../reducers/frequency-setting-form.reducer';
 import { getTxnCreateError } from './../../reducers/index';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store, select } from '@ngrx/store';
@@ -11,6 +8,7 @@ import { map, take } from 'rxjs/operators';
 import * as fromTxn from '../../reducers';
 import { TxnSettingFormValue } from '../../reducers/txn-setting-form.reducer';
 import { TxnSettingFormActions } from '../../actions';
+import { randomInt } from 'crypto';
 
 @Component({
   selector: 'app-txn-setting',
@@ -19,8 +17,8 @@ import { TxnSettingFormActions } from '../../actions';
 })
 export class TxnSettingComponent implements OnInit {
   settingFormState$!: Observable<FormGroupState<TxnSettingFormValue>>;
-  frequencySettingFormState$!: Observable<FormGroupState<DynamicFormValue>>;
-  frequencySettingOptions$!: Observable<string[]>;
+  FQSettingFormState$!: Observable<FormGroupState<FQCollectionValue>>;
+  FQSettingOptions$!: Observable<number[]>;
 
   constructor(private store$: Store<fromTxn.State>) {}
 
@@ -28,18 +26,16 @@ export class TxnSettingComponent implements OnInit {
     this.settingFormState$ = this.store$.pipe(
       select(fromTxn.getTxnSettingForm)
     );
-    this.frequencySettingFormState$ = this.store$.pipe(
+    this.FQSettingFormState$ = this.store$.pipe(
       select(fromTxn.getFrequencySettingForm)
     );
-    this.frequencySettingOptions$ = this.store$.pipe(
+    this.FQSettingOptions$ = this.store$.pipe(
       select(fromTxn.getFrequencySettingOptions)
     );
   }
 
   onAddFrequencySetting(): void {
-    this.store$.dispatch(
-      TxnSettingFormActions.addFrequencySetting({ name: '1' })
-    );
+    this.store$.dispatch(TxnSettingFormActions.addFrequencySetting());
   }
 
   onSubmit(): void {}

@@ -6,9 +6,9 @@
       [formState]="formState"
     ></app-txn-basic-info>
     <app-frequency-setting-table
-      *ngIf="frequencySettingFormState$ | async as formState"
+      *ngIf="FQSettingFormState$ | async as formState"
       [formState]="formState"
-      [options]="(frequencySettingOptions$ | async)!"
+      [options]="(FQSettingOptions$ | async)!"
       (addFrequencySettingEvent)="onAddFrequencySetting()"
     ></app-frequency-setting-table>
   </div>

@@ -1,7 +1,4 @@
-import {
-  FrequencySettingFormValue,
-  DynamicFormValue,
-} from './../../reducers/frequency-setting-form.reducer';
+import { FQCollectionValue } from './../../reducers/frequency-setting-form.reducer';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -20,9 +17,9 @@ import { FormGroupState } from 'ngrx-forms';
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FrequencySettingTableComponent implements OnInit {
-  @Input() formState!: FormGroupState<DynamicFormValue>;
-  @Input() options!: string[];
-  @Input() submittedValue!: DynamicFormValue | undefined;
+  @Input() formState!: FormGroupState<FQCollectionValue>;
+  @Input() options!: number[];
+  @Input() submittedValue!: FQCollectionValue | undefined;
   @Output() addFrequencySettingEvent = new EventEmitter();
   timeZoneIds: string[] = [];
   accordionStates = false;

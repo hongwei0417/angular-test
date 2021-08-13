@@ -92,10 +92,10 @@ export const getTxnSettingForm = createSelector(
 
 export const getFrequencySettingForm = createSelector(
   getFrequencySettingFormState,
-  fromFrequencyForm.getFrequencySettingForm
+  fromFrequencyForm.getFormState
 );
 
 export const getFrequencySettingOptions = createSelector(
   getFrequencySettingFormState,
-  fromFrequencyForm.getFrequencySettingOptions
+  fromFrequencyForm.getOptions
 );
