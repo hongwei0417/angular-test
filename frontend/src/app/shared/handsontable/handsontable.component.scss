@@ -1,0 +1,29 @@
+@import '/src/assets/styles/variables.scss';
+
+:host ::ng-deep .handsontable{
+  z-index: 1;
+}
+
+
+:host ::ng-deep .handsontable th{
+  background: $gray-200;
+  color: #888888;
+  font-size: 14px;
+}
+
+:host ::ng-deep .handsontable thead th{
+  text-align: left;
+  font-weight: 400;
+}
+
+:host ::ng-deep .handsontable tbody th.ht__highlight,
+:host ::ng-deep .handsontable thead th.ht__highlight{
+  color: $primary-medium;
+  background: $gray-200;
+}
+
+:host ::ng-deep .handsontable tbody th.ht__active_highlight,
+:host ::ng-deep .handsontable thead th.ht__active_highlight{
+  color: $primary-medium;
+}
+

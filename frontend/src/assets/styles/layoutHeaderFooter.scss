@@ -115,6 +115,20 @@
 
 
 
+
+.layout-wrapper .layout-main{
+  padding: 0;
+  padding-top: 120px;
+}
+
+@media screen and (min-width: 1025px){
+  .layout-wrapper.menu-layout-horizontal .layout-main{
+    padding-top: 120px;
+  }
+}
+
+
+
 .layout-footer{
   background: #0183FD;
   color: #FFF;

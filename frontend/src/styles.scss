@@ -1,6 +1,7 @@
 
 
 @import './assets/styles/variables.scss';
+@import './assets/styles/font.scss';
 
 @import './assets/sass/layout/layout';
 @import './assets/sass/theme/theme';
@@ -13,9 +14,13 @@
 @import './assets/styles/form.scss';
 
 
+*{
+  font-family: 'Roboto';
+}
 
 h1, h2, h3, h4, h5, h6, p{
   margin: 0;
+  font-weight: 500;
 }
 
 h2,h3,h4,label,p{
@@ -32,7 +37,7 @@ h3{
 
 h4{
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 p,label,span{

@@ -23,6 +23,13 @@ const routes: Routes = [
             (m) => m.ScheduleModule
           ),
       },
+      {
+        path: 'parameter',
+        loadChildren: () =>
+          import('./features/parameter/parameter.module').then(
+            (m) => m.ParameterModule
+          ),
+      },
       { path: '', redirectTo: 'transaction', pathMatch: 'full' },
     ],
   },

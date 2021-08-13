@@ -14,22 +14,16 @@
     color: $primary-medium;
     box-shadow: $shadow-100;
 
+    &.line{
+      background: $gray-100;
+      border: 1px solid $primary-medium;
+      box-shadow: none;
+    }
+
     &:hover,&:active {
       color: $gray-100;
       background: $primary-darker;
       box-shadow:none;
-    }
-  }
-
-  &.customBtnReverseLine{
-    background: $gray-100;
-    color: $primary-medium;
-    border: 1px solid $primary-medium;
-    box-shadow: $shadow-100;
-
-    &:hover,&:active {
-      color: $gray-100;
-      background: $primary-darker;
     }
   }
 }
@@ -38,6 +32,10 @@
 @mixin iconUnicode(){
   &.add:before{
     content: '\f067';
+  }
+
+  &.delete:before{
+    content: '\f00d';
   }
 
   &.remove:before{
@@ -64,8 +62,20 @@
     content: '\f04b';
   }
 
+  &.pause:before{
+    content: '\f04c';
+  }
+
   &.reload:before{
     content: '\f2f1';
+  }
+
+  &.retry:before{
+    content: '\f2f9';
+  }
+
+  &.setting:before{
+    content: '\f013';
   }
 
 
@@ -87,6 +97,10 @@
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 14px;
+
+    &:before{
+      margin-right: 5px;
+    }
   }
 
   @include customBtnColor($gray-100);

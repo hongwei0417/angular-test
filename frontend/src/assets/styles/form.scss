@@ -22,7 +22,7 @@ form {
   label,
   p {
     margin-bottom: 5px;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   label {
@@ -102,11 +102,10 @@ form {
   content: "\f0b0";
 }
 
-//樣式在套件內，無法加class的情況，使用fontawasome
+//樣式在套件內，無法加class的情況下，須使用fontawasome
 //例如使用套件input calendar功能
 @mixin icon() {
   font-family: "Font Awesome 5 Free";
-  font-weight: 400;
   font-size: 20px;
   color: #aaaaaa;
 }
@@ -124,6 +123,7 @@ p-calendar {
 .p-calendar:after {
   @include icon();
   content: "\f272";
+  font-weight: 400;
   position: absolute;
   top: 50%;
   right: 15px;
@@ -245,4 +245,13 @@ p-calendar {
 .isInvalid {
   border: 1px solid #fd6061;
   box-shadow: none;
+}
+
+.p-inputswitch {
+  vertical-align: middle;
+}
+
+.p-inputswitch .p-inputswitch-slider,
+.p-inputswitch .p-inputswitch-slider:before {
+  border-radius: 25px;
 }

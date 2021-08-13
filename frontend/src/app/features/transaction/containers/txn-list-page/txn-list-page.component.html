@@ -1,14 +1,12 @@
-<div class="transactionList">
-  <div class="container">
-    <div class="title">
-      <h2>Transaction List</h2>
-      <button class="txtBtn customBtn add" routerLink="/transaction/create">
-        Create New Transaction
-      </button>
-    </div>
-
-    <app-global-filter></app-global-filter>
-
-    <app-txn-list-table [tableData]="(txnData$ | async)!"></app-txn-list-table>
+<div class="container">
+  <div class="title">
+    <h2>Transaction List</h2>
+    <button class="txtBtn customBtn add" routerLink="/transaction/create">
+      Create New Transaction
+    </button>
   </div>
+
+  <app-global-filter></app-global-filter>
+
+  <app-txn-list-table [tableData]="(txnData$ | async)!"></app-txn-list-table>
 </div>

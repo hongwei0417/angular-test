@@ -1,0 +1,60 @@
+<form [formGroup]="dllForm" class="fieldContent">
+  <div class="itemGroup">
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(DLLDescription?.invalid && DLLDescription?.touched)">DLL Description</span>
+        <p  *ngIf="DLLDescription?.invalid && DLLDescription?.touched">
+          "DLL Description" is required
+        </p>
+      </label>
+      <input type="text" formControlName="DLLDescription">
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(DLLPath?.invalid && DLLPath?.touched)">DLL Path</span>
+        <p  *ngIf="DLLPath?.invalid && DLLPath?.touched">
+          "DLL Path" is required
+        </p>
+      </label>
+      <input type="text" formControlName="DLLPath">
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(DLLName?.invalid && DLLName?.touched)">DLL Name</span>
+        <p  *ngIf="DLLName?.invalid && DLLName?.touched">
+          "DLL Name" is required
+        </p>
+      </label>
+      <input type="text" formControlName="DLLName">
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(NameSpace?.invalid && NameSpace?.touched)">Name Space</span>
+        <p  *ngIf="NameSpace?.invalid && NameSpace?.touched">
+          "Name Space" is required
+        </p>
+      </label>
+      <input type="text" formControlName="NameSpace">
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(ClassName?.invalid && ClassName?.touched)">Class Name</span>
+        <p  *ngIf="ClassName?.invalid && ClassName?.touched">
+          "Class Name" is required
+        </p>
+      </label>
+      <input type="text" formControlName="ClassName">
+    </div>
+
+  </div>
+</form>
+
+
+<div class="btnGroup">
+  <button class="txtBtn customBtnReverse">Cancel</button>
+  <button class="txtBtn customBtn">Save</button>
+</div>

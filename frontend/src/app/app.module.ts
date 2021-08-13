@@ -40,5 +40,7 @@ const ngRxModules = [
     CoreModule,
   ],
   bootstrap: [AppComponent],
+  declarations: [
+  ],
 })
 export class AppModule {}

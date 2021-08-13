@@ -1,0 +1,41 @@
+
+
+.itemGroup .item{
+  width: calc(33.333333% - 35px * 2 / 3);
+}
+
+
+:host ::ng-deep th,
+:host ::ng-deep td{
+  width: 100px;
+}
+
+:host ::ng-deep th:nth-child(1),
+:host ::ng-deep td:nth-child(1){
+  width: 55px;
+}
+
+:host ::ng-deep th:nth-child(3),
+:host ::ng-deep td:nth-child(3){
+  width: 120px;
+}
+
+:host ::ng-deep th:nth-child(4),
+:host ::ng-deep td:nth-child(4){
+  width: 140px;
+}
+
+:host ::ng-deep th:nth-child(n+5):nth-child(-n+6),
+:host ::ng-deep td:nth-child(n+5):nth-child(-n+6){
+  width: 80px;
+}
+
+:host ::ng-deep th:nth-child(17),
+:host ::ng-deep td:nth-child(17){
+  width: 110px;
+}
+
+:host ::ng-deep th:nth-last-child(-n+3),
+:host ::ng-deep td:nth-last-child(-n+3){
+  width: 80px;
+}
