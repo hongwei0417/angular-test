@@ -1,0 +1,151 @@
+<form [formGroup]="mailGroupForm" class="mailGroupForm">
+  <h4>
+    <span>Choose Deliver Mail Group</span>
+    <button class="txtBtn small customBtnReverse line setting">Setting</button>
+  </h4>
+  <div class="itemGroup bg">
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(ownerIT?.invalid && ownerIT?.touched)">Owner IT</span>
+        <p  *ngIf="ownerIT?.invalid && ownerIT?.touched">
+          "Owner IT" is required
+        </p>
+      </label>
+
+      <p-autoComplete formControlName="ownerIT" [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(mailTo?.invalid && mailTo?.touched)">Mail To</span>
+        <p  *ngIf="mailTo?.invalid && mailTo?.touched">
+          "Mail To" is required
+        </p>
+      </label>
+
+      <p-autoComplete formControlName="mailTo" [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(ownerCoordinator?.invalid && ownerCoordinator?.touched)">Owner Coordinator</span>
+        <p  *ngIf="ownerCoordinator?.invalid && ownerCoordinator?.touched">
+          "Owner Coordinator" is required
+        </p>
+      </label>
+
+      <p-autoComplete formControlName="ownerCoordinator" [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(loaderOwner?.invalid && loaderOwner?.touched)">Loader Owner</span>
+        <p  *ngIf="loaderOwner?.invalid && loaderOwner?.touched">
+          "Loader Owner" is required
+        </p>
+      </label>
+
+      <p-autoComplete formControlName="loaderOwner" [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(mailCC?.invalid && mailCC?.touched)">Mail CC</span>
+        <p  *ngIf="mailCC?.invalid && mailCC?.touched">
+          "Mail CC" is required
+        </p>
+      </label>
+
+      <p-autoComplete formControlName="mailCC" [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(mailBCC?.invalid && mailBCC?.touched)">Mail BCC</span>
+        <p  *ngIf="mailBCC?.invalid && mailBCC?.touched">
+          "Mail BCC" is required
+        </p>
+      </label>
+
+      <p-autoComplete formControlName="mailBCC" [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(SAPOwner?.invalid && SAPOwner?.touched)">SAP Owner</span>
+        <p  *ngIf="SAPOwner?.invalid && SAPOwner?.touched">
+          "SAP Owner" is required
+        </p>
+      </label>
+
+      <p-autoComplete formControlName="SAPOwner" [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(MESOwner?.invalid && MESOwner?.touched)">MES Owner</span>
+        <p  *ngIf="MESOwner?.invalid && MESOwner?.touched">
+          "MES Owner" is required
+        </p>
+      </label>
+
+      <p-autoComplete formControlName="MESOwner" [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+  </div>
+</form>

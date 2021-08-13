@@ -1,0 +1,47 @@
+//#region mailGroupForm
+.mailGroupForm h4{
+  display: flex;
+  align-items: center;
+}
+
+.mailGroupForm h4 .txtBtn{
+  margin-left: 10px;
+}
+
+.mailGroupForm .item{
+  width: calc(50% - 35px * 1 / 2);
+}
+
+@media screen and (min-width:1024px){
+  .mailGroupForm .item{
+    width: calc(25% - 35px * 3 / 4);
+  }
+}
+
+.mailGroupForm .item:nth-child(2n+1){
+  margin-left: 0;
+}
+
+@media screen and (min-width:1024px){
+  .mailGroupForm .item:nth-child(2n+1){
+    margin-left: 35px;
+  }
+
+  .mailGroupForm .item:nth-child(4n+1){
+    margin-left: 0;
+  }
+}
+
+.mailGroupForm .item:not(:nth-last-child(-n+2)){
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width:1024px){
+  .mailGroupForm .item:not(:nth-last-child(-n+2)){
+    margin-bottom: 0;
+  }
+  .mailGroupForm .item:not(:nth-last-child(-n+4)){
+    margin-bottom: 15px;
+  }
+}
+//#endregion mailGroupForm

@@ -1,0 +1,26 @@
+<form [formGroup]="moduleForm" class="moduleForm">
+  <h4>Choose Module <span>( Module Name / Issue )</span></h4>
+  <div class="bg">
+    <div class="moduleItem">
+      <div class="itemGroup">
+        <div class="item">
+          <p-autoComplete formControlName="moduleName" [suggestions]="moduleName"
+            (completeMethod)="filterModuleName($event)" [dropdown]="true" >
+            <ng-template let-custId pTemplate="item">
+              <div class="custName-item">
+                <div>{{custId}}</div>
+              </div>
+            </ng-template>
+          </p-autoComplete>
+        </div>
+        <div class="item">
+          <p-inputSwitch formControlName="issue"></p-inputSwitch>
+        </div>
+      </div>
+      <div class="btnGroup">
+        <button class="iconBtn small customBtnReverse line remove"></button>
+        <button class="iconBtn small customBtn add"></button>
+      </div>
+    </div>
+  </div>
+</form>
