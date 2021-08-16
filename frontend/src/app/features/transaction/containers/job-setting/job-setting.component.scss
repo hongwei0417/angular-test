@@ -1,0 +1,11 @@
+// @import '/src/assets/styles/variables.scss';
+@import '../../containers/txn-create-page/txn-create-page.component.scss';
+
+h3 {
+  margin-top: 30px;
+}
+
+h3:before {
+  content: "2";
+}
+

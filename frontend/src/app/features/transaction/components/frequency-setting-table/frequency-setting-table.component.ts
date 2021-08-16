@@ -13,6 +13,12 @@ import {
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormGroupState } from 'ngrx-forms';
 
+interface timeZoneInfo {
+  name: string,
+  code: string
+}
+
+
 @Component({
   selector: 'app-frequency-setting-table',
   templateUrl: './frequency-setting-table.component.html',
@@ -24,7 +30,8 @@ export class FrequencySettingTableComponent implements OnInit {
   @Input() options!: string[];
   @Input() submittedValue!: DynamicFormValue | undefined;
   @Output() addFrequencySettingEvent = new EventEmitter();
-  timeZoneIds: string[] = [];
+
+  timeZoneIds:timeZoneInfo[];
   accordionStates = false;
 
   stateOptionsAccordion = [
@@ -32,16 +39,21 @@ export class FrequencySettingTableComponent implements OnInit {
     { label: 'N', value: false },
   ];
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {
+    this.timeZoneIds = [
+      {name: 'Taipei Standard Time', code: ''},
+      {name: 'Japan Standard Time', code: ''}
+    ];
+  }
 
   ngOnInit(): void {
     console.log(this.formState);
   }
 
-  filterTimeZone(inputtedCustNameEvent: any): void {
-    let query = inputtedCustNameEvent.query;
-    this.timeZoneIds = ['Taipei Standard Time', 'Japan Standard Time'];
-  }
+  // filterTimeZone(inputtedCustNameEvent: any): void {
+  //   let query = inputtedCustNameEvent.query;
+  //   this.timeZoneIds = ['Taipei Standard Time', 'Japan Standard Time'];
+  // }
 
   toggleAccordion(event: any): void {
     this.accordionStates = !this.accordionStates;

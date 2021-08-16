@@ -71,7 +71,7 @@
           <div class="itemGroup">
             <div class="item">
               <label for="">Time Zone ID</label>
-              <p-autoComplete
+              <!-- <p-autoComplete
                 [suggestions]="timeZoneIds"
                 [dropdown]="true"
                 placeholder="Select"
@@ -85,7 +85,10 @@
                     <div>{{ custId }}</div>
                   </div>
                 </ng-template>
-              </p-autoComplete>
+              </p-autoComplete> -->
+
+              <p-dropdown [options]="timeZoneIds" placeholder="Select" [ngrxFormControlState]="formState.controls[i].controls.TimeZone!" optionLabel="name"></p-dropdown>
+
             </div>
             <div class="item">
               <label for="">Retry Times</label>

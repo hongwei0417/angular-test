@@ -1,0 +1,5 @@
+@import '../../containers/txn-create-page/txn-create-page.component.scss';
+
+.jobFormBasicInfo .item{
+  width: calc(33.333333% - 35px * 2 / 3);
+}

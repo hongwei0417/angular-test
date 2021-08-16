@@ -1,7 +1,7 @@
 @import "/src/assets/styles/variables.scss";
 
 .title {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid $gray-500;
   padding-bottom: 10px;
 }
 
@@ -13,9 +13,6 @@ h3 {
   margin-bottom: 10px;
 }
 
-.jobSetting h3 {
-  margin-top: 30px;
-}
 
 h3:before {
   content: "1";
@@ -30,26 +27,11 @@ h3:before {
   font-size: 16px;
 }
 
-.jobSetting h3:before {
-  content: "2";
-}
-
-h4 {
-  margin-bottom: 5px;
-}
-
-form:last-child {
-  margin-bottom: 0;
-}
 
 input {
   background: $gray-100;
 }
 
-.bg {
-  padding: 15px;
-  background: $gray-200;
-}
 
 .btnGroup {
   display: flex;
@@ -59,6 +41,4 @@ input {
   margin-left: 15px;
 }
 
-.jobSetting .singleJobSetting {
-  margin-top: 30px;
-}
+

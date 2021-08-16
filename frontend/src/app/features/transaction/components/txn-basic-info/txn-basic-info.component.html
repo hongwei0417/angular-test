@@ -24,7 +24,7 @@
           "AP Booking" is required
         </p>
       </label>
-      <p-autoComplete
+      <!-- <p-autoComplete
         placeholder="Select"
         [ngrxFormControlState]="APBooking"
         [suggestions]="APBookingIds"
@@ -36,7 +36,12 @@
             <div>{{ custId }}</div>
           </div>
         </ng-template>
-      </p-autoComplete>
+      </p-autoComplete> -->
+
+
+      <p-dropdown [options]="APBookingIds" placeholder="Select" [ngrxFormControlState]="APBooking" optionLabel="name"></p-dropdown>
+
+
     </div>
     <div class="item" *ngIf="formState.controls.ActiveFlag as ActiveFlag">
       <p>Active Flag</p>
