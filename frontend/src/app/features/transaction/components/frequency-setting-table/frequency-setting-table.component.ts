@@ -1,4 +1,4 @@
-import { FQCollectionValue } from './../../reducers/frequency-setting-form.reducer';
+import { FqCollectionValue } from './../../reducers/frequency-setting-form.reducer';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -8,7 +8,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { FormGroupState } from 'ngrx-forms';
+import { FormGroupState, NgrxValueConverters } from 'ngrx-forms';
 
 @Component({
   selector: 'app-frequency-setting-table',
@@ -17,12 +17,14 @@ import { FormGroupState } from 'ngrx-forms';
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FrequencySettingTableComponent implements OnInit {
-  @Input() formState!: FormGroupState<FQCollectionValue>;
+  @Input() formState!: FormGroupState<FqCollectionValue>;
   @Input() options!: number[];
-  @Input() submittedValue!: FQCollectionValue | undefined;
-  @Output() addFrequencySettingEvent = new EventEmitter();
+  @Input() showAccordions!: boolean[];
+  @Input() submittedValue!: FqCollectionValue | undefined;
+  @Output() addFqSettingEvent = new EventEmitter();
+  @Output() toggleFqAccordionEvent = new EventEmitter<number>();
+  dateValueConverter = NgrxValueConverters.dateToISOString;
   timeZoneIds: string[] = [];
-  accordionStates = false;
 
   stateOptionsAccordion = [
     { label: 'Y', value: true },
@@ -31,20 +33,18 @@ export class FrequencySettingTableComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
-    console.log(this.formState);
-  }
+  ngOnInit(): void {}
 
   filterTimeZone(inputtedCustNameEvent: any): void {
     let query = inputtedCustNameEvent.query;
     this.timeZoneIds = ['Taipei Standard Time', 'Japan Standard Time'];
   }
 
-  toggleAccordion(event: any): void {
-    this.accordionStates = !this.accordionStates;
+  addFrequencySetting(): void {
+    this.addFqSettingEvent.emit();
   }
 
-  addFrequencySetting(): void {
-    this.addFrequencySettingEvent.emit();
+  toggleAccordion(index: number): void {
+    this.toggleFqAccordionEvent.emit(index);
   }
 }

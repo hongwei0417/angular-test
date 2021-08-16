@@ -1,4 +1,4 @@
-import { FQCollectionValue } from './../../reducers/frequency-setting-form.reducer';
+import { FqCollectionValue } from './../../reducers/frequency-setting-form.reducer';
 import { getTxnCreateError } from './../../reducers/index';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store, select } from '@ngrx/store';
@@ -17,8 +17,9 @@ import { randomInt } from 'crypto';
 })
 export class TxnSettingComponent implements OnInit {
   settingFormState$!: Observable<FormGroupState<TxnSettingFormValue>>;
-  FQSettingFormState$!: Observable<FormGroupState<FQCollectionValue>>;
+  FQSettingFormState$!: Observable<FormGroupState<FqCollectionValue>>;
   FQSettingOptions$!: Observable<number[]>;
+  FQSettingShowAccordions$!: Observable<boolean[]>;
 
   constructor(private store$: Store<fromTxn.State>) {}
 
@@ -27,15 +28,22 @@ export class TxnSettingComponent implements OnInit {
       select(fromTxn.getTxnSettingForm)
     );
     this.FQSettingFormState$ = this.store$.pipe(
-      select(fromTxn.getFrequencySettingForm)
+      select(fromTxn.getFqSettingForm)
     );
     this.FQSettingOptions$ = this.store$.pipe(
-      select(fromTxn.getFrequencySettingOptions)
+      select(fromTxn.getFqSettingOptions)
+    );
+    this.FQSettingShowAccordions$ = this.store$.pipe(
+      select(fromTxn.getFqSettingShowAccordions)
     );
   }
 
   onAddFrequencySetting(): void {
     this.store$.dispatch(TxnSettingFormActions.addFrequencySetting());
+  }
+
+  onToggleFqAccordion(index: number): void {
+    this.store$.dispatch(TxnSettingFormActions.toggleFqAccordion({ index }));
   }
 
   onSubmit(): void {}

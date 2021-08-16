@@ -26,21 +26,29 @@
         </div>
       </div>
 
-      <div *ngFor="let i of options" class="accordionItem">
+      <div *ngFor="let i of options; let index = index" class="accordionItem">
         <div
           class="accordionHeader"
-          (click)="toggleAccordion($event)"
-          [ngClass]="{ active: accordionStates }"
+          (click)="toggleAccordion(index)"
+          [ngClass]="{ active: showAccordions[index] }"
         >
           <div class="itemGroup">
             <div class="item">
               <p-calendar
                 dateFormat="yy/mm/dd"
-                [showTime]="true"
                 hourFormat="24"
+                dataType="date"
+                [showTime]="true"
                 [showSeconds]="true"
                 [ngrxFormControlState]="
                   formState.controls[i].controls.LastTranTime
+                "
+                [ngrxValueConverter]="dateValueConverter"
+                [ngClass]="
+                  formState.controls[i].controls.LastTranTime.isInvalid &&
+                  formState.controls[i].controls.LastTranTime.isTouched
+                    ? 'isInvalid'
+                    : ''
                 "
                 (click)="$event.stopPropagation()"
               >
@@ -54,7 +62,8 @@
                   formState.controls[i].controls.CronExpression
                 "
                 [ngClass]="
-                  formState.controls[i].controls.CronExpression.isInvalid
+                  formState.controls[i].controls.CronExpression.isInvalid &&
+                  formState.controls[i].controls.CronExpression.isTouched
                     ? 'isInvalid'
                     : ''
                 "
@@ -72,9 +81,9 @@
             <div class="item">
               <label for="">Time Zone ID</label>
               <p-autoComplete
+                placeholder="Select"
                 [suggestions]="timeZoneIds"
                 [dropdown]="true"
-                placeholder="Select"
                 [ngrxFormControlState]="
                   formState.controls[i].controls.TimeZone!
                 "
@@ -134,6 +143,7 @@
               <p-calendar
                 dateFormat="yy/mm/dd"
                 [ngrxFormControlState]="formState.controls[i].controls.StartAt!"
+                [ngrxValueConverter]="dateValueConverter"
               ></p-calendar>
             </div>
             <div class="item">
@@ -141,6 +151,7 @@
               <p-calendar
                 dateFormat="yy/mm/dd"
                 [ngrxFormControlState]="formState.controls[i].controls.EndAt!"
+                [ngrxValueConverter]="dateValueConverter"
               ></p-calendar>
             </div>
             <div class="item">

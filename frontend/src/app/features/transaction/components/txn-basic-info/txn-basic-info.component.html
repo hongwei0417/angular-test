@@ -48,10 +48,12 @@
     <div class="item" *ngIf="formState.controls.date as date">
       <label for="">Start Time</label>
       <p-calendar
+        hourFormat="24"
+        dataType="date"
         dateFormat="yy/mm/dd"
         [ngrxFormControlState]="date"
+        [ngrxValueConverter]="dateValueConverter"
         [showTime]="true"
-        hourFormat="24"
       ></p-calendar>
     </div>
     <div

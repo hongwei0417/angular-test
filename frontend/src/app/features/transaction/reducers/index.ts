@@ -54,7 +54,7 @@ export const getTxnSettingFormState = createSelector(
   (state: TxnState) => state[fromTxnForm.FeatureKey]
 );
 
-export const getFrequencySettingFormState = createSelector(
+export const getFqSettingFormState = createSelector(
   getTxnState,
   (state: TxnState) => state[fromFrequencyForm.FeatureKey]
 );
@@ -90,12 +90,17 @@ export const getTxnSettingForm = createSelector(
   fromTxnForm.getTxnSettingForm
 );
 
-export const getFrequencySettingForm = createSelector(
-  getFrequencySettingFormState,
+export const getFqSettingForm = createSelector(
+  getFqSettingFormState,
   fromFrequencyForm.getFormState
 );
 
-export const getFrequencySettingOptions = createSelector(
-  getFrequencySettingFormState,
+export const getFqSettingOptions = createSelector(
+  getFqSettingFormState,
   fromFrequencyForm.getOptions
+);
+
+export const getFqSettingShowAccordions = createSelector(
+  getFqSettingFormState,
+  fromFrequencyForm.getShowAccordions
 );

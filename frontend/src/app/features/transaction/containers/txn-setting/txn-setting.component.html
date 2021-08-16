@@ -8,8 +8,10 @@
     <app-frequency-setting-table
       *ngIf="FQSettingFormState$ | async as formState"
       [formState]="formState"
-      [options]="(FQSettingOptions$ | async)!"
-      (addFrequencySettingEvent)="onAddFrequencySetting()"
+      [options]="(FQSettingOptions$ | async) || []"
+      [showAccordions]="(FQSettingShowAccordions$ | async) || []"
+      (addFqSettingEvent)="onAddFrequencySetting()"
+      (toggleFqAccordionEvent)="onToggleFqAccordion($event)"
     ></app-frequency-setting-table>
     <app-choose-module></app-choose-module>
     <app-choose-mailgrp></app-choose-mailgrp>

@@ -242,9 +242,10 @@ p-calendar {
 }
 // #endregion  primeng selectButton
 
-.isInvalid {
-  border: 1px solid #fd6061;
-  box-shadow: none;
+.isInvalid,
+.isInvalid input {
+  border: 1px solid #fd6061 !important;
+  box-shadow: none !important;
 }
 
 .p-inputswitch {

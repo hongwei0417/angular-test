@@ -8,7 +8,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { FormGroupState } from 'ngrx-forms';
+import { FormGroupState, NgrxValueConverters } from 'ngrx-forms';
 import { TxnSettingFormValue } from '../../reducers/txn-setting-form.reducer';
 
 @Component({
@@ -19,6 +19,7 @@ import { TxnSettingFormValue } from '../../reducers/txn-setting-form.reducer';
 export class TxnCreateComponent implements OnInit, OnDestroy {
   @Input() formState!: FormGroupState<TxnSettingFormValue>;
   @Input() submittedValue!: TxnSettingFormValue | undefined;
+  dateValueConverter = NgrxValueConverters.dateToISOString;
 
   APBookingIds: string[] = [];
 

@@ -11,6 +11,7 @@ import {
   createFormStateReducerWithUpdate,
   formGroupReducer,
   formStateReducer,
+  setValue,
 } from 'ngrx-forms';
 import { FrequencySetting } from './../models/TxnForm';
 import { Action, combineReducers, createReducer, on } from '@ngrx/store';
@@ -24,13 +25,19 @@ import { randomBytes, randomInt } from 'crypto';
 
 export const FeatureKey = 'frequencySettingForm';
 
-export interface FQSettingValue extends FrequencySetting {}
+export interface FqSettingValue extends FrequencySetting {}
 
-export interface FQCollectionValue {
-  [id: number]: FQSettingValue;
+export interface FqCollectionValue {
+  [id: number]: FqSettingValue;
+}
+export interface State {
+  formState: FormGroupState<FqCollectionValue>;
+  options: number[];
+  showAccordions: boolean[];
+  submittedValue: FqSettingValue | undefined;
 }
 
-export const FQSettingFormState: FQSettingValue = {
+export const FqSettingFormState: FqSettingValue = {
   LastTranTime: '',
   CronExpression: '',
   TimeZone: '',
@@ -44,37 +51,41 @@ export const FQSettingFormState: FQSettingValue = {
   SkipAllOverDue: false,
 };
 
-export const FQCollectionFormState = createFormGroupState<FQCollectionValue>(
+export const FQCollectionFormState = createFormGroupState<FqCollectionValue>(
   'frequencySettingForm',
   {
-    0: FQSettingFormState,
+    0: FqSettingFormState,
   }
 );
-
-export interface State {
-  formState: FormGroupState<FQCollectionValue>;
-  options: number[];
-  submittedValue: FQSettingValue | undefined;
-}
 
 export const createValidateForm = (newOptions: number[]) => {
   const nestedValidateGroups = {} as any;
   newOptions.forEach((i) => {
-    nestedValidateGroups[i] = updateGroup<FQSettingValue>({
-      LastTranTime: validate(required),
+    nestedValidateGroups[i] = updateGroup<FqSettingValue>({
+      LastTranTime: (state, parentState) => {
+        const s = validate(state, required);
+        return s.value ? s : setValue(s, new Date().toISOString());
+      },
       CronExpression: validate(required),
+      StartAt: (state, parentState) => {
+        return state.value ? state : setValue(state, new Date().toISOString());
+      },
+      EndAt: (state, parentState) => {
+        return state.value ? state : setValue(state, new Date().toISOString());
+      },
     });
   });
-  return updateGroup<FQCollectionValue>(nestedValidateGroups);
+  return updateGroup<FqCollectionValue>(nestedValidateGroups);
 };
 
 export const initialState: State = {
   formState: FQCollectionFormState,
   options: [0],
+  showAccordions: [false],
   submittedValue: undefined,
 };
 
-export const form = createFormStateReducerWithUpdate<FQCollectionValue>(
+export const form = createFormStateReducerWithUpdate<FqCollectionValue>(
   createValidateForm([0])
 );
 
@@ -85,11 +96,23 @@ export const rawReducer = createReducer(
     return initialState;
   }),
   on(TxnSettingFormActions.addFrequencySetting, (state, action) => {
+    console.log(state);
     const newID = state.options[state.options.length - 1] + 1;
+    const newAccordion = false;
     return {
       ...state,
       options: [...state.options, newID],
-      formState: addGroupControl(state.formState, newID, FQSettingFormState),
+      showAccordions: [...state.showAccordions, newAccordion],
+      formState: addGroupControl(state.formState, newID, FqSettingFormState),
+    };
+  }),
+  on(TxnSettingFormActions.toggleFqAccordion, (state, action) => {
+    const newAccordions = state.showAccordions.map((status, i) => {
+      return i === action.index ? !status : status;
+    });
+    return {
+      ...state,
+      showAccordions: newAccordions,
     };
   })
 );
@@ -97,10 +120,11 @@ export const rawReducer = createReducer(
 export const reducer = wrapReducerWithFormStateUpdate(
   rawReducer,
   (state) => state.formState,
-  (formState: FormGroupState<FQCollectionValue>, state) => {
+  (formState: FormGroupState<FqCollectionValue>, state) => {
     return createValidateForm(state.options)(formState);
   }
 );
 
 export const getFormState = (state: State) => state.formState;
 export const getOptions = (state: State) => state.options;
+export const getShowAccordions = (state: State) => state.showAccordions;

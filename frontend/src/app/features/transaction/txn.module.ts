@@ -20,7 +20,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { GlobalFilterComponent } from './components/global-filter/global-filter.component';
 import { FrequencySettingTableComponent } from './components/frequency-setting-table/frequency-setting-table.component';
 import { TxnSettingComponent } from './containers/txn-setting/txn-setting.component';
-import { NgrxFormsModule } from 'ngrx-forms';
+import { NgrxFormsModule, NGRX_STATUS_CLASS_NAMES } from 'ngrx-forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { TabViewModule } from 'primeng/tabview';
 import { TxnCreateJobComponent } from './components/txn-create-job/txn-create-job.component';
