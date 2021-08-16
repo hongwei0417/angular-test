@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import {
   Component,
   EventEmitter,
@@ -11,31 +10,43 @@ import { FormBuilder } from '@angular/forms';
 import { FormGroupState, NgrxValueConverters } from 'ngrx-forms';
 import { TxnSettingFormValue } from '../../reducers/txn-setting-form.reducer';
 
+interface APBookingInfo {
+  name: string,
+  code: string
+}
+
+
 @Component({
   selector: 'app-txn-basic-info',
   templateUrl: './txn-basic-info.component.html',
   styleUrls: ['./txn-basic-info.component.scss'],
 })
-export class TxnCreateComponent implements OnInit, OnDestroy {
+export class TxnCreateComponent implements OnInit {
   @Input() formState!: FormGroupState<TxnSettingFormValue>;
   @Input() submittedValue!: TxnSettingFormValue | undefined;
   dateValueConverter = NgrxValueConverters.dateToISOString;
 
-  APBookingIds: string[] = [];
+  APBookingIds:APBookingInfo[];
 
   stateOptions = [
     { label: 'Yes', value: true },
     { label: 'No', value: false },
   ];
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  ngOnDestroy(): void {}
-
-  filterAPBookingIds(inputtedCustNameEvent: any): void {
-    let query = inputtedCustNameEvent.query;
-    this.APBookingIds = ['1', '2'];
+  constructor() {
+    this.APBookingIds = [
+      {name: 'EBAP-HLO999', code: ''},
+      {name: 'BBAP-HLO999', code: ''},
+      {name: 'ABAP-HLO999', code: ''}
+    ];
   }
+
+  ngOnInit(): void {
+
+  }
+
+  // filterAPBookingIds(inputtedCustNameEvent: any): void {
+  //   let query = inputtedCustNameEvent.query;
+  //   this.APBookingIds = ['1', '2'];
+  // }
 }

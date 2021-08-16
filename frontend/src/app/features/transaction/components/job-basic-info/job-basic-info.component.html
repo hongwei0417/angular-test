@@ -1,0 +1,39 @@
+<form [formGroup]="jobForm" class="jobFormBasicInfo">
+  <h4>Basic Info</h4>
+  <div class="itemGroup bg">
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(jobName?.invalid && jobName?.touched)">Job Name</span>
+        <p  *ngIf="jobName?.invalid && jobName?.touched">
+          "Job Name" is required
+        </p>
+      </label>
+      <input type="text" formControlName="jobName">
+    </div>
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(maxRetry?.invalid && maxRetry?.touched)">Max Retry</span>
+        <p  *ngIf="maxRetry?.invalid && maxRetry?.touched">
+          "Max Retry" is required
+        </p>
+      </label>
+      <input type="text" formControlName="maxRetry">
+    </div>
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span *ngIf="!(DLLSeq?.invalid && DLLSeq?.touched)">DLL Seq</span>
+        <p  *ngIf="DLLSeq?.invalid && DLLSeq?.touched">
+          "DLL Seq" is required
+        </p>
+      </label>
+      <p-autoComplete formControlName="DLLSeq" [suggestions]="DLLSeqs"
+        (completeMethod)="filterDLLSeqs($event)" [dropdown]="true" placeholder="Select">
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{custId}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+  </div>
+</form>

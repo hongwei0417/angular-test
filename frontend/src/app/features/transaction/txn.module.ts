@@ -27,6 +27,9 @@ import { TxnCreateJobComponent } from './components/txn-create-job/txn-create-jo
 import { SharedModule } from 'src/app/shared';
 import { ChooseModuleComponent } from './components/choose-module/choose-module.component';
 import { ChooseMailgrpComponent } from './components/choose-mailgrp/choose-mailgrp.component';
+import { JobSettingComponent } from './containers/job-setting/job-setting.component';
+import { JobBasicInfoComponent } from './components/job-basic-info/job-basic-info.component';
+import { SingleJobFieldComponent } from './components/single-job-field/single-job-field.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { ChooseMailgrpComponent } from './components/choose-mailgrp/choose-mailg
     TxnCreateJobComponent,
     ChooseModuleComponent,
     ChooseMailgrpComponent,
+    JobSettingComponent,
+    JobBasicInfoComponent,
+    SingleJobFieldComponent,
   ],
   imports: [
     CommonModule,

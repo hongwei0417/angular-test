@@ -1,10 +1,6 @@
 @import "/src/assets/styles/variables.scss";
-@import "../../containers/txn-setting/txn-setting.component.scss";
+@import '../../containers/txn-create-page/txn-create-page.component.scss';
 
-.bg {
-  padding: 15px;
-  background: $gray-200;
-}
 
 .accordionGroup label,
 .accordionGroup p {
@@ -125,7 +121,7 @@
   opacity: 0;
 }
 
-.accordionHeader .btnGroup button {
+.accordionHeader .btnGroup button:last-child {
   margin-right: 15px;
 }
 
@@ -184,16 +180,31 @@ p-selectbutton {
   font-size: 14px;
 }
 
-:host ::ng-deep .accordionContent .p-autocomplete .p-inputtext {
+// :host ::ng-deep .accordionContent .p-autocomplete .p-inputtext {
+//   padding: 5px 10px;
+//   min-width: 160px;
+//   border-radius: 5px 0 0 5px;
+// }
+
+// .accordionContent input,
+// :host ::ng-deep .accordionContent .p-autocomplete .p-inputtext {
+//   font-size: 12px;
+// }
+
+:host ::ng-deep .accordionContent .p-dropdown{
+  border-radius: 5px;
+}
+
+:host ::ng-deep .accordionContent .p-dropdown .p-inputtext{
   padding: 5px 10px;
   min-width: 160px;
-  border-radius: 5px 0 0 5px;
 }
 
 .accordionContent input,
-:host ::ng-deep .accordionContent .p-autocomplete .p-inputtext {
+:host ::ng-deep .accordionContent .p-dropdown .p-inputtext{
   font-size: 12px;
 }
+
 
 :host ::ng-deep .accordionContent .p-button.p-button-icon-only {
   padding: 5px;

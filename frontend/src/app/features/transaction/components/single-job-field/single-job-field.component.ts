@@ -1,30 +1,15 @@
-import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Handsontable from 'handsontable';
 import { HandsontableHooks,rowRequireValidator } from 'src/app/shared/handsontable/handsontable.component';
 
-
 @Component({
-  selector: 'app-txn-create-job',
-  templateUrl: './txn-create-job.component.html',
-  styleUrls: ['./txn-create-job.component.scss']
+  selector: 'app-single-job-field',
+  templateUrl: './single-job-field.component.html',
+  styleUrls: ['./single-job-field.component.scss']
 })
-export class TxnCreateJobComponent implements OnInit {
-
-  allJobDLLCondition!: FormGroup;
-  // jobForm!: FormGroup;
-  // get jobName() {
-  //   return this.jobForm.get('jobName');
-  // }
-  // get maxRetry() {
-  //   return this.jobForm.get('maxRetry');
-  // }
-  // get DLLSeq() {
-  //   return this.jobForm.get('DLLSeq');
-  // }
-  // DLLSeqs!: string[];
+export class SingleJobFieldComponent implements OnInit {
   jobDLLCondition!: FormGroup;
-
 
   tableHeaders: TableHeaders = {
     ConditionID: 'Condition ID',
@@ -83,28 +68,11 @@ export class TxnCreateJobComponent implements OnInit {
     colHeaders: Object.values(this.tableHeaders),
   };
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    const allJobConditionInfo = () => {
-      this.allJobDLLCondition = this.formBuilder.group({
-        ConditionID: [, Validators.required],
-        ConditionName: [, Validators.required],
-        ConditionValue: [, Validators.required],
-        Memo: [, Validators.required],
-      });
-    };
-
-    // const jobFormInfo = () => {
-    //   this.jobForm = this.formBuilder.group({
-    //     jobName: [, Validators.required],
-    //     maxRetry: [, Validators.required],
-    //     DLLSeq: [, Validators.required],
-    //   });
-    // };
-
     const jobConditionInfo = () => {
-      this.jobDLLCondition = this.formBuilder.group({
+      this.jobDLLCondition = this.fb.group({
         ConditionID: [, Validators.required],
         ConditionName: [, Validators.required],
         ConditionValue: [, Validators.required],
@@ -112,22 +80,8 @@ export class TxnCreateJobComponent implements OnInit {
       });
     };
 
-    allJobConditionInfo();
-    // jobFormInfo();
     jobConditionInfo();
   }
-
-
-  // filterDLLSeqs(inputtedCustNameEvent: any): void {
-  //   let query = inputtedCustNameEvent.query;
-  //   this.DLLSeqs = [
-  //     '0000000003',
-  //     '0000000004',
-  //     '0000000012',
-  //     '0000000013',
-  //     '0000000020'
-  //   ]
-  // }
 
 }
 
@@ -144,3 +98,4 @@ interface TableDataSchema {
 }
 
 type TableHeaders = Record<keyof TableDataSchema, string>;
+
