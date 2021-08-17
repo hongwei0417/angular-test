@@ -25,7 +25,7 @@ export const FeatureKey = 'txnSettingForm';
 export interface TxnSettingFormValue extends TxnSetting {}
 
 export const txnSettingFormState = createFormGroupState<TxnSettingFormValue>(
-  'txnSettingForm',
+  FeatureKey,
   {
     TransactionName: '',
     APBooking: '',

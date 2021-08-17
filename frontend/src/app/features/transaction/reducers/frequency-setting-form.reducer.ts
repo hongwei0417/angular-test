@@ -12,6 +12,7 @@ import {
   formGroupReducer,
   formStateReducer,
   setValue,
+  removeGroupControl,
 } from 'ngrx-forms';
 import { FrequencySetting } from './../models/TxnForm';
 import { Action, combineReducers, createReducer, on } from '@ngrx/store';
@@ -52,7 +53,7 @@ export const FqSettingFormState: FqSettingValue = {
 };
 
 export const FQCollectionFormState = createFormGroupState<FqCollectionValue>(
-  'frequencySettingForm',
+  FeatureKey,
   {
     0: FqSettingFormState,
   }
@@ -96,8 +97,7 @@ export const rawReducer = createReducer(
     return initialState;
   }),
   on(TxnSettingFormActions.addFrequencySetting, (state, action) => {
-    console.log(state);
-    const newID = state.options[state.options.length - 1] + 1;
+    const newID = state.options.length + 1;
     const newAccordion = false;
     return {
       ...state,
@@ -106,9 +106,21 @@ export const rawReducer = createReducer(
       formState: addGroupControl(state.formState, newID, FqSettingFormState),
     };
   }),
+  on(TxnSettingFormActions.removeFrequencySetting, (state, action) => {
+    const options = [...state.options];
+    const showAccordions = [...state.showAccordions];
+    options.splice(state.options.indexOf(action.id), 1);
+    showAccordions.splice(state.options.indexOf(action.id), 1);
+    return {
+      ...state,
+      options,
+      showAccordions,
+      formState: removeGroupControl(state.formState, action.id),
+    };
+  }),
   on(TxnSettingFormActions.toggleFqAccordion, (state, action) => {
     const newAccordions = state.showAccordions.map((status, i) => {
-      return i === action.index ? !status : status;
+      return i === action.id ? !status : status;
     });
     return {
       ...state,

@@ -6,7 +6,6 @@ export interface TxnSetting {
   time?: number;
   alarmIntervalMin?: number;
 }
-
 export interface FrequencySetting {
   LastTranTime: string;
   CronExpression: string;
@@ -19,6 +18,22 @@ export interface FrequencySetting {
   EndAt?: string;
   SkipOverDue: boolean;
   SkipAllOverDue: boolean;
+}
+
+export interface ChooseModule {
+  moduleName: string;
+  issue: boolean;
+}
+
+export interface MailGroup {
+  ownerIT: string;
+  mailTo: string;
+  ownerCoordinator: string;
+  loaderOwner: string;
+  mailCC: string;
+  mailBCC: string;
+  SAPOwner: string;
+  MESOwner: string;
 }
 
 export interface TxnFormData extends TxnSetting, FrequencySetting {}

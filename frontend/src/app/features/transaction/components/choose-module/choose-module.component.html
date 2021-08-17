@@ -1,25 +1,37 @@
-<form [formGroup]="moduleForm" class="moduleForm">
+<form [ngrxFormState]="formState" class="moduleForm">
   <h4>Choose Module <span>( Module Name / Issue )</span></h4>
   <div class="bg">
-    <div class="moduleItem">
+    <div *ngFor="let id of options; let i = index" class="moduleItem">
       <div class="itemGroup">
         <div class="item">
-          <p-autoComplete formControlName="moduleName" [suggestions]="moduleName"
-            (completeMethod)="filterModuleName($event)" [dropdown]="true" >
+          <p-autoComplete
+            [ngrxFormControlState]="formState.controls[i].controls.moduleName"
+            [suggestions]="moduleNames"
+            (completeMethod)="filterModuleName($event)"
+            [dropdown]="true"
+          >
             <ng-template let-custId pTemplate="item">
               <div class="custName-item">
-                <div>{{custId}}</div>
+                <div>{{ custId }}</div>
               </div>
             </ng-template>
           </p-autoComplete>
         </div>
         <div class="item">
-          <p-inputSwitch formControlName="issue"></p-inputSwitch>
+          <p-inputSwitch
+            [ngrxFormControlState]="formState.controls[i].controls.issue"
+          ></p-inputSwitch>
         </div>
       </div>
       <div class="btnGroup">
-        <button class="iconBtn small customBtnReverse line remove"></button>
-        <button class="iconBtn small customBtn add"></button>
+        <button
+          class="iconBtn small customBtnReverse line remove"
+          (click)="removeChooseModule(id)"
+        ></button>
+        <button
+          class="iconBtn small customBtn add"
+          (click)="addChooseModule(id)"
+        ></button>
       </div>
     </div>
   </div>

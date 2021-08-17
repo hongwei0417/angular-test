@@ -1,4 +1,4 @@
-<form [formGroup]="mailGroupForm" class="mailGroupForm">
+<form [ngrxFormState]="formState" class="mailGroupForm">
   <h4>
     <span>Choose Deliver Mail Group</span>
     <button class="txtBtn small customBtnReverse line setting">Setting</button>
@@ -6,17 +6,35 @@
   <div class="itemGroup bg">
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(ownerIT?.invalid && ownerIT?.touched)">Owner IT</span>
-        <p  *ngIf="ownerIT?.invalid && ownerIT?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.ownerIT.isInvalid &&
+              formState.controls.ownerIT.isTouched
+            )
+          "
+          >Owner IT</span
+        >
+        <p
+          *ngIf="
+            formState.controls.ownerIT.isInvalid &&
+            formState.controls.ownerIT.isTouched
+          "
+        >
           "Owner IT" is required
         </p>
       </label>
 
-      <p-autoComplete formControlName="ownerIT" [suggestions]="mailGroup"
-        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.ownerIT"
+        [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
         <ng-template let-custId pTemplate="item">
           <div class="custName-item">
-            <div>{{custId}}</div>
+            <div>{{ custId }}</div>
           </div>
         </ng-template>
       </p-autoComplete>
@@ -24,17 +42,35 @@
 
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(mailTo?.invalid && mailTo?.touched)">Mail To</span>
-        <p  *ngIf="mailTo?.invalid && mailTo?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.mailTo.isInvalid &&
+              formState.controls.mailTo.isTouched
+            )
+          "
+          >Mail To</span
+        >
+        <p
+          *ngIf="
+            formState.controls.mailTo.isInvalid &&
+            formState.controls.mailTo.isTouched
+          "
+        >
           "Mail To" is required
         </p>
       </label>
 
-      <p-autoComplete formControlName="mailTo" [suggestions]="mailGroup"
-        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.mailTo"
+        [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
         <ng-template let-custId pTemplate="item">
           <div class="custName-item">
-            <div>{{custId}}</div>
+            <div>{{ custId }}</div>
           </div>
         </ng-template>
       </p-autoComplete>
@@ -42,17 +78,35 @@
 
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(ownerCoordinator?.invalid && ownerCoordinator?.touched)">Owner Coordinator</span>
-        <p  *ngIf="ownerCoordinator?.invalid && ownerCoordinator?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.ownerCoordinator.isInvalid &&
+              formState.controls.ownerCoordinator.isTouched
+            )
+          "
+          >Owner Coordinator</span
+        >
+        <p
+          *ngIf="
+            formState.controls.ownerCoordinator.isInvalid &&
+            formState.controls.ownerCoordinator.isTouched
+          "
+        >
           "Owner Coordinator" is required
         </p>
       </label>
 
-      <p-autoComplete formControlName="ownerCoordinator" [suggestions]="mailGroup"
-        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.ownerCoordinator"
+        [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
         <ng-template let-custId pTemplate="item">
           <div class="custName-item">
-            <div>{{custId}}</div>
+            <div>{{ custId }}</div>
           </div>
         </ng-template>
       </p-autoComplete>
@@ -60,17 +114,35 @@
 
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(loaderOwner?.invalid && loaderOwner?.touched)">Loader Owner</span>
-        <p  *ngIf="loaderOwner?.invalid && loaderOwner?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.loaderOwner.isInvalid &&
+              formState.controls.loaderOwner.isTouched
+            )
+          "
+          >Loader Owner</span
+        >
+        <p
+          *ngIf="
+            formState.controls.loaderOwner.isInvalid &&
+            formState.controls.loaderOwner.isTouched
+          "
+        >
           "Loader Owner" is required
         </p>
       </label>
 
-      <p-autoComplete formControlName="loaderOwner" [suggestions]="mailGroup"
-        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.loaderOwner"
+        [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
         <ng-template let-custId pTemplate="item">
           <div class="custName-item">
-            <div>{{custId}}</div>
+            <div>{{ custId }}</div>
           </div>
         </ng-template>
       </p-autoComplete>
@@ -78,17 +150,35 @@
 
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(mailCC?.invalid && mailCC?.touched)">Mail CC</span>
-        <p  *ngIf="mailCC?.invalid && mailCC?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.mailCC.isInvalid &&
+              formState.controls.mailCC.isTouched
+            )
+          "
+          >Mail CC</span
+        >
+        <p
+          *ngIf="
+            formState.controls.mailCC.isInvalid &&
+            formState.controls.mailCC.isTouched
+          "
+        >
           "Mail CC" is required
         </p>
       </label>
 
-      <p-autoComplete formControlName="mailCC" [suggestions]="mailGroup"
-        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.mailCC"
+        [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
         <ng-template let-custId pTemplate="item">
           <div class="custName-item">
-            <div>{{custId}}</div>
+            <div>{{ custId }}</div>
           </div>
         </ng-template>
       </p-autoComplete>
@@ -96,17 +186,35 @@
 
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(mailBCC?.invalid && mailBCC?.touched)">Mail BCC</span>
-        <p  *ngIf="mailBCC?.invalid && mailBCC?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.mailBCC.isInvalid &&
+              formState.controls.mailBCC.isTouched
+            )
+          "
+          >Mail BCC</span
+        >
+        <p
+          *ngIf="
+            formState.controls.mailBCC.isInvalid &&
+            formState.controls.mailBCC.isTouched
+          "
+        >
           "Mail BCC" is required
         </p>
       </label>
 
-      <p-autoComplete formControlName="mailBCC" [suggestions]="mailGroup"
-        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.mailBCC"
+        [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
         <ng-template let-custId pTemplate="item">
           <div class="custName-item">
-            <div>{{custId}}</div>
+            <div>{{ custId }}</div>
           </div>
         </ng-template>
       </p-autoComplete>
@@ -114,17 +222,35 @@
 
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(SAPOwner?.invalid && SAPOwner?.touched)">SAP Owner</span>
-        <p  *ngIf="SAPOwner?.invalid && SAPOwner?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.SAPOwner.isInvalid &&
+              formState.controls.SAPOwner.isTouched
+            )
+          "
+          >SAP Owner</span
+        >
+        <p
+          *ngIf="
+            formState.controls.SAPOwner.isInvalid &&
+            formState.controls.SAPOwner.isTouched
+          "
+        >
           "SAP Owner" is required
         </p>
       </label>
 
-      <p-autoComplete formControlName="SAPOwner" [suggestions]="mailGroup"
-        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.SAPOwner"
+        [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
         <ng-template let-custId pTemplate="item">
           <div class="custName-item">
-            <div>{{custId}}</div>
+            <div>{{ custId }}</div>
           </div>
         </ng-template>
       </p-autoComplete>
@@ -132,17 +258,35 @@
 
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(MESOwner?.invalid && MESOwner?.touched)">MES Owner</span>
-        <p  *ngIf="MESOwner?.invalid && MESOwner?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.MESOwner.isInvalid &&
+              formState.controls.MESOwner.isTouched
+            )
+          "
+          >MES Owner</span
+        >
+        <p
+          *ngIf="
+            formState.controls.MESOwner.isInvalid &&
+            formState.controls.MESOwner.isTouched
+          "
+        >
           "MES Owner" is required
         </p>
       </label>
 
-      <p-autoComplete formControlName="MESOwner" [suggestions]="mailGroup"
-        (completeMethod)="filterMailGroup($event)" [dropdown]="true" placeholder="Select">
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.MESOwner"
+        [suggestions]="mailGroup"
+        (completeMethod)="filterMailGroup($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
         <ng-template let-custId pTemplate="item">
           <div class="custName-item">
-            <div>{{custId}}</div>
+            <div>{{ custId }}</div>
           </div>
         </ng-template>
       </p-autoComplete>

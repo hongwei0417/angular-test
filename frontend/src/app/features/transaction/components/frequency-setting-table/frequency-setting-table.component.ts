@@ -27,6 +27,7 @@ export class FrequencySettingTableComponent implements OnInit {
   @Input() showAccordions!: boolean[];
   @Input() submittedValue!: FqCollectionValue | undefined;
   @Output() addFqSettingEvent = new EventEmitter();
+  @Output() removeFqSettingEvent = new EventEmitter<number>();
   @Output() toggleFqAccordionEvent = new EventEmitter<number>();
   dateValueConverter = NgrxValueConverters.dateToISOString;
   timeZoneIds: TimeZoneInfo[] = [];
@@ -52,6 +53,10 @@ export class FrequencySettingTableComponent implements OnInit {
 
   addFrequencySetting(): void {
     this.addFqSettingEvent.emit();
+  }
+
+  removeFrequencySetting(id: number): void {
+    this.removeFqSettingEvent.emit(id);
   }
 
   toggleAccordion(index: number): void {

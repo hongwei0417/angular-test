@@ -5,15 +5,28 @@
       *ngIf="settingFormState$ | async as formState"
       [formState]="formState"
     ></app-txn-basic-info>
+
     <app-frequency-setting-table
-      *ngIf="FQSettingFormState$ | async as formState"
+      *ngIf="fqSettingFormState$ | async as formState"
       [formState]="formState"
-      [options]="(FQSettingOptions$ | async) || []"
-      [showAccordions]="(FQSettingShowAccordions$ | async) || []"
+      [options]="(fqSettingOptions$ | async) || []"
+      [showAccordions]="(fqSettingShowAccordions$ | async) || []"
       (addFqSettingEvent)="onAddFrequencySetting()"
+      (removeFqSettingEvent)="onRemoveFrequencySetting($event)"
       (toggleFqAccordionEvent)="onToggleFqAccordion($event)"
     ></app-frequency-setting-table>
-    <app-choose-module></app-choose-module>
-    <app-choose-mailgrp></app-choose-mailgrp>
+
+    <app-choose-module
+      *ngIf="moduleFormState$ | async as formState"
+      [formState]="formState"
+      [options]="(chooseModuleOptions$ | async) || []"
+      (addChooseModuleEvent)="onAddChooseModule($event)"
+      (removeChooseModuleEvent)="onRemoveChooseModule($event)"
+    ></app-choose-module>
+
+    <app-choose-mailgrp
+      *ngIf="mailGroupFormState$ | async as formState"
+      [formState]="formState.controls[0]"
+    ></app-choose-mailgrp>
   </div>
 </div>

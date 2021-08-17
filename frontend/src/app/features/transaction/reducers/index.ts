@@ -12,6 +12,8 @@ import * as fromTxnListPage from './txn-list-page.reducer';
 import * as fromTxnCreatePage from './txn-create-page.reducer';
 import * as fromTxnForm from './txn-setting-form.reducer';
 import * as fromFrequencyForm from './frequency-setting-form.reducer';
+import * as fromModuleForm from './module-form.reducer';
+import * as fromMailGroupForm from './mail-group-form.reducer';
 
 export const FeatureKey = 'txn';
 
@@ -20,6 +22,8 @@ export interface TxnState {
   [fromTxnCreatePage.FeatureKey]: fromTxnCreatePage.State;
   [fromTxnForm.FeatureKey]: fromTxnForm.State;
   [fromFrequencyForm.FeatureKey]: fromFrequencyForm.State;
+  [fromModuleForm.FeatureKey]: fromModuleForm.State;
+  [fromMailGroupForm.FeatureKey]: fromMailGroupForm.State;
 }
 export interface State extends fromRoot.State {
   [FeatureKey]: TxnState;
@@ -32,6 +36,8 @@ export const reducers = (state: TxnState | undefined, action: Action) => {
     [fromTxnCreatePage.FeatureKey]: fromTxnCreatePage.reducer,
     [fromTxnForm.FeatureKey]: fromTxnForm.reducer,
     [fromFrequencyForm.FeatureKey]: fromFrequencyForm.reducer,
+    [fromModuleForm.FeatureKey]: fromModuleForm.reducer,
+    [fromMailGroupForm.FeatureKey]: fromMailGroupForm.reducer,
   })(state, action);
 };
 
@@ -57,6 +63,16 @@ export const getTxnSettingFormState = createSelector(
 export const getFqSettingFormState = createSelector(
   getTxnState,
   (state: TxnState) => state[fromFrequencyForm.FeatureKey]
+);
+
+export const getModuleFormState = createSelector(
+  getTxnState,
+  (state: TxnState) => state[fromModuleForm.FeatureKey]
+);
+
+export const getMailGroupFormState = createSelector(
+  getTxnState,
+  (state: TxnState) => state[fromMailGroupForm.FeatureKey]
 );
 
 // selectors
@@ -103,4 +119,19 @@ export const getFqSettingOptions = createSelector(
 export const getFqSettingShowAccordions = createSelector(
   getFqSettingFormState,
   fromFrequencyForm.getShowAccordions
+);
+
+export const getModuleForm = createSelector(
+  getModuleFormState,
+  fromModuleForm.getFormState
+);
+
+export const getModuleOptions = createSelector(
+  getModuleFormState,
+  fromModuleForm.getOptions
+);
+
+export const getMailGroupForm = createSelector(
+  getMailGroupFormState,
+  fromMailGroupForm.getFormState
 );

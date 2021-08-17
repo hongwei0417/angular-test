@@ -1,35 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { ModuleValue } from '../../reducers/module-form.reducer';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormArrayState } from 'ngrx-forms';
 
 @Component({
   selector: 'app-choose-module',
   templateUrl: './choose-module.component.html',
-  styleUrls: ['./choose-module.component.scss']
+  styleUrls: ['./choose-module.component.scss'],
 })
 export class ChooseModuleComponent implements OnInit {
-  moduleForm!: FormGroup;
-  moduleName!: string[];
+  @Input() formState!: FormArrayState<ModuleValue>;
+  @Input() options!: number[];
+  @Output() addChooseModuleEvent = new EventEmitter<number>();
+  @Output() removeChooseModuleEvent = new EventEmitter<number>();
+  moduleNames!: string[];
 
-  constructor(private fb: FormBuilder) { }
+  constructor() {}
 
-  ngOnInit(): void {
-    const moduleFormInfo = () => {
-      this.moduleForm = this.fb.group({
-        moduleName: [],
-        issue:[false]
-      });
-    };
+  ngOnInit(): void {}
 
-    moduleFormInfo();
+  addChooseModule(id: number): void {
+    this.addChooseModuleEvent.emit(id);
+  }
+
+  removeChooseModule(id: number): void {
+    this.removeChooseModuleEvent.emit(id);
   }
 
   filterModuleName(inputtedCustNameEvent: any): void {
     let query = inputtedCustNameEvent.query;
-    this.moduleName = [
+    this.moduleNames = [
       'CBDM-LOT_RECEIVE_DEL_WI',
       'CBDM-LOT_SHIP',
       'CBDM-WO_RETURN',
-    ]
+    ];
   }
-
 }
