@@ -1,13 +1,13 @@
 import { Observable, of } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TxnCreatePageActions } from '../../actions';
+import { TxnFormPageActions } from '../../actions';
 import * as fromTxn from '../../reducers';
 
 @Component({
-  selector: 'app-txn-create-page',
-  templateUrl: './txn-create-page.component.html',
-  styleUrls: ['./txn-create-page.component.scss'],
+  selector: 'app-txn-form-page',
+  templateUrl: './txn-form-page.component.html',
+  styleUrls: ['./txn-form-page.component.scss'],
 })
 export class TxnCreatePageComponent implements OnInit, OnDestroy {
   error$!: Observable<string>;
@@ -19,12 +19,12 @@ export class TxnCreatePageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.store$.dispatch(TxnCreatePageActions.clearTxnCreatePageState());
+    this.store$.dispatch(TxnFormPageActions.clearTxnCreatePageState());
   }
 
   onSubmit({ title, content, executeCount }: any): void {
     this.store$.dispatch(
-      TxnCreatePageActions.createTxn({ title, content, executeCount })
+      TxnFormPageActions.createTxn({ title, content, executeCount })
     );
   }
 }

@@ -1,5 +1,5 @@
 import { RouterLinkDirectiveStub } from './../../../../shared/testing/router-link-directive-stub.directive';
-import { TxnCreatePageComponent } from './../txn-create-page/txn-create-page';
+import { TxnCreatePageComponent } from '../txn-form-page/txn-form-page';
 import { fakeData } from '../../../../core/services/fake-data.service';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';

@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
-import { TxnApiActions, TxnCreatePageActions } from '../actions';
+import { TxnApiActions, TxnFormPageActions } from '../actions';
 
-export const FeatureKey = 'txnCreatePage';
+export const FeatureKey = 'txnFormPage';
 
 export interface State {
   loading: boolean;
@@ -15,7 +15,7 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(TxnCreatePageActions.createTxn, (state, action) => ({
+  on(TxnFormPageActions.createTxn, (state, action) => ({
     ...state,
     loading: true,
   })),
@@ -30,7 +30,7 @@ export const reducer = createReducer(
     error: action.error,
   })),
   on(
-    TxnCreatePageActions.clearTxnCreatePageState,
+    TxnFormPageActions.clearTxnCreatePageState,
     (state, action) => initialState
   )
 );

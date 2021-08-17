@@ -13,10 +13,10 @@ import {
   setValue,
 } from 'ngrx-forms';
 import { required } from 'ngrx-forms/validation';
-import { TxnCreatePageActions } from '../actions';
+import { TxnFormPageActions } from '../actions';
 import { TxnSetting } from '../models/TxnForm';
 
-export const FeatureKey = 'txnSettingForm';
+export const FeatureKey = 'basicInfoForm';
 
 // export type TxnSettingFormValue = Omit<TxnSetting, 'date'> & {
 //   date: Boxed<Date>;
@@ -58,7 +58,7 @@ export const initialState: State = {
 export const rawReducer = createReducer(
   initialState,
   onNgrxForms(),
-  on(TxnCreatePageActions.clearTxnCreatePageState, (state, action) => {
+  on(TxnFormPageActions.clearTxnCreatePageState, (state, action) => {
     return initialState;
   })
 );

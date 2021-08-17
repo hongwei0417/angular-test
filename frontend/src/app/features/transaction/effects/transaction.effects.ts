@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
   TxnApiActions,
-  TxnCreatePageActions,
+  TxnFormPageActions,
   TxnListPageActions,
 } from '../actions';
 import { catchError, exhaustMap, map, switchMap } from 'rxjs/operators';
@@ -28,7 +28,7 @@ export class TransactionEffects {
 
   createTxn$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(TxnCreatePageActions.createTxn)
+      ofType(TxnFormPageActions.createTxn)
       // exhaustMap((action) => {
       //   return this.txnFormService.createTxn$(action).pipe(
       //     map(() => TxnApiActions.createTxnApiSuccess({ txn: null })),

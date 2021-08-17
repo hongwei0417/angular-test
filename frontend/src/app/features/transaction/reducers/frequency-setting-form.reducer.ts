@@ -19,7 +19,7 @@ import { Action, combineReducers, createReducer, on } from '@ngrx/store';
 import { required } from 'ngrx-forms/validation';
 import {
   TxnApiActions,
-  TxnCreatePageActions,
+  TxnFormPageActions,
   TxnSettingFormActions,
 } from '../actions';
 import { randomBytes, randomInt } from 'crypto';
@@ -93,7 +93,7 @@ export const form = createFormStateReducerWithUpdate<FqCollectionValue>(
 export const rawReducer = createReducer(
   initialState,
   onNgrxForms(),
-  on(TxnCreatePageActions.clearTxnCreatePageState, (state, action) => {
+  on(TxnFormPageActions.clearTxnCreatePageState, (state, action) => {
     return initialState;
   }),
   on(TxnSettingFormActions.addFrequencySetting, (state, action) => {

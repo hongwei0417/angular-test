@@ -8,13 +8,11 @@ import {
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FormGroupState, NgrxValueConverters } from 'ngrx-forms';
-import { TxnSettingFormValue } from '../../reducers/txn-setting-form.reducer';
-
+import { TxnSettingFormValue } from '../../reducers/basic-info-form.reducer';
 interface APBookingInfo {
-  name: string,
-  code: string
+  name: string;
+  code: string;
 }
-
 
 @Component({
   selector: 'app-txn-basic-info',
@@ -26,7 +24,7 @@ export class TxnCreateComponent implements OnInit {
   @Input() submittedValue!: TxnSettingFormValue | undefined;
   dateValueConverter = NgrxValueConverters.dateToISOString;
 
-  APBookingIds:APBookingInfo[];
+  APBookingIds: APBookingInfo[];
 
   stateOptions = [
     { label: 'Yes', value: true },
@@ -35,15 +33,13 @@ export class TxnCreateComponent implements OnInit {
 
   constructor() {
     this.APBookingIds = [
-      {name: 'EBAP-HLO999', code: ''},
-      {name: 'BBAP-HLO999', code: ''},
-      {name: 'ABAP-HLO999', code: ''}
+      { name: 'EBAP-HLO999', code: '' },
+      { name: 'BBAP-HLO999', code: '' },
+      { name: 'ABAP-HLO999', code: '' },
     ];
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   // filterAPBookingIds(inputtedCustNameEvent: any): void {
   //   let query = inputtedCustNameEvent.query;

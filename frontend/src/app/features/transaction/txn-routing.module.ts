@@ -1,4 +1,4 @@
-import { TxnCreatePageComponent } from './containers/txn-create-page/txn-create-page';
+import { TxnCreatePageComponent } from './containers/txn-form-page/txn-form-page';
 import { TxnListPageComponent } from './containers/txn-list-page/txn-list-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';

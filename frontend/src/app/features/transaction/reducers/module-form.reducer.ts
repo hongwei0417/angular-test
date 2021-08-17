@@ -14,7 +14,7 @@ import {
 import { Action, createReducer, on } from '@ngrx/store';
 import { ChooseModule } from '../models/TxnForm';
 import { required } from 'ngrx-forms/validation';
-import { TxnCreatePageActions, TxnSettingFormActions } from '../actions';
+import { TxnFormPageActions, TxnSettingFormActions } from '../actions';
 
 export interface ModuleValue extends ChooseModule {}
 
@@ -47,7 +47,7 @@ export const validateForm = updateArray<ModuleValue>(
 export const rawReducer = createReducer(
   initialState,
   onNgrxForms(),
-  on(TxnCreatePageActions.clearTxnCreatePageState, (state, action) => {
+  on(TxnFormPageActions.clearTxnCreatePageState, (state, action) => {
     return initialState;
   }),
   on(TxnSettingFormActions.addChooseModule, (state, action) => {

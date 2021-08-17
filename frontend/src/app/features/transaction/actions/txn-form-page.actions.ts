@@ -1,10 +1,10 @@
 import { createAction, props, union } from '@ngrx/store';
 
 export const createTxn = createAction(
-  '[TxnCreatePage] Create Transaction',
+  '[TxnFormPage] Create Transaction',
   props<{ title: string; content: string; executeCount: number }>()
 );
 
 export const clearTxnCreatePageState = createAction(
-  '[TxnCreatePage] Clear TxnCreate Page State'
+  '[TxnFormPage] Clear TxnCreate Page State'
 );

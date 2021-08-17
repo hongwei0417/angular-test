@@ -8,7 +8,7 @@ import { FormArrayState, FormGroupState } from 'ngrx-forms';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import * as fromTxn from '../../reducers';
-import { TxnSettingFormValue } from '../../reducers/txn-setting-form.reducer';
+import { TxnSettingFormValue } from '../../reducers/basic-info-form.reducer';
 import { TxnSettingFormActions } from '../../actions';
 import { randomInt } from 'crypto';
 

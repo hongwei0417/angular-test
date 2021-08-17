@@ -1,8 +1,8 @@
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { RouterLinkDirectiveStub } from './../../../../shared/testing/router-link-directive-stub.directive';
+import { RouterLinkDirectiveStub } from '../../../../shared/testing/router-link-directive-stub.directive';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TxnCreatePageComponent } from './txn-create-page';
+import { TxnCreatePageComponent } from './txn-form-page';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TxnCreatePageActions } from '../../actions';
 import { By } from '@angular/platform-browser';

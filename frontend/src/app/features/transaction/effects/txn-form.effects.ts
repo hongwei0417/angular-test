@@ -11,7 +11,7 @@ import {
   mergeMap,
   tap,
 } from 'rxjs/operators';
-import { TxnApiActions, TxnCreatePageActions } from '../actions';
+import { TxnApiActions, TxnFormPageActions } from '../actions';
 import {
   ResetAction,
   setAsyncError,
@@ -19,7 +19,7 @@ import {
   SetErrorsAction,
   SetUserDefinedPropertyAction,
 } from 'ngrx-forms';
-import * as fromTxnSetting from '../reducers/txn-setting-form.reducer';
+import * as fromTxnSetting from '../reducers/basic-info-form.reducer';
 import * as fromFrequencySetting from '../reducers/frequency-setting-form.reducer';
 import { merge } from 'rxjs';
 

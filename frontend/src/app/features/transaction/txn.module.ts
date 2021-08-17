@@ -9,7 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import * as fromTxn from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { TxnCreateComponent } from './components/txn-basic-info/txn-basic-info.component';
-import { TxnCreatePageComponent } from './containers/txn-create-page/txn-create-page';
+import { TxnCreatePageComponent } from './containers/txn-form-page/txn-form-page';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TransactionEffects } from './effects/transaction.effects';
 
