@@ -1,6 +1,5 @@
 @import "/src/assets/styles/variables.scss";
-@import '../../containers/txn-create-page/txn-create-page.component.scss';
-
+@import "../../containers/txn-form-page/txn-form-page.component.scss";
 
 .accordionGroup label,
 .accordionGroup p {
@@ -191,20 +190,19 @@ p-selectbutton {
 //   font-size: 12px;
 // }
 
-:host ::ng-deep .accordionContent .p-dropdown{
+:host ::ng-deep .accordionContent .p-dropdown {
   border-radius: 5px;
 }
 
-:host ::ng-deep .accordionContent .p-dropdown .p-inputtext{
+:host ::ng-deep .accordionContent .p-dropdown .p-inputtext {
   padding: 5px 10px;
   min-width: 160px;
 }
 
 .accordionContent input,
-:host ::ng-deep .accordionContent .p-dropdown .p-inputtext{
+:host ::ng-deep .accordionContent .p-dropdown .p-inputtext {
   font-size: 12px;
 }
-
 
 :host ::ng-deep .accordionContent .p-button.p-button-icon-only {
   padding: 5px;

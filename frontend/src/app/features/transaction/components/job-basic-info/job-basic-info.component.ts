@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroupState } from 'ngrx-forms';
+import { JobBasicInfo } from '../../models/TxnForm';
 
 @Component({
   selector: 'app-job-basic-info',
   templateUrl: './job-basic-info.component.html',
-  styleUrls: ['./job-basic-info.component.scss']
+  styleUrls: ['./job-basic-info.component.scss'],
 })
 export class JobBasicInfoComponent implements OnInit {
+  @Input() formState!: FormGroupState<JobBasicInfo>;
+
   jobForm!: FormGroup;
   get jobName() {
     return this.jobForm.get('jobName');
@@ -19,7 +23,7 @@ export class JobBasicInfoComponent implements OnInit {
   }
   DLLSeqs!: string[];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     const jobFormInfo = () => {
@@ -39,8 +43,7 @@ export class JobBasicInfoComponent implements OnInit {
       '0000000004',
       '0000000012',
       '0000000013',
-      '0000000020'
-    ]
+      '0000000020',
+    ];
   }
-
 }

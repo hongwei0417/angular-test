@@ -1,14 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import Handsontable from 'handsontable';
-import { HandsontableHooks,rowRequireValidator } from 'src/app/shared/handsontable/handsontable.component';
+import { FormArrayState, FormGroupState } from 'ngrx-forms';
+import { Observable } from 'rxjs';
+import {
+  HandsontableHooks,
+  rowRequireValidator,
+} from 'src/app/shared/handsontable/handsontable.component';
+import { MailGroupValue } from '../../reducers/mail-group-form.reducer';
+import * as fromTxn from '../../reducers';
+import { Action, select, Store } from '@ngrx/store';
+import { JobSettingValue } from '../../reducers/job-setting-form.reducer';
+import { JobSettingFormActions } from '../../actions';
 
 @Component({
   selector: 'app-job-setting',
   templateUrl: './job-setting.component.html',
-  styleUrls: ['./job-setting.component.scss']
+  styleUrls: ['./job-setting.component.scss'],
 })
 export class JobSettingComponent implements OnInit {
+  jobSettingForm$!: Observable<FormGroupState<JobSettingValue>>;
+  singleJobOptions$!: Observable<number[]>;
+
   allJobDLLCondition!: FormGroup;
 
   tableHeaders: TableHeaders = {
@@ -68,23 +86,19 @@ export class JobSettingComponent implements OnInit {
     colHeaders: Object.values(this.tableHeaders),
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private store$: Store<fromTxn.State>) {}
 
   ngOnInit(): void {
-    const allJobConditionInfo = () => {
-      this.allJobDLLCondition = this.fb.group({
-        ConditionID: [, Validators.required],
-        ConditionName: [, Validators.required],
-        ConditionValue: [, Validators.required],
-        Memo: [, Validators.required],
-      });
-    };
-
-    allJobConditionInfo();
+    this.jobSettingForm$ = this.store$.pipe(select(fromTxn.getJobSettingForm));
+    this.singleJobOptions$ = this.store$.pipe(
+      select(fromTxn.getSingleJobOptions)
+    );
   }
 
+  onAddSingleJobSetting(): void {
+    this.store$.dispatch(JobSettingFormActions.addJobSetting());
+  }
 }
-
 
 interface TableDataSchema {
   ConditionID: string | null;

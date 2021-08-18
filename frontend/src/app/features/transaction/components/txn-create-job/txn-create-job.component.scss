@@ -1,32 +1,31 @@
-@import '/src/assets/styles/variables.scss';
-@import '../../containers/txn-create-page/txn-create-page.component.scss';
+@import "/src/assets/styles/variables.scss";
+@import "../../containers/txn-form-page/txn-form-page.component.scss";
 
-.jobFormBasicInfo .item{
+.jobFormBasicInfo .item {
   width: calc(33.333333% - 35px * 2 / 3);
 }
 
-:host ::ng-deep .p-tabview{
+:host ::ng-deep .p-tabview {
   border: 1px solid #ced4da;
 }
 
-:host ::ng-deep .p-tabview .p-tabview-nav{
+:host ::ng-deep .p-tabview .p-tabview-nav {
   position: relative;
   border: none;
   border-bottom: 1px solid $primary-medium;
   background: $gray-200;
 }
 
-
-:host ::ng-deep .p-tabview .p-tabview-nav li{
+:host ::ng-deep .p-tabview .p-tabview-nav li {
   display: flex;
   margin-top: 15px;
 }
 
-:host ::ng-deep .p-tabview .p-tabview-nav li:first-child{
+:host ::ng-deep .p-tabview .p-tabview-nav li:first-child {
   margin-left: 15px;
 }
 
-:host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link{
+:host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   padding: 10px 15px;
   border: 1px solid transparent;
   border-bottom: none;
@@ -35,8 +34,7 @@
   box-sizing: border-box;
 }
 
-
-:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
   border: 1px solid $primary-medium;
   border-bottom: none;
   background: $gray-100;
@@ -44,15 +42,18 @@
   color: $primary-medium;
 }
 
-:host ::ng-deep .p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):not(:nth-last-child(2)):hover .p-tabview-nav-link{
+:host
+  ::ng-deep
+  .p-tabview
+  .p-tabview-nav
+  li:not(.p-highlight):not(.p-disabled):not(:nth-last-child(2)):hover
+  .p-tabview-nav-link {
   border: 1px solid $primary-medium;
   border-bottom: none;
   color: $primary-medium;
 }
 
-
-
-.jobSetting .iconBtn.delete{
+.jobSetting .iconBtn.delete {
   visibility: hidden;
   margin-left: 10px;
   font-size: 16px;
@@ -60,8 +61,14 @@
   box-shadow: none;
 }
 
-:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link .iconBtn.delete{
-  visibility: visible
+:host
+  ::ng-deep
+  .p-tabview
+  .p-tabview-nav
+  li.p-highlight
+  .p-tabview-nav-link
+  .iconBtn.delete {
+  visibility: visible;
 }
 
 // :host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link:after{
@@ -74,25 +81,36 @@
 //     background: $gray-200;
 // }
 
-
-:host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus{
+:host
+  ::ng-deep
+  .p-tabview
+  .p-tabview-nav
+  li
+  .p-tabview-nav-link:not(.p-disabled):focus {
   box-shadow: none;
 }
 
-
-
-
-:host ::ng-deep .p-tabview .p-tabview-nav li:nth-last-child(2){
+:host ::ng-deep .p-tabview .p-tabview-nav li:nth-last-child(2) {
   margin-left: 15px;
 }
 
-:host ::ng-deep .p-tabview .p-tabview-nav li:nth-last-child(2) .p-tabview-nav-link{
+:host
+  ::ng-deep
+  .p-tabview
+  .p-tabview-nav
+  li:nth-last-child(2)
+  .p-tabview-nav-link {
   padding: 0;
   border: none;
   background: transparent;
 }
 
-:host ::ng-deep .p-tabview .p-tabview-nav li:nth-last-child(2):hover .p-tabview-nav-link{
+:host
+  ::ng-deep
+  .p-tabview
+  .p-tabview-nav
+  li:nth-last-child(2):hover
+  .p-tabview-nav-link {
   border: none;
   background: transparent;
 }

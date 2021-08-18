@@ -1,36 +1,80 @@
-<form [formGroup]="jobForm" class="jobFormBasicInfo">
+<form [ngrxFormState]="formState" class="jobFormBasicInfo">
   <h4>Basic Info</h4>
   <div class="itemGroup bg">
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(jobName?.invalid && jobName?.touched)">Job Name</span>
-        <p  *ngIf="jobName?.invalid && jobName?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.jobName.isInvalid &&
+              formState.controls.jobName.isTouched
+            )
+          "
+          >Job Name</span
+        >
+        <p
+          *ngIf="
+            formState.controls.jobName.isInvalid &&
+            formState.controls.jobName.isTouched
+          "
+        >
           "Job Name" is required
         </p>
       </label>
-      <input type="text" formControlName="jobName">
+      <input type="text" [ngrxFormControlState]="formState.controls.jobName" />
     </div>
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(maxRetry?.invalid && maxRetry?.touched)">Max Retry</span>
-        <p  *ngIf="maxRetry?.invalid && maxRetry?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.maxRetry.isInvalid &&
+              formState.controls.maxRetry.isTouched
+            )
+          "
+          >Max Retry</span
+        >
+        <p
+          *ngIf="
+            formState.controls.maxRetry.isInvalid &&
+            formState.controls.maxRetry.isTouched
+          "
+        >
           "Max Retry" is required
         </p>
       </label>
-      <input type="text" formControlName="maxRetry">
+      <input type="text" [ngrxFormControlState]="formState.controls.maxRetry" />
     </div>
     <div class="item">
       <label for="" class="fieldRequired">
-        <span *ngIf="!(DLLSeq?.invalid && DLLSeq?.touched)">DLL Seq</span>
-        <p  *ngIf="DLLSeq?.invalid && DLLSeq?.touched">
+        <span
+          *ngIf="
+            !(
+              formState.controls.DLLSeq.isInvalid &&
+              formState.controls.DLLSeq.isTouched
+            )
+          "
+          >DLL Seq</span
+        >
+        <p
+          *ngIf="
+            formState.controls.DLLSeq.isInvalid &&
+            formState.controls.DLLSeq.isTouched
+          "
+        >
           "DLL Seq" is required
         </p>
       </label>
-      <p-autoComplete formControlName="DLLSeq" [suggestions]="DLLSeqs"
-        (completeMethod)="filterDLLSeqs($event)" [dropdown]="true" placeholder="Select">
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.DLLSeq"
+        [suggestions]="DLLSeqs"
+        (completeMethod)="filterDLLSeqs($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
         <ng-template let-custId pTemplate="item">
           <div class="custName-item">
-            <div>{{custId}}</div>
+            <div>{{ custId }}</div>
           </div>
         </ng-template>
       </p-autoComplete>

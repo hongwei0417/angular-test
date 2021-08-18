@@ -1,13 +1,20 @@
+<h3>Job Setting</h3>
 
-<h3>Job  Setting</h3>
-
-<div class="fieldContent">
+<div class="fieldContent" *ngIf="jobSettingForm$ | async as formState">
   <div class="allJobSetting">
     <h4>All Jobs Setting For DLL Condition</h4>
-    <app-handsontable [hotId]="'allJobDLLCondition'" [settings]="setting"
-    triggerElName="reel-table-trigger" [formGroup]="allJobDLLCondition"></app-handsontable>
+    <app-handsontable
+      [hotId]="'allJobDLLCondition'"
+      [settings]="setting"
+      triggerElName="reel-table-trigger"
+      [ngrxFormControlState]="formState.controls.dllCondition"
+    ></app-handsontable>
   </div>
 
-  <app-single-job-field></app-single-job-field>
+  <app-single-job-field
+    *ngIf="jobSettingForm$ | async as formState"
+    [formState]="formState.controls.singleJobSetting"
+    [options]="(singleJobOptions$ | async) || []"
+    (addSingleJobSettingEvent)="onAddSingleJobSetting()"
+  ></app-single-job-field>
 </div>
-

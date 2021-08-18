@@ -12,11 +12,11 @@ import {
   wrapReducerWithFormStateUpdate,
 } from 'ngrx-forms';
 import { Action, createReducer, on } from '@ngrx/store';
-import { ChooseModule } from '../models/TxnForm';
+import { Module } from '../models/TxnForm';
 import { required } from 'ngrx-forms/validation';
 import { TxnFormPageActions, TxnSettingFormActions } from '../actions';
 
-export interface ModuleValue extends ChooseModule {}
+export interface ModuleValue extends Module {}
 
 export interface State {
   formState: FormArrayState<ModuleValue>;

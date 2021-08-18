@@ -1,4 +1,4 @@
-export interface TxnSetting {
+export interface TxnBasicInfo {
   TransactionName: string;
   APBooking: string;
   ActiveFlag: boolean;
@@ -6,6 +6,7 @@ export interface TxnSetting {
   time?: number;
   alarmIntervalMin?: number;
 }
+
 export interface FrequencySetting {
   LastTranTime: string;
   CronExpression: string;
@@ -20,7 +21,7 @@ export interface FrequencySetting {
   SkipAllOverDue: boolean;
 }
 
-export interface ChooseModule {
+export interface Module {
   moduleName: string;
   issue: boolean;
 }
@@ -36,4 +37,15 @@ export interface MailGroup {
   MESOwner: string;
 }
 
-export interface TxnFormData extends TxnSetting, FrequencySetting {}
+export interface JobBasicInfo {
+  jobName: string;
+  maxRetry: string;
+  DLLSeq: string;
+}
+
+export interface JobDllCondition {
+  ConditionID: string;
+  ConditionName: string;
+  ConditionValue: string;
+  Memo: string;
+}

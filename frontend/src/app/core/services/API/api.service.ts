@@ -1,4 +1,3 @@
-import { TxnFormData } from './../../../features/transaction/models/TxnForm';
 import { TxnListTableRow } from './../../../features/transaction/models/TxnListTable';
 import { autoschtranms } from './../../../shared/testing/data/txnListTable';
 import { Observable, of } from 'rxjs';
@@ -15,7 +14,7 @@ export class ApiService {
     return of(autoschtranms);
   }
 
-  createTxnData(): Observable<TxnFormData> {
+  createTxnData(): Observable<any> {
     return of();
   }
 }

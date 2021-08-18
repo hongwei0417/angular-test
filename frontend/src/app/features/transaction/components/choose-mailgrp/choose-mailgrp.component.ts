@@ -14,9 +14,7 @@ export class ChooseMailgrpComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.formState);
-  }
+  ngOnInit(): void {}
 
   filterMailGroup(inputtedCustNameEvent: any): void {
     let query = inputtedCustNameEvent.query;

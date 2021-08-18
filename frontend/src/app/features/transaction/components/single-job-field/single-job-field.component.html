@@ -1,29 +1,39 @@
 <div class="singleJobSetting">
   <h4>Single Job Setting</h4>
   <p-tabView>
-    <p-tabPanel>
-      <ng-template pTemplate = "header">
+    <p-tabPanel *ngFor="let i of options">
+      <ng-template pTemplate="header">
         <span>Job 1</span>
         <button class="iconBtn small customBtnReverse delete"></button>
       </ng-template>
 
-      <app-job-basic-info></app-job-basic-info>
+      <app-job-basic-info
+        [formState]="formState.controls[i].controls.basicInfo"
+      ></app-job-basic-info>
 
       <h4>Single Job Setting For DLL Condition</h4>
-      <app-handsontable [hotId]="'jobDLLCondition'" [settings]="setting"
-      triggerElName="reel-table-trigger" [formGroup]="jobDLLCondition"></app-handsontable>
+      <app-handsontable
+        [hotId]="'jobDLLCondition'"
+        [settings]="setting"
+        triggerElName="reel-table-trigger"
+        [ngrxFormControlState]="formState.controls[i].controls.dllCondition"
+      ></app-handsontable>
 
-      <app-choose-mailgrp></app-choose-mailgrp>
+      <app-choose-mailgrp
+        [formState]="formState.controls[i].controls.mailGroup"
+      ></app-choose-mailgrp>
     </p-tabPanel>
 
     <p-tabPanel>
-      <ng-template pTemplate = "header">
+      <ng-template pTemplate="header">
         <div class="btnGroup">
-          <button class="iconBtn small customBtn add"></button>
+          <button
+            class="iconBtn small customBtn add"
+            (click)="addSingleJobSetting()"
+          ></button>
           <button class="iconBtn small customBtn copy"></button>
         </div>
       </ng-template>
     </p-tabPanel>
   </p-tabView>
-
 </div>

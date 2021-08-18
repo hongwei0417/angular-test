@@ -1,12 +1,11 @@
 @import "/src/assets/styles/variables.scss";
-@import '../../containers/txn-create-page/txn-create-page.component.scss';
-
+@import "../../containers/txn-form-page/txn-form-page.component.scss";
 
 //#region moduleForm
-.moduleForm h4 span{
+.moduleForm h4 span {
   font-weight: 400;
 }
-.moduleItem{
+.moduleItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,29 +13,29 @@
   background: $gray-100;
   border: 1px solid #ced4da;
 }
-.moduleItem + .moduleItem{
+.moduleItem + .moduleItem {
   margin-top: 15px;
 }
-.moduleItem .itemGroup .item:first-child{
+.moduleItem .itemGroup .item:first-child {
   width: 240px;
 }
-:host ::ng-deep .moduleItem .p-autocomplete .p-inputtext{
+:host ::ng-deep .moduleItem .p-autocomplete .p-inputtext {
   padding: 5px 10px;
   border-radius: 5px 0 0 5px;
 }
-:host ::ng-deep .moduleItem .p-autocomplete .p-inputtext{
+:host ::ng-deep .moduleItem .p-autocomplete .p-inputtext {
   font-size: 12px;
 }
-:host ::ng-deep .moduleItem .p-button.p-button-icon-only{
+:host ::ng-deep .moduleItem .p-button.p-button-icon-only {
   padding: 5px;
   width: 30px;
   border-radius: 0 5px 5px 0;
 }
-.moduleItem .btnGroup{
+.moduleItem .btnGroup {
   opacity: 0;
-  transition: .1s;
+  transition: 0.1s;
 }
-.moduleItem:hover .btnGroup{
+.moduleItem:hover .btnGroup {
   opacity: 1;
 }
 //#endregion moduleForm

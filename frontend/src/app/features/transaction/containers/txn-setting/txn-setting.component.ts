@@ -8,7 +8,7 @@ import { FormArrayState, FormGroupState } from 'ngrx-forms';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import * as fromTxn from '../../reducers';
-import { TxnSettingFormValue } from '../../reducers/basic-info-form.reducer';
+import { TxnBasicInfoFormValue } from '../../reducers/basic-info-form.reducer';
 import { TxnSettingFormActions } from '../../actions';
 import { randomInt } from 'crypto';
 
@@ -18,10 +18,10 @@ import { randomInt } from 'crypto';
   styleUrls: ['./txn-setting.component.scss'],
 })
 export class TxnSettingComponent implements OnInit {
-  settingFormState$!: Observable<FormGroupState<TxnSettingFormValue>>;
-  fqSettingFormState$!: Observable<FormGroupState<FqCollectionValue>>;
-  moduleFormState$!: Observable<FormArrayState<ModuleValue>>;
-  mailGroupFormState$!: Observable<FormArrayState<MailGroupValue>>;
+  basicInfoForm$!: Observable<FormGroupState<TxnBasicInfoFormValue>>;
+  fqSettingForm$!: Observable<FormGroupState<FqCollectionValue>>;
+  moduleForm$!: Observable<FormArrayState<ModuleValue>>;
+  mailGroupForm$!: Observable<FormArrayState<MailGroupValue>>;
   fqSettingOptions$!: Observable<number[]>;
   fqSettingShowAccordions$!: Observable<boolean[]>;
   chooseModuleOptions$!: Observable<number[]>;
@@ -29,25 +29,19 @@ export class TxnSettingComponent implements OnInit {
   constructor(private store$: Store<fromTxn.State>) {}
 
   ngOnInit(): void {
-    this.settingFormState$ = this.store$.pipe(
-      select(fromTxn.getTxnSettingForm)
-    );
-    this.fqSettingFormState$ = this.store$.pipe(
-      select(fromTxn.getFqSettingForm)
-    );
+    this.basicInfoForm$ = this.store$.pipe(select(fromTxn.getTxnSettingForm));
+    this.fqSettingForm$ = this.store$.pipe(select(fromTxn.getFqSettingForm));
     this.fqSettingOptions$ = this.store$.pipe(
       select(fromTxn.getFqSettingOptions)
     );
     this.fqSettingShowAccordions$ = this.store$.pipe(
       select(fromTxn.getFqSettingShowAccordions)
     );
-    this.moduleFormState$ = this.store$.pipe(select(fromTxn.getModuleForm));
+    this.moduleForm$ = this.store$.pipe(select(fromTxn.getModuleForm));
     this.chooseModuleOptions$ = this.store$.pipe(
       select(fromTxn.getModuleOptions)
     );
-    this.mailGroupFormState$ = this.store$.pipe(
-      select(fromTxn.getMailGroupForm)
-    );
+    this.mailGroupForm$ = this.store$.pipe(select(fromTxn.getMailGroupForm));
   }
 
   onAddFrequencySetting(): void {

@@ -14,7 +14,7 @@ import {
 } from 'ngrx-forms';
 import { required } from 'ngrx-forms/validation';
 import { TxnFormPageActions } from '../actions';
-import { TxnSetting } from '../models/TxnForm';
+import { TxnBasicInfo } from '../models/TxnForm';
 
 export const FeatureKey = 'basicInfoForm';
 
@@ -22,26 +22,24 @@ export const FeatureKey = 'basicInfoForm';
 //   date: Boxed<Date>;
 // };
 
-export interface TxnSettingFormValue extends TxnSetting {}
+export interface TxnBasicInfoFormValue extends TxnBasicInfo {}
 
-export const txnSettingFormState = createFormGroupState<TxnSettingFormValue>(
-  FeatureKey,
-  {
+export const txnBasicInfoFormState =
+  createFormGroupState<TxnBasicInfoFormValue>(FeatureKey, {
     TransactionName: '',
     APBooking: '',
     ActiveFlag: false,
     date: '',
     time: 0,
     alarmIntervalMin: 10,
-  }
-);
+  });
 
 export interface State {
-  formState: FormGroupState<TxnSettingFormValue>;
-  submittedValue: TxnSettingFormValue | undefined;
+  formState: FormGroupState<TxnBasicInfoFormValue>;
+  submittedValue: TxnBasicInfoFormValue | undefined;
 }
 
-export const validateForm = updateGroup<TxnSettingFormValue>({
+export const validateForm = updateGroup<TxnBasicInfoFormValue>({
   TransactionName: validate(required),
   APBooking: validate(required),
   ActiveFlag: validate(required),
@@ -51,7 +49,7 @@ export const validateForm = updateGroup<TxnSettingFormValue>({
 });
 
 export const initialState: State = {
-  formState: txnSettingFormState,
+  formState: txnBasicInfoFormState,
   submittedValue: undefined,
 };
 
@@ -69,4 +67,4 @@ export const reducer = wrapReducerWithFormStateUpdate(
   validateForm
 );
 
-export const getTxnSettingForm = (state: State) => state.formState;
+export const getTxnBasicInfoForm = (state: State) => state.formState;

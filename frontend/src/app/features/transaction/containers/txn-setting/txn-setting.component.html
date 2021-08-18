@@ -2,12 +2,12 @@
   <h3>Transaction Setting</h3>
   <div class="fieldContent">
     <app-txn-basic-info
-      *ngIf="settingFormState$ | async as formState"
+      *ngIf="basicInfoForm$ | async as formState"
       [formState]="formState"
     ></app-txn-basic-info>
 
     <app-frequency-setting-table
-      *ngIf="fqSettingFormState$ | async as formState"
+      *ngIf="fqSettingForm$ | async as formState"
       [formState]="formState"
       [options]="(fqSettingOptions$ | async) || []"
       [showAccordions]="(fqSettingShowAccordions$ | async) || []"
@@ -17,7 +17,7 @@
     ></app-frequency-setting-table>
 
     <app-choose-module
-      *ngIf="moduleFormState$ | async as formState"
+      *ngIf="moduleForm$ | async as formState"
       [formState]="formState"
       [options]="(chooseModuleOptions$ | async) || []"
       (addChooseModuleEvent)="onAddChooseModule($event)"
@@ -25,7 +25,7 @@
     ></app-choose-module>
 
     <app-choose-mailgrp
-      *ngIf="mailGroupFormState$ | async as formState"
+      *ngIf="mailGroupForm$ | async as formState"
       [formState]="formState.controls[0]"
     ></app-choose-mailgrp>
   </div>

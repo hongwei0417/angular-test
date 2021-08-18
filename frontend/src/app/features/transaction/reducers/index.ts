@@ -14,8 +14,9 @@ import * as fromBasicInfoForm from './basic-info-form.reducer';
 import * as fromFrequencyForm from './frequency-setting-form.reducer';
 import * as fromModuleForm from './module-form.reducer';
 import * as fromMailGroupForm from './mail-group-form.reducer';
+import * as fromJobSettingForm from './job-setting-form.reducer';
 
-export const FeatureKey = 'txn';
+export const FeatureKey = 'transaction';
 
 export interface TxnState {
   [fromTxnListPage.FeatureKey]: fromTxnListPage.State;
@@ -27,6 +28,7 @@ export interface TxnFormState {
   [fromFrequencyForm.FeatureKey]: fromFrequencyForm.State;
   [fromModuleForm.FeatureKey]: fromModuleForm.State;
   [fromMailGroupForm.FeatureKey]: fromMailGroupForm.State;
+  [fromJobSettingForm.FeatureKey]: fromJobSettingForm.State;
 }
 export interface State extends fromRoot.State {
   [FeatureKey]: TxnState;
@@ -41,6 +43,7 @@ export const txnFormReducers = (
     [fromFrequencyForm.FeatureKey]: fromFrequencyForm.reducer,
     [fromModuleForm.FeatureKey]: fromModuleForm.reducer,
     [fromMailGroupForm.FeatureKey]: fromMailGroupForm.reducer,
+    [fromJobSettingForm.FeatureKey]: fromJobSettingForm.reducer,
   })(state, action);
 
 /** Provide reducer in AoT-compilation happy way */
@@ -86,6 +89,11 @@ export const getMailGroupFormState = createSelector(
   (state: TxnState) => state.txnFormState[fromMailGroupForm.FeatureKey]
 );
 
+export const getJobSettingFormState = createSelector(
+  getTxnState,
+  (state: TxnState) => state.txnFormState[fromJobSettingForm.FeatureKey]
+);
+
 // selectors
 export const {
   selectAll: getAllTxns,
@@ -114,7 +122,7 @@ export const getTxnCreateError = createSelector(
 
 export const getTxnSettingForm = createSelector(
   getBasicInfoFormState,
-  fromBasicInfoForm.getTxnSettingForm
+  fromBasicInfoForm.getTxnBasicInfoForm
 );
 
 export const getFqSettingForm = createSelector(
@@ -145,4 +153,14 @@ export const getModuleOptions = createSelector(
 export const getMailGroupForm = createSelector(
   getMailGroupFormState,
   fromMailGroupForm.getFormState
+);
+
+export const getJobSettingForm = createSelector(
+  getJobSettingFormState,
+  fromJobSettingForm.getFormState
+);
+
+export const getSingleJobOptions = createSelector(
+  getJobSettingFormState,
+  fromJobSettingForm.getSingleJobOptions
 );

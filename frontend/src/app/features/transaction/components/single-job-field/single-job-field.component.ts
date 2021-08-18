@@ -1,14 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { SingleJobSettingValue } from './../../reducers/job-setting-form.reducer';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Handsontable from 'handsontable';
-import { HandsontableHooks,rowRequireValidator } from 'src/app/shared/handsontable/handsontable.component';
+import { FormGroupState, FormArrayState } from 'ngrx-forms';
+import {
+  HandsontableHooks,
+  rowRequireValidator,
+} from 'src/app/shared/handsontable/handsontable.component';
+import { MailGroupValue } from '../../reducers/mail-group-form.reducer';
+import { JobDllCondition } from '../../models/TxnForm';
 
 @Component({
   selector: 'app-single-job-field',
   templateUrl: './single-job-field.component.html',
-  styleUrls: ['./single-job-field.component.scss']
+  styleUrls: ['./single-job-field.component.scss'],
 })
 export class SingleJobFieldComponent implements OnInit {
+  @Input() formState!: FormArrayState<SingleJobSettingValue>;
+  @Input() options!: number[];
+  @Output() addSingleJobSettingEvent = new EventEmitter();
+
   jobDLLCondition!: FormGroup;
 
   tableHeaders: TableHeaders = {
@@ -17,11 +28,11 @@ export class SingleJobFieldComponent implements OnInit {
     ConditionValue: 'Condition Value',
     Memo: 'Memo',
   };
-  dataSchema: TableDataSchema = {
-    ConditionID: null,
-    ConditionName: null,
-    ConditionValue: null,
-    Memo: null,
+  dataSchema: JobDllCondition = {
+    ConditionID: '',
+    ConditionName: '',
+    ConditionValue: '',
+    Memo: '',
   };
   setting: Handsontable.GridSettings = {
     columns: [
@@ -68,23 +79,14 @@ export class SingleJobFieldComponent implements OnInit {
     colHeaders: Object.values(this.tableHeaders),
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {
-    const jobConditionInfo = () => {
-      this.jobDLLCondition = this.fb.group({
-        ConditionID: [, Validators.required],
-        ConditionName: [, Validators.required],
-        ConditionValue: [, Validators.required],
-        Memo: [, Validators.required],
-      });
-    };
+  ngOnInit(): void {}
 
-    jobConditionInfo();
+  addSingleJobSetting(): void {
+    this.addSingleJobSettingEvent.emit();
   }
-
 }
-
 
 interface TableDataSchema {
   ConditionID: string | null;
@@ -98,4 +100,3 @@ interface TableDataSchema {
 }
 
 type TableHeaders = Record<keyof TableDataSchema, string>;
-
