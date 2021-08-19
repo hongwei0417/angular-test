@@ -6,6 +6,7 @@ import {
   createFormGroupState,
   FormGroupState,
   onNgrxForms,
+  removeArrayControl,
   setValue,
   updateArray,
   updateGroup,
@@ -114,6 +115,18 @@ export const rawReducer = createReducer(
         },
       }),
       singleJobOptions: [...state.singleJobOptions, newID],
+    };
+  }),
+  on(JobSettingFormActions.removeJobSetting, (state, action) => {
+    const removeIndex = state.singleJobOptions.indexOf(action.id);
+    return {
+      ...state,
+      formState: updateGroup<JobSettingValue>(state.formState, {
+        singleJobSetting: (s, p) => {
+          return removeArrayControl(s, removeIndex);
+        },
+      }),
+      singleJobOptions: state.singleJobOptions.splice(removeIndex, 1),
     };
   })
 );
