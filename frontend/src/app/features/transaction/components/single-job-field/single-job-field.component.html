@@ -1,27 +1,35 @@
 <div class="singleJobSetting">
   <h4>Single Job Setting</h4>
+
   <p-tabView>
-    <p-tabPanel *ngFor="let i of options">
+    <p-tabPanel *ngFor="let id of options; let index = index">
       <ng-template pTemplate="header">
         <span>Job 1</span>
-        <button class="iconBtn small customBtnReverse delete"></button>
+        <button
+          class="iconBtn small customBtnReverse delete"
+          (click)="removeSingleJobSetting(id)"
+        ></button>
       </ng-template>
 
-      <app-job-basic-info
-        [formState]="formState.controls[i].controls.basicInfo"
-      ></app-job-basic-info>
+      <ng-template pTemplate="content">
+        <app-job-basic-info
+          [formState]="formState.controls[index].controls.basicInfo"
+        ></app-job-basic-info>
 
-      <h4>Single Job Setting For DLL Condition</h4>
-      <app-handsontable
-        [hotId]="'jobDLLCondition' + i"
-        [settings]="setting"
-        triggerElName="reel-table-trigger"
-        [ngrxFormControlState]="formState.controls[i].controls.dllCondition"
-      ></app-handsontable>
+        <h4>Single Job Setting For DLL Condition</h4>
+        <app-handsontable
+          [hotId]="'jobDLLCondition' + index"
+          [settings]="setting"
+          triggerElName="reel-table-trigger"
+          [ngrxFormControlState]="
+            formState.controls[index].controls.dllCondition
+          "
+        ></app-handsontable>
 
-      <app-choose-mailgrp
-        [formState]="formState.controls[i].controls.mailGroup"
-      ></app-choose-mailgrp>
+        <app-choose-mailgrp
+          [formState]="formState.controls[index].controls.mailGroup"
+        ></app-choose-mailgrp>
+      </ng-template>
     </p-tabPanel>
 
     <p-tabPanel>

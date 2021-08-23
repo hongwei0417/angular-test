@@ -7,7 +7,6 @@ import {
   HandsontableHooks,
   rowRequireValidator,
 } from 'src/app/shared/handsontable/handsontable.component';
-import { MailGroupValue } from '../../reducers/mail-group-form.reducer';
 import { JobDllCondition } from '../../models/TxnForm';
 
 @Component({
@@ -19,6 +18,7 @@ export class SingleJobFieldComponent implements OnInit {
   @Input() formState!: FormArrayState<SingleJobSettingValue>;
   @Input() options!: number[];
   @Output() addSingleJobSettingEvent = new EventEmitter();
+  @Output() removeSingleJobSettingEvent = new EventEmitter<number>();
 
   jobDLLCondition!: FormGroup;
 
@@ -85,6 +85,10 @@ export class SingleJobFieldComponent implements OnInit {
 
   addSingleJobSetting(): void {
     this.addSingleJobSettingEvent.emit();
+  }
+
+  removeSingleJobSetting(id: number): void {
+    this.removeSingleJobSettingEvent.emit(id);
   }
 }
 

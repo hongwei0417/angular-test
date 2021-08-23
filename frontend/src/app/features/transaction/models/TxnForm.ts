@@ -21,7 +21,7 @@ export interface FrequencySetting {
   SkipAllOverDue: boolean;
 }
 
-export interface Module {
+export interface TxnModule {
   moduleName: string;
   issue: boolean;
 }

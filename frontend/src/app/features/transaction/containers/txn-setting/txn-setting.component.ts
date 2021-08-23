@@ -1,14 +1,10 @@
-import { MailGroupValue } from './../../reducers/mail-group-form.reducer';
-import { ModuleValue } from '../../reducers/module-form.reducer';
-import { FqCollectionValue } from './../../reducers/frequency-setting-form.reducer';
-import { getTxnCreateError } from './../../reducers/index';
+import { TxnSettingFormValue } from './../../reducers/txn-setting-form.reducer';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { FormArrayState, FormGroupState } from 'ngrx-forms';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import * as fromTxn from '../../reducers';
-import { TxnBasicInfoFormValue } from '../../reducers/basic-info-form.reducer';
 import { TxnSettingFormActions } from '../../actions';
 import { randomInt } from 'crypto';
 
@@ -18,30 +14,22 @@ import { randomInt } from 'crypto';
   styleUrls: ['./txn-setting.component.scss'],
 })
 export class TxnSettingComponent implements OnInit {
-  basicInfoForm$!: Observable<FormGroupState<TxnBasicInfoFormValue>>;
-  fqSettingForm$!: Observable<FormGroupState<FqCollectionValue>>;
-  moduleForm$!: Observable<FormArrayState<ModuleValue>>;
-  mailGroupForm$!: Observable<FormArrayState<MailGroupValue>>;
-  fqSettingOptions$!: Observable<number[]>;
-  fqSettingShowAccordions$!: Observable<boolean[]>;
-  chooseModuleOptions$!: Observable<number[]>;
+  txnSettingFormState$!: Observable<FormGroupState<TxnSettingFormValue>>;
+  fqOptions$!: Observable<number[]>;
+  fqShowAccordions$!: Observable<boolean[]>;
+  moduleOptions$!: Observable<number[]>;
 
   constructor(private store$: Store<fromTxn.State>) {}
 
   ngOnInit(): void {
-    this.basicInfoForm$ = this.store$.pipe(select(fromTxn.getTxnSettingForm));
-    this.fqSettingForm$ = this.store$.pipe(select(fromTxn.getFqSettingForm));
-    this.fqSettingOptions$ = this.store$.pipe(
-      select(fromTxn.getFqSettingOptions)
+    this.txnSettingFormState$ = this.store$.pipe(
+      select(fromTxn.getTxnSettingForm)
     );
-    this.fqSettingShowAccordions$ = this.store$.pipe(
-      select(fromTxn.getFqSettingShowAccordions)
+    this.fqOptions$ = this.store$.pipe(select(fromTxn.getFqSettingOptions));
+    this.fqShowAccordions$ = this.store$.pipe(
+      select(fromTxn.getFqShowAccordions)
     );
-    this.moduleForm$ = this.store$.pipe(select(fromTxn.getModuleForm));
-    this.chooseModuleOptions$ = this.store$.pipe(
-      select(fromTxn.getModuleOptions)
-    );
-    this.mailGroupForm$ = this.store$.pipe(select(fromTxn.getMailGroupForm));
+    this.moduleOptions$ = this.store$.pipe(select(fromTxn.getModuleOptions));
   }
 
   onAddFrequencySetting(): void {
@@ -57,10 +45,10 @@ export class TxnSettingComponent implements OnInit {
   }
 
   onAddChooseModule(id: number): void {
-    this.store$.dispatch(TxnSettingFormActions.addChooseModule({ id }));
+    this.store$.dispatch(TxnSettingFormActions.addTxnModule({ id }));
   }
 
   onRemoveChooseModule(id: number): void {
-    this.store$.dispatch(TxnSettingFormActions.removeChooseModule({ id }));
+    this.store$.dispatch(TxnSettingFormActions.removeTxnModule({ id }));
   }
 }

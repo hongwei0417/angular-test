@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FormGroupState, NgrxValueConverters } from 'ngrx-forms';
-import { TxnBasicInfoFormValue } from '../../reducers/basic-info-form.reducer';
+import { TxnBasicInfo } from '../../models/TxnForm';
 interface APBookingInfo {
   name: string;
   code: string;
@@ -20,8 +20,7 @@ interface APBookingInfo {
   styleUrls: ['./txn-basic-info.component.scss'],
 })
 export class TxnCreateComponent implements OnInit {
-  @Input() formState!: FormGroupState<TxnBasicInfoFormValue>;
-  @Input() submittedValue!: TxnBasicInfoFormValue | undefined;
+  @Input() formState!: FormGroupState<TxnBasicInfo>;
   dateValueConverter = NgrxValueConverters.dateToISOString;
 
   APBookingIds: APBookingInfo[];

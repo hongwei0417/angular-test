@@ -1,6 +1,6 @@
-import { MailGroupValue } from './../../reducers/mail-group-form.reducer';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArrayState, FormGroupState } from 'ngrx-forms';
+import { MailGroup } from '../../models/TxnForm';
 
 @Component({
   selector: 'app-choose-mailgrp',
@@ -8,7 +8,7 @@ import { FormArrayState, FormGroupState } from 'ngrx-forms';
   styleUrls: ['./choose-mailgrp.component.scss'],
 })
 export class ChooseMailgrpComponent implements OnInit {
-  @Input() formState!: FormGroupState<MailGroupValue>;
+  @Input() formState!: FormGroupState<MailGroup>;
 
   mailGroup!: string[];
 

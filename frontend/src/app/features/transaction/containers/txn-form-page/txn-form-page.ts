@@ -14,9 +14,7 @@ export class TxnCreatePageComponent implements OnInit, OnDestroy {
 
   constructor(private store$: Store<fromTxn.State>) {}
 
-  ngOnInit(): void {
-    this.error$ = this.store$.pipe(select(fromTxn.getTxnCreateError));
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.store$.dispatch(TxnFormPageActions.clearTxnCreatePageState());

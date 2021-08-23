@@ -1,6 +1,6 @@
-import { ModuleValue } from '../../reducers/module-form.reducer';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormArrayState } from 'ngrx-forms';
+import { TxnModule } from '../../models/TxnForm';
 
 @Component({
   selector: 'app-choose-module',
@@ -8,7 +8,7 @@ import { FormArrayState } from 'ngrx-forms';
   styleUrls: ['./choose-module.component.scss'],
 })
 export class ChooseModuleComponent implements OnInit {
-  @Input() formState!: FormArrayState<ModuleValue>;
+  @Input() formState!: FormArrayState<TxnModule>;
   @Input() options!: number[];
   @Output() addChooseModuleEvent = new EventEmitter<number>();
   @Output() removeChooseModuleEvent = new EventEmitter<number>();

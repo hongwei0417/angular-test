@@ -1,32 +1,31 @@
-<div class="transactionSetting">
+<div
+  class="transactionSetting"
+  *ngIf="txnSettingFormState$ | async as formState"
+>
   <h3>Transaction Setting</h3>
   <div class="fieldContent">
     <app-txn-basic-info
-      *ngIf="basicInfoForm$ | async as formState"
-      [formState]="formState"
+      [formState]="formState.controls.basicInfo"
     ></app-txn-basic-info>
 
     <app-frequency-setting-table
-      *ngIf="fqSettingForm$ | async as formState"
-      [formState]="formState"
-      [options]="(fqSettingOptions$ | async) || []"
-      [showAccordions]="(fqSettingShowAccordions$ | async) || []"
+      [formState]="formState.controls.frequencySettings"
+      [options]="(fqOptions$ | async) || []"
+      [showAccordions]="(fqShowAccordions$ | async) || []"
       (addFqSettingEvent)="onAddFrequencySetting()"
       (removeFqSettingEvent)="onRemoveFrequencySetting($event)"
       (toggleFqAccordionEvent)="onToggleFqAccordion($event)"
     ></app-frequency-setting-table>
 
     <app-choose-module
-      *ngIf="moduleForm$ | async as formState"
-      [formState]="formState"
-      [options]="(chooseModuleOptions$ | async) || []"
+      [formState]="formState.controls.modules"
+      [options]="(moduleOptions$ | async) || []"
       (addChooseModuleEvent)="onAddChooseModule($event)"
       (removeChooseModuleEvent)="onRemoveChooseModule($event)"
     ></app-choose-module>
 
     <app-choose-mailgrp
-      *ngIf="mailGroupForm$ | async as formState"
-      [formState]="formState.controls[0]"
+      [formState]="formState.controls.mailGroup"
     ></app-choose-mailgrp>
   </div>
 </div>

@@ -126,7 +126,9 @@ export const rawReducer = createReducer(
           return removeArrayControl(s, removeIndex);
         },
       }),
-      singleJobOptions: state.singleJobOptions.splice(removeIndex, 1),
+      singleJobOptions: state.singleJobOptions.filter(
+        (item, i) => i !== removeIndex
+      ),
     };
   })
 );

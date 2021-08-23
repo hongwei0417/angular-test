@@ -12,7 +12,6 @@ import {
   HandsontableHooks,
   rowRequireValidator,
 } from 'src/app/shared/handsontable/handsontable.component';
-import { MailGroupValue } from '../../reducers/mail-group-form.reducer';
 import * as fromTxn from '../../reducers';
 import { Action, select, Store } from '@ngrx/store';
 import { JobSettingValue } from '../../reducers/job-setting-form.reducer';
@@ -97,6 +96,10 @@ export class JobSettingComponent implements OnInit {
 
   onAddSingleJobSetting(): void {
     this.store$.dispatch(JobSettingFormActions.addJobSetting());
+  }
+
+  onRemoveSingleJobSetting(id: number): void {
+    this.store$.dispatch(JobSettingFormActions.removeJobSetting({ id }));
   }
 }
 

@@ -14,12 +14,12 @@ export const toggleFqAccordion = createAction(
   props<{ id: number }>()
 );
 
-export const addChooseModule = createAction(
+export const addTxnModule = createAction(
   '[TxnSetting] Add a choose module option',
   props<{ id: number }>()
 );
 
-export const removeChooseModule = createAction(
+export const removeTxnModule = createAction(
   '[TxnSetting] Remove a choose module option',
   props<{ id: number }>()
 );

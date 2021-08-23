@@ -1,4 +1,3 @@
-import { FqCollectionValue } from './../../reducers/frequency-setting-form.reducer';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -8,7 +7,12 @@ import {
   Output,
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { FormGroupState, NgrxValueConverters } from 'ngrx-forms';
+import {
+  FormArrayState,
+  FormGroupState,
+  NgrxValueConverters,
+} from 'ngrx-forms';
+import { FrequencySetting } from '../../models/TxnForm';
 
 interface TimeZoneInfo {
   name: string;
@@ -22,10 +26,9 @@ interface TimeZoneInfo {
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FrequencySettingTableComponent implements OnInit {
-  @Input() formState!: FormGroupState<FqCollectionValue>;
+  @Input() formState!: FormArrayState<FrequencySetting>;
   @Input() options!: number[];
   @Input() showAccordions!: boolean[];
-  @Input() submittedValue!: FqCollectionValue | undefined;
   @Output() addFqSettingEvent = new EventEmitter();
   @Output() removeFqSettingEvent = new EventEmitter<number>();
   @Output() toggleFqAccordionEvent = new EventEmitter<number>();

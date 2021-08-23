@@ -16,5 +16,6 @@
     [formState]="formState.controls.singleJobSetting"
     [options]="(singleJobOptions$ | async) || []"
     (addSingleJobSettingEvent)="onAddSingleJobSetting()"
+    (removeSingleJobSettingEvent)="onRemoveSingleJobSetting($event)"
   ></app-single-job-field>
 </div>

@@ -19,8 +19,6 @@ import {
   SetErrorsAction,
   SetUserDefinedPropertyAction,
 } from 'ngrx-forms';
-import * as fromTxnSetting from '../reducers/basic-info-form.reducer';
-import * as fromFrequencySetting from '../reducers/frequency-setting-form.reducer';
 import { merge } from 'rxjs';
 
 @Injectable()

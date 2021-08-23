@@ -10,10 +10,7 @@ import {
 import * as fromRoot from '../../../core/reducers';
 import * as fromTxnListPage from './txn-list-page.reducer';
 import * as fromTxnFormPage from './txn-form-page.reducer';
-import * as fromBasicInfoForm from './basic-info-form.reducer';
-import * as fromFrequencyForm from './frequency-setting-form.reducer';
-import * as fromModuleForm from './module-form.reducer';
-import * as fromMailGroupForm from './mail-group-form.reducer';
+import * as fromTxnSettingForm from './txn-setting-form.reducer';
 import * as fromJobSettingForm from './job-setting-form.reducer';
 
 export const FeatureKey = 'transaction';
@@ -24,10 +21,7 @@ export interface TxnState {
   txnFormState: TxnFormState;
 }
 export interface TxnFormState {
-  [fromBasicInfoForm.FeatureKey]: fromBasicInfoForm.State;
-  [fromFrequencyForm.FeatureKey]: fromFrequencyForm.State;
-  [fromModuleForm.FeatureKey]: fromModuleForm.State;
-  [fromMailGroupForm.FeatureKey]: fromMailGroupForm.State;
+  [fromTxnSettingForm.FeatureKey]: fromTxnSettingForm.State;
   [fromJobSettingForm.FeatureKey]: fromJobSettingForm.State;
 }
 export interface State extends fromRoot.State {
@@ -39,10 +33,7 @@ export const txnFormReducers = (
   action: Action
 ) =>
   combineReducers({
-    [fromBasicInfoForm.FeatureKey]: fromBasicInfoForm.reducer,
-    [fromFrequencyForm.FeatureKey]: fromFrequencyForm.reducer,
-    [fromModuleForm.FeatureKey]: fromModuleForm.reducer,
-    [fromMailGroupForm.FeatureKey]: fromMailGroupForm.reducer,
+    [fromTxnSettingForm.FeatureKey]: fromTxnSettingForm.reducer,
     [fromJobSettingForm.FeatureKey]: fromJobSettingForm.reducer,
   })(state, action);
 
@@ -69,24 +60,9 @@ export const getTxnFormPageState = createSelector(
   (state: TxnState) => state[fromTxnFormPage.FeatureKey]
 );
 
-export const getBasicInfoFormState = createSelector(
+export const getTxnSettingFormState = createSelector(
   getTxnState,
-  (state: TxnState) => state.txnFormState[fromBasicInfoForm.FeatureKey]
-);
-
-export const getFqSettingFormState = createSelector(
-  getTxnState,
-  (state: TxnState) => state.txnFormState[fromFrequencyForm.FeatureKey]
-);
-
-export const getModuleFormState = createSelector(
-  getTxnState,
-  (state: TxnState) => state.txnFormState[fromModuleForm.FeatureKey]
-);
-
-export const getMailGroupFormState = createSelector(
-  getTxnState,
-  (state: TxnState) => state.txnFormState[fromMailGroupForm.FeatureKey]
+  (state: TxnState) => state.txnFormState[fromTxnSettingForm.FeatureKey]
 );
 
 export const getJobSettingFormState = createSelector(
@@ -115,44 +91,24 @@ export const getLatestTxn = createSelector(
   }
 );
 
-export const getTxnCreateError = createSelector(
-  getTxnFormPageState,
-  fromTxnFormPage.getError
-);
-
 export const getTxnSettingForm = createSelector(
-  getBasicInfoFormState,
-  fromBasicInfoForm.getTxnBasicInfoForm
-);
-
-export const getFqSettingForm = createSelector(
-  getFqSettingFormState,
-  fromFrequencyForm.getFormState
+  getTxnSettingFormState,
+  fromTxnSettingForm.getFormState
 );
 
 export const getFqSettingOptions = createSelector(
-  getFqSettingFormState,
-  fromFrequencyForm.getOptions
+  getTxnSettingFormState,
+  fromTxnSettingForm.getFqOptions
 );
 
-export const getFqSettingShowAccordions = createSelector(
-  getFqSettingFormState,
-  fromFrequencyForm.getShowAccordions
-);
-
-export const getModuleForm = createSelector(
-  getModuleFormState,
-  fromModuleForm.getFormState
+export const getFqShowAccordions = createSelector(
+  getTxnSettingFormState,
+  fromTxnSettingForm.getShowAccordions
 );
 
 export const getModuleOptions = createSelector(
-  getModuleFormState,
-  fromModuleForm.getOptions
-);
-
-export const getMailGroupForm = createSelector(
-  getMailGroupFormState,
-  fromMailGroupForm.getFormState
+  getTxnSettingFormState,
+  fromTxnSettingForm.getModuleOptions
 );
 
 export const getJobSettingForm = createSelector(
