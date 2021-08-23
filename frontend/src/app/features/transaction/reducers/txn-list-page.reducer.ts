@@ -5,9 +5,7 @@ import { TxnApiActions, TxnListPageActions } from '../actions';
 import { TxnListTableRow } from '../models/TxnListTable';
 
 export const FeatureKey = 'txnListPage';
-export const FilterFormKey = 'txnListPage';
-
-export interface FilterValue {
+export interface FilterFormValue {
   CustId: string;
   globalFilter: string;
 }
@@ -16,11 +14,11 @@ export interface State extends EntityState<TxnListTableRow> {
   loaded: boolean;
   loading: boolean;
   latestId: string | null;
-  filterForm: FormGroupState<FilterValue>;
+  filterForm: FormGroupState<FilterFormValue>;
 }
 
-export const filterFormState = createFormGroupState<FilterValue>(
-  FilterFormKey,
+export const filterFormState = createFormGroupState<FilterFormValue>(
+  FeatureKey,
   {
     CustId: '',
     globalFilter: '',

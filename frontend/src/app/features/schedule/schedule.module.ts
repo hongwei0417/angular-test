@@ -1,3 +1,4 @@
+import { NgrxFormsModule } from 'ngrx-forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -9,9 +10,26 @@ import { ScheduleListTableComponent } from './components/schedule-list-table/sch
 import { SharedModule } from 'src/app/shared';
 import { ExecuteLogTableComponent } from './components/execute-log-table/execute-log-table.component';
 import { AlarmStateTableComponent } from './components/alarm-state-table/alarm-state-table.component';
+import { GlobalFilterComponent } from './components/global-filter/global-filter.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromSchedule from './reducers';
 
 @NgModule({
-  declarations: [ScheduleListPageComponent, ExecuteLogPageComponent, AlarmStatePageComponent, ScheduleListTableComponent, ExecuteLogTableComponent, AlarmStateTableComponent,  ],
-  imports: [CommonModule, ScheduleRoutingModule, SharedModule],
+  declarations: [
+    ScheduleListPageComponent,
+    ExecuteLogPageComponent,
+    AlarmStatePageComponent,
+    ScheduleListTableComponent,
+    ExecuteLogTableComponent,
+    AlarmStateTableComponent,
+    GlobalFilterComponent,
+  ],
+  imports: [
+    CommonModule,
+    ScheduleRoutingModule,
+    SharedModule,
+    NgrxFormsModule,
+    StoreModule.forFeature(fromSchedule.FeatureKey, fromSchedule.reducers),
+  ],
 })
 export class ScheduleModule {}

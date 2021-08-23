@@ -1,5 +1,5 @@
 import { FormGroupState } from 'ngrx-forms';
-import { FilterValue } from './../../reducers/txn-list-page.reducer';
+import { FilterFormValue } from './../../reducers/txn-list-page.reducer';
 import { Observable, of } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
@@ -13,7 +13,7 @@ import { TxnListTableRow } from '../../models/TxnListTable';
 })
 export class TxnListPageComponent implements OnInit, OnDestroy {
   txnData$!: Observable<TxnListTableRow[]>;
-  filterForm$!: Observable<FormGroupState<FilterValue>>;
+  filterForm$!: Observable<FormGroupState<FilterFormValue>>;
 
   constructor(private store$: Store<fromTxn.State>) {}
 

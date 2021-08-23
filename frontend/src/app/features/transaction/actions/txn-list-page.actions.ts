@@ -1,7 +1,9 @@
 import { createAction, props, union } from '@ngrx/store';
 
-export const loadTxnList = createAction('[TxnListPage] Load TxnList');
+export const loadTxnList = createAction(
+  '[TxnListPage] Load txn list table data'
+);
 
 export const clearTxnListPageState = createAction(
-  '[TxnListPage] Clear TxnList State'
+  '[TxnListPage] clear txn list page state'
 );

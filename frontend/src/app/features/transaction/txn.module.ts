@@ -62,6 +62,5 @@ import { SingleJobFieldComponent } from './components/single-job-field/single-jo
     TabViewModule,
     SharedModule,
   ],
-  // providers: [FakeDataService, TxnFormService],
 })
 export class TransactionModule {}
