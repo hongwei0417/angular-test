@@ -17,18 +17,18 @@ export interface State extends EntityState<ScheduleTableRow> {
   filterForm: FormGroupState<FilterFormValue>;
 }
 
+export const adapter: EntityAdapter<ScheduleTableRow> =
+  createEntityAdapter<ScheduleTableRow>({
+    selectId: (s) => s.TransactionId,
+    sortComparer: false,
+  });
+
 export const filterFormState = createFormGroupState<FilterFormValue>(
   FeatureKey,
   {
     globalFilter: '',
   }
 );
-
-export const adapter: EntityAdapter<ScheduleTableRow> =
-  createEntityAdapter<ScheduleTableRow>({
-    selectId: (s) => s.TransactionId,
-    sortComparer: false,
-  });
 
 export const initialState: State = adapter.getInitialState({
   loading: true,
@@ -41,8 +41,8 @@ export const reducer = createReducer(
   onNgrxForms(),
   on(
     ScheduleListPageActions.loadScheduleListTable,
-    (state, { type, schedules: scheduleList }) => {
-      return adapter.addMany(scheduleList, {
+    (state, { type, schedules }) => {
+      return adapter.addMany(schedules, {
         ...state,
         loading: false,
         loaded: true,

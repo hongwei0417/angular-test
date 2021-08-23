@@ -13,6 +13,7 @@ import { AlarmStateTableComponent } from './components/alarm-state-table/alarm-s
 import { GlobalFilterComponent } from './components/global-filter/global-filter.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromSchedule from './reducers';
+import { ExecuteLogSearchComponent } from './components/execute-log-search/execute-log-search.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import * as fromSchedule from './reducers';
     ExecuteLogTableComponent,
     AlarmStateTableComponent,
     GlobalFilterComponent,
+    ExecuteLogSearchComponent,
   ],
   imports: [
     CommonModule,

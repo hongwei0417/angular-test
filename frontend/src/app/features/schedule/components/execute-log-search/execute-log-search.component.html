@@ -1,0 +1,61 @@
+<form [ngrxFormState]="formState" class="fieldContent">
+  <div class="itemGroup">
+    <div class="item insertIcon filter">
+      <label for="">Global Filter</label>
+      <input
+        type="text"
+        placeholder="Search"
+        [ngrxFormControlState]="formState.controls.globalFilter"
+      />
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span
+          *ngIf="
+            !(
+              formState.controls.transactionName.isInvalid &&
+              formState.controls.transactionName.isTouched
+            )
+          "
+          >TransactionName</span
+        >
+        <p
+          *ngIf="
+            formState.controls.transactionName.isInvalid &&
+            formState.controls.transactionName.isTouched
+          "
+        >
+          "TransactionName" is required
+        </p>
+      </label>
+
+      <p-autoComplete
+        [ngrxFormControlState]="formState.controls.transactionName"
+        [suggestions]="transactionNames"
+        (completeMethod)="filtertransactionNames($event)"
+        [dropdown]="true"
+        placeholder="Select"
+      >
+        <ng-template let-custId pTemplate="item">
+          <div class="custName-item">
+            <div>{{ custId }}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+
+    <div class="item">
+      <label for="">Start Time</label>
+      <p-calendar
+        [ngrxFormControlState]="formState.controls.date"
+        [ngrxValueConverter]="dateValueConverter"
+        dateFormat="yy/mm/dd"
+        selectionMode="range"
+        [monthNavigator]="true"
+        [yearNavigator]="true"
+        yearRange="2014:2030"
+      ></p-calendar>
+    </div>
+  </div>
+</form>

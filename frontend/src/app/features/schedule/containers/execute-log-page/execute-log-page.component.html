@@ -3,5 +3,10 @@
     <h2>Execute Log</h2>
   </div>
 
-  <app-execute-log-table></app-execute-log-table>
+  <app-execute-log-search
+    [formState]="(searchForm$ | async)!"
+  ></app-execute-log-search>
+  <app-execute-log-table
+    [tableData]="(executeLogs$ | async) || []"
+  ></app-execute-log-table>
 </div>
