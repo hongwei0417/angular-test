@@ -1,15 +1,31 @@
+import { createFormGroupState, FormGroupState, onNgrxForms } from 'ngrx-forms';
 import { Action, createReducer, on } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { TxnApiActions, TxnListPageActions } from '../actions';
 import { TxnListTableRow } from '../models/TxnListTable';
 
 export const FeatureKey = 'txnListPage';
+export const FilterFormKey = 'txnListPage';
+
+export interface FilterValue {
+  CustId: string;
+  globalFilter: string;
+}
 
 export interface State extends EntityState<TxnListTableRow> {
   loaded: boolean;
   loading: boolean;
   latestId: string | null;
+  filterForm: FormGroupState<FilterValue>;
 }
+
+export const filterFormState = createFormGroupState<FilterValue>(
+  FilterFormKey,
+  {
+    CustId: '',
+    globalFilter: '',
+  }
+);
 
 export const adapter: EntityAdapter<TxnListTableRow> =
   createEntityAdapter<TxnListTableRow>({
@@ -21,10 +37,12 @@ export const initialState: State = adapter.getInitialState({
   loaded: false,
   loading: false,
   latestId: null,
+  filterForm: filterFormState,
 });
 
 export const reducer = createReducer(
   initialState,
+  onNgrxForms(),
   on(TxnListPageActions.loadTxnList, (state, action) => {
     return {
       ...state,
@@ -43,6 +61,9 @@ export const reducer = createReducer(
   }),
   on(TxnApiActions.deleteTxnApiSuccess, (state, action) => {
     return adapter.removeOne(action.id, state);
+  }),
+  on(TxnListPageActions.clearTxnListPageState, (state, action) => {
+    return initialState;
   })
 );
 
@@ -54,3 +75,4 @@ export const {
 } = adapter.getSelectors();
 
 export const getLatestId = (state: State) => state.latestId;
+export const getFilterForm = (state: State) => state.filterForm;

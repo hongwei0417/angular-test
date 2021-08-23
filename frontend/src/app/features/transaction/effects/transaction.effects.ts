@@ -37,13 +37,4 @@ export class TransactionEffects {
       // })
     );
   });
-
-  deleteTxnData$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(TxnListPageActions.deleteTxn),
-      map((action) => {
-        return TxnApiActions.deleteTxnApiSuccess({ id: action.id });
-      })
-    )
-  );
 }

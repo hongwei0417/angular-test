@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { FilterValue } from './../../reducers/txn-list-page.reducer';
+import { FormGroupState } from 'ngrx-forms';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,12 +9,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./global-filter.component.scss'],
 })
 export class GlobalFilterComponent implements OnInit {
-  searchForm: FormGroup = this.formBuilder.group({
-    CustId: [],
-    globalFilter: [],
-  });
+  @Input() formState!: FormGroupState<FilterValue>;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

@@ -199,6 +199,7 @@ export class HandsontableComponent
     this.disabled = isDisabled;
     let table = null;
     // ! may be error on getInstance
+    // TODO: handsontable error need to be fixed
     try {
       table = this.hotRegisterer.getInstance(this.hotId);
     } catch (e) {

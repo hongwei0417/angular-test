@@ -50,7 +50,7 @@ export const reducers = (state: TxnState | undefined, action: Action) => {
 export const getTxnState = createFeatureSelector<State, TxnState>(FeatureKey);
 
 // sub reducers basic state
-export const getTxnListPageEntitiesState = createSelector(
+export const getTxnListPageState = createSelector(
   getTxnState,
   (state: TxnState) => state[fromTxnListPage.FeatureKey]
 );
@@ -76,10 +76,10 @@ export const {
   selectEntities: getTxnEntities,
   selectIds: getTxnIds,
   selectTotal: getTotalTxns,
-} = fromTxnListPage.adapter.getSelectors(getTxnListPageEntitiesState);
+} = fromTxnListPage.adapter.getSelectors(getTxnListPageState);
 
 export const getLatestTxnId = createSelector(
-  getTxnListPageEntitiesState,
+  getTxnListPageState,
   fromTxnListPage.getLatestId
 );
 
@@ -89,6 +89,11 @@ export const getLatestTxn = createSelector(
   (entities, latestId) => {
     return latestId && entities[latestId];
   }
+);
+
+export const getFilterForm = createSelector(
+  getTxnListPageState,
+  fromTxnListPage.getFilterForm
 );
 
 export const getTxnSettingForm = createSelector(

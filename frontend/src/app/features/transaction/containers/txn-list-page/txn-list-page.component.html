@@ -6,7 +6,7 @@
     </button>
   </div>
 
-  <app-global-filter></app-global-filter>
+  <app-global-filter [formState]="(filterForm$ | async)!"></app-global-filter>
 
   <app-txn-list-table [tableData]="(txnData$ | async)!"></app-txn-list-table>
 </div>
