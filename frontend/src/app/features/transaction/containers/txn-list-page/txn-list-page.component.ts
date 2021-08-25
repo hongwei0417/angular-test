@@ -26,4 +26,28 @@ export class TxnListPageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.store$.dispatch(TxnListPageActions.clearTxnListPageState());
   }
+
+  createNewTxn(): void {
+    this.store$.dispatch(TxnListPageActions.createNewTxn());
+  }
+
+  onViewTxnInfo(id: string): void {
+    this.store$.dispatch(TxnListPageActions.viewTxnInfo({ id }));
+  }
+
+  onEditTxnInfo(id: string): void {
+    this.store$.dispatch(TxnListPageActions.editTxnInfo({ id }));
+  }
+
+  onCopyInfo(id: string): void {
+    this.store$.dispatch(TxnListPageActions.copyTxnInfo({ id }));
+  }
+
+  onExecuteTxn(id: string): void {
+    this.store$.dispatch(TxnListPageActions.executeTxn({ id }));
+  }
+
+  onReloadTxn(id: string): void {
+    this.store$.dispatch(TxnListPageActions.reloadTxn({ id }));
+  }
 }

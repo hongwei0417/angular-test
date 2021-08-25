@@ -1,12 +1,19 @@
 <div class="container">
   <div class="title">
     <h2>Transaction List</h2>
-    <button class="txtBtn customBtn add" routerLink="/transaction/create">
+    <button class="txtBtn customBtn add" (click)="createNewTxn()">
       Create New Transaction
     </button>
   </div>
 
   <app-global-filter [formState]="(filterForm$ | async)!"></app-global-filter>
 
-  <app-txn-list-table [tableData]="(txnData$ | async)!"></app-txn-list-table>
+  <app-txn-list-table
+    [tableData]="(txnData$ | async)!"
+    (viewTxnInfoEvent)="onViewTxnInfo($event)"
+    (editTxnInfoEvent)="onEditTxnInfo($event)"
+    (copyTxnInfoEvent)="onCopyInfo($event)"
+    (executeTxnEvent)="onExecuteTxn($event)"
+    (reloadTxnEvent)="onReloadTxn($event)"
+  ></app-txn-list-table>
 </div>

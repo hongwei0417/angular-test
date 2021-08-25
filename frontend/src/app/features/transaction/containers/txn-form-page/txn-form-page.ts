@@ -1,8 +1,12 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TxnFormPageActions } from '../../actions';
 import * as fromTxn from '../../reducers';
+import * as fromRoot from '../../../../core/reducers';
+import { merge } from 'rxjs';
+import { TxnFormType } from '../../models/TxnForm';
 
 @Component({
   selector: 'app-txn-form-page',
@@ -11,18 +15,16 @@ import * as fromTxn from '../../reducers';
 })
 export class TxnCreatePageComponent implements OnInit, OnDestroy {
   error$!: Observable<string>;
+  formType$!: Observable<TxnFormType>;
+  txnFormType = TxnFormType;
 
   constructor(private store$: Store<fromTxn.State>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.formType$ = this.store$.select(fromTxn.getTxnFormType);
+  }
 
   ngOnDestroy(): void {
     this.store$.dispatch(TxnFormPageActions.clearTxnCreatePageState());
-  }
-
-  onSubmit({ title, content, executeCount }: any): void {
-    this.store$.dispatch(
-      TxnFormPageActions.createTxn({ title, content, executeCount })
-    );
   }
 }

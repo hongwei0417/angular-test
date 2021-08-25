@@ -21,9 +21,34 @@ export const tableColumns: TxnListTableCol[] = [
 })
 export class TxnListTableComponent implements OnInit {
   @Input() tableData: TxnListTableRow[] = [];
+  @Output() viewTxnInfoEvent = new EventEmitter<string>();
+  @Output() editTxnInfoEvent = new EventEmitter<string>();
+  @Output() copyTxnInfoEvent = new EventEmitter<string>();
+  @Output() executeTxnEvent = new EventEmitter<string>();
+  @Output() reloadTxnEvent = new EventEmitter<string>();
   tableCols = tableColumns;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  viewTxnInfo(id: string): void {
+    this.viewTxnInfoEvent.emit(id);
+  }
+
+  editTxnInfo(id: string): void {
+    this.editTxnInfoEvent.emit(id);
+  }
+
+  copyTxnInfo(id: string): void {
+    this.copyTxnInfoEvent.emit(id);
+  }
+
+  executeTxn(id: string): void {
+    this.executeTxnEvent.emit(id);
+  }
+
+  reloadTxn(id: string): void {
+    this.reloadTxnEvent.emit(id);
+  }
 }

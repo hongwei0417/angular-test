@@ -25,7 +25,7 @@ describe('Txn List Page Reducer', () => {
 
     it('should get all txn data', () => {
       const newState = { ...getEntityState(), loaded: true };
-      const action = TxnApiActions.loadTxnApiSuccess({
+      const action = TxnApiActions.loadAllTxnApiSuccess({
         txnData: autoschtranms,
       });
       const result = fromTxnList.reducer(fromTxnList.initialState, action);

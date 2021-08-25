@@ -1,3 +1,4 @@
+import { TxnFormType } from './../../models/TxnForm';
 import {
   Component,
   EventEmitter,
@@ -10,8 +11,8 @@ import { FormBuilder } from '@angular/forms';
 import { FormGroupState, NgrxValueConverters } from 'ngrx-forms';
 import { TxnBasicInfo } from '../../models/TxnForm';
 interface APBookingInfo {
-  name: string;
-  code: string;
+  label: string;
+  value: string;
 }
 
 @Component({
@@ -21,22 +22,22 @@ interface APBookingInfo {
 })
 export class TxnCreateComponent implements OnInit {
   @Input() formState!: FormGroupState<TxnBasicInfo>;
+  @Input() formMode!: TxnFormType;
+  txnFormMode = TxnFormType;
   dateValueConverter = NgrxValueConverters.dateToISOString;
 
-  APBookingIds: APBookingInfo[];
-
-  stateOptions = [
-    { label: 'Yes', value: true },
-    { label: 'No', value: false },
+  APBookingIds: APBookingInfo[] = [
+    { label: 'EBAP-HLO999', value: 'EBAP-HLO999' },
+    { label: 'BBAP-HLO999', value: 'BBAP-HLO999' },
+    { label: 'ABAP-HLO999', value: 'ABAP-HLO999' },
   ];
 
-  constructor() {
-    this.APBookingIds = [
-      { name: 'EBAP-HLO999', code: '' },
-      { name: 'BBAP-HLO999', code: '' },
-      { name: 'ABAP-HLO999', code: '' },
-    ];
-  }
+  stateOptions = [
+    { label: 'Yes', value: 'Y' },
+    { label: 'No', value: 'N' },
+  ];
+
+  constructor() {}
 
   ngOnInit(): void {}
 

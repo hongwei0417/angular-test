@@ -31,3 +31,20 @@ export const ROOT_REDUCERS = new InjectionToken<
 export const metaReducers: MetaReducer<State>[] = !environment.production
   ? []
   : [];
+
+/**
+ * Router Selectors
+ */
+export const selectRouter =
+  createFeatureSelector<fromRouter.RouterReducerState>('router');
+
+export const {
+  selectUrl,
+  selectRouteData,
+  selectCurrentRoute,
+  selectFragment,
+  selectQueryParam,
+  selectQueryParams,
+  selectRouteParam,
+  selectRouteParams,
+} = fromRouter.getSelectors(selectRouter);

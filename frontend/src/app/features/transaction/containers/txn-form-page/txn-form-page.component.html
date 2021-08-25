@@ -1,12 +1,15 @@
 <div class="container">
   <div class="title">
-    <h2>Create Transaction</h2>
+    <ng-container [ngSwitch]="formType$ | async">
+      <h2 *ngSwitchCase="txnFormType.CREATE">Create Transaction</h2>
+      <h2 *ngSwitchCase="txnFormType.VIEW">View Transaction</h2>
+      <h2 *ngSwitchCase="txnFormType.EDIT">Edit Transaction</h2>
+      <h2 *ngSwitchCase="txnFormType.COPY">Copy Transaction</h2>
+    </ng-container>
     <button class="txtBtn customBtn arrow" routerLink="/transaction/list">
       Back
     </button>
   </div>
   <app-txn-setting></app-txn-setting>
   <app-job-setting></app-job-setting>
-  <!-- <app-txn-create-job class="jobSetting"></app-txn-create-job> -->
 </div>
-

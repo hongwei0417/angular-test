@@ -47,7 +47,7 @@ export const reducer = createReducer(
       loading: true,
     };
   }),
-  on(TxnApiActions.loadTxnApiSuccess, (state, { type, txnData }) => {
+  on(TxnApiActions.loadAllTxnApiSuccess, (state, { type, txnData }) => {
     return adapter.addMany(txnData, {
       ...state,
       loading: false,

@@ -1,8 +1,12 @@
-import { TxnListTableRow } from './../../../features/transaction/models/TxnListTable';
-import { autoschtranms } from './../../../shared/testing/data/txnListTable';
-import { Observable, of } from 'rxjs';
+import {
+  TxnListTableData,
+  TxnListTableRow,
+} from './../../../features/transaction/models/TxnListTable';
+import { allTxnData } from './../../../shared/testing/data/txnListTable';
+import { Observable, of, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { filter, map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +14,16 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
 
-  getTxnListData(): Observable<TxnListTableRow[]> {
-    return of(autoschtranms);
+  getAllTxn(): Observable<TxnListTableRow[]> {
+    return of(allTxnData);
   }
 
-  createTxnData(): Observable<any> {
-    return of();
+  getTxnById(id: string): Observable<TxnListTableData> {
+    return of(allTxnData).pipe(
+      switchMap((v) => {
+        const data = v.find((x) => x.TRANSACTIONID === id) as TxnListTableData;
+        return data ? of(data) : throwError('NO_MATCH_TXN_ID');
+      })
+    );
   }
 }

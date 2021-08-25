@@ -18,6 +18,7 @@
             <button
               class="iconBtn customBtnReverse view"
               type="button"
+              (click)="viewTxnInfo(row.TRANSACTIONID)"
             ></button>
           </td>
 
@@ -25,6 +26,7 @@
             <button
               class="iconBtn customBtnReverse edit"
               type="button"
+              (click)="editTxnInfo(row.TRANSACTIONID)"
             ></button>
           </td>
 
@@ -32,6 +34,7 @@
             <button
               class="iconBtn customBtnReverse copy"
               type="button"
+              (click)="copyTxnInfo(row.TRANSACTIONID)"
             ></button>
           </td>
 
@@ -39,6 +42,7 @@
             <button
               class="iconBtn customBtnReverse execute"
               type="button"
+              (click)="executeTxn(row.TRANSACTIONID)"
             ></button>
           </td>
 
@@ -46,6 +50,7 @@
             <button
               class="iconBtn customBtnReverse reload"
               type="button"
+              (click)="reloadTxn(row.TRANSACTIONID)"
             ></button>
           </td>
 

@@ -20,7 +20,7 @@ export const FeatureKey = 'executeLogPage';
 export interface SearchFormValue {
   globalFilter: string;
   transactionName: string;
-  date: Boxed<string[]>;
+  date: Boxed<string[] | null>;
 }
 
 export interface State extends EntityState<ExecuteLogTableRow> {
@@ -47,8 +47,7 @@ export const searchFormState = createFormGroupState<SearchFormValue>(
   {
     globalFilter: '',
     transactionName: '',
-    // date: box(['', '']),
-    date: box([new Date().toString(), new Date().toString()]),
+    date: box(['', '']),
   }
 );
 

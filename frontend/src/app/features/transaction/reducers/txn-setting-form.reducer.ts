@@ -1,6 +1,7 @@
 import {
   addArrayControl,
   createFormGroupState,
+  disable,
   FormGroupState,
   onNgrxForms,
   removeArrayControl,
@@ -14,7 +15,11 @@ import { MailGroup, TxnModule, FrequencySetting } from './../models/TxnForm';
 import { Action, createReducer, on } from '@ngrx/store';
 import { TxnBasicInfo } from '../models/TxnForm';
 import { required } from 'ngrx-forms/validation';
-import { TxnSettingFormActions } from '../actions';
+import {
+  TxnApiActions,
+  TxnFormPageActions,
+  TxnSettingFormActions,
+} from '../actions';
 
 export const FeatureKey = 'txnSettingForm';
 
@@ -33,24 +38,25 @@ export interface State {
 }
 
 export const basicInfoFormState: TxnBasicInfo = {
+  TransactionID: '',
   TransactionName: '',
   APBooking: '',
-  ActiveFlag: false,
-  date: '',
-  time: 0,
+  ActiveFlag: 'N',
+  date: null,
+  time: null,
   alarmIntervalMin: 10,
 };
 
 export const fqSettingFormState: FrequencySetting = {
-  LastTranTime: '',
+  LastTranTime: null,
   CronExpression: '',
   TimeZone: '',
   RetryTimes: 0,
   LoaderBufferTime: 0,
   BackToBufferTime: 0,
   ShiftBackToLoaderTime: 0,
-  StartAt: '',
-  EndAt: '',
+  StartAt: null,
+  EndAt: null,
   SkipOverDue: false,
   SkipAllOverDue: false,
 };
@@ -90,23 +96,11 @@ export const validateForm = updateGroup<TxnSettingFormValue>({
     TransactionName: validate(required),
     APBooking: validate(required),
     ActiveFlag: validate(required),
-    date: (state, parentState) => {
-      return state.value ? state : setValue(state, new Date().toISOString());
-    },
   }),
   frequencySettings: updateArray<FrequencySetting>(
     updateGroup<FrequencySetting>({
-      LastTranTime: (state, parentState) => {
-        const s = validate(state, required);
-        return s.value ? s : setValue(s, new Date().toISOString());
-      },
+      LastTranTime: validate(required),
       CronExpression: validate(required),
-      StartAt: (state, parentState) => {
-        return state.value ? state : setValue(state, new Date().toISOString());
-      },
-      EndAt: (state, parentState) => {
-        return state.value ? state : setValue(state, new Date().toISOString());
-      },
     })
   ),
   modules: updateArray<TxnModule>(
@@ -130,6 +124,9 @@ export const validateForm = updateGroup<TxnSettingFormValue>({
 export const rawReducer = createReducer(
   initialState,
   onNgrxForms(),
+  on(TxnFormPageActions.clearTxnCreatePageState, (state, action) => {
+    return initialState;
+  }),
   on(TxnSettingFormActions.addFrequencySetting, (state, action) => {
     return {
       ...state,
@@ -181,6 +178,24 @@ export const rawReducer = createReducer(
         },
       }),
       moduleOptions,
+    };
+  }),
+  on(TxnApiActions.loadTxnApiSuccess, (state, { txnInfo: txnData }) => {
+    return {
+      ...state,
+      formState: setValue(state.formState, {
+        basicInfo: {
+          TransactionID: txnData.TRANSACTIONID,
+          TransactionName: txnData.TRANSACTIONNAME,
+          APBooking: txnData.AP_BOOKING,
+          ActiveFlag: txnData.ACTIVEFLAG,
+          date: txnData.STARTTIME,
+          alarmIntervalMin: 10,
+        },
+        frequencySettings: [fqSettingFormState],
+        modules: [moduleFormState],
+        mailGroup: mailGroupFormState,
+      }),
     };
   })
 );

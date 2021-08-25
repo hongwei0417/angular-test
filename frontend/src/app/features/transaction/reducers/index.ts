@@ -125,3 +125,8 @@ export const getSingleJobOptions = createSelector(
   getJobSettingFormState,
   fromJobSettingForm.getSingleJobOptions
 );
+
+export const getTxnFormType = createSelector(
+  getTxnFormPageState,
+  fromTxnFormPage.getFormType
+);

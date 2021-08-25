@@ -11,7 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TxnCreateComponent } from './components/txn-basic-info/txn-basic-info.component';
 import { TxnCreatePageComponent } from './containers/txn-form-page/txn-form-page';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TransactionEffects } from './effects/transaction.effects';
+import { TransactionListEffects } from './effects/transaction-list.effects';
 
 import { TableModule } from 'primeng/table';
 import { SelectButtonModule } from 'primeng/selectbutton';
@@ -23,7 +23,6 @@ import { TxnSettingComponent } from './containers/txn-setting/txn-setting.compon
 import { NgrxFormsModule, NGRX_STATUS_CLASS_NAMES } from 'ngrx-forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { TabViewModule } from 'primeng/tabview';
-import { TxnCreateJobComponent } from './components/txn-create-job/txn-create-job.component';
 import { SharedModule } from 'src/app/shared';
 import { ChooseModuleComponent } from './components/choose-module/choose-module.component';
 import { ChooseMailgrpComponent } from './components/choose-mailgrp/choose-mailgrp.component';
@@ -40,7 +39,6 @@ import { SingleJobFieldComponent } from './components/single-job-field/single-jo
     GlobalFilterComponent,
     FrequencySettingTableComponent,
     TxnSettingComponent,
-    TxnCreateJobComponent,
     ChooseModuleComponent,
     ChooseMailgrpComponent,
     JobSettingComponent,
@@ -52,7 +50,7 @@ import { SingleJobFieldComponent } from './components/single-job-field/single-jo
     ReactiveFormsModule,
     TxnRoutingModule,
     StoreModule.forFeature(fromTxn.FeatureKey, fromTxn.reducers),
-    EffectsModule.forFeature([TransactionEffects, TxnFormEffects]),
+    EffectsModule.forFeature([TransactionListEffects, TxnFormEffects]),
     TableModule,
     SelectButtonModule,
     CalendarModule,

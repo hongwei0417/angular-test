@@ -3,6 +3,18 @@
   <div class="itemGroup">
     <div
       class="item"
+      *ngIf="formMode !== txnFormMode.CREATE && formMode !== txnFormMode.COPY"
+    >
+      <label for="" class="fieldRequired">
+        <span>Transaction ID</span>
+      </label>
+      <input
+        type="text"
+        [ngrxFormControlState]="formState.controls.TransactionID!"
+      />
+    </div>
+    <div
+      class="item"
       *ngIf="formState.controls.TransactionName as TransactionName"
     >
       <label for="" class="fieldRequired">
@@ -38,10 +50,13 @@
         </ng-template>
       </p-autoComplete> -->
 
-
-      <p-dropdown [options]="APBookingIds" placeholder="Select" [ngrxFormControlState]="APBooking" optionLabel="name"></p-dropdown>
-
-
+      <p-dropdown
+        [options]="APBookingIds"
+        placeholder="Select"
+        [ngrxFormControlState]="APBooking"
+        optionLabel="label"
+        optionValue="value"
+      ></p-dropdown>
     </div>
     <div class="item" *ngIf="formState.controls.ActiveFlag as ActiveFlag">
       <p>Active Flag</p>

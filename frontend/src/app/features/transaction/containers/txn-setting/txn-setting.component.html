@@ -6,6 +6,7 @@
   <div class="fieldContent">
     <app-txn-basic-info
       [formState]="formState.controls.basicInfo"
+      [formMode]="(formMode$ | async)!"
     ></app-txn-basic-info>
 
     <app-frequency-setting-table

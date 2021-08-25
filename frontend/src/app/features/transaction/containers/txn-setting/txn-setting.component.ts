@@ -7,6 +7,7 @@ import { map, take } from 'rxjs/operators';
 import * as fromTxn from '../../reducers';
 import { TxnSettingFormActions } from '../../actions';
 import { randomInt } from 'crypto';
+import { TxnFormType } from '../../models/TxnForm';
 
 @Component({
   selector: 'app-txn-setting',
@@ -18,6 +19,7 @@ export class TxnSettingComponent implements OnInit {
   fqOptions$!: Observable<number[]>;
   fqShowAccordions$!: Observable<boolean[]>;
   moduleOptions$!: Observable<number[]>;
+  formMode$!: Observable<TxnFormType>;
 
   constructor(private store$: Store<fromTxn.State>) {}
 
@@ -30,6 +32,7 @@ export class TxnSettingComponent implements OnInit {
       select(fromTxn.getFqShowAccordions)
     );
     this.moduleOptions$ = this.store$.pipe(select(fromTxn.getModuleOptions));
+    this.formMode$ = this.store$.select(fromTxn.getTxnFormType);
   }
 
   onAddFrequencySetting(): void {

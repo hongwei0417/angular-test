@@ -6,6 +6,9 @@ import { RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
   { path: 'list', component: TxnListPageComponent },
   { path: 'create', component: TxnCreatePageComponent },
+  { path: 'view', component: TxnCreatePageComponent },
+  { path: 'edit', component: TxnCreatePageComponent },
+  { path: 'copy', component: TxnCreatePageComponent },
   { path: '', redirectTo: 'list', pathMatch: 'full' },
 ];
 @NgModule({

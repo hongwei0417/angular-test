@@ -1,22 +1,30 @@
+export enum TxnFormType {
+  CREATE = 'CREATE',
+  VIEW = 'VIEW',
+  EDIT = 'EDIT',
+  COPY = 'COPY',
+}
+
 export interface TxnBasicInfo {
+  TransactionID?: string;
   TransactionName: string;
   APBooking: string;
-  ActiveFlag: boolean;
-  date?: string;
-  time?: number;
+  ActiveFlag: string;
+  date?: string | null;
+  time?: number | null;
   alarmIntervalMin?: number;
 }
 
 export interface FrequencySetting {
-  LastTranTime: string;
+  LastTranTime: string | null;
   CronExpression: string;
   TimeZone?: string;
   RetryTimes?: number;
   LoaderBufferTime?: number;
   BackToBufferTime?: number;
   ShiftBackToLoaderTime?: number;
-  StartAt?: string;
-  EndAt?: string;
+  StartAt?: string | null;
+  EndAt?: string | null;
   SkipOverDue: boolean;
   SkipAllOverDue: boolean;
 }

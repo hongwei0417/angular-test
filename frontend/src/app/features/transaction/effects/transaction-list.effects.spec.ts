@@ -9,7 +9,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of, throwError } from 'rxjs';
 import { hot, cold, Scheduler } from 'jest-marbles';
-import { TransactionEffects } from './transaction.effects';
+import { TransactionListEffects } from './transaction-list.effects';
 import {
   TxnApiActions,
   TxnCreatePageActions,
@@ -18,21 +18,21 @@ import {
 
 describe('TransactionEffects', () => {
   let actions$: Observable<any>;
-  let effects: TransactionEffects;
+  let effects: TransactionListEffects;
   let txnFormService: TxnFormService;
   let fakeDataService: FakeDataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        TransactionEffects,
+        TransactionListEffects,
         TxnFormService,
         FakeDataService,
         provideMockActions(() => actions$),
       ],
     });
 
-    effects = TestBed.inject(TransactionEffects);
+    effects = TestBed.inject(TransactionListEffects);
     actions$ = TestBed.inject(Actions);
     txnFormService = TestBed.inject(TxnFormService);
     fakeDataService = TestBed.inject(FakeDataService);
@@ -47,25 +47,25 @@ describe('TransactionEffects', () => {
 
     it('should return txn list data from fakeDataService(marble testing)', () => {
       const action = TxnListPageActions.loadTxnList();
-      const completion = TxnApiActions.loadTxnApiSuccess({
+      const completion = TxnApiActions.loadAllTxnApiSuccess({
         txnData: autoschtranms,
       });
       actions$ = hot('-a', { a: action });
       const response$ = cold('-a|', { a: fakeData });
       const expected$ = hot('--b', { b: completion });
       fakeDataServiceSpy.mockReturnValue(response$);
-      expect(effects.getTxnData$).toBeObservable(expected$);
+      expect(effects.getAllTxnData$).toBeObservable(expected$);
     });
 
     it('should return txn list data from fakeDataService(observable)', (done) => {
       const action = TxnListPageActions.loadTxnList();
-      const completion = TxnApiActions.loadTxnApiSuccess({
+      const completion = TxnApiActions.loadAllTxnApiSuccess({
         txnData: autoschtranms,
       });
       const response$ = of(fakeData);
       actions$ = of(action);
       fakeDataServiceSpy.mockReturnValue(response$);
-      effects.getTxnData$.subscribe((action) => {
+      effects.getAllTxnData$.subscribe((action) => {
         expect(action).toEqual(completion);
         done();
       });
@@ -101,7 +101,7 @@ describe('TransactionEffects', () => {
         content: 'test content',
         executeCount: 10,
       });
-      const completion = TxnApiActions.createTxnApiFail({
+      const completion = TxnApiActions.createTxnApiFailure({
         error: 'error occurred',
       });
       actions$ = hot('-a-----', { a: action });
@@ -117,7 +117,7 @@ describe('TransactionEffects', () => {
         content: 'test content',
         executeCount: 10,
       });
-      const completion = TxnApiActions.createTxnApiFail({
+      const completion = TxnApiActions.createTxnApiFailure({
         error: 'error occurred',
       });
       actions$ = of(action);

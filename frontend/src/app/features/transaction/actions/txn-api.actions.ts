@@ -1,12 +1,13 @@
 import { createAction, props, union } from '@ngrx/store';
-import { TxnListTableRow } from '../models/TxnListTable';
+import { TxnFormType } from '../models/TxnForm';
+import { TxnListTableData, TxnListTableRow } from '../models/TxnListTable';
 
-export const loadTxnApiSuccess = createAction(
+export const loadAllTxnApiSuccess = createAction(
   '[TxnApi] Load Transaction Success',
   props<{ txnData: TxnListTableRow[] }>()
 );
 
-export const loadTxnApiFailure = createAction(
+export const loadAllTxnApiFailure = createAction(
   '[TxnApi] Load Transaction Failure',
   props<{ error: any }>()
 );
@@ -21,7 +22,17 @@ export const createTxnApiSuccess = createAction(
   props<{ txn: TxnListTableRow }>()
 );
 
-export const createTxnApiFail = createAction(
+export const createTxnApiFailure = createAction(
   '[TxnApi] Create Transaction Failure',
+  props<{ error: any }>()
+);
+
+export const loadTxnApiSuccess = createAction(
+  '[TxnApi] Load a transaction data success',
+  props<{ txnInfo: any }>()
+);
+
+export const loadTxnApiFailure = createAction(
+  '[TxnApi] Load a transaction data fail',
   props<{ error: any }>()
 );

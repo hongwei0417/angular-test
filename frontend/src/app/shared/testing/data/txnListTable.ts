@@ -1,5 +1,5 @@
 import { TxnListTableData } from './../../../features/transaction/models/TxnListTable';
-export const autoschtranms: TxnListTableData[] = [
+export const allTxnData: TxnListTableData[] = [
   {
     TRANSACTIONID: '0000000061',
     TRANSACTIONNAME: 'A73A_ForPortalCPHoldDisposition',
