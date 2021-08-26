@@ -140,6 +140,21 @@ export const rawReducer = createReducer(
       fqShowAccordions: [...state.fqShowAccordions, false],
     };
   }),
+  on(TxnSettingFormActions.removeFrequencySetting, (state, { id }) => {
+    const index = state.fqSettingOptions.indexOf(id);
+    const fqSettingOptions = [...state.fqSettingOptions];
+    const fqShowAccordions = [...state.fqShowAccordions];
+    fqSettingOptions.splice(index, 1);
+    fqShowAccordions.splice(index, 1);
+    return {
+      ...state,
+      formState: updateGroup<TxnSettingFormValue>(state.formState, {
+        frequencySettings: (s, p) => removeArrayControl(s, index),
+      }),
+      fqSettingOptions,
+      fqShowAccordions,
+    };
+  }),
   on(TxnSettingFormActions.toggleFqAccordion, (state, action) => {
     return {
       ...state,

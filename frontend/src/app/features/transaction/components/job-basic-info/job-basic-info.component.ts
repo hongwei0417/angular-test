@@ -10,31 +10,11 @@ import { JobBasicInfo } from '../../models/TxnForm';
 })
 export class JobBasicInfoComponent implements OnInit {
   @Input() formState!: FormGroupState<JobBasicInfo>;
+  DLLSeqs: string[] = [];
 
-  jobForm!: FormGroup;
-  get jobName() {
-    return this.jobForm.get('jobName');
-  }
-  get maxRetry() {
-    return this.jobForm.get('maxRetry');
-  }
-  get DLLSeq() {
-    return this.jobForm.get('DLLSeq');
-  }
-  DLLSeqs!: string[];
+  constructor() {}
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    const jobFormInfo = () => {
-      this.jobForm = this.fb.group({
-        jobName: [, Validators.required],
-        maxRetry: [, Validators.required],
-        DLLSeq: [, Validators.required],
-      });
-    };
-    jobFormInfo();
-  }
+  ngOnInit(): void {}
 
   filterDLLSeqs(inputtedCustNameEvent: any): void {
     let query = inputtedCustNameEvent.query;

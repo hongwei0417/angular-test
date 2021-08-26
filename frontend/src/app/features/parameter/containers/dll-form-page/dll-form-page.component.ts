@@ -18,4 +18,6 @@ export class DllCreatePageComponent implements OnInit {
   ngOnInit(): void {
     this.dllFormState$ = this.store$.select(fromParameter.getDllFormState);
   }
+
+  save(): void {}
 }
