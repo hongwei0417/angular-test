@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommonSearchComponent } from './common-search.component';
+import { GlobalFilterComponent } from './common-search.component';
 
 describe('GlobalFilterComponent', () => {
-  let component: CommonSearchComponent;
-  let fixture: ComponentFixture<CommonSearchComponent>;
+  let component: GlobalFilterComponent;
+  let fixture: ComponentFixture<GlobalFilterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CommonSearchComponent],
+      declarations: [GlobalFilterComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CommonSearchComponent);
+    fixture = TestBed.createComponent(GlobalFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

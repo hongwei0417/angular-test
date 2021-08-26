@@ -1,7 +1,6 @@
 import { FormGroupState } from 'ngrx-forms';
 import { Component, Input, OnInit } from '@angular/core';
-import * as fromScheduleListPage from '../../reducers/schedule-list-page.reducer';
-import * as fromAlarmStatePage from '../../reducers/alarm-state-page.reducer';
+import * as fromMailGroupListPage from '../../reducers/mailGroup-list-page.reducer';
 
 @Component({
   selector: 'app-common-search',
@@ -9,9 +8,7 @@ import * as fromAlarmStatePage from '../../reducers/alarm-state-page.reducer';
   styleUrls: ['./common-search.component.scss'],
 })
 export class CommonSearchComponent implements OnInit {
-  @Input() formState!: FormGroupState<
-    fromScheduleListPage.SearchFormValue | fromAlarmStatePage.SearchFormValue
-  >;
+  @Input() formState!: FormGroupState<fromMailGroupListPage.SearchFormValue>;
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,0 +1,12 @@
+.itemGroup .item:nth-child(-n + 2) {
+  width: calc(50% - 35px / 2);
+  margin-bottom: 20px;
+}
+
+.itemGroup .item:nth-child(3) {
+  margin-left: 0;
+}
+
+.itemGroup .item:nth-last-child(-n + 3) {
+  width: calc(33.333333% - 35px * 2 / 3);
+}

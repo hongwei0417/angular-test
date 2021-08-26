@@ -1,25 +1,24 @@
-import { FormGroupState, createFormGroupState, onNgrxForms } from 'ngrx-forms';
-import { filter } from 'rxjs/operators';
-import { Action, createReducer, on } from '@ngrx/store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { ScheduleTableRow } from '../models/ScheduleTable';
-import { ScheduleListPageActions } from '../actions';
+import { Action, createReducer, on } from '@ngrx/store';
+import { createFormGroupState, FormGroupState, onNgrxForms } from 'ngrx-forms';
+import { MailGroupListPageActions } from '../actions';
+import { MailGroupListTableRow } from '../models/MailGroup';
 
-export const FeatureKey = 'scheduleListPage';
+export const FeatureKey = 'mailGroupListPage';
 
 export interface SearchFormValue {
   globalFilter: string;
 }
 
-export interface State extends EntityState<ScheduleTableRow> {
+export interface State extends EntityState<MailGroupListTableRow> {
   loading: boolean;
   loaded: boolean;
   searchForm: FormGroupState<SearchFormValue>;
 }
 
-export const adapter: EntityAdapter<ScheduleTableRow> =
-  createEntityAdapter<ScheduleTableRow>({
-    selectId: (s) => s.TransactionId,
+export const adapter: EntityAdapter<MailGroupListTableRow> =
+  createEntityAdapter<MailGroupListTableRow>({
+    selectId: (s) => s.MAIL_G_ID,
     sortComparer: false,
   });
 
@@ -40,16 +39,16 @@ export const reducer = createReducer(
   initialState,
   onNgrxForms(),
   on(
-    ScheduleListPageActions.loadScheduleListTable,
-    (state, { type, schedules }) => {
-      return adapter.addMany(schedules, {
+    MailGroupListPageActions.loadMailGroupListTable,
+    (state, { type, mailGroups }) => {
+      return adapter.addMany(mailGroups, {
         ...state,
         loading: false,
         loaded: true,
       });
     }
   ),
-  on(ScheduleListPageActions.clearScheduleListPageState, (state, action) => {
+  on(MailGroupListPageActions.clearMailGroupListPageState, (state, action) => {
     return initialState;
   })
 );

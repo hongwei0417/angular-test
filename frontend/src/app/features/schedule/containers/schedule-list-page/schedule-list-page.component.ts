@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ScheduleListPageActions } from '../../actions';
-import { scheduleListTableData } from 'src/app/shared/testing/data/scheduleListTable';
+import { scheduleListTableData } from '../../testing/data/schedule-list-table';
 import * as fromSchedule from '../../reducers';
 import { SearchFormValue } from '../../reducers/schedule-list-page.reducer';
 @Component({

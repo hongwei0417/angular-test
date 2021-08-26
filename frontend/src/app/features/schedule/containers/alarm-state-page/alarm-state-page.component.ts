@@ -1,4 +1,4 @@
-import { alarmStateTableData } from './../../../../shared/testing/data/alarmStateTable';
+import { alarmStateTableData } from '../../testing/data/alarm-state-table';
 import { AlarmStateTableRow } from './../../models/AlarmStateTable';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroupState } from 'ngrx-forms';

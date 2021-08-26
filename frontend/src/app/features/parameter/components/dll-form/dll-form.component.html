@@ -1,0 +1,127 @@
+<form [ngrxFormState]="formState" class="fieldContent">
+  <div class="itemGroup">
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span
+          *ngIf="
+            !(
+              formState.controls.DLLDescription.isInvalid &&
+              formState.controls.DLLDescription.isTouched
+            )
+          "
+          >DLL Description</span
+        >
+        <p
+          *ngIf="
+            formState.controls.DLLDescription.isInvalid &&
+            formState.controls.DLLDescription.isTouched
+          "
+        >
+          "DLL Description" is required
+        </p>
+      </label>
+      <input
+        type="text"
+        [ngrxFormControlState]="formState.controls.DLLDescription"
+      />
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span
+          *ngIf="
+            !(
+              formState.controls.DLLPath.isInvalid &&
+              formState.controls.DLLPath.isTouched
+            )
+          "
+          >DLL Path</span
+        >
+        <p
+          *ngIf="
+            formState.controls.DLLPath.isInvalid &&
+            formState.controls.DLLPath.isTouched
+          "
+        >
+          "DLL Path" is required
+        </p>
+      </label>
+      <input type="text" [ngrxFormControlState]="formState.controls.DLLPath" />
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span
+          *ngIf="
+            !(
+              formState.controls.DLLName.isInvalid &&
+              formState.controls.DLLName.isTouched
+            )
+          "
+          >DLL Name</span
+        >
+        <p
+          *ngIf="
+            formState.controls.DLLName.isInvalid &&
+            formState.controls.DLLName.isTouched
+          "
+        >
+          "DLL Name" is required
+        </p>
+      </label>
+      <input type="text" [ngrxFormControlState]="formState.controls.DLLName" />
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span
+          *ngIf="
+            !(
+              formState.controls.NameSpace.isInvalid &&
+              formState.controls.NameSpace.isTouched
+            )
+          "
+          >Name Space</span
+        >
+        <p
+          *ngIf="
+            formState.controls.NameSpace.isInvalid &&
+            formState.controls.NameSpace.isTouched
+          "
+        >
+          "Name Space" is required
+        </p>
+      </label>
+      <input
+        type="text"
+        [ngrxFormControlState]="formState.controls.NameSpace"
+      />
+    </div>
+
+    <div class="item">
+      <label for="" class="fieldRequired">
+        <span
+          *ngIf="
+            !(
+              formState.controls.ClassName.isInvalid &&
+              formState.controls.ClassName.isTouched
+            )
+          "
+          >Class Name</span
+        >
+        <p
+          *ngIf="
+            formState.controls.ClassName.isInvalid &&
+            formState.controls.ClassName.isTouched
+          "
+        >
+          "Class Name" is required
+        </p>
+      </label>
+      <input
+        type="text"
+        [ngrxFormControlState]="formState.controls.ClassName"
+      />
+    </div>
+  </div>
+</form>

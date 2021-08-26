@@ -57,7 +57,7 @@ export const getAlarmStatePageState = createSelector(
 // selectors
 export const getScheduleListPageFilterForm = createSelector(
   getScheduleListPageState,
-  fromScheduleListPage.getFilterForm
+  fromScheduleListPage.getSearchForm
 );
 
 export const {

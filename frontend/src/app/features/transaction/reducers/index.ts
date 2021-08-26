@@ -144,7 +144,5 @@ export const getTxnFormLoaded = createSelector(
 export const getTxnFormLoadCompleted = createSelector(
   getTxnFormLoading,
   getTxnFormLoaded,
-  (s1, s2) => {
-    return !s1 && s2;
-  }
+  (loading, loaded) => !loading && loaded
 );

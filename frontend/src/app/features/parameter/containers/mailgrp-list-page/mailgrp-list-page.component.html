@@ -1,11 +1,17 @@
 <div class="container">
   <div class="title">
     <h2>Mail Group List</h2>
-    <button class="txtBtn customBtn add" routerLink="/parameter/mailgroup/create">
+    <button
+      class="txtBtn customBtn add"
+      routerLink="/parameter/mailGroup/create"
+    >
       Create New Mail Group
     </button>
   </div>
 
-  <app-mailgrp-list-table></app-mailgrp-list-table>
+  <app-common-search [formState]="(searchForm$ | async)!"></app-common-search>
 
+  <app-mailgrp-list-table
+    [tableData]="(mailGroups$ | async) || []"
+  ></app-mailgrp-list-table>
 </div>

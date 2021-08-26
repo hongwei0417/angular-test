@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="title">
+    <h2>Create DLL Seq</h2>
+  </div>
+
+  <app-dll-form [formState]="(dllFormState$ | async)!"></app-dll-form>
+
+  <div class="btnGroup">
+    <button class="txtBtn customBtnReverse" routerLink="/parameter/dll/list">
+      Cancel
+    </button>
+    <button class="txtBtn customBtn">Save</button>
+  </div>
+</div>

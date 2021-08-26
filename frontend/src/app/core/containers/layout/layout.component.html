@@ -1,40 +1,50 @@
-<!-- <h2 class="text-center">Layout Page</h2>
-
-<div class="d-flex justify-content-center">
-  <button routerLink="feature1">Feature1</button>
-  <button routerLink="feature2">Feature2</button>
-</div>
-
-<router-outlet></router-outlet> -->
-<div class="layout-wrapper" (click)="onLayoutClick()" [ngClass]="{'menu-layout-static': layoutSettings.layoutMode !== 'overlay',
-				'menu-layout-overlay': layoutSettings.layoutMode === 'overlay',
-				'layout-menu-overlay-active': layoutSettings.overlayMenuActive,
-				'menu-layout-slim': layoutSettings.layoutMode === 'slim',
-				'menu-layout-horizontal': layoutSettings.layoutMode === 'horizontal',
-				'layout-menu-static-inactive': layoutSettings.staticMenuDesktopInactive,
-				'layout-menu-static-active': layoutSettings.staticMenuMobileActive,
-                'p-input-filled': themeSettings.inputStyle === 'filled',
-                'p-ripple-disabled': !themeSettings.ripple}">
-
+<div
+  class="layout-wrapper"
+  (click)="onLayoutClick()"
+  [ngClass]="{
+    'menu-layout-static': layoutSettings.layoutMode !== 'overlay',
+    'menu-layout-overlay': layoutSettings.layoutMode === 'overlay',
+    'layout-menu-overlay-active': layoutSettings.overlayMenuActive,
+    'menu-layout-slim': layoutSettings.layoutMode === 'slim',
+    'menu-layout-horizontal': layoutSettings.layoutMode === 'horizontal',
+    'layout-menu-static-inactive': layoutSettings.staticMenuDesktopInactive,
+    'layout-menu-static-active': layoutSettings.staticMenuMobileActive,
+    'p-input-filled': themeSettings.inputStyle === 'filled',
+    'p-ripple-disabled': !themeSettings.ripple
+  }"
+>
   <!-- <app-topbar [layoutSettings]="layoutSettings" (menuBtn)="onMenuButtonClick($event)"
     (topMenuBtn)="onTopbarMenuButtonClick($event)" (topItemBtn)="onTopbarItemClick($event.event,$event.item)"
     (subItemBtn)="onTopbarSubItemClick($event)">
   </app-topbar> -->
 
-  <div class="layout-menu-container" [ngClass]="{'layout-menu-dark':themeSettings.darkMenu}"
-    (click)="onMenuClick($event)">
+  <div
+    class="layout-menu-container"
+    [ngClass]="{ 'layout-menu-dark': themeSettings.darkMenu }"
+    (click)="onMenuClick($event)"
+  >
     <div class="menu-scroll-content">
-      <app-inline-profile *ngIf="layoutSettings.profileMode === 'inline' && layoutSettings.layoutMode !== 'horizontal'">
+      <app-inline-profile
+        *ngIf="
+          layoutSettings.profileMode === 'inline' &&
+          layoutSettings.layoutMode !== 'horizontal'
+        "
+      >
       </app-inline-profile>
-      <app-menu [menu]="(menu$ | async)!" [layoutSettings]="layoutSettings" (updateLayout)="updateLayout($event)" (menuBtn)="onMenuButtonClick($event)">
+      <app-menu
+        [menu]="(menu$ | async)!"
+        [layoutSettings]="layoutSettings"
+        (updateLayout)="updateLayout($event)"
+        (menuBtn)="onMenuButtonClick($event)"
+      >
       </app-menu>
     </div>
   </div>
 
   <div class="layout-main">
     <router-outlet></router-outlet>
-    <pre>{{layoutSettings|json}}</pre>
-    <pre>{{themeSettings|json}}</pre>
+    <pre>{{ layoutSettings | json }}</pre>
+    <pre>{{ themeSettings | json }}</pre>
   </div>
 
   <div class="layout-mask"></div>
@@ -44,5 +54,4 @@
   </app-config> -->
 
   <app-footer></app-footer>
-
 </div>

@@ -6,5 +6,6 @@
     </button>
   </div>
 
-  <app-dll-list-table></app-dll-list-table>
+  <app-common-search [formState]="(searchForm$ | async)!"></app-common-search>
+  <app-dll-list-table [tableData]="(dlls$ | async) || []"></app-dll-list-table>
 </div>

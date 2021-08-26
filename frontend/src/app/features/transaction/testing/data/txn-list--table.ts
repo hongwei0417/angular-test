@@ -1,4 +1,4 @@
-import { TxnListTableData } from './../../../features/transaction/models/TxnListTable';
+import { TxnListTableData } from '../../models/TxnListTable';
 export const allTxnData: TxnListTableData[] = [
   {
     TRANSACTIONID: '0000000061',

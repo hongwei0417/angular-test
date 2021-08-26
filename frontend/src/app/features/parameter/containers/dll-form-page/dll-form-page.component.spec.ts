@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DllCreatePageComponent } from './dll-create-page.component';
+import { DllCreatePageComponent } from './dll-form-page.component';
 
 describe('DllCreatePageComponent', () => {
   let component: DllCreatePageComponent;
@@ -8,9 +8,8 @@ describe('DllCreatePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DllCreatePageComponent ]
-    })
-    .compileComponents();
+      declarations: [DllCreatePageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

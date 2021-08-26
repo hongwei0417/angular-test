@@ -68,7 +68,7 @@ const defualtMenu: MenuItem[] = [
     items: [
       {
         label: 'Mail Group',
-        routerLink: ['/parameter/mailgroup/list'],
+        routerLink: ['/parameter/mailGroup/list'],
       },
       {
         label: 'DLL',

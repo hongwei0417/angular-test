@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { SearchFormValue } from '../../reducers/execute-log-page.reducer';
 import * as fromSchedule from '../../reducers';
 import { ExecuteLogPageActions } from '../../actions';
-import { executeLogTableData } from 'src/app/shared/testing/data/executeLogTable';
+import { executeLogTableData } from '../../testing/data/execute-log-table';
 
 @Component({
   selector: 'app-execute-log-page',

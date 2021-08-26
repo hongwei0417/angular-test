@@ -2,7 +2,7 @@ import {
   TxnListTableData,
   TxnListTableRow,
 } from './../../../features/transaction/models/TxnListTable';
-import { allTxnData } from './../../../shared/testing/data/txnListTable';
+import { allTxnData } from '../../../features/transaction/testing/data/txn-list--table';
 import { Observable, of, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
