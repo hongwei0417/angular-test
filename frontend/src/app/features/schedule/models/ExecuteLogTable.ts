@@ -1,6 +1,4 @@
-export interface ExecuteLogTableRow {
-  retry?: string;
-  JobId: string;
+export interface ExecuteLogTable {
   TRANSACTIONID: string;
   TRANSACTIONNAME: string;
   Shift: string;
@@ -19,6 +17,11 @@ export interface ExecuteLogTableRow {
   BeginTime: string;
   EndTime: string;
   CreateTime: string;
+}
+
+export interface ExecuteLogTableRow extends ExecuteLogTable {
+  retry?: string;
+  JobId: string;
 }
 
 export interface ExecuteLogTableCol {

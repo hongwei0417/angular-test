@@ -18,10 +18,14 @@ export class TxnCreatePageComponent implements OnInit, OnDestroy {
   formType$!: Observable<TxnFormType>;
   txnFormType = TxnFormType;
 
-  constructor(private store$: Store<fromTxn.State>) {}
+  constructor(
+    private store$: Store<fromTxn.State>,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.formType$ = this.store$.select(fromTxn.getTxnFormType);
+    this.route.data.subscribe(console.log);
   }
 
   ngOnDestroy(): void {

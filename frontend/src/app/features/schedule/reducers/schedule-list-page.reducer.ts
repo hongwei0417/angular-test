@@ -7,14 +7,14 @@ import { ScheduleListPageActions } from '../actions';
 
 export const FeatureKey = 'scheduleListPage';
 
-export interface FilterFormValue {
+export interface SearchFormValue {
   globalFilter: string;
 }
 
 export interface State extends EntityState<ScheduleTableRow> {
   loading: boolean;
   loaded: boolean;
-  filterForm: FormGroupState<FilterFormValue>;
+  searchForm: FormGroupState<SearchFormValue>;
 }
 
 export const adapter: EntityAdapter<ScheduleTableRow> =
@@ -23,7 +23,7 @@ export const adapter: EntityAdapter<ScheduleTableRow> =
     sortComparer: false,
   });
 
-export const filterFormState = createFormGroupState<FilterFormValue>(
+export const filterFormState = createFormGroupState<SearchFormValue>(
   FeatureKey,
   {
     globalFilter: '',
@@ -33,7 +33,7 @@ export const filterFormState = createFormGroupState<FilterFormValue>(
 export const initialState: State = adapter.getInitialState({
   loading: true,
   loaded: false,
-  filterForm: filterFormState,
+  searchForm: filterFormState,
 });
 
 export const reducer = createReducer(
@@ -56,4 +56,4 @@ export const reducer = createReducer(
 
 export const getLoading = (state: State) => state.loading;
 export const getLoaded = (state: State) => state.loaded;
-export const getFilterForm = (state: State) => state.filterForm;
+export const getFilterForm = (state: State) => state.searchForm;

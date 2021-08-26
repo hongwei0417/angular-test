@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GlobalFilterComponent } from './global-filter.component';
+import { GlobalFilterComponent } from './common-search.component';
 
 describe('GlobalFilterComponent', () => {
   let component: GlobalFilterComponent;
@@ -8,9 +8,8 @@ describe('GlobalFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GlobalFilterComponent ]
-    })
-    .compileComponents();
+      declarations: [GlobalFilterComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

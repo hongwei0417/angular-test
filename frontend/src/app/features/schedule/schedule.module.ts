@@ -10,7 +10,7 @@ import { ScheduleListTableComponent } from './components/schedule-list-table/sch
 import { SharedModule } from 'src/app/shared';
 import { ExecuteLogTableComponent } from './components/execute-log-table/execute-log-table.component';
 import { AlarmStateTableComponent } from './components/alarm-state-table/alarm-state-table.component';
-import { GlobalFilterComponent } from './components/global-filter/global-filter.component';
+import { GlobalFilterComponent } from './components/common-search/common-search.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromSchedule from './reducers';
 import { ExecuteLogSearchComponent } from './components/execute-log-search/execute-log-search.component';

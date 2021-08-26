@@ -3,5 +3,9 @@
     <h2>Alarm State</h2>
   </div>
 
-  <app-alarm-state-table></app-alarm-state-table>
+  <app-common-search [formState]="(searchForm$ | async)!"></app-common-search>
+
+  <app-alarm-state-table
+    [tableData]="(alarmStates$ | async)!"
+  ></app-alarm-state-table>
 </div>

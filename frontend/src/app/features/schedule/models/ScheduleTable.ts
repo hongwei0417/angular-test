@@ -1,6 +1,4 @@
-export interface ScheduleTableRow {
-  pause?: string;
-  resume?: string;
+export interface ScheduleTable {
   JobKey: string;
   TransactionId: string;
   TransactionName: string;
@@ -8,6 +6,11 @@ export interface ScheduleTableRow {
   StartAt: string;
   EndAt: string;
   State: string;
+}
+
+export interface ScheduleTableRow extends ScheduleTable {
+  pause?: string;
+  resume?: string;
 }
 
 export interface ScheduleTableCol {

@@ -1,5 +1,4 @@
 import { createAction, props, union } from '@ngrx/store';
-import { TxnFormType } from '../models/TxnForm';
 
 export const clearTxnCreatePageState = createAction(
   '[TxnFormPage] Clear TxnCreate Page State'
@@ -15,13 +14,28 @@ export const loadCreateTxnFormPage = createAction(
 );
 
 export const loadViewTxnFormPage = createAction(
-  '[TxnFormPage] Initialize view txn form page state'
+  '[TxnFormPage] Initialize view txn form page state',
+  props<{ id: string }>()
+);
+
+export const loadViewTxnFormPageFail = createAction(
+  '[TxnFormPage] Initialize view txn form page state fail'
 );
 
 export const loadEditTxnFormPage = createAction(
-  '[TxnFormPage] Initialize edit txn form page state'
+  '[TxnFormPage] Initialize edit txn form page state',
+  props<{ id: string }>()
+);
+
+export const loadEditTxnFormPageFail = createAction(
+  '[TxnFormPage] Initialize edit txn form page state fail'
 );
 
 export const loadCopyTxnFormPage = createAction(
-  '[TxnFormPage] Initialize copy txn form page state'
+  '[TxnFormPage] Initialize copy txn form page state',
+  props<{ id: string }>()
+);
+
+export const loadCopyTxnFormPageFail = createAction(
+  '[TxnFormPage] Initialize copy txn form page state fail'
 );

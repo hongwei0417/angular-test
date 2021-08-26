@@ -10,12 +10,14 @@ import {
 import * as fromRoot from '../../../core/reducers';
 import * as fromScheduleListPage from './schedule-list-page.reducer';
 import * as fromExecuteLogPage from './execute-log-page.reducer';
+import * as fromAlarmStatePage from './alarm-state-page.reducer';
 
 export const FeatureKey = 'schedule';
 
 export interface ScheduleState {
   [fromScheduleListPage.FeatureKey]: fromScheduleListPage.State;
   [fromExecuteLogPage.FeatureKey]: fromExecuteLogPage.State;
+  [fromAlarmStatePage.FeatureKey]: fromAlarmStatePage.State;
 }
 
 export interface State extends fromRoot.State {
@@ -27,6 +29,7 @@ export const reducers = (state: ScheduleState | undefined, action: Action) => {
   return combineReducers({
     [fromScheduleListPage.FeatureKey]: fromScheduleListPage.reducer,
     [fromExecuteLogPage.FeatureKey]: fromExecuteLogPage.reducer,
+    [fromAlarmStatePage.FeatureKey]: fromAlarmStatePage.reducer,
   })(state, action);
 };
 
@@ -44,6 +47,11 @@ export const getScheduleListPageState = createSelector(
 export const getExecuteLogPageState = createSelector(
   getScheduleState,
   (state: ScheduleState) => state[fromExecuteLogPage.FeatureKey]
+);
+
+export const getAlarmStatePageState = createSelector(
+  getScheduleState,
+  (state: ScheduleState) => state[fromAlarmStatePage.FeatureKey]
 );
 
 // selectors
@@ -70,3 +78,15 @@ export const {
   selectIds: getExecuteLogIds,
   selectTotal: getTotalExecuteLogs,
 } = fromExecuteLogPage.adapter.getSelectors(getExecuteLogPageState);
+
+export const getAlarmStatePageSearchForm = createSelector(
+  getAlarmStatePageState,
+  fromAlarmStatePage.getSearchForm
+);
+
+export const {
+  selectAll: getAllAlarmStates,
+  selectEntities: getAlarmStateEntities,
+  selectIds: getAlarmStateIds,
+  selectTotal: getTotalAlarmStates,
+} = fromAlarmStatePage.adapter.getSelectors(getAlarmStatePageState);

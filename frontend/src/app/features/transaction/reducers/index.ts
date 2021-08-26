@@ -130,3 +130,21 @@ export const getTxnFormType = createSelector(
   getTxnFormPageState,
   fromTxnFormPage.getFormType
 );
+
+export const getTxnFormLoading = createSelector(
+  getTxnFormPageState,
+  fromTxnFormPage.getLoading
+);
+
+export const getTxnFormLoaded = createSelector(
+  getTxnFormPageState,
+  fromTxnFormPage.getLoaded
+);
+
+export const getTxnFormLoadCompleted = createSelector(
+  getTxnFormLoading,
+  getTxnFormLoaded,
+  (s1, s2) => {
+    return !s1 && s2;
+  }
+);

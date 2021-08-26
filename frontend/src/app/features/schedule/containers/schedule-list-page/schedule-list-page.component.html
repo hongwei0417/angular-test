@@ -3,7 +3,7 @@
     <h2>Schedule List</h2>
   </div>
 
-  <app-global-filter [formState]="(filterForm$ | async)!"></app-global-filter>
+  <app-common-search [formState]="(searchForm$ | async)!"></app-common-search>
 
   <app-schedule-list-table
     [scheduleData]="(schedules$ | async) || []"

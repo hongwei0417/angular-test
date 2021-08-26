@@ -1,8 +1,15 @@
 export enum TxnFormType {
-  CREATE = 'CREATE',
-  VIEW = 'VIEW',
-  EDIT = 'EDIT',
-  COPY = 'COPY',
+  CREATE = 'create',
+  VIEW = 'view',
+  EDIT = 'edit',
+  COPY = 'copy',
+}
+
+export enum TxnFormRoute {
+  CREATE = '/transaction/create',
+  VIEW = '/transaction/view',
+  EDIT = '/transaction/edit',
+  COPY = '/transaction/copy',
 }
 
 export interface TxnBasicInfo {

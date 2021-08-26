@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ScheduleListPageActions } from '../../actions';
 import { scheduleListTableData } from 'src/app/shared/testing/data/scheduleListTable';
 import * as fromSchedule from '../../reducers';
-import { FilterFormValue } from '../../reducers/schedule-list-page.reducer';
+import { SearchFormValue } from '../../reducers/schedule-list-page.reducer';
 @Component({
   selector: 'app-schedule-list-page',
   templateUrl: './schedule-list-page.component.html',
@@ -14,12 +14,12 @@ import { FilterFormValue } from '../../reducers/schedule-list-page.reducer';
 })
 export class ScheduleListPageComponent implements OnInit, OnDestroy {
   schedules$!: Observable<ScheduleTableRow[]>;
-  filterForm$!: Observable<FormGroupState<FilterFormValue>>;
+  searchForm$!: Observable<FormGroupState<SearchFormValue>>;
   constructor(private store$: Store<fromSchedule.State>) {}
 
   ngOnInit(): void {
     this.schedules$ = this.store$.select(fromSchedule.getAllSchedules);
-    this.filterForm$ = this.store$.select(
+    this.searchForm$ = this.store$.select(
       fromSchedule.getScheduleListPageFilterForm
     );
     this.store$.dispatch(

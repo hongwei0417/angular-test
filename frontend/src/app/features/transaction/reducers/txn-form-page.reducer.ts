@@ -44,6 +44,7 @@ export const reducer = createReducer(
     return {
       ...state,
       loading: false,
+      loaded: true,
     };
   }),
   on(TxnFormPageActions.loadCreateTxnFormPage, (state, action) => {
@@ -72,6 +73,7 @@ export const reducer = createReducer(
   })
 );
 
-export const isLoading = (state: State) => state.loading;
+export const getLoading = (state: State) => state.loading;
+export const getLoaded = (state: State) => state.loaded;
 export const getError = (state: State) => state.error;
 export const getFormType = (state: State) => state.formType;

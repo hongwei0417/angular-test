@@ -1,9 +1,17 @@
+import { TxnFormRoute } from './../models/TxnForm';
 import { Action, Store } from '@ngrx/store';
 import { ApiService } from '../../../core/services/API/api.service';
 import { Injectable } from '@angular/core';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { TxnApiActions, TxnListPageActions } from '../actions';
-import { map, switchMap, tap } from 'rxjs/operators';
+import {
+  debounce,
+  debounceTime,
+  map,
+  switchMap,
+  tap,
+  timeInterval,
+} from 'rxjs/operators';
 import { combineLatest, of, zip } from 'rxjs';
 import { Router } from '@angular/router';
 import { routerNavigationAction } from '@ngrx/router-store';
@@ -36,7 +44,7 @@ export class TransactionListEffects {
       return this.actions$.pipe(
         ofType(TxnListPageActions.createNewTxn),
         tap(() => {
-          this.router.navigate(['transaction', 'create']);
+          this.router.navigate([TxnFormRoute.CREATE]);
         })
       );
     },
@@ -49,9 +57,9 @@ export class TransactionListEffects {
         ofType(TxnListPageActions.viewTxnInfo),
         tap(({ id }) => {
           const url = this.router.serializeUrl(
-            this.router.createUrlTree(['/transaction/view'])
+            this.router.createUrlTree([TxnFormRoute.VIEW])
           );
-          window.open(`${url}?id=${id}`, '_blank');
+          window.open(`${url}/${id}`, '_blank');
         })
       );
     },
@@ -64,9 +72,9 @@ export class TransactionListEffects {
         ofType(TxnListPageActions.editTxnInfo),
         tap(({ id }) => {
           const url = this.router.serializeUrl(
-            this.router.createUrlTree(['/transaction/edit'])
+            this.router.createUrlTree([TxnFormRoute.EDIT])
           );
-          window.open(`${url}?id=${id}`, '_blank');
+          window.open(`${url}/${id}`, '_blank');
         })
       );
     },
@@ -79,9 +87,9 @@ export class TransactionListEffects {
         ofType(TxnListPageActions.copyTxnInfo),
         tap(({ id }) => {
           const url = this.router.serializeUrl(
-            this.router.createUrlTree(['/transaction/copy'])
+            this.router.createUrlTree([TxnFormRoute.COPY])
           );
-          window.open(`${url}?id=${id}`, '_blank');
+          window.open(`${url}/${id}`, '_blank');
         })
       );
     },
