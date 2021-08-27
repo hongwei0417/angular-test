@@ -32,6 +32,7 @@ export class FrequencySettingTableComponent implements OnInit {
   @Output() addFqSettingEvent = new EventEmitter();
   @Output() removeFqSettingEvent = new EventEmitter<number>();
   @Output() toggleFqAccordionEvent = new EventEmitter<number>();
+  @Output() showCronDialogEvent = new EventEmitter();
   dateValueConverter = NgrxValueConverters.dateToISOString;
   timeZoneIds: TimeZoneInfo[] = [];
 
@@ -64,5 +65,9 @@ export class FrequencySettingTableComponent implements OnInit {
 
   toggleAccordion(index: number): void {
     this.toggleFqAccordionEvent.emit(index);
+  }
+
+  showCronDialog(): void {
+    this.showCronDialogEvent.emit();
   }
 }

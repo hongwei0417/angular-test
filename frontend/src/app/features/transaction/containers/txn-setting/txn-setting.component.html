@@ -16,6 +16,7 @@
       (addFqSettingEvent)="onAddFrequencySetting()"
       (removeFqSettingEvent)="onRemoveFrequencySetting($event)"
       (toggleFqAccordionEvent)="onToggleFqAccordion($event)"
+      (showCronDialogEvent)="onShowCronDialog()"
     ></app-frequency-setting-table>
 
     <app-choose-module
@@ -29,4 +30,9 @@
       [formState]="formState.controls.mailGroup"
     ></app-choose-mailgrp>
   </div>
+
+  <app-cron-generate-dialog
+    [(show)]="showCronDialog"
+    (submitEvent)="setCronExpression($event)"
+  ></app-cron-generate-dialog>
 </div>

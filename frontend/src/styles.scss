@@ -1,85 +1,90 @@
-@import './assets/styles/variables.scss';
-@import './assets/styles/font.scss';
+@import "./assets/styles/variables.scss";
+@import "./assets/styles/font.scss";
 
-@import './assets/sass/layout/layout';
-@import './assets/sass/theme/theme';
-@import '../node_modules/primeng/resources/primeng.min.css';
-@import '../node_modules/primeicons/primeicons.css';
+@import "./assets/sass/layout/layout";
+@import "./assets/sass/theme/theme";
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeicons/primeicons.css";
 
-@import './assets/styles/layoutHeaderFooter.scss';
-@import './assets/styles/btn.scss';
-@import './assets/styles/table.scss';
-@import './assets/styles/form.scss';
+@import "./assets/styles/layoutHeaderFooter.scss";
+@import "./assets/styles/btn.scss";
+@import "./assets/styles/table.scss";
+@import "./assets/styles/form.scss";
 
-
-*{
-  font-family: 'Roboto';
+* {
+  font-family: "Roboto";
 }
 
-body{
+body {
   background: $gray-200;
 }
 
-h1, h2, h3, h4, h5, h6, p{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
   font-weight: 500;
 }
 
-h2,h3,h4,label,p{
-  color: #4C5B6E;
+h2,
+h3,
+h4,
+label,
+p {
+  color: #4c5b6e;
 }
 
-h2{
+h2 {
   font-size: 25px;
 }
 
-h3{
+h3 {
   font-size: 20px;
 }
 
-h4{
+h4 {
   margin-bottom: 5px;
   font-size: 16px;
   font-weight: 500;
 }
 
-
-
-p,label,span{
+p,
+label,
+span {
   line-height: 1;
 }
-
 
 .bg {
   padding: 15px;
   background: $gray-200;
 }
 
-.fieldContent{
+.fieldContent {
   padding: 20px 15px;
   background: $gray-100;
   box-shadow: $shadow-200;
 }
 
-.title{
+.title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.itemGroup{
+.itemGroup {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
 
-.item + .item{
+.item + .item {
   margin-left: 35px;
 }
-
-
-
 
 // #region  primeng autoComplete
 // .customAutoComplete label{
@@ -127,6 +132,3 @@ p,label,span{
 //   font-family: "Font Awesome 5 Free";
 //   font-weight: 900;
 // }
-
-
-
