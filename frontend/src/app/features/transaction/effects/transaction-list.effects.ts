@@ -1,6 +1,6 @@
 import { TxnFormRoute } from './../models/TxnForm';
 import { Action, Store } from '@ngrx/store';
-import { ApiService } from '../../../core/services/API/api.service';
+import { SchedulingApiService } from '../../../core/services/API/scheduling-api.service';
 import { Injectable } from '@angular/core';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { TxnApiActions, TxnListPageActions } from '../actions';
@@ -22,7 +22,7 @@ export class TransactionListEffects {
   constructor(
     private store$: Store,
     private actions$: Actions,
-    private apiService: ApiService,
+    private apiService: SchedulingApiService,
     private router: Router
   ) {}
 

@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  services: {
+    b2b_backend_api: {
+      host: 'http://10.1.2.38:1080',
+      types: {
+        scheduling: 'scheduling-api/api',
+      },
+    },
+  },
 };
 
 /*

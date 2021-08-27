@@ -6,11 +6,13 @@ export const authFeatureKey = 'status';
 export interface State {
   user: any;
   authed: boolean;
+  token: string;
 }
 
 export const initialState: State = {
   user: null,
   authed: false,
+  token: '',
 };
 
 const featureReducer = createReducer(
@@ -21,10 +23,7 @@ const featureReducer = createReducer(
   })
 );
 
-export function reducer(
-  state: State | undefined,
-  action: LoginPageActions.ActionsUnion | AuthApiActions.ActionsUnion
-) {
+export function reducer(state: State | undefined, action: Action): State {
   return featureReducer(state, action);
 }
 

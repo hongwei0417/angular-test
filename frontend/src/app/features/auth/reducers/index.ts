@@ -1,4 +1,5 @@
 import {
+  Action,
   ActionReducer,
   ActionReducerMap,
   createFeatureSelector,
@@ -19,10 +20,7 @@ export interface State extends fromRoot.State {
   [authFeatureKey]: AuthState;
 }
 
-export const reducers: ActionReducerMap<
-  AuthState,
-  LoginPageActions.ActionsUnion | AuthApiActions.ActionsUnion
-> = {
+export const reducers: ActionReducerMap<AuthState, Action> = {
   [fromAuth.authFeatureKey]: fromAuth.reducer,
 };
 

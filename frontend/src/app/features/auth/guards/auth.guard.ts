@@ -28,10 +28,10 @@ export class AuthGuard implements CanActivate {
     return this.store.pipe(
       select(fromAuth.getAuthed),
       map((authed) => {
-        if (!authed) {
-          this.store.dispatch(AuthApiActions.loginRedirect());
-          return false;
-        }
+        // if (!authed) {
+        //   this.store.dispatch(AuthApiActions.loginRedirect());
+        //   return false;
+        // }
         return true;
       }),
       take(1)

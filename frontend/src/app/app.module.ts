@@ -1,3 +1,5 @@
+import { AuthRoutingModule } from './features/auth/auth-routing.module';
+import { HttpEffects } from './core/effects/http.effects';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -14,14 +16,13 @@ import { CoreModule } from './core/core.module';
 import * as fromRoot from './core/reducers';
 import { AuthModule } from './features/auth/auth.module';
 
-
-const routingModules = [AppRoutingModule, AuthModule];
+const routingModule = [AuthModule, AppRoutingModule];
 
 const ngRxModules = [
   StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {
     metaReducers: fromRoot.metaReducers,
   }),
-  EffectsModule.forRoot([]),
+  EffectsModule.forRoot([HttpEffects]),
   StoreDevtoolsModule.instrument({
     maxAge: 25,
     logOnly: environment.production,
@@ -35,12 +36,11 @@ const ngRxModules = [
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
-    ...routingModules,
-    ...ngRxModules,
     CoreModule,
+    ...routingModule,
+    ...ngRxModules,
   ],
   bootstrap: [AppComponent],
-  declarations: [
-  ],
+  declarations: [],
 })
 export class AppModule {}

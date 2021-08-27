@@ -31,7 +31,7 @@ import {
 import { combineLatest, merge, of, pipe, throwError } from 'rxjs';
 import { routerNavigationAction } from '@ngrx/router-store';
 import * as fromRoot from '../../../core/reducers';
-import { ApiService } from 'src/app/core/services/API/api.service';
+import { SchedulingApiService } from 'src/app/core/services/API/scheduling-api.service';
 import * as fromTxnSettingForm from '../reducers/txn-setting-form.reducer';
 import * as fromJobSettingForm from '../reducers/job-setting-form.reducer';
 import { TxnFormRoute } from '../models/TxnForm';
@@ -41,7 +41,7 @@ import { ActivatedRoute } from '@angular/router';
 export class TxnFormEffects {
   constructor(
     private actions$: Actions,
-    private apiService: ApiService,
+    private apiService: SchedulingApiService,
     private store$: Store<fromTxn.State>,
     private route: ActivatedRoute
   ) {}

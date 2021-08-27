@@ -1,3 +1,4 @@
+import { SchedulingApiService } from 'src/app/core/services/API/scheduling-api.service';
 import { FormGroupState } from 'ngrx-forms';
 import { FilterFormValue } from './../../reducers/txn-list-page.reducer';
 import { Observable, of } from 'rxjs';
@@ -6,6 +7,7 @@ import { select, Store } from '@ngrx/store';
 import * as fromTxn from '../../reducers';
 import { TxnListPageActions } from '../../actions';
 import { TxnListTableRow } from '../../models/TxnListTable';
+import { retry } from 'rxjs/operators';
 @Component({
   selector: 'app-txn-list-page',
   templateUrl: './txn-list-page.component.html',
@@ -15,12 +17,21 @@ export class TxnListPageComponent implements OnInit, OnDestroy {
   txnData$!: Observable<TxnListTableRow[]>;
   filterForm$!: Observable<FormGroupState<FilterFormValue>>;
 
-  constructor(private store$: Store<fromTxn.State>) {}
+  constructor(
+    private store$: Store<fromTxn.State>,
+    private schedulingApiService: SchedulingApiService
+  ) {}
 
   ngOnInit(): void {
     this.txnData$ = this.store$.pipe(select(fromTxn.getAllTxns));
     this.filterForm$ = this.store$.pipe(select(fromTxn.getFilterForm));
     this.store$.dispatch(TxnListPageActions.loadTxnList());
+    this.schedulingApiService
+      .getAllSchedules()
+      .pipe(retry(3))
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 
   ngOnDestroy(): void {

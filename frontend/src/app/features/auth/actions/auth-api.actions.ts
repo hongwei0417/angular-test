@@ -11,10 +11,3 @@ export const loginAuthApisFailure = createAction(
 );
 
 export const loginRedirect = createAction('[AuthApi] loginRedirect');
-
-const all = union({
-  loginAuthApisSuccess,
-  loginAuthApisFailure,
-  loginRedirect,
-});
-export type ActionsUnion = typeof all;

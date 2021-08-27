@@ -6,12 +6,7 @@ import { AuthApiActions, LoginPageActions } from '../actions';
 
 @Injectable()
 export class AuthEffects {
-  constructor(
-    private actions$: Actions<
-      LoginPageActions.ActionsUnion | AuthApiActions.ActionsUnion
-    >,
-    private router: Router
-  ) {}
+  constructor(private actions$: Actions, private router: Router) {}
 
   login$ = createEffect(() => {
     return this.actions$.pipe(
@@ -30,7 +25,7 @@ export class AuthEffects {
     () => {
       return this.actions$.pipe(
         ofType(AuthApiActions.loginAuthApisSuccess),
-        tap(() => this.router.navigate(['/txn']))
+        tap(() => this.router.navigate(['/transaction/list']))
       );
     },
     { dispatch: false }
@@ -41,6 +36,7 @@ export class AuthEffects {
       return this.actions$.pipe(
         ofType(AuthApiActions.loginRedirect),
         tap((authed) => {
+          console.log(123);
           this.router.navigate(['/login']);
         })
       );
