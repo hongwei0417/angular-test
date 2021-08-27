@@ -1,0 +1,17 @@
+<p-dialog
+  header="Generate Cron Expression"
+  [(visible)]="show"
+  [modal]="true"
+  [style]="{ width: '75vw' }"
+>
+  <pre>{{ cronValue }}</pre>
+  <quartz-cron [(ngModel)]="cronValue"></quartz-cron>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="submit()"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

@@ -8,6 +8,7 @@ import * as fromTxn from '../../reducers';
 import { TxnSettingFormActions } from '../../actions';
 import { randomInt } from 'crypto';
 import { TxnFormType } from '../../models/TxnForm';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-txn-setting',
@@ -20,6 +21,7 @@ export class TxnSettingComponent implements OnInit {
   fqShowAccordions$!: Observable<boolean[]>;
   moduleOptions$!: Observable<number[]>;
   formMode$!: Observable<TxnFormType>;
+  showCronDialog = false;
 
   constructor(private store$: Store<fromTxn.State>) {}
 
@@ -53,5 +55,13 @@ export class TxnSettingComponent implements OnInit {
 
   onRemoveChooseModule(id: number): void {
     this.store$.dispatch(TxnSettingFormActions.removeTxnModule({ id }));
+  }
+
+  onShowCronDialog(): void {
+    this.showCronDialog = true;
+  }
+
+  setCronExpression(value: string): void {
+    console.log(value);
   }
 }

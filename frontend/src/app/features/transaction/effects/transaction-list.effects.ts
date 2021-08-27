@@ -44,7 +44,7 @@ export class TransactionListEffects {
       return this.actions$.pipe(
         ofType(TxnListPageActions.createNewTxn),
         tap(() => {
-          this.router.navigate([TxnFormRoute.CREATE]);
+          this.router.navigate(['transaction', 'create']);
         })
       );
     },

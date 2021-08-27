@@ -51,6 +51,8 @@ export const reducer = createReducer(
     return {
       ...state,
       formType: TxnFormType.CREATE,
+      loading: false,
+      loaded: true,
     };
   }),
   on(TxnFormPageActions.loadViewTxnFormPage, (state, action) => {
